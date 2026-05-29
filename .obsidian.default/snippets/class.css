@@ -1,0 +1,353 @@
+/* cloze click */
+.cloze mark:has(> del),
+.cloze .cm-highlight:is(.cm-strikethrough) {
+  background-color: rgba(158, 158, 158, 0.1);
+  border-radius: 3px;
+  border-bottom: 2px dashed rgb(67, 157, 237);
+}
+.cloze2 mark:has(> del),
+.cloze2 .cm-highlight:is(.cm-strikethrough) {
+  background-color: rgba(245, 245, 245, 1);
+  border-radius: 3px;
+}
+.cloze2 mark:has(> del),
+.cloze mark:has(> del) {
+  color: transparent;
+  transition-delay: 50s;
+}
+.cloze2 mark:not(:has(> del)),
+.cloze2 .cm-highlight:not(.cm-strikethrough),
+.cloze mark:not(:has(> del)),
+.cloze .cm-highlight:not(.cm-strikethrough) {
+  background-color: var(--text-highlight-bg);
+}
+.cloze2 .cm-active > .cm-highlight:is(.cm-strikethrough),
+.cloze .cm-active > .cm-highlight:is(.cm-strikethrough) {
+  border-radius: unset;
+  background-color: var(--text-highlight-bg);
+}
+.cloze2 mark > del,
+.cloze2 .cm-highlight.cm-strikethrough,
+.cloze2 .cm-active > .cm-highlight.cm-strikethrough,
+.cloze mark > del,
+.cloze .cm-highlight.cm-strikethrough,
+.cloze .cm-active > .cm-highlight.cm-strikethrough {
+  text-decoration: none;
+}
+.cloze2 mark:has(> del):active,
+.cloze mark:has(> del):active {
+  background-color: transparent;
+  color: var(--text-normal);
+  transition-delay: 0s;
+}
+
+.cloze2 em > del,
+.cloze2 .cm-em.cm-strikethrough:not(.cm-active > span) {
+  border-bottom: 2px dashed rgb(67, 157, 237);
+  background-color: rgba(158, 158, 158, 0.1);
+  border-radius: 3px;
+  color: transparent;
+  transition-delay: 50s;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.cloze2 .cm-active > .cm-em.cm-strikethrough {
+  border-bottom: 2px dashed rgb(67, 157, 237);
+  background-color: rgba(158, 158, 158, 0.1);
+  border-radius: 3px;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.cloze2 em > del:active {
+  background-color: transparent;
+  color: var(--text-normal);
+  transition-delay: 0s;
+}
+
+@media print {
+  .cloze2 mark > del,
+  .cloze mark > del {
+    color: transparent;
+  }
+  .cloze2 mark:has(> del),
+  .cloze mark:has(> del) {
+    background-color: transparent;
+    border-radius: unset;
+  }
+}
+
+/* cloze hover */
+.cloze em > del,
+.cloze .cm-em.cm-strikethrough:not(.cm-active > span) {
+  border-bottom: 2px dashed rgb(67, 157, 237);
+  font-style: normal;
+  text-decoration: none;
+  color: transparent;
+  transition: color 0.3s;
+}
+
+.cloze .cm-active > .cm-em.cm-strikethrough {
+  border-bottom: 2px dashed rgb(67, 157, 237);
+  font-style: normal;
+  text-decoration: none;
+}
+
+.cloze em > del:hover,
+.cloze .cm-em.cm-strikethrough:hover:not(.cm-active > span) {
+  color: var(--text-normal);
+  transition: color 0.3s;
+}
+
+/* cloze answer */
+.cloze-ans mark > del {
+  text-decoration: none;
+  color: var(--text-normal);
+  border-bottom: 2px dashed rgb(67, 157, 237);
+}
+.cloze2-ans mark > del {
+  text-decoration: none;
+  color: var(--text-normal);
+}
+.cloze2-ans mark:has(> del),
+.cloze-ans mark:has(> del) {
+  background-color: transparent;
+}
+
+.cloze2-ans em > del,
+.cloze2-ans .cm-em.cm-strikethrough,
+.cloze-ans em > del,
+.cloze-ans .cm-em.cm-strikethrough {
+  border-bottom: 2px dashed rgb(67, 157, 237);
+  font-style: normal;
+  text-decoration: none;
+  color: var(--text-normal); /* 直接显示答案 */
+}
+
+/* slides */
+.slides {
+  --file-line-width: 960px;
+}
+.slides div.hr.cm-line hr::after,
+.slides hr::after {
+  content: "▽ New frame ▽";
+  color: var(--text-accent);
+}
+.slides .callout hr::after {
+  content: "";
+  color: var(--text-accent);
+  background-color: transparent;
+}
+.slides-none hr {
+  display: none;
+}
+@media print {
+  .slides-no-print-note div[data-callout-metadata="not-slides"].callout {
+    display: none;
+  }
+}
+
+/* not print */
+.not-print div[data-callout-metadata*="not-print"].callout {
+  background: linear-gradient(
+      45deg, 
+      rgba(var(--callout-color), 0.1) 0, rgba(var(--callout-color), 0.1) 25%, transparent 25%, transparent 50%, 
+      rgba(var(--callout-color), 0.1) 50%, rgba(var(--callout-color), 0.1) 75%, transparent 75%, transparent
+    );
+  background-size: 50px 50px;
+}
+.not-print div[data-callout="border"][data-callout-metadata*="not-print"].callout > .callout-content {
+  background-color: var(--background-primary);
+}
+@media print {
+  .not-print div[data-callout-metadata*="not-print"].callout {
+    display: none;
+  }
+}
+
+/* wide page */
+.wide-page {
+  --file-line-width: 100%;
+}
+
+/* callout details */
+.callout-details
+  div[class="callout is-collapsible is-collapsed"]
+  > .callout-content {
+  display: block !important;
+}
+.callout-details
+  div[data-callout="multi-column"].callout
+  > div.callout-content
+  .callout.is-collapsed {
+  height: unset !important;
+}
+
+/* table */
+.table-vcenter td {
+  vertical-align: middle;
+}
+
+/* heading auto numbers */
+.auto-num .markdown-preview-sizer > div.el-h1::before {
+  content: "§" counter(chapterH1) ". ";
+  display: inline-block;
+  position: absolute;
+  font-variant: var(--h1-variant);
+  letter-spacing: var(--h1-letter-spacing);
+  line-height: var(--h1-line-height);
+  font-size: var(--h1-size);
+  color: var(--h1-color);
+  font-weight: var(--h1-weight);
+  font-style: var(--h1-style);
+  font-family: var(--h1-font);
+}
+
+.auto-num .markdown-preview-sizer > div.el-h1 {
+  counter-increment: chapterH1;
+  counter-reset: chapterH2;
+  text-indent: 2px;
+}
+
+.auto-num .markdown-preview-sizer > div > h1 {
+  padding-left: 40px;
+}
+
+.auto-num .markdown-preview-sizer > div.el-h2::before {
+  content: "§" counter(chapterH1) "." counter(chapterH2) ". ";
+  display: inline-block;
+  position: absolute;
+  font-variant: var(--h2-variant);
+  letter-spacing: var(--h2-letter-spacing);
+  line-height: var(--h2-line-height);
+  font-size: var(--h2-size);
+  color: var(--h2-color);
+  font-weight: var(--h2-weight);
+  font-style: var(--h2-style);
+  font-family: var(--h2-font);
+}
+
+.auto-num .markdown-preview-sizer > div.el-h2 {
+  counter-increment: chapterH2;
+  counter-reset: chapterH3;
+  text-indent: 2px;
+}
+
+.auto-num .markdown-preview-sizer > div > h2 {
+  padding-left: 65px;
+}
+
+.auto-num .markdown-preview-sizer > div.el-h3::before {
+  content: "§" counter(chapterH1) "." counter(chapterH2) "." counter(chapterH3)
+    ". ";
+  display: inline-block;
+  position: absolute;
+  font-variant: var(--h3-variant);
+  letter-spacing: var(--h3-letter-spacing);
+  line-height: var(--h3-line-height);
+  font-size: var(--h3-size);
+  color: var(--h3-color);
+  font-weight: var(--h3-weight);
+  font-style: var(--h3-style);
+  font-family: var(--h3-font);
+}
+
+.auto-num .markdown-preview-sizer > div.el-h3 {
+  counter-increment: chapterH3;
+  text-indent: 2px;
+}
+
+.auto-num .markdown-preview-sizer > div > h3 {
+  padding-left: 85px;
+}
+
+body:not(.heading-indicator-off)
+  .auto-num
+  div.el-h1
+  .heading-collapse-indicator {
+  transform: translateX(-56px);
+}
+
+body:not(.heading-indicator-off)
+  .auto-num
+  div.el-h2
+  .heading-collapse-indicator {
+  transform: translateX(-81px);
+}
+
+body:not(.heading-indicator-off)
+  .auto-num
+  div.el-h3
+  .heading-collapse-indicator {
+  transform: translateX(-101px);
+}
+
+@media print {
+  .auto-num {
+    counter-reset: chapterH1 chapterH2 chapterH3;
+  }
+  
+  /* 强制所有标题都使用计数器 */
+  .auto-num h1 {
+    counter-increment: chapterH1 !important;
+    counter-reset: chapterH2 !important;
+    position: relative !important;
+    padding-left: 45px !important;
+  }
+  
+  .auto-num h1::before {
+    content: "§" counter(chapterH1) ". " !important;
+    display: inline-block !important;
+    position: absolute !important;
+    margin-right: unset !important;
+    width: unset !important;
+    height: unset !important;
+    border-radius: unset !important;
+    background-color: unset !important;
+    top: unset !important;
+    left: unset !important;
+    transform: translateX(-60px)
+  }
+  
+  .auto-num h2 {
+    counter-increment: chapterH2 !important;
+    counter-reset: chapterH3 !important;
+    position: relative !important;
+    padding-left: 65px !important;
+  }
+  
+  .auto-num h2::before {
+    content: "§" counter(chapterH1) "." counter(chapterH2) ". " !important;
+    display: inline-block !important;
+    position: absolute !important;
+    margin-right: unset !important;
+    width: unset !important;
+    height: unset !important;
+    border-radius: unset !important;
+    background-color: unset !important;
+    top: unset !important;
+    left: unset !important;
+    transform: translateX(-80px)
+  }
+
+  .auto-num h3 {
+    counter-increment: chapterH3 !important;
+    position: relative !important;
+    padding-left: 80px !important;
+  }
+  
+  .auto-num h3::before {
+    content: "§" counter(chapterH1) "." counter(chapterH2) "." counter(chapterH3) ". " !important;
+    display: inline-block !important;
+    position: absolute !important;
+    margin-right: unset !important;
+    width: unset !important;
+    height: unset !important;
+    border-radius: unset !important;
+    background-color: unset !important;
+    top: unset !important;
+    left: unset !important;
+    transform: translateX(-95px)
+  }
+}

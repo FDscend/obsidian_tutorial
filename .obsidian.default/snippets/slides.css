@@ -1,0 +1,113 @@
+/* This changes the font size of all elements in presentation mode. */
+.reveal {
+  font-size: 18px;
+  font-family: "霞鹜文楷 GB", "霞鹜文楷";
+}
+
+.reveal .slide-background {
+  background-color: white;
+}
+
+/* border */
+.reveal img {
+  clear: both;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.reveal div[data-callout="multi-column"].callout > div.callout-content > div[data-callout*="blank"].callout,
+.reveal div[data-callout="multi-column"].callout {
+  overflow: visible; /* 允许内部内容不被裁切 */
+}
+
+.reveal .callout,
+.reveal div[data-callout="multi-column"].callout > div.callout-content > .callout {
+  box-shadow: 10px 5px 5px gainsboro;
+}
+
+.reveal div[data-callout="multi-column"].callout > div.callout-content > .callout .callout,
+.reveal div[data-callout="multi-column"].callout > div.callout-content > div[data-callout*="blank"].callout,
+.reveal .callout-content img {
+  box-shadow: none;
+}
+.reveal div[data-callout="multi-column"].callout > div.callout-content > div[data-callout*="blank"].callout img,
+.reveal img {
+  box-shadow: 10px 5px 5px gainsboro;
+}
+
+.reveal .markdown-embed {
+  border-inline-start: none;
+}
+
+/* This changes the font size of tables. */
+.reveal table {
+  border: 1px solid black;
+}
+.reveal table > tbody > tr > td {
+  border-right: 1px solid black;
+}
+.reveal table > tbody > tr > td:last-child, th:last-child {
+  border-right-color: transparent;
+}
+.reveal table {
+  border-collapse: separate;
+  border-radius: 5px;
+}
+
+/* This changes the size and font colour of the headings. */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: black;
+  text-transform: none;
+  text-align: justify;
+  font-family: "heiti";
+}
+
+.reveal h1 {
+  border-bottom: 1px solid black;
+}
+
+/* This changes the font size of the paragraphs, colours them black and justifies them. */
+.reveal ol,
+.reveal ul,
+.reveal dl,
+.reveal p {
+  /* font-size: 1em; */
+  color: black;
+  text-align: justify;
+}
+
+.reveal ol,
+.reveal ul,
+.reveal dl {
+  display: block;
+}
+
+.reveal .callout-content ol,
+.reveal .callout-content ul,
+.reveal .callout-content dl {
+  margin: auto;
+}
+
+.reveal .callout-content ul.contains-task-list {
+  margin: 0 0 0 1em;
+}
+
+/* .reveal .slides {
+  border: 3px solid black;
+  border-radius: 5px;
+} */
+
+.reveal hr::after {
+  content: "";
+  color: var(--text-accent);
+}
+
+.reveal div[data-callout-metadata="not-slides"].callout {
+  display: none;
+}

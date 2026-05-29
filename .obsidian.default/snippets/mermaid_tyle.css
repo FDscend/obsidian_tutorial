@@ -1,0 +1,44 @@
+div.mermaid {
+  text-align: center;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* .mermaid {
+  overflow: scroll;
+}
+.mermaid:hover svg {
+  max-width: 250%;
+} */
+
+/* Diagram Zoom Drag */
+div.izd-container {
+  margin: 0 auto;
+  height: auto !important;
+}
+div.izd-content {
+  height: auto !important;
+}
+div.izd-fold-panel,
+div.izd-service-panel {
+    display: none;
+}
+div.izd-container:hover div.izd-fold-panel,
+div.izd-container:hover div.izd-service-panel {
+    display: unset;
+}
+@media print {
+  div.izd-control-panel {
+    display: none;
+  }
+}
+
+div.mermaid .cluster rect {
+  rx: 5;
+  ry: 5;
+  fill: transparent !important;
+  stroke: var(--blockquote-border-color) !important;
+}

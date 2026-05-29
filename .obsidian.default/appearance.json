@@ -1,0 +1,24 @@
+{
+  "accentColor": "",
+  "enabledCssSnippets": [
+    "Sidenote Auto-Adjust Module",
+    "Sidenote in Tufte-style using Sidenote-Auto-Adjust-Module",
+    "Stickynote in Callout-style using Sidenote-Auto-Adjust-Module",
+    "canvas_style",
+    "img_center",
+    "mermaid_tyle",
+    "slides",
+    "class",
+    "MCL Multi Column",
+    "【阿岚】自定义分割线",
+    "pdfpp",
+    "metadata",
+    "code",
+    "callout"
+  ],
+  "cssTheme": "Border",
+  "baseFontSize": 18,
+  "textFontFamily": "霞鹜文楷,霞鹜文楷 GB",
+  "theme": "system",
+  "interfaceFontFamily": ""
+}

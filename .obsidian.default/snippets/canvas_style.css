@@ -1,0 +1,70 @@
+.fixedlabel .canvas-path-label {
+  font-size: 1.802em;
+  text-align: center;
+  max-width: calc(17em * var(--zoom-multiplier));
+  color: black;
+  border: 2px solid rgb(var(--canvas-color));
+  border-radius: 12px;
+  padding: 4px 12px;
+}
+
+.boldcanvas .canvas-path-label {
+  font-weight: bold;
+}
+
+.boldcanvas .canvas-node .el-p {
+  font-size: 1.802em;
+  font-weight: bold;
+}
+
+.boldcanvas .canvas-node .el-ol {
+  font-size: 1.802em;
+  font-weight: bold;
+}
+
+.boldcanvas .canvas-node .el-ul {
+  font-size: 1.802em;
+  font-weight: bold;
+}
+
+/* Font */
+
+.font_bold .canvas-path-label,
+.font_bold .canvas-node .el-p,
+.font_bold .canvas-node .el-ol,
+.font_bold .canvas-node .el-ul {
+  font-weight: bold;
+}
+
+.font_default .canvas-path-label {
+  font-family: var(--font-text);
+}
+
+.font_simsun .canvas-path-label {
+  font-family: "SimSun";
+}
+
+.font_simsun .canvas-node .el-p {
+  font-family: "SimSun";
+}
+
+.font_simsun .canvas-node .el-ol {
+  font-family: "SimSun";
+}
+
+.font_simsun .canvas-node .el-ul {
+  font-family: "SimSun";
+}
+
+/* slides */
+.canvas-wrapper {
+  background-color: white;
+}
+.slides_canvas .canvas-node section[class="footnotes"] hr::after {
+  content: "" !important;
+  padding: 0;
+}
+.slides_canvas .canvas-node section[class="footnotes"] hr {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}

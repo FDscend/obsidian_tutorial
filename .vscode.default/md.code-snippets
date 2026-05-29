@@ -1,0 +1,1121 @@
+{
+    "Insert Table": {
+		"scope": "markdown",
+		"prefix": "\\table",
+		"body": [
+			"|1|2|3|",
+			"|:---:|:---:|:---:|",
+			"|4|5|6|"
+		],
+		"description": "插入表格"
+	},
+	"Insert Table2": {
+		"scope": "markdown",
+		"prefix": "\\table",
+		"body": [
+			"<table>",
+			"  <tbody>",
+			"    <tr>",
+			"      <td style=\"border: 1px solid #e3e5f2;\">${1:item1}</td>",
+			"      <td style=\"border: 1px solid #e3e5f2;\">${2:item2}</td>",
+			"    </tr>",
+			"    <tr>",
+			"      <td style=\"border: 1px solid #e3e5f2;\">${3:item3}</td>",
+			"      <td style=\"border: 1px solid #e3e5f2;\">${4:item4}</td>",
+			"    </tr>",
+			"  </tbody>",
+			"</table>"
+		],
+		"description": "插入表格（无表头）"
+	},
+	"Insert List": {
+		"scope": "markdown",
+		"prefix": "\\list",
+		"body": [
+			"<ul><li>${1:item1}</li><li>${2:item2}</li></ul>",
+		],
+		"description": "插入无序列表"
+	},
+	"Insert List2": {
+		"scope": "markdown",
+		"prefix": "\\list",
+		"body": [
+			"<ol><li>${1:item1}</li><li>${2:item2}</li></ol>",
+		],
+		"description": "插入有序列表"
+	},
+    "Insert Math inline": {
+		"scope": "markdown",
+		"prefix": "\\math",
+		"body": [
+			" $$1$ "
+		],
+		"description": "Insert Math inline"
+	},
+	"Insert Math inline Pattern": {
+		"scope": "markdown",
+		"prefix": "\\math",
+		"body": [
+			" $\\displaystyle $1$ "
+		],
+		"description": "Insert Math inline displaystyle"
+	},
+    "Insert Math Block": {
+		"scope": "markdown",
+		"prefix": "\\math",
+		"body": [
+			"$$\n\\begin{align*}\n    $1\n\\end{align*}\n$$"
+		],
+		"description": "Insert Math Block"
+	},
+    "Insert Mermaid": {
+		"scope": "markdown",
+		"prefix": "\\mermaid",
+		"body": [
+			"```mermaid",
+			"graph LR",
+			"A($1)-->B($2)",
+			"```"
+		],
+		"description": "Insert Mermaid"
+	},
+    "Insert Mermaid Link": {
+		"scope": "markdown",
+		"prefix": ["\\mermaid", "\\link"],
+		"body": "<a class='internal-link mathLink-internal-link' data-href='$1' href='$1' target='_blank' rel='noopener nofollow'>$2</a>",
+		"description": "Insert Link in Mermaid"
+	},
+	"Insert Mermaid Norm": {
+		"scope": "markdown",
+		"prefix": ["\\mermaid", "\\Vert"],
+		"body": "‖",
+		"description": "Insert Norm ‖ in Mermaid"
+	},
+    "Insert Underline": {
+		"scope": "markdown",
+		"prefix": "\\under",
+		"body": [
+			"<u>$1</u>$2",
+		],
+		"description": "Insert Underline in markdown"
+	},
+    "highlight": {
+		"scope": "markdown",
+		"prefix": ["\\mark","\\high"],
+		"body": [
+			"<mark>$1</mark>$2"
+		],
+		"description": "文本高亮"
+	},
+    "red-font": {
+		"scope": "markdown",
+		"prefix": "\\red",
+		"body": [
+			"<font color=red>$1</font>$2"
+		],
+		"description": "红色文字"
+	},
+	"red-tex": {
+		"scope": "latex",
+		"prefix": "\\red",
+		"body": [
+			"{\\color{red}$1}"
+		],
+		"description": "红色文字"
+	},
+	"red-tex2": {
+		"scope": "latex",
+		"prefix": "\\red",
+		"body": [
+			"\\textcolor{red}{$1}"
+		],
+		"description": "红色文字"
+	},
+	"highlight-tex": {
+		"scope": "latex",
+		"prefix": "\\highlight",
+		"body": [
+			"\\colorbox{yellow}{$1}"
+		],
+		"description": "高亮文字"
+	},
+	"highlight-tex2": {
+		"scope": "latex",
+		"prefix": "\\highlight",
+		"body": [
+			"\\fcolorbox{black}{yellow}{$1}"
+		],
+		"description": "高亮文字带边框"
+	},
+    "分式": {
+		"scope": "latex",
+		"prefix": "\\frac",
+		"body": [
+			"\\cfrac{$1}{$2}"
+		],
+		"description": "cfrac{}{}"
+	},
+	"分式2": {
+		"scope": "latex",
+		"prefix": "\\frac",
+		"body": [
+			"\\frac{$1}{$2}"
+		],
+		"description": "frac{}{}"
+	},
+	"分式3": {
+		"scope": "latex",
+		"prefix": "\\frac",
+		"body": [
+			"\\dfrac{$1}{$2}"
+		],
+		"description": "dfrac{}{}"
+	},
+    "overline": {
+		"scope": "latex",
+		"prefix": ["\\bar","\\overline"],
+		"body": [
+			"\\overline{$1}$2"
+		],
+		"description": "上划线"
+	},
+	"tilde": {
+		"scope": "latex",
+		"prefix": ["\\tilde","\\bolang"],
+		"body": [
+			"\\tilde{$1}$2"
+		],
+		"description": "上波浪"
+	},
+	"boldsymbol": {
+		"scope": "latex",
+		"prefix": ["\\jiacu", "\\bf"],
+		"body": [
+			"\\boldsymbol{$1} "
+		],
+		"description": "公式字符加粗"
+	},
+    "bf": {
+		"scope": "latex",
+		"prefix": ["\\jiacu", "\\bf"],
+		"body": [
+			"\\bf{$1} "
+		],
+		"description": "tex 中 text{} 字符加粗"
+	},
+    "mapsto": {
+		"scope": "latex",
+		"prefix": ["\\to","\\arrow"],
+		"body": [
+			"\\mapsto "
+		],
+		"description": "|->"
+	},
+	"longmapsto": {
+		"scope": "latex",
+		"prefix": ["\\to","\\arrow","\\long"],
+		"body": [
+			"\\longmapsto "
+		],
+		"description": "|-->"
+	},
+	"Implies": {
+		"scope": "latex",
+		"prefix": ["\\Rightarrow", "\\implies"],
+		"body": [
+			"\\implies "
+		],
+		"description": "=>"
+	},
+    "Rightarrow": {
+		"scope": "latex",
+		"prefix": "\\Rightarrow",
+		"body": [
+			"\\Rightarrow "
+		],
+		"description": "=>"
+	},
+	"Long Rightarrow": {
+		"scope": "latex",
+		"prefix": ["\\Rightarrow","\\long"],
+		"body": [
+			"\\xRightarrow[$2]{$1}"
+		],
+		"description": "=>（可堆叠文字）"
+	},
+	"Leftrightarrow": {
+		"scope": "latex",
+		"prefix": ["\\Leftrightarrow","\\zuoyou"],
+		"body": [
+			"\\Leftrightarrow "
+		],
+		"description": "<=>"
+	},
+	"Leftrightarrow 2": {
+		"scope": "latex",
+		"prefix": ["\\Leftrightarrow","\\zuoyou","\\iff"],
+		"body": [
+			"\\iff "
+		],
+		"description": "<=> (iff)"
+	},
+	"rightarrow": {
+		"scope": "latex",
+		"prefix": "\\rightarrow",
+		"body": [
+			"\\rightarrow "
+		],
+		"description": "->"
+	},
+	"Long rightarrow": {
+		"scope": "latex",
+		"prefix": ["\\rightarrow","\\long"],
+		"body": [
+			"\\xrightarrow[$2]{$1}"
+		],
+		"description": "->（可堆叠文字）"
+	},
+	"Long eq": {
+		"scope": "latex",
+		"prefix": ["\\eq","\\long"],
+		"body": [
+			"\\xlongequal[$2]{$1} "
+		],
+		"description": "长等号（可堆叠上下文字）"
+	},
+	"Long Leftrightarrow": {
+		"scope": "latex",
+		"prefix": ["\\zy","\\long"],
+		"body": [
+			"\\xLeftrightarrow[$2]{$1} "
+		],
+		"description": "长<=>号（可堆叠上下文字）"
+	},
+	"rightrightarrow": {
+		"scope": "latex",
+		"prefix": ["\\rightarrow","\\rr"],
+		"body": [
+			"\\rightrightarrows "
+		],
+		"description": "-->"
+	},
+    "Dots": {
+		"scope": "latex",
+		"prefix": ["\\dot"],
+		"body": [
+			"\\cdots"
+		],
+		"description": "横点"
+	},
+	"Ddots": {
+		"scope": "latex",
+		"prefix": ["\\dot"],
+		"body": [
+			"\\ddots"
+		],
+		"description": "斜点"
+	},
+	"succ": {
+		"scope": "latex",
+		"prefix": ["\\succ","\\zhengding"],
+		"body": [
+			"\\succ"
+		],
+		"description": "正定 >"
+	},
+	"succeq": {
+		"scope": "latex",
+		"prefix": ["\\succ","\\zhengding"],
+		"body": [
+			"\\succeq"
+		],
+		"description": "半正定 >="
+	},
+	"prec": {
+		"scope": "latex",
+		"prefix": ["\\prec","\\zhengding"],
+		"body": [
+			"\\prec"
+		],
+		"description": "正定 <"
+	},
+	"preceq": {
+		"scope": "latex",
+		"prefix": ["\\prec","\\zhengding"],
+		"body": [
+			"\\preceq"
+		],
+		"description": "半正定 <="
+	},
+    "nabla": {
+		"scope": "latex",
+		"prefix": ["\\nabla","\\grad"],
+		"body": [
+			"\\nabla"
+		],
+		"description": "nabla算子"
+	},
+	"norm": {
+		"scope": "latex",
+		"prefix": ["\\norm"],
+		"body": [
+			"\\Vert $1\\Vert"
+		],
+		"description": "范数"
+	},
+	"abs": {
+		"scope": "latex",
+		"prefix": ["\\abs"],
+		"body": [
+			"\\vert $1\\vert"
+		],
+		"description": "绝对值"
+	},
+	"wedge": {
+		"scope": "latex",
+		"prefix": ["\\jian"],
+		"body": [
+			"\\wedge"
+		],
+		"description": "^脱字符"
+	},
+	"substack": {
+		"scope": "latex",
+		"prefix": ["\\duidie"],
+		"body": [
+			"\\substack{$1 \\\\\\ $2} "
+		],
+		"description": "角标堆叠"
+	},
+    "overbrace": {
+		"scope": "latex",
+		"prefix": ["\\over","\\duidie"],
+		"body": [
+			"\\overbrace{$1}^{$2} "
+		],
+		"description": "堆叠上括号"
+	},
+	"underbrace": {
+		"scope": "latex",
+		"prefix": ["\\under","\\duidie"],
+		"body": [
+			"\\underbrace{$1}_{$2} "
+		],
+		"description": "堆叠下括号"
+	},
+	"overset": {
+		"scope": "latex",
+		"prefix": ["\\over","\\duidie"],
+		"body": [
+			"\\overset{$1} "
+		],
+		"description": "堆叠上文字"
+	},
+	"underset": {
+		"scope": "latex",
+		"prefix": ["\\under","\\duidie"],
+		"body": [
+			"\\underset{$1} "
+		],
+		"description": "堆叠下文字"
+	},
+	"because": {
+		"scope": "latex",
+		"prefix": ["\\because","\\yinwei"],
+		"body": [
+			"\\because "
+		],
+		"description": "therefore"
+	},
+    "therefore": {
+		"scope": "latex",
+		"prefix": ["\\therefore","\\so", "\\suoyi"],
+		"body": [
+			"\\therefore "
+		],
+		"description": "therefore"
+	},
+	"backslash": {
+		"scope": "latex",
+		"prefix": ["\\backslash","\\fanxie"],
+		"body": [
+			"\\backslash ",
+		],
+		"description": "反斜杠"
+	},
+	"恒等": {
+		"scope": "latex",
+		"prefix": ["\\eq"],
+		"body": [
+			"\\equiv "
+		],
+		"description": "==="
+	},
+	"近似": {
+		"scope": "latex",
+		"prefix": ["\\jinsi","\\sim"],
+		"body": [
+			"\\sim "
+		],
+		"description": "~"
+	},
+	"任意": {
+		"scope": "latex",
+		"prefix": ["\\forall","\\reny"],
+		"body": [
+			"\\forall "
+		],
+		"description": "任意"
+	},
+	"存在": {
+		"scope": "latex",
+		"prefix": ["\\exists","\\cunz"],
+		"body": [
+			"\\exists~ "
+		],
+		"description": "存在"
+	},
+	"包含于": {
+		"scope": "latex",
+		"prefix": ["\\subset","\\shuy","\\baoh"],
+		"body": [
+			"\\subset "
+		],
+		"description": "包含于"
+	},
+	"包含于2": {
+		"scope": "latex",
+		"prefix": ["\\subset","\\shuy","\\baoh"],
+		"body": [
+			"\\subseteq "
+		],
+		"description": "包含于"
+	},
+	"包含": {
+		"scope": "latex",
+		"prefix": ["\\supset","\\shuy","\\baoh"],
+		"body": [
+			"\\supset "
+		],
+		"description": "包含"
+	},
+	"包含2": {
+		"scope": "latex",
+		"prefix": ["\\supset","\\shuy","\\baoh"],
+		"body": [
+			"\\supseteq "
+		],
+		"description": "包含"
+	},
+	"大空格": {
+		"scope": "latex",
+		"prefix": "\\kongge",
+		"body": [
+			"\\quad "
+		],
+		"description": "大空格"
+	},
+	"text": {
+		"scope": "latex",
+		"prefix": "\\text",
+		"body": [
+			"~\\text{$1} "
+		],
+		"description": "插入文字"
+	},
+    "limit": {
+		"scope": "latex",
+		"prefix": "\\lim",
+		"body": [
+			"\\lim\\limits_{$1} $2"
+		],
+		"description": "lim_{}"
+	},
+	"sum": {
+		"scope": "latex",
+		"prefix": "\\sum",
+		"body": [
+			"\\sum\\limits_{${1:n=1}}^{${2:\\infty}} $3"
+		],
+		"description": "sum_{}^{}"
+	},
+	"微分": {
+		"scope": "latex",
+		"prefix": ["\\dx","\\dd"],
+		"body": [
+			"\\mathrm{d}${1:x}"
+		],
+		"description": "dx"
+	},
+	"定积分": {
+		"scope": "latex",
+		"prefix": "\\int",
+		"body": [
+			"\\int_{$1}^{$2} $3 \\,\\mathrm{d}x"
+		],
+		"description": "int_{}^{} "
+	},
+	"不定积分": {
+		"scope": "latex",
+		"prefix": "\\int",
+		"body": [
+			"\\int $1 \\,\\mathrm{d}x"
+		],
+		"description": "不定积分"
+	},
+	"定积分2": {
+		"scope": "latex",
+		"prefix": "\\int",
+		"body": [
+			"\\iint\\limits_{$1} $2 \\,\\mathrm{d}x\\mathrm{d}y"
+		],
+		"description": "iint_{}^{} "
+	},
+    "matrix": {
+		"scope": "latex",
+		"prefix": ["\\matrix"],
+		"body": [
+			"\\begin{matrix} $1 & $2 \\newline $3 & $4 \\end{matrix}"
+		],
+		"description": "矩阵"
+	},
+	"vmatrix": {
+		"scope": "latex",
+		"prefix": ["\\matrix"],
+		"body": [
+			"\\begin{vmatrix} $1 & $2 \\newline $3 & $4 \\end{vmatrix}"
+		],
+		"description": "|矩阵|"
+	},
+	"pmatrix": {
+		"scope": "latex",
+		"prefix": ["\\matrix"],
+		"body": [
+			"\\begin{pmatrix} $1 & $2 \\newline $3 & $4 \\end{pmatrix}"
+		],
+		"description": "(矩阵)"
+	},
+    "EQ_inline_F": {
+		"scope": "latex",
+		"prefix": ["\\fenduan","\\eq"],
+		"body": [
+			"\\begin{cases} $1 &= $2 \\newline $3 &= $4 \\end{cases}"
+		],
+		"description": "行内分段函数"
+	},
+	"EQ_inline_F2": {
+		"scope": "latex",
+		"prefix": ["\\fenduan","\\eq"],
+		"body": [
+			"\\begin{cases}",
+			"    $1 &= $2 \\newline",
+			"    $3 &= $4",
+			"\\end{cases}"
+		],
+		"description": "分段函数"
+	},
+    "sin": {
+		"scope": "latex",
+		"prefix": ["\\sin"],
+		"body": [
+			"\\sin{$1}",
+		],
+		"description": "sin"
+	},
+	"cos": {
+		"scope": "latex",
+		"prefix": ["\\cos"],
+		"body": [
+			"\\cos{$1}",
+		],
+		"description": "cos"
+	},
+	"tan": {
+		"scope": "latex",
+		"prefix": ["\\tan"],
+		"body": [
+			"\\tan{$1}",
+		],
+		"description": "tan"
+	},
+	"secx": {
+		"scope": "latex",
+		"prefix": ["\\sec"],
+		"body": [
+			"\\sec{$1}",
+		],
+		"description": "sec x"
+	},
+	"arcsin": {
+		"scope": "latex",
+		"prefix": ["\\arcsin"],
+		"body": [
+			"\\arcsin{$1}",
+		],
+		"description": "arcsin"
+	},
+	"arccos": {
+		"scope": "latex",
+		"prefix": ["\\arccos"],
+		"body": [
+			"\\arccos{$1}",
+		],
+		"description": "arccos"
+	},
+	"arctan": {
+		"scope": "latex",
+		"prefix": ["\\arctan"],
+		"body": [
+			"\\arctan{$1}",
+		],
+		"description": "arctan"
+	},
+	"sqrt": {
+		"scope": "latex",
+		"prefix": ["\\sqrt"],
+		"body": [
+			"\\sqrt{$1}",
+		],
+		"description": "sqrt{}"
+	},
+	"sqrt[]": {
+		"scope": "latex",
+		"prefix": ["\\sqrt"],
+		"body": [
+			"\\sqrt[$1]{$2}",
+		],
+		"description": "sqrt[]{}"
+	},
+    "opt": {
+		"scope": "latex",
+		"prefix": ["\\opt"],
+		"body": [
+			"\\operatorname{$1}{$2}",
+		],
+		"description": "operatorname"
+	},
+	"sgn": {
+		"scope": "latex",
+		"prefix": ["\\sgn"],
+		"body": [
+			"\\operatorname{sgn}{$1}",
+		],
+		"description": "sgn"
+	},
+	"grad": {
+		"scope": "latex",
+		"prefix": ["\\grad"],
+		"body": [
+			"\\operatorname{grad}",
+		],
+		"description": "grad"
+	},
+	"div": {
+		"scope": "latex",
+		"prefix": ["\\div"],
+		"body": [
+			"\\operatorname{div}{$1}",
+		],
+		"description": "div"
+	},
+	"rot": {
+		"scope": "latex",
+		"prefix": ["\\rot"],
+		"body": [
+			"\\operatorname{rot}{$1}",
+		],
+		"description": "rot"
+	},
+	"ker": {
+		"scope": "latex",
+		"prefix": ["\\ker"],
+		"body": [
+			"\\operatorname{Ker}{$1}",
+		],
+		"description": "Ker"
+	},
+	"Im": {
+		"scope": "latex",
+		"prefix": ["\\im"],
+		"body": [
+			"\\operatorname{Im}{$1}",
+		],
+		"description": "Im"
+	},
+	"char": {
+		"scope": "latex",
+		"prefix": ["\\char"],
+		"body": [
+			"\\operatorname{char}{$1}",
+		],
+		"description": "char"
+	},
+	"circ": {
+		"scope": "latex",
+		"prefix": ["\\circ","\\dot"],
+		"body": [
+			"\\circ ",
+		],
+		"description": "空心圆符号"
+	},
+	"oplus": {
+		"scope": "latex",
+		"prefix": ["\\oplus","\\plus"],
+		"body": [
+			"\\oplus ",
+		],
+		"description": "空心圆加号"
+	},
+	"otimes": {
+		"scope": "latex",
+		"prefix": ["\\otimes","\\times"],
+		"body": [
+			"\\otimes ",
+		],
+		"description": "空心圆乘号"
+	},
+    "times": {
+		"scope": "latex",
+		"prefix": ["\\times"],
+		"body": [
+			"\\times ",
+		],
+		"description": "乘号"
+	},
+	"mathring": {
+		"scope": "latex",
+		"prefix": ["\\quxin", "\\mathring"],
+		"body": [
+			"\\mathring{${1:U}}",
+		],
+		"description": "去心邻域"
+	},
+	"cong": {
+		"scope": "latex",
+		"prefix": ["\\cong","\\quandeng","\\qd"],
+		"body": [
+			"\\cong ",
+		],
+		"description": "全等"
+	},
+	"cup": {
+		"scope": "latex",
+		"prefix": ["\\cup","\\bing"],
+		"body": [
+			"\\cup ",
+		],
+		"description": "并集"
+	},
+	"cap": {
+		"scope": "latex",
+		"prefix": ["\\cap","\\jiao"],
+		"body": [
+			"\\cap ",
+		],
+		"description": "交集"
+	},
+	"sup": {
+		"scope": "latex",
+		"prefix": ["\\sup"],
+		"body": [
+			"\\sup_{$1} $2",
+		],
+		"description": "sup_{}"
+	},
+	"inf": {
+		"scope": "latex",
+		"prefix": ["\\inf"],
+		"body": [
+			"\\inf_{$1} $2",
+		],
+		"description": "inf_{}"
+	},
+    "正负号": {
+		"scope": "latex",
+		"prefix": ["\\zf", "\\pm"],
+		"body": [
+			"\\pm ",
+		],
+		"description": "正负号"
+	},
+	"数集": {
+		"scope": "latex",
+		"prefix": ["\\shu","\\mathbb"],
+		"body": [
+			"\\mathbb{$1}",
+		],
+		"description": "数集"
+	},
+	"mathcal": {
+		"scope": "latex",
+		"prefix": ["\\shu","\\mathcal"],
+		"body": [
+			"\\mathcal{$1}",
+		],
+		"description": "mathcal"
+	},
+	"st": {
+		"scope": "latex",
+		"prefix": ["\\st"],
+		"body": [
+			"~\\mathrm{s.t.}~",
+		],
+		"description": "s.t."
+	},
+    "括号": {
+		"scope": "latex",
+		"prefix": ["\\peidui","\\zuoyou","\\kuohao"],
+		"body": [
+			"\\left${1:(} $3 \\right${2:)}",
+		],
+		"description": "自动大小括号"
+	},
+	"尖括号": {
+		"scope": "latex",
+		"prefix": ["\\jian","\\zuoyou","\\kuohao"],
+		"body": [
+			"\\left \\langle $1 \\right \\rangle ",
+		],
+		"description": "尖括号"
+	},
+	"无穷": {
+		"scope": "latex",
+		"prefix": ["\\inf","\\wuqiong","\\wq"],
+		"body": [
+			"\\infty ",
+		],
+		"description": "无穷"
+	},
+    "逆": {
+		"scope": "latex",
+		"prefix": ["\\ni", "\\inv"],
+		"body": [
+			"^{-1}",
+		],
+		"description": "^{-1}"
+	},
+	"空集": {
+		"scope": "latex",
+		"prefix": ["\\kong"],
+		"body": [
+			"\\varnothing",
+		],
+		"description": "空集"
+	},
+	"ceil": {
+		"scope": "latex",
+		"prefix": ["\\ceil", "\\floor", "\\quzh"],
+		"body": [
+			"\\lceil $1 \\rceil",
+		],
+		"description": "向上取整"
+	},
+	"floor": {
+		"scope": "latex",
+		"prefix": ["\\ceil", "\\floor", "\\quzh"],
+		"body": [
+			"\\lfloor $1 \\rfloor",
+		],
+		"description": "向下取整"
+	},
+	"triangle": {
+		"scope": "latex",
+		"prefix": ["\\triangle", "\\sanjiao", "\\sjx"],
+		"body": [
+			"\\triangle ${1:ABC}",
+		],
+		"description": "三角形"
+	},
+	"square": {
+		"scope": "latex",
+		"prefix": ["\\square", "\\zheng", "\\zfx"],
+		"body": [
+			"\\square",
+		],
+		"description": "正方形"
+	},
+	"perp": {
+		"scope": "latex",
+		"prefix": ["\\perp", "\\chuiz"],
+		"body": [
+			"\\perp",
+		],
+		"description": "垂直"
+	},
+    "alpha": {
+		"scope": "latex",
+		"prefix": ["\\al"],
+		"body": [
+			"\\alpha ",
+		],
+		"description": "alpha"
+	},
+	"beta": {
+		"scope": "latex",
+		"prefix": ["\\beta"],
+		"body": [
+			"\\beta ",
+		],
+		"description": "beta"
+	},
+	"delta": {
+		"scope": "latex",
+		"prefix": ["\\delta","\\dt"],
+		"body": [
+			"\\delta ",
+		],
+		"description": "delta"
+	},
+	"Delta": {
+		"scope": "latex",
+		"prefix": ["\\delta","\\dt"],
+		"body": [
+			"\\Delta ",
+		],
+		"description": "Delta"
+	},
+	"varepsilon": {
+		"scope": "latex",
+		"prefix": ["\\epsilon"],
+		"body": [
+			"\\varepsilon ",
+		],
+		"description": "varepsilon"
+	},
+	"eta": {
+		"scope": "latex",
+		"prefix": ["\\eta","\\it"],
+		"body": [
+			"\\eta ",
+		],
+		"description": "eta"
+	},
+	"gamma": {
+		"scope": "latex",
+		"prefix": ["\\gam"],
+		"body": [
+			"\\gamma ",
+		],
+		"description": "gamma"
+	},
+	"Gamma": {
+		"scope": "latex",
+		"prefix": ["\\Gam"],
+		"body": [
+			"\\Gamma ",
+		],
+		"description": "Gamma"
+	},
+	"lambda": {
+		"scope": "latex",
+		"prefix": ["\\lam"],
+		"body": [
+			"\\lambda ",
+		],
+		"description": "lambda"
+	},
+	"Lambda": {
+		"scope": "latex",
+		"prefix": ["\\Lam"],
+		"body": [
+			"\\Lambda ",
+		],
+		"description": "Lambda"
+	},
+	"partial": {
+		"scope": "latex",
+		"prefix": ["\\par"],
+		"body": [
+			"\\partial ",
+		],
+		"description": "partial"
+	},
+	"omega": {
+		"scope": "latex",
+		"prefix": ["\\omg"],
+		"body": [
+			"\\omega ",
+		],
+		"description": "omega"
+	},
+	"Omega": {
+		"scope": "latex",
+		"prefix": ["\\Omg"],
+		"body": [
+			"\\Omega ",
+		],
+		"description": "Omega"
+	},
+	"phi": {
+		"scope": "latex",
+		"prefix": ["\\phi"],
+		"body": [
+			"\\phi ",
+		],
+		"description": "phi"
+	},
+	"psi": {
+		"scope": "latex",
+		"prefix": ["\\psi"],
+		"body": [
+			"\\psi ",
+		],
+		"description": "psi"
+	},
+	"rho": {
+		"scope": "latex",
+		"prefix": ["\\rho"],
+		"body": [
+			"\\rho ",
+		],
+		"description": "rho"
+	},
+	"sigma": {
+		"scope": "latex",
+		"prefix": ["\\sig"],
+		"body": [
+			"\\sigma ",
+		],
+		"description": "sigma"
+	},
+	"Sigma": {
+		"scope": "latex",
+		"prefix": ["\\Sig"],
+		"body": [
+			"\\Sigma ",
+		],
+		"description": "Sigma"
+	},
+	"tau": {
+		"scope": "latex",
+		"prefix": ["\\tau"],
+		"body": [
+			"\\tau ",
+		],
+		"description": "tau"
+	},
+	"theta": {
+		"scope": "latex",
+		"prefix": ["\\theta"],
+		"body": [
+			"\\theta ",
+		],
+		"description": "theta"
+	},
+	"xi": {
+		"scope": "latex",
+		"prefix": ["\\xi"],
+		"body": [
+			"\\xi ",
+		],
+		"description": "xi"
+	},
+	"varphi": {
+		"scope": "latex",
+		"prefix": ["\\phi"],
+		"body": [
+			"\\varphi ",
+		],
+		"description": "varphi"
+	},
+}

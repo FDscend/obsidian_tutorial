@@ -1,0 +1,7 @@
+div[data-callout="pdf"].callout[data-callout-metadata="note"] {
+    background-color: rgba(var(--callout-color), 0.1);
+}
+
+/* div.pdf-plus-backlink {
+    pointer-events: none !important;
+} */

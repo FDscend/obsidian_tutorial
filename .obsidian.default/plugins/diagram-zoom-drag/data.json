@@ -1,0 +1,200 @@
+{
+  "units": {
+    "contextMenu": {
+      "showForDiagrams": true,
+      "showForOtherImages": false
+    },
+    "interactivity": {
+      "markdown": {
+        "autoDetect": true
+      },
+      "picker": {
+        "enabled": false
+      }
+    },
+    "folding": {
+      "foldByDefault": false,
+      "autoFoldOnFocusChange": false
+    },
+    "settingsPagination": {
+      "perPage": 5
+    },
+    "size": {
+      "expanded": {
+        "width": {
+          "value": 100,
+          "type": "%"
+        },
+        "height": {
+          "value": 100,
+          "type": "%"
+        }
+      },
+      "folded": {
+        "width": {
+          "value": 50,
+          "type": "%"
+        },
+        "height": {
+          "value": 50,
+          "type": "%"
+        }
+      }
+    },
+    "configs": [
+      {
+        "name": "Default",
+        "selector": ".izd-default",
+        "on": true,
+        "panels": {
+          "move": {
+            "on": true
+          },
+          "zoom": {
+            "on": true
+          },
+          "service": {
+            "on": true
+          }
+        }
+      },
+      {
+        "name": "IMG_SVG",
+        "selector": "img,svg",
+        "on": false,
+        "panels": {
+          "move": {
+            "on": true
+          },
+          "zoom": {
+            "on": true
+          },
+          "service": {
+            "on": true
+          }
+        }
+      },
+      {
+        "name": "Mermaid",
+        "selector": ".mermaid",
+        "on": true,
+        "panels": {
+          "move": {
+            "on": true
+          },
+          "zoom": {
+            "on": true
+          },
+          "service": {
+            "on": true
+          }
+        }
+      },
+      {
+        "name": "Mehrmaid",
+        "selector": ".block-language-mehrmaid",
+        "on": true,
+        "panels": {
+          "move": {
+            "on": true
+          },
+          "zoom": {
+            "on": true
+          },
+          "service": {
+            "on": true
+          }
+        }
+      },
+      {
+        "name": "PlantUML",
+        "selector": ".block-language-plantuml",
+        "on": true,
+        "panels": {
+          "move": {
+            "on": true
+          },
+          "zoom": {
+            "on": true
+          },
+          "service": {
+            "on": true
+          }
+        }
+      },
+      {
+        "name": "Graphviz",
+        "selector": ".block-language-dot",
+        "on": true,
+        "panels": {
+          "move": {
+            "on": true
+          },
+          "zoom": {
+            "on": true
+          },
+          "service": {
+            "on": true
+          }
+        }
+      }
+    ]
+  },
+  "panels": {
+    "global": {
+      "triggering": {
+        "mode": "hover",
+        "ignoreService": true
+      }
+    },
+    "local": {
+      "preset": "none",
+      "panels": {
+        "service": {
+          "on": true,
+          "buttons": {
+            "hide": false,
+            "fullscreen": true
+          },
+          "position": {
+            "top": "0px",
+            "right": "0px"
+          }
+        },
+        "move": {
+          "on": false,
+          "buttons": {
+            "up": true,
+            "down": true,
+            "left": true,
+            "right": true,
+            "upLeft": true,
+            "upRight": true,
+            "downLeft": true,
+            "downRight": true
+          },
+          "position": {
+            "bottom": "0px",
+            "right": "0px"
+          }
+        },
+        "zoom": {
+          "on": true,
+          "buttons": {
+            "in": true,
+            "out": true,
+            "reset": true
+          },
+          "position": {
+            "top": "50%",
+            "right": "0px"
+          }
+        }
+      }
+    }
+  },
+  "debug": {
+    "enabled": false,
+    "level": "none"
+  }
+}

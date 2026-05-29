@@ -1,0 +1,16 @@
+div.metadata-container {
+  border: 1px solid hsla(232, calc(0.4* 96%), calc(60%), 0.2);
+  border-radius: 5px;
+}
+div.metadata-container.is-collapsed {
+  border: unset;
+  border-radius: unset;
+}
+div.metadata-properties-heading.is-collapsed {
+  background-color: hsla(232, 96%, 60%, 0.1);
+  border: 1px solid hsla(232, 96%, 60%, 0.15);
+  border-radius: 5px;
+}
+div.metadata-properties-heading.is-collapsed:hover {
+  background-color: hsla(232, 96%, 60%, 0.2);
+}

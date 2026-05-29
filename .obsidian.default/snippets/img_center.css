@@ -1,0 +1,22 @@
+img {
+  clear: both;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+figcaption {
+  text-align: center;
+}
+
+video {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+audio {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}

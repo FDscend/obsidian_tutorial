@@ -1,0 +1,8 @@
+/* inline codes */
+p > code {
+  --code-border-width: 1px;
+}
+p > code:hover {
+  border: 1px solid #707070;
+  box-shadow: 2px 2px 1px 1px hsla(232, 96%, 60%, 0.2);
+}

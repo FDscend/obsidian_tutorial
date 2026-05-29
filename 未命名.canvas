@@ -1,0 +1,57 @@
+{
+	"nodes":[
+		{"id":"ffb6e7826913b726","type":"group","ratio":1.7777777777777777,"x":-540,"y":-400,"width":1200,"height":675,"label":"Start Slide"},
+		{"id":"31165bd635f69ed6","type":"group","ratio":1.7777777777777777,"x":880,"y":-420,"width":1200,"height":675,"label":"New Slide"},
+		{"id":"feb74db28a3b9ece","type":"file","file":"markdown格式总结.md","x":-340,"y":-220,"width":400,"height":400,"color":"3"},
+		{
+			"id":"be179627d3e42538",
+			"type":"text",
+			"text":"- `ctrl + s` 保存\n- `ctrl + z` 撤销\n- `ctrl + y` 恢复\n- `alt + shift` 多选行\n- `alt + z` 视图换行",
+			"styleAttributes":{},
+			"x":220,
+			"y":-200,
+			"width":260,
+			"height":220
+		},
+		{
+			"id":"b13ddbac143a3668",
+			"type":"text",
+			"text":"",
+			"styleAttributes":{},
+			"x":1080,
+			"y":-200,
+			"width":260,
+			"height":60
+		}
+	],
+	"edges":[
+		{
+			"id":"df27e56a67d48c5c",
+			"styleAttributes":{"pathfindingMethod":"square","path":"dotted"},
+			"toFloating":false,
+			"fromFloating":false,
+			"fromNode":"feb74db28a3b9ece",
+			"fromSide":"right",
+			"toNode":"be179627d3e42538",
+			"toSide":"left"
+		},
+		{
+			"id":"9e10af579982a554",
+			"styleAttributes":{},
+			"toFloating":false,
+			"fromNode":"ffb6e7826913b726",
+			"fromSide":"right",
+			"toNode":"31165bd635f69ed6",
+			"toSide":"left",
+			"label":"asd"
+		}
+	],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{
+			"tags":["markdown"],
+			"cssclasses":["fixedlabel"]
+		},
+		"startNode":"ffb6e7826913b726"
+	}
+}

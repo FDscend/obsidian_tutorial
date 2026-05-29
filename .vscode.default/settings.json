@@ -1,0 +1,35 @@
+{
+  "editor.fontSize": 16,
+  "markdown.validate.enabled": false,
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "all",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "editor.acceptSuggestionOnEnter": "off"
+  },
+  "markdown.styles": [".vscode/mdStyle.css"],
+  "replacerules.rules": {
+    "LaTeX to Markdown first": {
+      "find": ["\\\\\\( ", " \\\\\\)"],
+      "replace": ["$", "$"],
+      "languages": ["markdown"]
+    },
+    "LaTeX to Markdown": {
+      "find": ["\\\\\\(", "\\\\\\)", "\\\\\\[", "\\\\\\]"],
+      "replace": ["$", "$", "$$$$", "$$$$"],
+      "languages": ["markdown"]
+    }
+  },
+  "editor.formatOnSave": true,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.png": "imagePreview.previewEditor",
+    "*.md": "default",
+    "{git,gitlens}:/**/*.{md,csv}": "default",
+    "file:/**/*.parquet": "jupyter-data-wrangler"
+  }
+}
