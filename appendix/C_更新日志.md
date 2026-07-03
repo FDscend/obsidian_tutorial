@@ -6,6 +6,19 @@ tags:
 
 # 更新日志
 
+## 2026-07-03 (第 7 次)
+
+### 新增
+
+- **section5/02_obsidian_web_clipper使用.md**：Obsidian Web Clipper 教程，涵盖浏览器扩展安装（Chrome/Edge/Firefox/Safari）、Vault 连接、基本剪藏操作、高亮功能、自定义模板（含变量参考）、解释器（Interpreter）配置、管理与设置。
+
+### 变更
+
+- section5 新增 Web Clipper 教学内容，扩展 Obsidian 工具链：**Canvas → Web Clipper**。
+- `README.md` 快速开始入口同步更新。
+
+---
+
 ## 2026-07-03 (第 6 次)
 
 ### 新增
