@@ -6,6 +6,32 @@ tags:
 
 # 更新日志
 
+## 2026-07-03 (第 6 次)
+
+### 新增
+
+- **appendix/B\_常见问题FAQ.md**：全教程常见问题汇总，按主题分类（通用问题、环境安装、Markdown 语法、Git 协作、Canvas、Bases、Syncthing、Copilot、仓库与协作），涵盖从各章节收集的 60+ 问答。
+
+### 变更
+
+- 附录（A 术语表 + B FAQ + D 快捷键总结）已全部完成。
+- `README.md` 附录状态更新为 ✅ 完成。
+
+---
+
+## 2026-07-03 (第 5 次)
+
+### 新增
+
+- **appendix/A\_术语表.md**：全教程术语表，按主题分类（Markdown、Git/GitHub、Obsidian、Syncthing、Copilot、项目协作），涵盖 60+ 术语的定义与说明。
+- **appendix/D\_快捷键总结.md**：常用快捷键速查手册，涵盖 VS Code 通用、Git 操作、Obsidian、Canvas、Bases、Copilot、Markdown 语法速查、常用终端命令。
+
+### 变更
+
+- 首次建立附录术语表和快捷键总结。
+
+---
+
 ## 2026-07-03 (第 4 次)
 
 ### 新增

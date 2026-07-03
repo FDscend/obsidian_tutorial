@@ -81,7 +81,7 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 | **→ section7** | **Syncthing 局域网同步**                  | **✅ 完成** |
 | **→ section8** | **VS Code Copilot 基础**                  | **✅ 完成** |
 | **→ section9** | **Copilot 实战案例**                      | **✅ 完成** |
-| 附录           | 术语表 / FAQ / 更新日志                   | ⬜ 待编写   |
+| **→ 附录**     | **术语表 / FAQ / 快捷键 / 更新日志**      | **✅ 完成** |
 
 ---
 
