@@ -1,0 +1,34 @@
+{
+	"nodes":[
+		{"id":"g000000000000001","type":"group","x":50,"y":180,"width":520,"height":800,"color":"4","label":"📦 M1：基础可用"},
+		{"id":"g000000000000002","type":"group","x":670,"y":180,"width":520,"height":800,"color":"5","label":"🗺 M2：Obsidian 进阶"},
+		{"id":"g000000000000003","type":"group","x":1290,"y":180,"width":520,"height":800,"color":"6","label":"🤖 M3：Copilot 体系"},
+		{"id":"a000000000000006","type":"text","text":"# 🗺 section5\n## Obsidian Canvas\n\n**状态**: 🔄 进行中\n🎨 画布、卡片、连线","x":710,"y":270,"width":360,"height":90,"color":"5"},
+		{"id":"a000000000000007","type":"text","text":"# 🗃 section6\n## Obsidian Bases\n\n**状态**: ⬜ 待编写\n📋 数据库、视图、筛选","x":710,"y":460,"width":360,"height":90},
+		{"id":"a000000000000008","type":"text","text":"# 📡 section7\n## Syncthing 同步\n\n**状态**: ⬜ 待编写\n🔄 局域网多端同步","x":710,"y":650,"width":360,"height":90},
+		{"id":"a000000000000009","type":"text","text":"# 🤖 section8\n## VS Code Copilot 基础\n\n**状态**: ⬜ 待编写\n💬 对话、prompt 入门","x":1330,"y":270,"width":360,"height":90},
+		{"id":"a00000000000000a","type":"text","text":"# 🧠 section9\n## Copilot 实战案例\n\n**状态**: ⬜ 待编写\n🎯 Skill、MCP、Tavily","x":1330,"y":460,"width":360,"height":90},
+		{"id":"a00000000000000b","type":"text","text":"# 📚 附录\n## 术语表 / FAQ / 更新日志\n\n**状态**: ⬜ 待编写\n📖 参考资料","x":1330,"y":650,"width":360,"height":90},
+		{"id":"a00000000000000c","type":"text","text":"# 🏷 图例\n\n### 卡片状态\n🟩 **绿色** — 已完成\n\n🟦 **蓝色** — 进行中\n\n⬜ **无色** — 待编写\n\n### 连线\n🔵 蓝色箭头 — 前置依赖","x":1850,"y":180,"width":260,"height":325,"color":"6"},
+		{"id":"a000000000000001","type":"text","text":"# 📖 section0\n## 课程导读与协作规范\n\n**状态**: ✅ 已完成\n🏁 学习框架与协作约定","x":90,"y":270,"width":360,"height":90,"color":"4"},
+		{"id":"a000000000000002","type":"text","text":"# 🛠 section1\n## 环境安装\n\n**状态**: ✅ 已完成\n⚙️ Obsidian + VS Code + Git","x":90,"y":410,"width":360,"height":90,"color":"4"},
+		{"id":"a000000000000003","type":"text","text":"# ✍️ section2\n## Markdown 基础语法\n\n**状态**: ✅ 已完成\n📝 标题、列表、链接、图片等","x":90,"y":550,"width":360,"height":90,"color":"4"},
+		{"id":"a000000000000004","type":"text","text":"# 🔗 section3\n## Markdown 扩展语法\n\n**状态**: ✅ 已完成\n📊 表格、Mermaid、公式、Callout","x":90,"y":690,"width":360,"height":90,"color":"4"},
+		{"id":"a000000000000005","type":"text","text":"# 🤝 section4\n## Git/GitHub 协作\n\n**状态**: ✅ 已完成\n🌳 分支、PR、冲突处理","x":90,"y":830,"width":360,"height":90,"color":"4"}
+	],
+	"edges":[
+		{"id":"e000000000000001","fromNode":"a000000000000001","fromSide":"bottom","toNode":"a000000000000002","toSide":"top","color":"5","label":"前置"},
+		{"id":"e000000000000002","fromNode":"a000000000000002","fromSide":"bottom","toNode":"a000000000000003","toSide":"top","color":"5","label":"前置"},
+		{"id":"e000000000000003","fromNode":"a000000000000002","fromSide":"right","toNode":"a000000000000005","toSide":"right","color":"5","label":"前置"},
+		{"id":"e000000000000004","fromNode":"a000000000000002","fromSide":"right","toNode":"a000000000000006","toSide":"left","color":"5","label":"前置"},
+		{"id":"e000000000000005","fromNode":"a000000000000002","fromSide":"right","toNode":"a000000000000007","toSide":"left","color":"5","label":"前置"},
+		{"id":"e000000000000006","fromNode":"a000000000000002","fromSide":"right","toNode":"a000000000000008","toSide":"left","color":"5","label":"前置"},
+		{"id":"e000000000000007","fromNode":"a000000000000002","fromSide":"top","toNode":"a000000000000009","toSide":"left","color":"5","label":"前置"},
+		{"id":"e00000000000000b","fromNode":"a000000000000003","fromSide":"bottom","toNode":"a000000000000004","toSide":"top","color":"5","label":"前置"},
+		{"id":"e00000000000000c","fromNode":"a000000000000009","fromSide":"bottom","toNode":"a00000000000000a","toSide":"top","color":"5","label":"前置"}
+	],
+	"metadata":{
+		"version":"1.0-1.0",
+		"frontmatter":{}
+	}
+}
