@@ -1,31 +1,28 @@
 filters:
   and:
-    - 'file.folder == "section6"'
-
+    - file.folder == "section6"
 formulas:
-  days_old: '(now() - file.ctime).days'
-
+  days_old: (now() - file.ctime).days
 properties:
   file.name:
-    displayName: "文件名"
+    displayName: 文件名
   file.basename:
-    displayName: "笔记标题"
+    displayName: 笔记标题
   file.folder:
-    displayName: "所属文件夹"
+    displayName: 所属文件夹
   file.size:
-    displayName: "文件大小"
+    displayName: 文件大小
   file.ctime:
-    displayName: "创建时间"
+    displayName: 创建时间
   file.mtime:
-    displayName: "最后修改"
+    displayName: 最后修改
   file.tags:
-    displayName: "标签"
+    displayName: 标签
   formula.days_old:
-    displayName: "创建天数"
-
+    displayName: 创建天数
 views:
   - type: table
-    name: "笔记列表"
+    name: 笔记列表
     order:
       - file.name
       - file.folder
@@ -35,9 +32,8 @@ views:
       - formula.days_old
     summaries:
       file.name: Count
-
   - type: cards
-    name: "卡片概览"
+    name: 卡片概览
     order:
       - file.name
       - file.tags

@@ -62,6 +62,7 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 - **Markdown 零基础** → 从 [section2](section2/) 开始
 - **想学 Git 协作** → 跳至 [section4](section4/)
 - **对 Obsidian 进阶功能感兴趣** → 查看 [section5](section5/)（Canvas + Advanced Canvas + frontmatter）和 [section6](section6/)（Bases）
+- **需要多设备同步** → 查看 [section7](section7/)（Syncthing 局域网同步）
 - **想用 AI 辅助写作/编码** → 查看 [section8](section8/) 和 [section9](section9/)（Copilot）
 
 ---
@@ -77,7 +78,7 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 | **→ section4** | **Git/GitHub 可视化协作**                 | **✅ 完成** |
 | **→ section5** | **Obsidian Canvas（含 Advanced Canvas）** | **✅ 完成** |
 | **→ section6** | **Obsidian Bases 基础**                   | **✅ 完成** |
-| section7       | Syncthing 局域网同步                      | ⬜ 待编写   |
+| **→ section7** | **Syncthing 局域网同步**                  | **✅ 完成** |
 | **→ section8** | **VS Code Copilot 基础**                  | **✅ 完成** |
 | **→ section9** | **Copilot 实战案例**                      | **✅ 完成** |
 | 附录           | 术语表 / FAQ / 更新日志                   | ⬜ 待编写   |
