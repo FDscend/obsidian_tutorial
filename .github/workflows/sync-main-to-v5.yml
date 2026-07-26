@@ -25,7 +25,7 @@ jobs:
       - name: Sync content from main to v5/content/
         run: |
           # 复制需要发布的目录和文件到 v5/content/
-          for dir in section0 section1 section2 section3 section4 section5 section6 section7 section8 section9 appendix image; do
+          for dir in section0 section1 section2 section3 section4 section5 section6 section7 section8 section9 section10 appendix image; do
             if [ -d "$dir" ]; then
               rsync -a --delete "$dir/" "v5-branch/content/$dir/"
             fi

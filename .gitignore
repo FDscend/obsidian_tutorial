@@ -1,6 +1,6 @@
 .obsidian/
 .vscode/
-.github/
+.github/*
 !.github/workflows/
 !.github/workflows/**
 
