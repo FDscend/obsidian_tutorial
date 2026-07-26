@@ -69,6 +69,14 @@ description: "从零开始的 Obsidian 笔记与发布教程"
 - [[section9/03_copilot案例_skill制作与安装|Copilot 案例：Skill 制作与安装]]
 - [[section9/04_开源skill检索与接入|开源 Skill 检索与接入]]
 
+### 静态网站部署
+
+- [[section10/00_quarts静态网站部署|Quartz 静态网站部署]]
+- [[section10/01_环境准备与quarts安装|环境准备与 Quartz 安装]]
+- [[section10/02_配置与本地构建|配置与本地构建]]
+- [[section10/03_自动化部署流水线|自动化部署流水线]]
+- [[section10/04_日常同步与维护|日常同步与维护]]
+
 ### 附录
 
 - [[appendix/A_术语表|术语表]]
