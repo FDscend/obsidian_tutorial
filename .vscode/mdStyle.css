@@ -1,0 +1,88 @@
+/* 2025-10-04 */
+h1::before {
+  content: "§" counter(chapterH1) ". ";
+}
+
+h1 {
+  text-align: center;
+  counter-increment: chapterH1;
+  counter-reset: chapterH2;
+}
+
+h2::before {
+  content: "§" counter(chapterH1) "." counter(chapterH2) ". ";
+}
+
+h2 {
+  counter-increment: chapterH2;
+  counter-reset: chapterH3;
+}
+
+h3::before {
+  content: "§" counter(chapterH1) "." counter(chapterH2) "." counter(chapterH3)
+    ". ";
+}
+
+h3 {
+  counter-increment: chapterH3;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: "霞鹜文楷 GB", "霞鹜文楷";
+}
+
+img {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+figcaption {
+  text-align: center;
+}
+
+video {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+audio {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+table {
+  margin: auto;
+  width: 100%;
+}
+
+.markdown-body strong {
+  color: #d32f2f;
+}
+
+.markdown-body strong mark {
+  color: #d32f2f;
+}
+
+em {
+  color: #f4511e;
+}
+
+mark {
+  background-color: rgba(255, 208, 0, 0.4);
+}
+
+div.mermaid {
+  text-align: center;
+}
+
+div.mermaid .cluster rect {
+  rx: 5;
+  ry: 5;
+  fill: transparent !important;
+  stroke: gray !important;
+}
