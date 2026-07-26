@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>02_obsidian_web_clipper使用 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-80b86297.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="02_obsidian_web_clipper使用 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="02_obsidian_web_clipper使用 | Obsidian 教程"/><meta name="twitter:description" content="Obsidian Web Clipper 使用 学习目标 了解 Obsidian Web Clipper 的功能与适用场景。 掌握 Web Clipper 浏览器扩展的安装方法（Chrome / Edge / Firefox / Safari）。 掌握将网页内容剪藏到 Obsidian Vault 的基本操作。 了解模板、变量、高亮、解释器等进阶功能。 掌握 Web Clipper 的配置与管理方法。 前置条件 已安装 Obsidian 并打开本仓库为 Vault（参考 section1/01）。 Obsidian 版本 ≥ 1.7.2（Web Clipper 依赖新版 Obsidian UR..."/><meta property="og:description" content="Obsidian Web Clipper 使用 学习目标 了解 Obsidian Web Clipper 的功能与适用场景。 掌握 Web Clipper 浏览器扩展的安装方法（Chrome / Edge / Firefox / Safari）。 掌握将网页内容剪藏到 Obsidian Vault 的基本操作。 了解模板、变量、高亮、解释器等进阶功能。 掌握 Web Clipper 的配置与管理方法。 前置条件 已安装 Obsidian 并打开本仓库为 Vault（参考 section1/01）。 Obsidian 版本 ≥ 1.7.2（Web Clipper 依赖新版 Obsidian UR..."/><meta property="og:image:alt" content="Obsidian Web Clipper 使用 学习目标 了解 Obsidian Web Clipper 的功能与适用场景。 掌握 Web Clipper 浏览器扩展的安装方法（Chrome / Edge / Firefox / Safari）。 掌握将网页内容剪藏到 Obsidian Vault 的基本操作。 了解模板、变量、高亮、解释器等进阶功能。 掌握 Web Clipper 的配置与管理方法。 前置条件 已安装 Obsidian 并打开本仓库为 Vault（参考 section1/01）。 Obsidian 版本 ≥ 1.7.2（Web Clipper 依赖新版 Obsidian UR..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section5/02_obsidian_web_clipper使用"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section5/02_obsidian_web_clipper使用"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Obsidian Web Clipper 使用 学习目标 了解 Obsidian Web Clipper 的功能与适用场景。 掌握 Web Clipper 浏览器扩展的安装方法（Chrome / Edge / Firefox / Safari）。 掌握将网页内容剪藏到 Obsidian Vault 的基本操作。 了解模板、变量、高亮、解释器等进阶功能。 掌握 Web Clipper 的配置与管理方法。 前置条件 已安装 Obsidian 并打开本仓库为 Vault（参考 section1/01）。 Obsidian 版本 ≥ 1.7.2（Web Clipper 依赖新版 Obsidian UR..."/><meta name="generator" content="Quartz"/><link href="../index-80b86297.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section5/02_obsidian_web_clipper使用-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section5/02_obsidian_web_clipper使用-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section5/02_obsidian_web_clipper使用-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section5/02_obsidian_web_clipper使用" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-22" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-22" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section5/">section5</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>02_obsidian_web_clipper使用</a></div></nav><h1 class="article-title">02_obsidian_web_clipper使用</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/obsidian" class="internal internal-link tag-link">obsidian</a><span class="note-properties-separator">, </span><a href="../tags/web-clipper" class="internal internal-link tag-link">web-clipper</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-07-26T12:49:59.231Z">2026年7月26日</time><span>13分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="obsidian-web-clipper-使用">Obsidian Web Clipper 使用<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#obsidian-web-clipper-使用" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>了解 Obsidian Web Clipper 的功能与适用场景。</li>
+<li>掌握 Web Clipper 浏览器扩展的安装方法（Chrome / Edge / Firefox / Safari）。</li>
+<li>掌握将网页内容剪藏到 Obsidian Vault 的基本操作。</li>
+<li>了解模板、变量、高亮、解释器等进阶功能。</li>
+<li>掌握 Web Clipper 的配置与管理方法。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已安装 Obsidian 并打开本仓库为 Vault（参考 <a href=".././section1/01_obsidian安装与配置" class="internal internal-link alias" data-slug="section1/01_obsidian安装与配置">section1/01</a>）。</li>
+<li>Obsidian 版本 ≥ <strong>1.7.2</strong>（Web Clipper 依赖新版 Obsidian URI 功能）。</li>
+<li>安装任一主流浏览器：Chrome / Edge / Firefox / Safari。</li>
+</ul>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>查看 Obsidian 版本 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>在 Obsidian 中打开 <strong>设置 → 关于</strong>，即可查看当前版本号。如果版本低于 1.7.2，请先更新 Obsidian。</p>
+</div>
+</blockquote>
+<h2 id="obsidian-web-clipper-是什么">Obsidian Web Clipper 是什么<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#obsidian-web-clipper-是什么" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><a href="https://obsidian.md/clipper" class="external external-link">Obsidian Web Clipper<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> 是 Obsidian 官方推出的<strong>免费浏览器扩展</strong>，让你可以从浏览器中直接保存网页内容到 Obsidian Vault。</p>
+<h3 id="核心功能">核心功能<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#核心功能" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>剪藏网页</strong>：一键将网页正文保存为 Markdown 笔记。</li>
+<li><strong>高亮标注</strong>：在网页上高亮重要段落，剪藏时自动保留。</li>
+<li><strong>智能解释器</strong>：使用自然语言提示词，让 AI 帮你提取网页关键信息。</li>
+<li><strong>自定义模板</strong>：通过模板自动提取标题、日期、域名、元数据等。</li>
+<li><strong>多种保存方式</strong>：支持添加到 Obsidian、保存为文件、复制到剪贴板。</li>
+</ul>
+<h3 id="适用场景">适用场景<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#适用场景" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>研究收集</strong>：将在线文章、论文、文档保存到 Obsidian 以便后续阅读。</li>
+<li><strong>知识管理</strong>：将网页中的有用信息转化为永久笔记。</li>
+<li><strong>灵感采集</strong>：收藏设计灵感、代码片段、教程等。</li>
+<li><strong>学习笔记</strong>：在阅读在线课程或文档时，标注并保存重要内容。</li>
+</ul>
+<blockquote>
+<p>Web Clipper 与前文介绍的 <a href="../section5/00_obsidian_canvas基础" class="internal internal-link alias" data-slug="section5/00_obsidian_canvas基础">Canvas</a> 和 <a href=".././section6/00_obsidian_bases基础" class="internal internal-link alias" data-slug="section6/00_obsidian_bases基础">Bases</a> 配合使用，可以形成完整的”<strong>收集 → 整理 → 管理</strong>”工作流。</p>
+</blockquote>
+<h2 id="步骤">步骤<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#步骤" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="第-1-步安装浏览器扩展">第 1 步：安装浏览器扩展<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-1-步安装浏览器扩展" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Web Clipper 提供多个浏览器版本，请根据你的浏览器选择安装方式：</p>
+<h4 id="chrome--brave--arc-等-chromium-浏览器">Chrome / Brave / Arc 等 Chromium 浏览器<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#chrome--brave--arc-等-chromium-浏览器" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>打开 Chrome 网上应用店：<a href="https://chromewebstore.google.com/detail/obsidian-web-clipper/cnjifjpddelmedmihgijeibhnjfabmlf" class="external external-link">Obsidian Web Clipper<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>。</li>
+<li>点击 <strong>添加到 Chrome</strong>。</li>
+<li>在弹出的权限对话框中点击 <strong>添加扩展程序</strong>。</li>
+<li>安装完成后，浏览器工具栏右上角会出现 Obsidian 图标。</li>
+</ol>
+<h4 id="microsoft-edge">Microsoft Edge<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#microsoft-edge" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>打开 Edge 加载项页面：<a href="https://microsoftedge.microsoft.com/addons/detail/obsidian-web-clipper/eigdjhmgnaaeaonimdklocfekkaanfme" class="external external-link">Obsidian Web Clipper<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>。</li>
+<li>点击 <strong>获取</strong> → <strong>添加扩展</strong>。</li>
+</ol>
+<h4 id="firefox--firefox-mobile">Firefox / Firefox Mobile<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#firefox--firefox-mobile" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>打开 Firefox 附加组件页面：<a href="https://addons.mozilla.org/en-US/firefox/addon/web-clipper-obsidian/" class="external external-link">Obsidian Web Clipper<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>。</li>
+<li>点击 <strong>添加到 Firefox</strong>。</li>
+<li>确认权限后点击 <strong>添加</strong>。</li>
+</ol>
+<h4 id="safarimacos--ios--ipados">Safari（macOS / iOS / iPadOS）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#safarimacos--ios--ipados" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>打开 Mac App Store：<a href="https://apps.apple.com/us/app/obsidian-web-clipper/id6720708363" class="external external-link">Obsidian Web Clipper<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>。</li>
+<li>下载安装后，在 Safari → <strong>设置 → 扩展</strong> 中启用 Web Clipper。</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>安装后固定扩展 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>建议在浏览器工具栏中<strong>固定</strong> Obsidian Web Clipper 图标（Chrome/Edge 中点击拼图图标 → 找到 Web Clipper → 点击图钉按钮），方便日常使用。</p>
+</div>
+</blockquote>
+<h3 id="第-2-步连接-obsidian-vault">第 2 步：连接 Obsidian Vault<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-2-步连接-obsidian-vault" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>安装扩展后，需要将其连接到你的 Obsidian Vault：</p>
+<ol>
+<li>点击浏览器工具栏中的 Obsidian 图标，打开 Web Clipper 弹窗。</li>
+<li>首次使用时，点击 <strong>连接 Obsidian</strong> 或 <strong>设置</strong>。</li>
+<li><strong>自动检测</strong>：如果 Obsidian 正在运行，扩展会自动检测到本地 Vault。</li>
+<li>选择本教程仓库对应的 Vault 名称。</li>
+<li>点击 <strong>连接</strong>。Obsidian 会收到连接请求，确认后即可。</li>
+</ol>
+<blockquote>
+<p>如果自动检测失败，可以手动配置：</p>
+<ul>
+<li>复制 Obsidian URI 并粘贴到扩展设置中。</li>
+<li>确保 Obsidian 处于运行状态。</li>
+</ul>
+</blockquote>
+<h3 id="第-3-步基本剪藏操作">第 3 步：基本剪藏操作<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-3-步基本剪藏操作" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>连接成功后，就可以开始剪藏网页了。</p>
+<h4 id="剪藏整个页面">剪藏整个页面<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#剪藏整个页面" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>浏览到你想要保存的网页。</li>
+<li>点击浏览器工具栏的 Obsidian 图标。</li>
+<li>扩展弹窗会显示网页标题和预览内容。</li>
+<li>选择保存位置（Vault 中的目标文件夹）。</li>
+<li>点击 <strong>添加到 Obsidian</strong>。</li>
+</ol>
+<p>几秒后，网页内容就会以 Markdown 格式保存到你的 Obsidian Vault 中。</p>
+<h4 id="剪藏选中内容">剪藏选中内容<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#剪藏选中内容" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>在网页上选中你想要保存的文本段落。</li>
+<li>右键 → 选择 <strong>剪藏到 Obsidian</strong>（或点击 Obsidian 图标）。</li>
+<li>扩展会自动提取选中内容作为笔记。</li>
+<li>选择目标文件夹，点击保存。</li>
+</ol>
+<h4 id="剪藏结果示例">剪藏结果示例<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#剪藏结果示例" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>保存后的笔记会自动包含以下 Frontmatter：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">title</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;网页标题&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">source</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;https://example.com/article&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">domain</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;example.com&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">published</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;2026-01-15&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;页面描述或摘要&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">tags</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">web-clipper</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span></code></pre></figure>
+<blockquote>
+<p>笔记内容为网页正文的 Markdown 转换，保留了标题层级、链接、图片等格式。</p>
+</blockquote>
+<h3 id="第-4-步使用高亮功能">第 4 步：使用高亮功能<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-4-步使用高亮功能" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Web Clipper 支持在网页上直接标注高亮，剪藏时自动保留：</p>
+<ol>
+<li>打开任意网页。</li>
+<li>再次点击 Obsidian 图标，进入 <strong>阅读器模式</strong>（Reader View）。</li>
+<li>在阅读器模式中选中文字，会出现<strong>高亮</strong>按钮。</li>
+<li>点击高亮按钮，选中段落会被标记为高亮。</li>
+<li>剪藏时，高亮内容会包含在笔记中，并保留原文引用。</li>
+</ol>
+<blockquote>
+<p>高亮功能的快捷键：</p>
+<ul>
+<li>选择文本后按 <code>H</code> 键快速高亮。</li>
+<li>在阅读器模式中，高亮段落会显示在侧边栏。</li>
+</ul>
+</blockquote>
+<h3 id="第-5-步使用模板">第 5 步：使用模板<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-5-步使用模板" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>模板是 Web Clipper 最强大的功能之一，可以自动提取网页元数据并格式化输出。</p>
+<h4 id="选择预设模板">选择预设模板<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#选择预设模板" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>点击 Obsidian 图标 → 打开模板选择器。</li>
+<li>Web Clipper 内置了多个预设模板，如：
+<ul>
+<li><strong>默认模板</strong>：基本文章格式。</li>
+<li><strong>文章模板</strong>：含标题、作者、日期、摘要的完整格式。</li>
+<li><strong>简洁模板</strong>：仅保留正文，无额外元数据。</li>
+<li><strong>食谱模板</strong>：专门用于保存烹饪食谱。</li>
+</ul>
+</li>
+<li>选择一个模板，预览效果，点击保存。</li>
+</ol>
+<h4 id="创建自定义模板">创建自定义模板<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#创建自定义模板" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>点击 Obsidian 图标 → <strong>设置</strong> → <strong>模板</strong>。</li>
+<li>点击 <strong>新建模板</strong>。</li>
+<li>编辑模板内容，可使用变量自动填充网页数据。</li>
+</ol>
+<p><strong>模板示例：</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">title</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;{{title}}&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">source</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;{{url}}&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">domain</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;{{domain}}&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">published</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;{{published}}&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">tags</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">web-clipper</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - { { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">domain</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation"> } }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation"># {{title}}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> </span><span style="--shiki-light:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold;" data-token-type="punctuation">**来源**</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="comment">：{{site}} · {{published}}</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> </span><span style="--shiki-light:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold;" data-token-type="punctuation">**原文链接**</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="comment">：[</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">{{url}}</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">](</span><span style="--shiki-light:#22863A;--shiki-light-text-decoration:underline;--shiki-dark:#85E89D;--shiki-dark-text-decoration:underline;" data-token-type="normal">{{url}}</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 摘要</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{{description}}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="tag">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{{content}}</span></span></code></pre></figure>
+<h4 id="可用变量">可用变量<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#可用变量" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">变量</th><th style="text-align:left;">说明</th></tr></thead><tbody><tr><td style="text-align:left;"><code>{{title}}</code></td><td style="text-align:left;">网页标题</td></tr><tr><td style="text-align:left;"><code>{{url}}</code></td><td style="text-align:left;">当前网页 URL</td></tr><tr><td style="text-align:left;"><code>{{domain}}</code></td><td style="text-align:left;">域名</td></tr><tr><td style="text-align:left;"><code>{{site}}</code></td><td style="text-align:left;">站点名称</td></tr><tr><td style="text-align:left;"><code>{{published}}</code></td><td style="text-align:left;">发布日期</td></tr><tr><td style="text-align:left;"><code>{{description}}</code></td><td style="text-align:left;">页面描述/摘要</td></tr><tr><td style="text-align:left;"><code>{{content}}</code></td><td style="text-align:left;">网页正文（Markdown）</td></tr><tr><td style="text-align:left;"><code>{{selection}}</code></td><td style="text-align:left;">选中的文本（Markdown）</td></tr><tr><td style="text-align:left;"><code>{{selectionHtml}}</code></td><td style="text-align:left;">选中的文本（HTML）</td></tr><tr><td style="text-align:left;"><code>{{image}}</code></td><td style="text-align:left;">页面社交分享图 URL</td></tr><tr><td style="text-align:left;"><code>{{favicon}}</code></td><td style="text-align:left;">站点图标 URL</td></tr><tr><td style="text-align:left;"><code>{{words}}</code></td><td style="text-align:left;">字数统计</td></tr><tr><td style="text-align:left;"><code>{{time}}</code></td><td style="text-align:left;">当前时间</td></tr><tr><td style="text-align:left;"><code>{{highlights}}</code></td><td style="text-align:left;">高亮内容</td></tr></tbody></table></div>
+<blockquote>
+<p>更多模板示例可参考 <a href="https://github.com/kepano/clipper-templates" class="external external-link">clipper-templates 仓库<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>。</p>
+</blockquote>
+<h3 id="第-6-步使用解释器interpreter">第 6 步：使用解释器（Interpreter）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-6-步使用解释器interpreter" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>解释器利用 AI 模型，根据你设定的提示词智能提取网页信息。</p>
+<h4 id="启用解释器">启用解释器<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#启用解释器" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>点击 Obsidian 图标 → <strong>设置</strong> → <strong>解释器</strong>。</li>
+<li>开启 <strong>启用解释器</strong>。</li>
+<li>配置 AI 模型提供商（支持 OpenAI、Anthropic、DeepSeek、Ollama 等）。</li>
+<li>添加 API Key 并选择模型。</li>
+</ol>
+<h4 id="使用解释器">使用解释器<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#使用解释器" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>在模板中添加提示词变量：
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 关键要点</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{{prompt:提取这篇文章的 3 个关键要点}}</span></span></code></pre></figure>
+</li>
+<li>剪藏网页时，扩展会调用 AI 分析页面内容。</li>
+<li>AI 根据提示词生成结果并填充到笔记中。</li>
+</ol>
+<blockquote>
+<p>解释器为<strong>可选功能</strong>，如果不配置 AI 模型，模板中的 <code>{{prompt:...}}</code> 变量会被忽略。</p>
+</blockquote>
+<h3 id="第-7-步管理与设置">第 7 步：管理与设置<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-7-步管理与设置" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="查看剪藏历史">查看剪藏历史<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#查看剪藏历史" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>点击 Obsidian 图标 → <strong>设置</strong> → <strong>历史</strong>。</li>
+<li>可以查看所有剪藏记录，包括时间、页面标题、目标 Vault。</li>
+</ol>
+<h4 id="导出高亮">导出高亮<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#导出高亮" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>设置 → <strong>导出高亮</strong> → 将高亮数据导出为 JSON 文件。</li>
+<li>可用于备份或迁移到其他工具。</li>
+</ol>
+<h4 id="重要设置项">重要设置项<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#重要设置项" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">设置</th><th style="text-align:left;">说明</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>保存行为</strong></td><td style="text-align:left;">选择”添加到 Obsidian”、“保存为文件”或”复制到剪贴板”</td></tr><tr><td style="text-align:left;"><strong>静态打开</strong></td><td style="text-align:left;">剪藏后不自动切换到 Obsidian 窗口</td></tr><tr><td style="text-align:left;"><strong>默认模板</strong></td><td style="text-align:left;">设置默认使用的模板</td></tr><tr><td style="text-align:left;"><strong>Beta 功能</strong></td><td style="text-align:left;">开启实验性功能（需 Obsidian 最新版本）</td></tr><tr><td style="text-align:left;"><strong>阅读器主题</strong></td><td style="text-align:left;">选择阅读器模式的外观主题（Flexoki、Ayu、Catppuccin 等）</td></tr></tbody></table></div>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="qweb-clipper-无法连接到-obsidian">Q：Web Clipper 无法连接到 Obsidian？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#qweb-clipper-无法连接到-obsidian" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>确认 Obsidian 正在运行且版本 ≥ 1.7.2。</li>
+<li>在扩展设置中点击”重新连接”。</li>
+<li>如果使用 Flatpak 或 Snap 安装的 Obsidian，URI 协议可能需要额外配置。</li>
+<li>重启浏览器和 Obsidian 后重试。</li>
+</ol>
+<h3 id="q剪藏的内容格式混乱">Q：剪藏的内容格式混乱？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#q剪藏的内容格式混乱" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>尝试在扩展设置中开启<strong>阅读器模式</strong>，以获得更干净的正文提取。</li>
+<li>部分动态网页（如单页应用）可能无法正常提取，可以尝试选中内容后剪藏。</li>
+<li>如果某些网站始终格式异常，可以为该网站创建自定义模板。</li>
+</ul>
+<h3 id="q剪藏时某些内容缺失">Q：剪藏时某些内容缺失？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#q剪藏时某些内容缺失" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>网页中的动态加载内容（如无限滚动）可能无法被完整捕获。</li>
+<li>评论区域通常不会被提取。</li>
+<li>可以尝试在页面完全加载后再进行剪藏。</li>
+</ul>
+<h3 id="qweb-clipper-支持手机端吗">Q：Web Clipper 支持手机端吗？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#qweb-clipper-支持手机端吗" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Android</strong>：Firefox Mobile 支持安装 Web Clipper 扩展。</li>
+<li><strong>iOS/iPadOS</strong>：Safari 版本可从 App Store 下载。</li>
+<li>手机端剪藏的内容会通过 Obsidian URI 发送到手机上的 Obsidian 应用。</li>
+</ul>
+<h3 id="q如何分享或导入模板">Q：如何分享或导入模板？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#q如何分享或导入模板" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>在模板设置中，可以<strong>导出</strong>模板为 JSON 文件。</li>
+<li>导入时点击”导入模板”，选择 JSON 文件即可。</li>
+<li>社区模板仓库：<a href="https://github.com/kepano/clipper-templates" class="external external-link">github.com/kepano/clipper-templates<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>。</li>
+</ul>
+<h2 id="练习任务">练习任务<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#练习任务" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>在浏览器中安装 Obsidian Web Clipper 扩展。</li>
+<li>将扩展连接到本教程 Vault。</li>
+<li>找一篇你感兴趣的在线文章，使用默认模板剪藏到 Obsidian。</li>
+<li>创建一个自定义模板，添加 <code>{{domain}}</code> 和 <code>{{published}}</code> 变量。</li>
+<li>（选做）在阅读器模式中高亮一段文字，保存后检查高亮是否保留。</li>
+</ol>
+<h2 id="验收清单">验收清单<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验收清单" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Web Clipper 扩展已安装并在浏览器工具栏显示图标。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 扩展已成功连接到 Obsidian Vault。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用默认模板剪藏网页内容。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 理解模板变量的作用并能创建简单的自定义模板。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 了解高亮功能和解释器（Interpreter）的用法。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 知道如何配置 Web Clipper 的设置项。</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-22" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#obsidian-web-clipper-使用" data-for="obsidian-web-clipper-使用">Obsidian Web Clipper 使用</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#obsidian-web-clipper-是什么" data-for="obsidian-web-clipper-是什么">Obsidian Web Clipper 是什么</a></li><li class="depth-2"><a href="#核心功能" data-for="核心功能">核心功能</a></li><li class="depth-2"><a href="#适用场景" data-for="适用场景">适用场景</a></li><li class="depth-1"><a href="#步骤" data-for="步骤">步骤</a></li><li class="depth-2"><a href="#第-1-步安装浏览器扩展" data-for="第-1-步安装浏览器扩展">第 1 步：安装浏览器扩展</a></li><li class="depth-2"><a href="#第-2-步连接-obsidian-vault" data-for="第-2-步连接-obsidian-vault">第 2 步：连接 Obsidian Vault</a></li><li class="depth-2"><a href="#第-3-步基本剪藏操作" data-for="第-3-步基本剪藏操作">第 3 步：基本剪藏操作</a></li><li class="depth-2"><a href="#第-4-步使用高亮功能" data-for="第-4-步使用高亮功能">第 4 步：使用高亮功能</a></li><li class="depth-2"><a href="#第-5-步使用模板" data-for="第-5-步使用模板">第 5 步：使用模板</a></li><li class="depth-2"><a href="#第-6-步使用解释器interpreter" data-for="第-6-步使用解释器interpreter">第 6 步：使用解释器（Interpreter）</a></li><li class="depth-2"><a href="#第-7-步管理与设置" data-for="第-7-步管理与设置">第 7 步：管理与设置</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="depth-2"><a href="#qweb-clipper-无法连接到-obsidian" data-for="qweb-clipper-无法连接到-obsidian">Q：Web Clipper 无法连接到 Obsidian？</a></li><li class="depth-2"><a href="#q剪藏的内容格式混乱" data-for="q剪藏的内容格式混乱">Q：剪藏的内容格式混乱？</a></li><li class="depth-2"><a href="#q剪藏时某些内容缺失" data-for="q剪藏时某些内容缺失">Q：剪藏时某些内容缺失？</a></li><li class="depth-2"><a href="#qweb-clipper-支持手机端吗" data-for="qweb-clipper-支持手机端吗">Q：Web Clipper 支持手机端吗？</a></li><li class="depth-2"><a href="#q如何分享或导入模板" data-for="q如何分享或导入模板">Q：如何分享或导入模板？</a></li><li class="depth-1"><a href="#练习任务" data-for="练习任务">练习任务</a></li><li class="depth-1"><a href="#验收清单" data-for="验收清单">验收清单</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../" class="internal">Obsidian 教程</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>01_局域网同步仓库实战 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-80b86297.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="01_局域网同步仓库实战 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="01_局域网同步仓库实战 | Obsidian 教程"/><meta name="twitter:description" content="Syncthing 实战：局域网同步仓库 学习目标 掌握两台设备间通过 Syncthing 配对的方法。 掌握文件夹共享配置（双向同步）。 掌握同步状态监控与冲突处理。 理解版本控制配置与冲突副本恢复。 了解 Git + Syncthing 互补使用的策略。 前置条件 已完成 00_syncthing安装与概念 的学习，至少一台设备已完成安装与文件夹添加。 准备两台（或以上）设备，均安装并启动 Syncthing。 所有设备处于同一局域网内（连接到同一个路由器/交换机）。 可选：在防火墙中允许 Syncthing 通过专用网络。 项目概述 在本实战项目中，你将完成以下任务： 将两台设备通过 S..."/><meta property="og:description" content="Syncthing 实战：局域网同步仓库 学习目标 掌握两台设备间通过 Syncthing 配对的方法。 掌握文件夹共享配置（双向同步）。 掌握同步状态监控与冲突处理。 理解版本控制配置与冲突副本恢复。 了解 Git + Syncthing 互补使用的策略。 前置条件 已完成 00_syncthing安装与概念 的学习，至少一台设备已完成安装与文件夹添加。 准备两台（或以上）设备，均安装并启动 Syncthing。 所有设备处于同一局域网内（连接到同一个路由器/交换机）。 可选：在防火墙中允许 Syncthing 通过专用网络。 项目概述 在本实战项目中，你将完成以下任务： 将两台设备通过 S..."/><meta property="og:image:alt" content="Syncthing 实战：局域网同步仓库 学习目标 掌握两台设备间通过 Syncthing 配对的方法。 掌握文件夹共享配置（双向同步）。 掌握同步状态监控与冲突处理。 理解版本控制配置与冲突副本恢复。 了解 Git + Syncthing 互补使用的策略。 前置条件 已完成 00_syncthing安装与概念 的学习，至少一台设备已完成安装与文件夹添加。 准备两台（或以上）设备，均安装并启动 Syncthing。 所有设备处于同一局域网内（连接到同一个路由器/交换机）。 可选：在防火墙中允许 Syncthing 通过专用网络。 项目概述 在本实战项目中，你将完成以下任务： 将两台设备通过 S..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section7/01_局域网同步仓库实战"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section7/01_局域网同步仓库实战"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Syncthing 实战：局域网同步仓库 学习目标 掌握两台设备间通过 Syncthing 配对的方法。 掌握文件夹共享配置（双向同步）。 掌握同步状态监控与冲突处理。 理解版本控制配置与冲突副本恢复。 了解 Git + Syncthing 互补使用的策略。 前置条件 已完成 00_syncthing安装与概念 的学习，至少一台设备已完成安装与文件夹添加。 准备两台（或以上）设备，均安装并启动 Syncthing。 所有设备处于同一局域网内（连接到同一个路由器/交换机）。 可选：在防火墙中允许 Syncthing 通过专用网络。 项目概述 在本实战项目中，你将完成以下任务： 将两台设备通过 S..."/><meta name="generator" content="Quartz"/><link href="../index-80b86297.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section7/01_局域网同步仓库实战-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section7/01_局域网同步仓库实战-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section7/01_局域网同步仓库实战-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section7/01_局域网同步仓库实战" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-26" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-26" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section7/">section7</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>01_局域网同步仓库实战</a></div></nav><h1 class="article-title">01_局域网同步仓库实战</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/syncthing" class="internal internal-link tag-link">syncthing</a><span class="note-properties-separator">, </span><a href="../tags/sync" class="internal internal-link tag-link">sync</a><span class="note-properties-separator">, </span><a href="../tags/project" class="internal internal-link tag-link">project</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-07-26T12:49:59.231Z">2026年7月26日</time><span>15分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="syncthing-实战局域网同步仓库">Syncthing 实战：局域网同步仓库<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#syncthing-实战局域网同步仓库" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>掌握两台设备间通过 Syncthing 配对的方法。</li>
+<li>掌握文件夹共享配置（双向同步）。</li>
+<li>掌握同步状态监控与冲突处理。</li>
+<li>理解版本控制配置与冲突副本恢复。</li>
+<li>了解 Git + Syncthing 互补使用的策略。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已完成 <a href="../section7/00_syncthing安装与概念" class="internal internal-link alias" data-slug="section7/00_syncthing安装与概念">00_syncthing安装与概念</a> 的学习，至少一台设备已完成安装与文件夹添加。</li>
+<li>准备两台（或以上）设备，均安装并启动 Syncthing。</li>
+<li>所有设备处于<strong>同一局域网</strong>内（连接到同一个路由器/交换机）。</li>
+<li>可选：在防火墙中允许 Syncthing 通过专用网络。</li>
+</ul>
+<h2 id="项目概述">项目概述<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#项目概述" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>在本实战项目中，你将完成以下任务：</p>
+<ol>
+<li>将两台设备通过 Syncthing 配对，建立信任关系。</li>
+<li>将本教程仓库文件夹配置为双向同步，实现多设备实时同步。</li>
+<li>监控同步状态，处理可能出现的冲突。</li>
+<li>配置文件版本控制，保障数据安全。</li>
+</ol>
+<blockquote>
+<p>🎯 <strong>最终效果</strong>：在工作电脑和笔记本上分别编辑 Obsidian 笔记，Syncthing 自动将改动同步到另一台设备，无需手动拷贝或推送。</p>
+</blockquote>
+<h2 id="步骤">步骤<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#步骤" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="第-1-步确认两台设备的-syncthing-状态">第 1 步：确认两台设备的 Syncthing 状态<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-1-步确认两台设备的-syncthing-状态" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在每台设备上：</p>
+<ol>
+<li>打开 <code>http://127.0.0.1:8384</code> 进入 Web UI。</li>
+<li>确认状态显示为 <strong>已就绪</strong>（绿色对勾）。</li>
+<li>确认<strong>防火墙</strong>没有阻止 Syncthing 通信：
+<ul>
+<li>Windows：检查 Windows Defender 防火墙 → 允许应用 → 确保 <strong>Syncthing</strong> 和 <strong>SyncTrayzor</strong> 在<strong>专用网络</strong>中已允许。</li>
+<li>macOS：系统设置 → 网络 → 防火墙 → 允许 Syncthing。</li>
+<li>Linux：检查 <code>ufw status</code>，确保端口 <code>22000/tcp</code> 和 <code>21027/udp</code> 已放行（局域网内通常不需额外配置）。</li>
+<li>Android：Android 系统通常不会阻止 Syncthing 局域网通信，但需确保<strong>省电模式</strong>未限制 Syncthing 后台运行（设置 → 应用 → Syncthing-Fork → 电池 → 选择 <strong>无限制</strong>）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="第-2-步交换设备-id-实现配对">第 2 步：交换设备 ID 实现配对<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-2-步交换设备-id-实现配对" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Syncthing 的设备配对需要交换设备 ID，形成信任关系。</p>
+<h4 id="方法-a通过设备-id-文本添加推荐">方法 A：通过设备 ID 文本添加（推荐）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方法-a通过设备-id-文本添加推荐" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>在设备 A（如工作电脑）上：</strong></p>
+<ol>
+<li>点击 Web UI 底部的 <strong>添加远程设备</strong> 按钮。</li>
+<li>在 <strong>设备 ID</strong> 字段中，粘贴设备 B 的设备 ID。
+<blockquote>
+<p>如何获取设备 ID？在设备 B 的 Web UI 上点击 <strong>此设备 → 显示设备 ID</strong>，复制完整 ID。</p>
+</blockquote>
+</li>
+<li>在 <strong>设备名称</strong> 字段中，输入设备 B 的识别名称（如 “笔记本”）。</li>
+<li>点击 <strong>保存</strong>。</li>
+</ol>
+<p><strong>在设备 B（如笔记本）上：</strong></p>
+<ol>
+<li>此时设备 B 的 Web UI 会弹出一个<strong>配对请求</strong>通知（右上角铃铛图标会有红点）。</li>
+<li>点击通知 → 查看请求来源（应显示设备 A 的设备 ID 和名称）。</li>
+<li>确认无误后，点击 <strong>添加设备</strong>。</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>快速确认设备身份 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>在点击 “添加设备” 之前，建议<strong>面对面</strong>核对设备 ID 的前几位和后几位字符，或在已信任的聊天工具中交换 ID 截图。</p>
+</div>
+</blockquote>
+<h4 id="方法-b通过二维码添加适用于手机平板">方法 B：通过二维码添加（适用于手机/平板）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方法-b通过二维码添加适用于手机平板" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>在设备 A 的 <strong>添加远程设备</strong> 弹窗中，点击设备 ID 输入框右侧的<strong>二维码图标</strong>。</li>
+<li>设备 B（如果是手机/平板）打开 Syncthing 应用 → <strong>添加设备</strong> → 扫描二维码。</li>
+<li>确认后完成配对。</li>
+</ol>
+<h3 id="第-3-步共享文件夹">第 3 步：共享文件夹<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-3-步共享文件夹" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>设备配对后，还需要指定<strong>哪些文件夹</strong>参与同步。</p>
+<h4 id="在设备-a-上共享文件夹">在设备 A 上共享文件夹：<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#在设备-a-上共享文件夹" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>在 Web UI 的 <strong>文件夹</strong> 区域，找到已添加的仓库文件夹（如 “Obsidian 教程”）。</li>
+<li>点击该文件夹右侧的 <strong>编辑</strong>（齿轮图标）。</li>
+<li>在 <strong>共享</strong> 标签页中，勾选刚才添加的设备 B。</li>
+<li>点击 <strong>保存</strong>。</li>
+</ol>
+<h4 id="在设备-b-上接收文件夹">在设备 B 上接收文件夹：<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#在设备-b-上接收文件夹" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>设备 B 将收到一个<strong>文件夹共享请求</strong>通知。</li>
+<li>点击通知，查看请求详情。</li>
+<li>选择文件夹的<strong>本地路径</strong>：
+<ul>
+<li>如果设备 B 上已有同路径的文件夹（如从 Git 克隆的同一仓库），选择 <strong>与现有文件夹合并</strong>。</li>
+<li>如果是全新设备，可以指定一个位置（如 <code>D:\WorkSpace\obsidian_tutorial</code>），Syncthing 会自动创建。</li>
+</ul>
+</li>
+<li>点击 <strong>接受</strong>。</li>
+</ol>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>路径一致性建议 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>虽然 Syncthing 不要求不同设备的文件夹路径相同，但为了减少混淆，<strong>建议在所有设备上使用相同的路径</strong>存放 Obsidian 仓库（例如都在 <code>D:\WorkSpace\obsidian_tutorial</code>）。</p>
+</div>
+</blockquote>
+<h3 id="第-4-步验证同步">第 4 步：验证同步<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-4-步验证同步" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="检查同步状态">检查同步状态<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#检查同步状态" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>在任一台设备的 Web UI 上，稍等片刻（通常几秒内）。</li>
+<li>观察文件夹状态变化：
+<ul>
+<li><strong>未同步</strong>（黄色）：正在同步中，有文件需要传输。</li>
+<li><strong>最新</strong>（绿色）：所有文件已同步完成。</li>
+<li><strong>错误</strong>（红色）：存在冲突或权限问题。</li>
+</ul>
+</li>
+</ol>
+<h4 id="测试同步">测试同步<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#测试同步" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>测试流程：</strong></p>
+<ol>
+<li>在设备 A 上修改任意一个笔记文件（例如在 <code>README.md</code> 末尾加一行注释）。</li>
+<li>保存文件。</li>
+<li>观察设备 A 的 Web UI：文件夹状态变为 <strong>未同步</strong>，同步进度条显示传输进度。</li>
+<li>几秒后状态变为 <strong>最新</strong>。</li>
+<li>切换到设备 B，打开同一文件确认改动已同步。</li>
+</ol>
+<blockquote>
+<p>⚡ 默认情况下，Syncthing 会在文件保存后数秒内触发同步。如果网络通畅，整个过程通常在 10 秒以内。</p>
+</blockquote>
+<h3 id="第-5-步配置文件版本控制">第 5 步：配置文件版本控制<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-5-步配置文件版本控制" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>版本控制可以在文件被误修改或删除时提供恢复能力。</p>
+<h4 id="在每台设备上分别配置">在每台设备上分别配置：<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#在每台设备上分别配置" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>点击文件夹右侧的 <strong>编辑</strong>（齿轮图标）。</li>
+<li>进入 <strong>高级</strong> 标签页。</li>
+<li><strong>文件版本控制</strong> 下拉菜单选择 <strong>简单版本控制</strong>。</li>
+<li><strong>保留版本数</strong> 设为 <code>5</code>（保留最近 5 个被替换或删除的版本）。</li>
+<li>点击 <strong>保存</strong>。</li>
+</ol>
+<h4 id="版本控制策略简介">版本控制策略简介<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#版本控制策略简介" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">策略</th><th style="text-align:left;">说明</th><th style="text-align:left;">适用场景</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>垃圾桶</strong></td><td style="text-align:left;">被替换的文件送到系统回收站</td><td style="text-align:left;">最小化存储占用</td></tr><tr><td style="text-align:left;"><strong>简单版本控制</strong></td><td style="text-align:left;">保留最近 N 个版本的文件副本</td><td style="text-align:left;">大多数日常使用</td></tr><tr><td style="text-align:left;"><strong>阶段性版本控制</strong></td><td style="text-align:left;">按时间间隔保留版本（如每小时 / 每日 / 每周）</td><td style="text-align:left;">需要长时间回溯的场景</td></tr><tr><td style="text-align:left;"><strong>外部文件版本控制</strong></td><td style="text-align:left;">自定义脚本处理同步冲突</td><td style="text-align:left;">高级用户 / 与其他工具集成</td></tr></tbody></table></div>
+<h4 id="恢复旧版本文件">恢复旧版本文件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#恢复旧版本文件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>使用<strong>简单版本控制</strong>时，旧版本文件会保存在与同步文件夹同级的 <code>.stversions</code> 目录中。例如：</p>
+<pre><code>obsidian_tutorial/
+└── .stversions/
+    ├── README.md~20260703-120000.sync-conflict
+    └── section7/
+        └── 00_syncthing安装与概念.md~20260703-121500.sync-conflict
+</code></pre>
+<p>要恢复某个文件的旧版本：</p>
+<ol>
+<li>进入 <code>.stversions</code> 目录。</li>
+<li>找到对应的文件名和时间戳。</li>
+<li>将文件复制回原位置覆盖当前版本（或手动合并）。</li>
+</ol>
+<h3 id="第-6-步处理文件冲突">第 6 步：处理文件冲突<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-6-步处理文件冲突" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>当同一文件在两个设备上<strong>同时被修改</strong>时，Syncthing 无法自动判断哪个版本为最终版本，此时会产生<strong>冲突副本</strong>。</p>
+<h4 id="冲突副本文件名格式">冲突副本文件名格式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#冲突副本文件名格式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>原文件名.md.sync-conflict-20260703-123000-DESKTOP-ABC123
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>.sync-conflict-</code>：冲突标记</li>
+<li><code>20260703-123000</code>：冲突发生的时间（UTC）</li>
+<li><code>DESKTOP-ABC123</code>：产生冲突的设备名称</li>
+</ul>
+<h4 id="解决冲突的推荐工作流">解决冲突的推荐工作流<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#解决冲突的推荐工作流" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>方法一：手动合并（推荐）</strong></p>
+<ol>
+<li>在任意一台设备上打开原始文件和冲突副本。</li>
+<li>逐段比较差异，手动合并为一个最终版本。</li>
+<li>删除冲突副本文件（<code>.sync-conflict-*</code>）。</li>
+<li>保存最终版本，变更将同步到另一台设备。</li>
+</ol>
+<p><strong>方法二：使用 VS Code 比较</strong></p>
+<ol>
+<li>在 VS Code 中打开仓库文件夹。</li>
+<li>在文件资源管理器中选中原始文件。</li>
+<li>右键 → <strong>选择以进行比较</strong>。</li>
+<li>再选中冲突副本文件，右键 → <strong>与已选文件比较</strong>。</li>
+<li>使用 VS Code 的差异编辑器逐行对比，手动合并。</li>
+<li>合并完成后删除冲突副本。</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>避免冲突的习惯 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li>编辑文件前，确认 Syncthing 状态为 <strong>最新</strong>（绿色）。</li>
+<li>在不同设备上错开编辑时间，避免同时修改同一文件。</li>
+<li>如果需要在多设备上频繁编辑同一笔记，考虑采用 <strong>先拉后改</strong> 的策略——先等待同步完成，再开始编辑。</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="第-7-步进阶配置可选">第 7 步：进阶配置（可选）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-7-步进阶配置可选" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="仅发送--仅接收模式">仅发送 / 仅接收模式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#仅发送--仅接收模式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>如果希望在某些设备上只读同步（如媒体服务器），可以修改文件夹类型：</p>
+<ol>
+<li>编辑文件夹 → <strong>高级</strong> 标签页。</li>
+<li><strong>文件夹类型</strong> 下拉菜单：
+<ul>
+<li><strong>仅发送</strong>：本地修改会同步到远端，但远端修改不会同步回来。适用于备份场景。</li>
+<li><strong>仅接收</strong>：接收远端的修改，本地修改不会同步出去。适用于只读展示设备。</li>
+<li><strong>发送和接收</strong>（默认）：双向同步。</li>
+</ul>
+</li>
+</ol>
+<h4 id="引入速率限制">引入速率限制<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#引入速率限制" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>如果同步过程占用过多带宽，可以在设置中限制：</p>
+<ol>
+<li>设置 → 连接。</li>
+<li>在 <strong>速率限制</strong> 中设置最大上传/下载速度（如 <code>10</code> MB/s）。</li>
+<li>点击 <strong>保存</strong>。</li>
+</ol>
+<h4 id="忽略不需要同步的文件">忽略不需要同步的文件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#忽略不需要同步的文件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Syncthing 支持 <code>.stignore</code> 文件，类似于 Git 的 <code>.gitignore</code>。可以在同步文件夹根目录创建 <code>.stignore</code> 文件：</p>
+<pre><code># 忽略 node_modules
+node_modules/
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略 Obsidian 工作区缓存
+.obsidian/workspace.json
+.obsidian/workspace
+</code></pre>
+<blockquote>
+<p>注意：<code>.stignore</code> 文件的修改需要确保所有设备都同步此文件，或分别在每台设备上手动创建。</p>
+</blockquote>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="q配对成功后文件夹状态一直是-未同步">Q：配对成功后文件夹状态一直是 “未同步”？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#q配对成功后文件夹状态一直是-未同步" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>可能的原因：</p>
+<ul>
+<li>两设备网络不通（尝试在设备 A 上 <code>ping</code> 设备 B 的 IP）。</li>
+<li>防火墙阻止了 Syncthing 端口（<code>22000/tcp</code>）。</li>
+<li>文件夹 ID 不匹配（检查两台设备上文件夹 ID 是否完全一致）。</li>
+</ul>
+<h3 id="q同步速度很慢">Q：同步速度很慢？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#q同步速度很慢" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>确认设备处于同一局域网，直连速度最快。</li>
+<li>检查设置中是否启用了<strong>中继</strong>（局域网内应关闭中继以启用直连）。</li>
+<li>确认没有启用速率限制。</li>
+<li>如果有大量小文件需要同步，初始同步会慢一些，耐心等待即可。</li>
+</ul>
+<h3 id="q如何确认两台设备是直连还是通过中继">Q：如何确认两台设备是直连还是通过中继？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#q如何确认两台设备是直连还是通过中继" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>在 Web UI 右侧<strong>远程设备</strong>区域，点击已连接的设备。</li>
+<li>查看 <strong>地址</strong> 列：如果显示 <code>tcp://192.168.x.x:22000</code>，说明是直连；如果显示 <code>relay://</code>，说明通过中继。</li>
+</ol>
+<h3 id="qgit-仓库能用-syncthing-同步吗">Q：Git 仓库能用 Syncthing 同步吗？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#qgit-仓库能用-syncthing-同步吗" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>可以</strong>，但需要注意：</p>
+<ul>
+<li>Syncthing 同步和 Git 版本控制是<strong>互补</strong>的，不是替代关系。</li>
+<li>Git 仓库中的 <code>.git</code> 文件夹会被同步——这通常没问题，但如果两台设备同时执行 Git 操作（如 <code>git commit</code>），可能导致 <code>.git</code> 目录冲突。</li>
+<li><strong>推荐策略</strong>：日常编辑用 Syncthing 实时同步，在正式提交到 GitHub 时<strong>选择一台设备</strong>执行 <code>git add / commit / push</code> 操作，避免多设备同时操作 Git。</li>
+</ul>
+<h2 id="练习任务">练习任务<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#练习任务" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>在两台设备上完成 Syncthing 配对。</li>
+<li>共享本教程仓库文件夹，验证同步正常。</li>
+<li>在设备 A 上创建一个新的测试文件 <code>test-sync.md</code>，确认设备 B 上能自动收到。</li>
+<li>在设备 A 和 B 上先后修改同一文件的<strong>不同位置</strong>，确认同步正常（不产生冲突）。</li>
+<li>（选做）模拟冲突：在两台设备上<strong>同时</strong>修改同一文件的同一位置，观察冲突副本生成，并手动合并解决。</li>
+</ol>
+<h2 id="验收清单">验收清单<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验收清单" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 两台设备已完成配对，远程设备列表中显示对方且状态为 “已连接”。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 文件夹已共享，同步状态显示为 <strong>最新</strong>（绿色）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 文件夹修改可在另一台设备上自动同步（10 秒内）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 已配置文件版本控制（简单版本控制，保留 5 个版本）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 了解冲突副本的识别与解决方法。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 了解 Git + Syncthing 的互补使用策略。</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-26" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#syncthing-实战局域网同步仓库" data-for="syncthing-实战局域网同步仓库">Syncthing 实战：局域网同步仓库</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#项目概述" data-for="项目概述">项目概述</a></li><li class="depth-1"><a href="#步骤" data-for="步骤">步骤</a></li><li class="depth-2"><a href="#第-1-步确认两台设备的-syncthing-状态" data-for="第-1-步确认两台设备的-syncthing-状态">第 1 步：确认两台设备的 Syncthing 状态</a></li><li class="depth-2"><a href="#第-2-步交换设备-id-实现配对" data-for="第-2-步交换设备-id-实现配对">第 2 步：交换设备 ID 实现配对</a></li><li class="depth-2"><a href="#第-3-步共享文件夹" data-for="第-3-步共享文件夹">第 3 步：共享文件夹</a></li><li class="depth-2"><a href="#第-4-步验证同步" data-for="第-4-步验证同步">第 4 步：验证同步</a></li><li class="depth-2"><a href="#第-5-步配置文件版本控制" data-for="第-5-步配置文件版本控制">第 5 步：配置文件版本控制</a></li><li class="depth-2"><a href="#第-6-步处理文件冲突" data-for="第-6-步处理文件冲突">第 6 步：处理文件冲突</a></li><li class="depth-2"><a href="#第-7-步进阶配置可选" data-for="第-7-步进阶配置可选">第 7 步：进阶配置（可选）</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="depth-2"><a href="#q配对成功后文件夹状态一直是-未同步" data-for="q配对成功后文件夹状态一直是-未同步">Q：配对成功后文件夹状态一直是 “未同步”？</a></li><li class="depth-2"><a href="#q同步速度很慢" data-for="q同步速度很慢">Q：同步速度很慢？</a></li><li class="depth-2"><a href="#q如何确认两台设备是直连还是通过中继" data-for="q如何确认两台设备是直连还是通过中继">Q：如何确认两台设备是直连还是通过中继？</a></li><li class="depth-2"><a href="#qgit-仓库能用-syncthing-同步吗" data-for="qgit-仓库能用-syncthing-同步吗">Q：Git 仓库能用 Syncthing 同步吗？</a></li><li class="depth-1"><a href="#练习任务" data-for="练习任务">练习任务</a></li><li class="depth-1"><a href="#验收清单" data-for="验收清单">验收清单</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../" class="internal">Obsidian 教程</a></li><li><a href="../section7/02_常见问题与排障" class="internal">02_常见问题与排障</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>

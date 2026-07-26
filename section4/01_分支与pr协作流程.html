@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>01_分支与PR协作流程 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-80b86297.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="01_分支与PR协作流程 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="01_分支与PR协作流程 | Obsidian 教程"/><meta name="twitter:description" content="分支与 PR 协作流程 学习目标 理解分支的概念与作用。 掌握在 VS Code 中创建、切换、合并分支。 掌握 Pull Request 的创建与 Code Review 流程。 前置条件 已掌握基本 Git 工作流（参考 00_vscode可视化git工作流）。 拥有 GitHub 账号并已登录 VS Code。 为什么需要分支？ graph LR A[main 分支] --> B[稳定版本] A --> C[docs/section4 分支] A --> D[fix/typo 分支] C --> E[合并回 main] D --> E 分支让你可以并行开发而..."/><meta property="og:description" content="分支与 PR 协作流程 学习目标 理解分支的概念与作用。 掌握在 VS Code 中创建、切换、合并分支。 掌握 Pull Request 的创建与 Code Review 流程。 前置条件 已掌握基本 Git 工作流（参考 00_vscode可视化git工作流）。 拥有 GitHub 账号并已登录 VS Code。 为什么需要分支？ graph LR A[main 分支] --> B[稳定版本] A --> C[docs/section4 分支] A --> D[fix/typo 分支] C --> E[合并回 main] D --> E 分支让你可以并行开发而..."/><meta property="og:image:alt" content="分支与 PR 协作流程 学习目标 理解分支的概念与作用。 掌握在 VS Code 中创建、切换、合并分支。 掌握 Pull Request 的创建与 Code Review 流程。 前置条件 已掌握基本 Git 工作流（参考 00_vscode可视化git工作流）。 拥有 GitHub 账号并已登录 VS Code。 为什么需要分支？ graph LR A[main 分支] --> B[稳定版本] A --> C[docs/section4 分支] A --> D[fix/typo 分支] C --> E[合并回 main] D --> E 分支让你可以并行开发而..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section4/01_分支与pr协作流程"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section4/01_分支与pr协作流程"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="分支与 PR 协作流程 学习目标 理解分支的概念与作用。 掌握在 VS Code 中创建、切换、合并分支。 掌握 Pull Request 的创建与 Code Review 流程。 前置条件 已掌握基本 Git 工作流（参考 00_vscode可视化git工作流）。 拥有 GitHub 账号并已登录 VS Code。 为什么需要分支？ graph LR A[main 分支] --> B[稳定版本] A --> C[docs/section4 分支] A --> D[fix/typo 分支] C --> E[合并回 main] D --> E 分支让你可以并行开发而..."/><meta name="generator" content="Quartz"/><link href="../index-80b86297.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section4/01_分支与pr协作流程-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section4/01_分支与pr协作流程-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section4/01_分支与pr协作流程-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section4/01_分支与pr协作流程" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-18" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-18" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section4/">section4</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>01_分支与PR协作流程</a></div></nav><h1 class="article-title">01_分支与PR协作流程</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/git" class="internal internal-link tag-link">git</a><span class="note-properties-separator">, </span><a href="../tags/branch" class="internal internal-link tag-link">branch</a><span class="note-properties-separator">, </span><a href="../tags/pull-request" class="internal internal-link tag-link">pull-request</a><span class="note-properties-separator">, </span><a href="../tags/collaboration" class="internal internal-link tag-link">collaboration</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-07-26T12:49:59.230Z">2026年7月26日</time><span>8分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="分支与-pr-协作流程">分支与 PR 协作流程<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#分支与-pr-协作流程" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>理解分支的概念与作用。</li>
+<li>掌握在 VS Code 中创建、切换、合并分支。</li>
+<li>掌握 Pull Request 的创建与 Code Review 流程。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已掌握基本 Git 工作流（参考 <a href="../section4/00_vscode可视化git工作流" class="internal internal-link alias" data-slug="section4/00_vscode可视化git工作流">00_vscode可视化git工作流</a>）。</li>
+<li>拥有 GitHub 账号并已登录 VS Code。</li>
+</ul>
+<h2 id="为什么需要分支">为什么需要分支？<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#为什么需要分支" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph LR\n    A[main 分支] --> B[稳定版本]\n    A --> C[docs/section4 分支]\n    A --> D[fix/typo 分支]\n    C --> E[合并回 main]\n    D --> E&quot;">graph LR
+    A[main 分支] --> B[稳定版本]
+    A --> C[docs/section4 分支]
+    A --> D[fix/typo 分支]
+    C --> E[合并回 main]
+    D --> E
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p>分支让你可以<strong>并行开发</strong>而不互相干扰：</p>
+<ul>
+<li><code>main</code> 分支始终保持稳定可发布。</li>
+<li>每个人在自己的分支上工作，完成后再合并。</li>
+<li>不同功能互不影响，也便于 Code Review。</li>
+</ul>
+<h2 id="步骤">步骤<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#步骤" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="第-1-步创建新分支">第 1 步：创建新分支<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-1-步创建新分支" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>方法一：通过状态栏</strong></p>
+<ol>
+<li>点击 VS Code 左下角的分支名（默认显示 <code>main</code>）。</li>
+<li>在弹出的菜单中选择 <strong>创建新分支…</strong>。</li>
+<li>输入分支名称（如 <code>docs/section4-git</code>），按回车。</li>
+</ol>
+<p><strong>方法二：通过源代码管理</strong></p>
+<ol>
+<li>打开源代码管理面板（<code>Ctrl+Shift+G</code>）。</li>
+<li>点击底部 <code>main</code> → <strong>创建分支…</strong>。</li>
+<li>输入分支名称。</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>分支命名规范 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li><code>docs/sectionX-描述</code> — 文档相关</li>
+<li><code>fix/描述</code> — 修复</li>
+<li><code>feat/描述</code> — 新功能</li>
+</ul>
+<p>示例：<code>docs/section4-git-workflow</code>、<code>fix/readme-typo</code></p>
+</div>
+</blockquote>
+<h3 id="第-2-步切换分支">第 2 步：切换分支<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-2-步切换分支" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>方法一：状态栏切换</strong></p>
+<p>点击左下角分支名，从列表中选择要切换的分支。</p>
+<p><strong>方法二：命令面板</strong></p>
+<p>按 <code>Ctrl+Shift+P</code>，输入 <code>Git: 切换到分支</code>，选择目标分支。</p>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>切换分支时，VS Code 会自动更新文件列表以匹配该分支的内容。请确保当前工作区的更改已提交或暂存，否则可能造成冲突。 </p></div>
+                  
+                </div>
+</blockquote>
+<h3 id="第-3-步在分支上工作">第 3 步：在分支上工作<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-3-步在分支上工作" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>切换到新分支后，你的所有修改、暂存、提交都只影响这个分支，不会影响 <code>main</code>。</p>
+<ol>
+<li>在新分支上修改文件。</li>
+<li>暂存并提交更改。</li>
+<li>推送到远程（首次推送 VS Code 会提示发布分支）。</li>
+</ol>
+<h3 id="第-4-步推送到远程并创建-pr">第 4 步：推送到远程并创建 PR<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-4-步推送到远程并创建-pr" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>当你准备将分支合并到 <code>main</code> 时，需要创建一个 Pull Request（PR）。</p>
+<p><strong>通过 GitHub 网站：</strong></p>
+<ol>
+<li>推送分支后，GitHub 页面会出现一个 <strong>Compare &amp; pull request</strong> 按钮。</li>
+<li>点击按钮，填写 PR 标题和描述。</li>
+<li>指定 Reviewers（审核人），点击 <strong>Create pull request</strong>。</li>
+</ol>
+<p><strong>通过 VS Code 扩展（GitHub Pull Requests）：</strong></p>
+<ol>
+<li>安装 GitHub Pull Requests and Issues 扩展。</li>
+<li>在 VS Code 中打开 PR 面板，点击 <strong>创建 PR</strong>。</li>
+<li>填写信息后提交。</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>好的 PR 描述 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>一个清晰的 PR 描述应该包含：</p>
+<ul>
+<li><strong>做了什么</strong>：简要说明更改内容。</li>
+<li><strong>为什么</strong>：更改的背景或原因。</li>
+<li><strong>测试方式</strong>：如何验证更改正确。</li>
+<li><strong>截图</strong>（可选）：UI 变更建议附带截图。</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="第-5-步code-review">第 5 步：Code Review<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-5-步code-review" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>审核人会在 PR 中：</p>
+<ol>
+<li>查看差异对比（Files changed 标签页）。</li>
+<li>对具体代码行添加评论。</li>
+<li>提出修改建议或直接批准。</li>
+</ol>
+<p>作为 PR 作者，你可以在收到 Review 后：</p>
+<ol>
+<li>在本地分支上继续修改。</li>
+<li>提交并推送，PR 会自动更新。</li>
+<li>回复评论说明修改情况。</li>
+</ol>
+<h3 id="第-6-步合并分支">第 6 步：合并分支<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-6-步合并分支" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Review 通过后，在 GitHub PR 页面点击 <strong>Merge pull request</strong>，有三种合并方式：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">方式</th><th style="text-align:left;">效果</th><th style="text-align:left;">适用场景</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Create a merge commit</strong></td><td style="text-align:left;">保留所有提交历史，生成一个合并提交</td><td style="text-align:left;">团队协作，保留详细历史</td></tr><tr><td style="text-align:left;"><strong>Squash and merge</strong></td><td style="text-align:left;">将分支上所有提交压缩为一个提交</td><td style="text-align:left;">功能开发，保持历史简洁</td></tr><tr><td style="text-align:left;"><strong>Rebase and merge</strong></td><td style="text-align:left;">将分支提交逐一应用到 main 顶端</td><td style="text-align:left;">线性历史，但需处理可能的冲突</td></tr></tbody></table></div>
+<h3 id="第-7-步删除远程分支">第 7 步：删除远程分支<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-7-步删除远程分支" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>合并完成后，在 GitHub PR 页面点击 <strong>Delete branch</strong> 删除远程分支。本地分支也可在 VS Code 中删除：</p>
+<ol>
+<li>打开源代码管理 → <code>…</code> → <strong>分支</strong> → <strong>删除分支</strong>。</li>
+<li>选择要删除的本地分支。</li>
+</ol>
+<h3 id="第-8-步同步本地-main">第 8 步：同步本地 main<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-8-步同步本地-main" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>合并后，切换回 <code>main</code> 分支并拉取最新更改：</p>
+<ol>
+<li>点击左下角分支名 → 选择 <code>main</code>。</li>
+<li>点击源代码管理底部的 <strong>同步更改</strong>（或 <code>…</code> → <strong>拉取</strong>）。</li>
+</ol>
+<p>至此，一次完整的分支协作流程完成！</p>
+<h2 id="分支工作流示意">分支工作流示意<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#分支工作流示意" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;gitGraph\n    commit id: \&quot;初始提交\&quot;\n    branch docs/section4\n    checkout docs/section4\n    commit id: \&quot;编写 Git 工作流\&quot;\n    commit id: \&quot;添加练习任务\&quot;\n    checkout main\n    commit id: \&quot;其他修改\&quot;\n    merge docs/section4 id: \&quot;合并 PR\&quot;&quot;">gitGraph
+    commit id: &quot;初始提交&quot;
+    branch docs/section4
+    checkout docs/section4
+    commit id: &quot;编写 Git 工作流&quot;
+    commit id: &quot;添加练习任务&quot;
+    checkout main
+    commit id: &quot;其他修改&quot;
+    merge docs/section4 id: &quot;合并 PR&quot;
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<h2 id="扩展阅读">扩展阅读<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#扩展阅读" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://docs.github.com/zh/pull-requests" class="external external-link">GitHub PR 文档<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://code.visualstudio.com/docs/sourcecontrol/github" class="external external-link">VS Code GitHub PR 扩展<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Q：创建分支后，VS Code 没有自动切换？</strong><br/>
+A：创建分支后需要手动切换。创建时如果勾选”从当前分支创建”，默认不会自动切换。</p>
+<p><strong>Q：推送到远程时提示”没有上游分支”？</strong><br/>
+A：首次推送本地分支到远程时，VS Code 会询问是否发布。点击 <strong>发布分支</strong> 即可。</p>
+<p><strong>Q：分支太多，如何清理？</strong><br/>
+A：合并后及时删除远程和本地分支。在 VS Code 中可通过 <code>…</code> → <strong>分支</strong> → <strong>删除分支</strong> 清理本地已合并的分支。</p>
+<p><strong>Q：如果 PR 有冲突怎么办？</strong><br/>
+A：GitHub 会提示”合并冲突”。切回本地分支，拉取 <code>main</code> 到分支，在本地解决冲突后再推送。具体操作见下一节 <a href="../section4/02_冲突处理演练" class="internal internal-link alias" data-slug="section4/02_冲突处理演练">02_冲突处理演练</a>。</p>
+<h2 id="练习任务">练习任务<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#练习任务" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>从 <code>main</code> 创建一个新分支，命名如 <code>docs/section4-practice</code>。</li>
+<li>在新分支上修改一个文件（如修正一个错别字），提交并推送。</li>
+<li>在 GitHub 上创建一个 PR，指向 <code>main</code>。</li>
+<li>（可选）邀请同伴进行 Code Review。</li>
+<li>合并 PR，删除远程分支，同步本地 <code>main</code>。</li>
+</ol>
+<h2 id="验收清单">验收清单<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验收清单" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 理解分支的作用与命名规范</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能在 VS Code 中创建和切换分支</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能在新分支上正常提交工作</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能创建 PR 并填写清晰的描述</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能完成 Code Review 流程（作为作者或审核人）</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能合并 PR 并清理分支</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-18" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#分支与-pr-协作流程" data-for="分支与-pr-协作流程">分支与 PR 协作流程</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#为什么需要分支" data-for="为什么需要分支">为什么需要分支？</a></li><li class="depth-1"><a href="#步骤" data-for="步骤">步骤</a></li><li class="depth-2"><a href="#第-1-步创建新分支" data-for="第-1-步创建新分支">第 1 步：创建新分支</a></li><li class="depth-2"><a href="#第-2-步切换分支" data-for="第-2-步切换分支">第 2 步：切换分支</a></li><li class="depth-2"><a href="#第-3-步在分支上工作" data-for="第-3-步在分支上工作">第 3 步：在分支上工作</a></li><li class="depth-2"><a href="#第-4-步推送到远程并创建-pr" data-for="第-4-步推送到远程并创建-pr">第 4 步：推送到远程并创建 PR</a></li><li class="depth-2"><a href="#第-5-步code-review" data-for="第-5-步code-review">第 5 步：Code Review</a></li><li class="depth-2"><a href="#第-6-步合并分支" data-for="第-6-步合并分支">第 6 步：合并分支</a></li><li class="depth-2"><a href="#第-7-步删除远程分支" data-for="第-7-步删除远程分支">第 7 步：删除远程分支</a></li><li class="depth-2"><a href="#第-8-步同步本地-main" data-for="第-8-步同步本地-main">第 8 步：同步本地 main</a></li><li class="depth-1"><a href="#分支工作流示意" data-for="分支工作流示意">分支工作流示意</a></li><li class="depth-1"><a href="#扩展阅读" data-for="扩展阅读">扩展阅读</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="depth-1"><a href="#练习任务" data-for="练习任务">练习任务</a></li><li class="depth-1"><a href="#验收清单" data-for="验收清单">验收清单</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../" class="internal">Obsidian 教程</a></li><li><a href="../section4/02_冲突处理演练" class="internal">02_冲突处理演练</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>

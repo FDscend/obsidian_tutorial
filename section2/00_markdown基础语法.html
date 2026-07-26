@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>00_markdown基础语法 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-80b86297.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="00_markdown基础语法 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="00_markdown基础语法 | Obsidian 教程"/><meta name="twitter:description" content="Markdown 基础语法 学习目标 了解 Markdown 的起源与设计哲学。 掌握标题、段落、换行、粗体、斜体语法。 掌握引用、有序列表、无序列表及嵌套。 掌握代码标记、分隔线、链接与图片。 前置条件 已安装 VS Code 或 Obsidian（参考 section1）。 能在编辑器中创建 .md 文件并预览渲染效果。 Markdown 是什么 Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。它由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。 专注于文字内容：无需纠结排版，把精力放在写作上。 纯文本，易读易写：可以方..."/><meta property="og:description" content="Markdown 基础语法 学习目标 了解 Markdown 的起源与设计哲学。 掌握标题、段落、换行、粗体、斜体语法。 掌握引用、有序列表、无序列表及嵌套。 掌握代码标记、分隔线、链接与图片。 前置条件 已安装 VS Code 或 Obsidian（参考 section1）。 能在编辑器中创建 .md 文件并预览渲染效果。 Markdown 是什么 Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。它由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。 专注于文字内容：无需纠结排版，把精力放在写作上。 纯文本，易读易写：可以方..."/><meta property="og:image:alt" content="Markdown 基础语法 学习目标 了解 Markdown 的起源与设计哲学。 掌握标题、段落、换行、粗体、斜体语法。 掌握引用、有序列表、无序列表及嵌套。 掌握代码标记、分隔线、链接与图片。 前置条件 已安装 VS Code 或 Obsidian（参考 section1）。 能在编辑器中创建 .md 文件并预览渲染效果。 Markdown 是什么 Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。它由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。 专注于文字内容：无需纠结排版，把精力放在写作上。 纯文本，易读易写：可以方..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section2/00_markdown基础语法"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section2/00_markdown基础语法"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Markdown 基础语法 学习目标 了解 Markdown 的起源与设计哲学。 掌握标题、段落、换行、粗体、斜体语法。 掌握引用、有序列表、无序列表及嵌套。 掌握代码标记、分隔线、链接与图片。 前置条件 已安装 VS Code 或 Obsidian（参考 section1）。 能在编辑器中创建 .md 文件并预览渲染效果。 Markdown 是什么 Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。它由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。 专注于文字内容：无需纠结排版，把精力放在写作上。 纯文本，易读易写：可以方..."/><meta name="generator" content="Quartz"/><link href="../index-80b86297.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section2/00_markdown基础语法-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section2/00_markdown基础语法-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section2/00_markdown基础语法-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section2/00_markdown基础语法" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-13" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-13" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section2/">section2</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>00_markdown基础语法</a></div></nav><h1 class="article-title">00_markdown基础语法</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/markdown" class="internal internal-link tag-link">markdown</a><span class="note-properties-separator">, </span><a href="../tags/basic" class="internal internal-link tag-link">basic</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-07-26T12:49:59.230Z">2026年7月26日</time><span>9分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="markdown-基础语法">Markdown 基础语法<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#markdown-基础语法" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>了解 Markdown 的起源与设计哲学。</li>
+<li>掌握标题、段落、换行、粗体、斜体语法。</li>
+<li>掌握引用、有序列表、无序列表及嵌套。</li>
+<li>掌握代码标记、分隔线、链接与图片。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已安装 VS Code 或 Obsidian（参考 <a href=".././section1/" class="internal internal-link alias" data-slug="section1/index">section1</a>）。</li>
+<li>能在编辑器中创建 <code>.md</code> 文件并预览渲染效果。</li>
+</ul>
+<h2 id="markdown-是什么">Markdown 是什么<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#markdown-是什么" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Markdown 是一种轻量级的标记语言，可用于在纯文本文档中添加格式化元素。它由 John Gruber 于 2004 年创建，如今已成为世界上最受欢迎的标记语言之一。</p>
+<ul>
+<li><strong>专注于文字内容</strong>：无需纠结排版，把精力放在写作上。</li>
+<li><strong>纯文本，易读易写</strong>：可以方便地纳入版本控制（Git）。</li>
+<li><strong>语法简单</strong>：没有什么学习成本，能轻松在码字的同时做出美观大方的排版。</li>
+</ul>
+<blockquote>
+<p>Markdown 与 Word 不同。在 Word 中你通过按钮设置格式，修改立即可见；而在 Markdown 中，你在文本中<strong>添加标记符号</strong>来指示哪些内容应该呈现不同的样式。</p>
+</blockquote>
+<h2 id="步骤">步骤<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#步骤" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-标题">1. 标题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-标题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要创建标题，请在单词或短语前面添加井号 <code>#</code>。<code>#</code> 的数量代表了标题的级别。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation"># 一级标题</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 二级标题</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">### 三级标题</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">#### 四级标题</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">##### 五级标题</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">###### 六级标题</span></span></code></pre></figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>兼容性 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li><code>#</code> 和标题文字之间<strong>务必加一个空格</strong>：<code># 标题</code> ✅，<code>#标题</code> ❌。</li>
+<li>标题中避免使用空格，如需链接到该标题，可用 <code>-</code> 代替空格（如 <code># 我的标题</code> → 链接为 <code>#我的标题</code>）。</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="2-段落">2. 段落<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-段落" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要创建段落，请使用空白行将一行或多行文本进行分隔。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">I really like using Markdown.</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">I think I'll use it to format all of my documents from now on.</span></span></code></pre></figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>不要缩进段落 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>不要用空格或制表符缩进段落，否则可能导致意外的格式化问题。</p>
+</div>
+</blockquote>
+<h3 id="3-换行">3. 换行<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-换行" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在一行的末尾添加<strong>两个或多个空格</strong>，然后按回车键，即可创建一个换行。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">这是第一行。  </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">这是第二行。</span></span></code></pre></figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>兼容性 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>推荐方式</strong>：行尾加两个空格，或使用 HTML 的 <code>&lt;br></code> 标签。</li>
+<li>Obsidian 中开启「设置 → 编辑器 → 严格换行」后，单个换行符在预览模式下不再生效。</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="4-粗体">4. 粗体<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-粗体" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要加粗文本，请在单词或短语的前后各添加两个星号 <code>**</code> 或下划线 <code>__</code>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">语法</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;"><code>**bold text**</code></td><td style="text-align:left;"><strong>bold text</strong></td></tr><tr><td style="text-align:left;"><code>__bold text__</code></td><td style="text-align:left;"><strong>bold text</strong></td></tr><tr><td style="text-align:left;"><code>Love**is**bold</code></td><td style="text-align:left;">Love<strong>is</strong>bold</td></tr></tbody></table></div>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>兼容性 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li>单词中间加粗用 <code>**</code> 而不是 <code>__</code>（下划线在单词中间可能不被识别）。</li>
+<li>中文加粗时，如果内容包含括号，建议在星号两侧留空格：<code>对于 **中文（包含括号）** 的情况</code>。</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="5-斜体">5. 斜体<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-斜体" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要用斜体显示文本，请在单词或短语前后添加一个星号 <code>*</code> 或下划线 <code>_</code>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">语法</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;"><code>*italicized text*</code></td><td style="text-align:left;"><em>italicized text</em></td></tr><tr><td style="text-align:left;"><code>_italicized text_</code></td><td style="text-align:left;"><em>italicized text</em></td></tr><tr><td style="text-align:left;"><code>A*cat*meow</code></td><td style="text-align:left;">A<em>cat</em>meow</td></tr></tbody></table></div>
+<h3 id="6-粗体和斜体">6. 粗体和斜体<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-粗体和斜体" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要同时用粗体和斜体，请添加三个星号 <code>***</code> 或下划线 <code>___</code>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">语法</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;"><code>***really important***</code></td><td style="text-align:left;"><strong><em>really important</em></strong></td></tr><tr><td style="text-align:left;"><code>___really important___</code></td><td style="text-align:left;"><strong><em>really important</em></strong></td></tr><tr><td style="text-align:left;"><code>This is really***very***important text.</code></td><td style="text-align:left;">This is really<em><strong>very</strong></em>important text.</td></tr></tbody></table></div>
+<h3 id="7-引用blockquote">7. 引用（Blockquote）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-引用blockquote" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要创建块引用，请在段落前添加一个 <code>></code> 符号。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> 这是一个引用。</span></span></code></pre></figure>
+<p>引用可以包含多个段落：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> 第一段内容。</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">></span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> 第二段内容（中间空行加 </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`>`</span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="comment">）。</span></span></code></pre></figure>
+<p>引用可以嵌套：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> 外层引用。</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">></span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">> > 内层引用。</span></span></code></pre></figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>VS Code 技巧 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>在 VS Code 中，如果要将多行内容放进引用块，可以先按 <code>Alt + Z</code> <strong>关闭自动换行</strong>，确保每行在视觉上就是逻辑行。然后按住 <code>Alt + Shift</code> 鼠标点击每一行的行首，一次性给所有选中行添加 <code>> </code> 前缀。</p>
+<p>操作完成后可再次按 <code>Alt + Z</code> 恢复自动换行。</p>
+</div>
+</blockquote>
+<h3 id="8-有序列表">8. 有序列表<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-有序列表" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在列表项前添加数字并紧跟一个英文句点。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> First item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">2.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Second item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">3.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Third item</span></span></code></pre></figure>
+<p>数字不必按顺序，但列表应当以 <code>1</code> 起始：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> First item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Second item (也会显示为 1. 2.)</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Third item (也会显示为 3.)</span></span></code></pre></figure>
+<p>嵌套有序列表：缩进 3 个空格。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> First item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">2.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Second item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">3.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Third item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">   1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Indented item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">   2.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Indented item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">4.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Fourth item</span></span></code></pre></figure>
+<h3 id="9-无序列表">9. 无序列表<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9-无序列表" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在列表项前添加 <code>-</code>、<code>*</code> 或 <code>+</code>。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> First item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Second item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Third item</span></span></code></pre></figure>
+<p>嵌套无序列表：缩进 2 个空格。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> First item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Second item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Third item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">  -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Indented item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">  -</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Indented item</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Fourth item</span></span></code></pre></figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>兼容性 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>请勿在同一列表中混合使用 <code>-</code>、<code>*</code>、<code>+</code>，选择一种并保持一致。</p>
+</div>
+</blockquote>
+<h3 id="在列表中嵌套其他元素">在列表中嵌套其他元素<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#在列表中嵌套其他元素" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要在列表中嵌套段落或引用，请将该元素缩进（无序列表缩进 2 空格，有序列表缩进 3 空格）：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> First list item.</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Second list item.</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">  I need to add another paragraph below the second list item.</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="punctuation">  > A blockquote would look great below the second list item.</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> Third list item.</span></span></code></pre></figure>
+<h3 id="10-代码">10. 代码<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#10-代码" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>将单词或短语表示为代码，请将其包裹在反引号 <code>`</code> 中。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">语法</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;"><code>At the command prompt, type `nano`.</code></td><td style="text-align:left;">At the command prompt, type <code>nano</code>.</td></tr></tbody></table></div>
+<p>如果代码中包含反引号，请用双反引号包裹：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">语法</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;"><code>“Use `code` in your Markdown file.“</code></td><td style="text-align:left;"><code>Use `code` in your Markdown file.</code></td></tr></tbody></table></div>
+<p>要创建代码块，请将每一行缩进四个空格，或使用围栏代码块（三个反引号）：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">```</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">这是一个代码块。</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">```</span></span></code></pre></figure>
+<h3 id="11-分隔线">11. 分隔线<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-分隔线" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在单独一行上使用三个或多个 <code>***</code>、<code>---</code> 或 <code>___</code>。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="comment">---</span></span></code></pre></figure>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>兼容性 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>在分隔线前后均添加空白行，避免被误识别为标题。</p>
+</div>
+</blockquote>
+<h3 id="12-链接">12. 链接<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-链接" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>链接文本放在中括号内，链接地址放在后面的括号中。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">[</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">Markdown 语法</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">https://markdown.com.cn</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span></code></pre></figure>
+<p>带 title（鼠标悬停时显示）：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">[</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">Markdown 语法</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">https://markdown.com.cn</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#9ECBFF;--shiki-dark-text-decoration:underline;" data-token-type="string"> &quot;</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">最好的 markdown 教程</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#9ECBFF;--shiki-dark-text-decoration:underline;" data-token-type="string">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span></code></pre></figure>
+<p>链接到本文的其他章节：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">[</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">跳转到标题</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">#标题</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span></code></pre></figure>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>标题链接兼容性 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>VS Code 和 Obsidian 对标题中空格的处理不同（VS Code 转 <code>-</code>，Obsidian 转 <code>%20</code>），建议链接的目标标题避免使用空格。</p>
+</div>
+</blockquote>
+<h3 id="13-图片">13. 图片<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-图片" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>要添加图像，请使用感叹号 <code>!</code>，方括号内放替代文本，圆括号内放图片路径。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">![</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">替代文本</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">https://markdown.com.cn/assets/img/philly-magic-garden.jpg</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#9ECBFF;--shiki-dark-text-decoration:underline;" data-token-type="string"> &quot;</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">图片标题</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#9ECBFF;--shiki-dark-text-decoration:underline;" data-token-type="string">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span></code></pre></figure>
+<p>图片路径可以是网络 URL 或本地相对路径：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">![</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">本地图片</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">../image/example.png</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span></code></pre></figure>
+<h2 id="扩展阅读">扩展阅读<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#扩展阅读" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://markdown.com.cn/" class="external external-link">Markdown 官方教程 (markdown.com.cn)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.markdownguide.org/" class="external external-link">Markdown Guide<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Q：为什么我的标题不生效？</strong><br/>
+A：检查 <code>#</code> 和文字之间是否有空格；检查 <code>#</code> 是否在行首。</p>
+<p><strong>Q：为什么我的列表编号总是从 1 开始？</strong><br/>
+A：Markdown 的有序列表会自动编号，不必手动维护数字顺序。</p>
+<p><strong>Q：为什么预览中图片显示不出来？</strong><br/>
+A：检查图片路径是否正确。本地路径需相对于当前文件位置；网络图片需可访问。</p>
+<h2 id="练习任务">练习任务<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#练习任务" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>完成本章学习后，请前往 <a href="../section2/01_markdown基础练习" class="internal internal-link alias" data-slug="section2/01_markdown基础练习">01_markdown基础练习</a> 完成配套练习。</p>
+<h2 id="验收清单">验收清单<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验收清单" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能正确使用 <code>#</code> 创建 1–6 级标题</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用 <code>**</code> 和 <code>*</code> 设置粗体和斜体</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用 <code>></code> 创建引用（含多段和嵌套）</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能创建有序列表和无序列表（含嵌套）</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用 <code>`</code> 标记代码</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用 <code>---</code> 创建分隔线</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用 <code>[text](url)</code> 创建链接</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能使用 <code>![alt](src)</code> 插入图片</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-13" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#markdown-基础语法" data-for="markdown-基础语法">Markdown 基础语法</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#markdown-是什么" data-for="markdown-是什么">Markdown 是什么</a></li><li class="depth-1"><a href="#步骤" data-for="步骤">步骤</a></li><li class="depth-2"><a href="#1-标题" data-for="1-标题">1. 标题</a></li><li class="depth-2"><a href="#2-段落" data-for="2-段落">2. 段落</a></li><li class="depth-2"><a href="#3-换行" data-for="3-换行">3. 换行</a></li><li class="depth-2"><a href="#4-粗体" data-for="4-粗体">4. 粗体</a></li><li class="depth-2"><a href="#5-斜体" data-for="5-斜体">5. 斜体</a></li><li class="depth-2"><a href="#6-粗体和斜体" data-for="6-粗体和斜体">6. 粗体和斜体</a></li><li class="depth-2"><a href="#7-引用blockquote" data-for="7-引用blockquote">7. 引用（Blockquote）</a></li><li class="depth-2"><a href="#8-有序列表" data-for="8-有序列表">8. 有序列表</a></li><li class="depth-2"><a href="#9-无序列表" data-for="9-无序列表">9. 无序列表</a></li><li class="depth-2"><a href="#在列表中嵌套其他元素" data-for="在列表中嵌套其他元素">在列表中嵌套其他元素</a></li><li class="depth-2"><a href="#10-代码" data-for="10-代码">10. 代码</a></li><li class="depth-2"><a href="#11-分隔线" data-for="11-分隔线">11. 分隔线</a></li><li class="depth-2"><a href="#12-链接" data-for="12-链接">12. 链接</a></li><li class="depth-2"><a href="#13-图片" data-for="13-图片">13. 图片</a></li><li class="depth-1"><a href="#扩展阅读" data-for="扩展阅读">扩展阅读</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="depth-1"><a href="#练习任务" data-for="练习任务">练习任务</a></li><li class="depth-1"><a href="#验收清单" data-for="验收清单">验收清单</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../" class="internal">Obsidian 教程</a></li><li><a href="../section2/01_markdown基础练习" class="internal">01_markdown基础练习</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>

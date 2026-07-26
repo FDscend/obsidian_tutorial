@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>01_bases实战_教程目录数据库 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-80b86297.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="01_bases实战_教程目录数据库 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="01_bases实战_教程目录数据库 | Obsidian 教程"/><meta name="twitter:description" content="Bases 实战：教程目录数据库 学习目标 综合运用 Bases 的各项功能，构建一个实用的教程目录数据库。 掌握为笔记添加统一 Frontmatter 属性的方法。 掌握通过筛选定义 Base 数据范围的方法。 掌握多视图配置（表格/卡片）以适应不同使用场景。 学会使用公式计算派生字段（如状态图标、已创建天数）。 学会使用汇总功能统计整体进度。 前置条件 已掌握 Bases 基础操作（参考 00_obsidian_bases基础）。 已了解本教程的全部章节结构。 Obsidian 核心插件 Bases 已开启。 项目概述 在本实战项目中，你将创建一个 教程目录数据库 Base，将本仓库的全部..."/><meta property="og:description" content="Bases 实战：教程目录数据库 学习目标 综合运用 Bases 的各项功能，构建一个实用的教程目录数据库。 掌握为笔记添加统一 Frontmatter 属性的方法。 掌握通过筛选定义 Base 数据范围的方法。 掌握多视图配置（表格/卡片）以适应不同使用场景。 学会使用公式计算派生字段（如状态图标、已创建天数）。 学会使用汇总功能统计整体进度。 前置条件 已掌握 Bases 基础操作（参考 00_obsidian_bases基础）。 已了解本教程的全部章节结构。 Obsidian 核心插件 Bases 已开启。 项目概述 在本实战项目中，你将创建一个 教程目录数据库 Base，将本仓库的全部..."/><meta property="og:image:alt" content="Bases 实战：教程目录数据库 学习目标 综合运用 Bases 的各项功能，构建一个实用的教程目录数据库。 掌握为笔记添加统一 Frontmatter 属性的方法。 掌握通过筛选定义 Base 数据范围的方法。 掌握多视图配置（表格/卡片）以适应不同使用场景。 学会使用公式计算派生字段（如状态图标、已创建天数）。 学会使用汇总功能统计整体进度。 前置条件 已掌握 Bases 基础操作（参考 00_obsidian_bases基础）。 已了解本教程的全部章节结构。 Obsidian 核心插件 Bases 已开启。 项目概述 在本实战项目中，你将创建一个 教程目录数据库 Base，将本仓库的全部..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section6/01_bases实战_教程目录数据库"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section6/01_bases实战_教程目录数据库"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Bases 实战：教程目录数据库 学习目标 综合运用 Bases 的各项功能，构建一个实用的教程目录数据库。 掌握为笔记添加统一 Frontmatter 属性的方法。 掌握通过筛选定义 Base 数据范围的方法。 掌握多视图配置（表格/卡片）以适应不同使用场景。 学会使用公式计算派生字段（如状态图标、已创建天数）。 学会使用汇总功能统计整体进度。 前置条件 已掌握 Bases 基础操作（参考 00_obsidian_bases基础）。 已了解本教程的全部章节结构。 Obsidian 核心插件 Bases 已开启。 项目概述 在本实战项目中，你将创建一个 教程目录数据库 Base，将本仓库的全部..."/><meta name="generator" content="Quartz"/><link href="../index-80b86297.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section6/01_bases实战_教程目录数据库-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section6/01_bases实战_教程目录数据库-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section6/01_bases实战_教程目录数据库-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section6/01_bases实战_教程目录数据库" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-24" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-24" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section6/">section6</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>01_bases实战_教程目录数据库</a></div></nav><h1 class="article-title">01_bases实战_教程目录数据库</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/obsidian" class="internal internal-link tag-link">obsidian</a><span class="note-properties-separator">, </span><a href="../tags/bases" class="internal internal-link tag-link">bases</a><span class="note-properties-separator">, </span><a href="../tags/project" class="internal internal-link tag-link">project</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-07-26T12:49:59.231Z">2026年7月26日</time><span>17分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="bases-实战教程目录数据库">Bases 实战：教程目录数据库<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bases-实战教程目录数据库" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>综合运用 Bases 的各项功能，构建一个实用的教程目录数据库。</li>
+<li>掌握为笔记添加统一 Frontmatter 属性的方法。</li>
+<li>掌握通过筛选定义 Base 数据范围的方法。</li>
+<li>掌握多视图配置（表格/卡片）以适应不同使用场景。</li>
+<li>学会使用公式计算派生字段（如状态图标、已创建天数）。</li>
+<li>学会使用汇总功能统计整体进度。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已掌握 Bases 基础操作（参考 <a href="../section6/00_obsidian_bases基础" class="internal internal-link alias" data-slug="section6/00_obsidian_bases基础">00_obsidian_bases基础</a>）。</li>
+<li>已了解本教程的全部章节结构。</li>
+<li>Obsidian 核心插件 <strong>Bases</strong> 已开启。</li>
+</ul>
+<h2 id="项目概述">项目概述<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#项目概述" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>在本实战项目中，你将创建一个 <strong>教程目录数据库</strong> Base，将本仓库的全部教程章节以结构化方式管理，包括：</p>
+<ul>
+<li>各章节的编号、主题、状态、编写进度、负责人员。</li>
+<li>通过筛选快速定位特定章节。</li>
+<li>通过公式自动计算状态图标、创建天数。</li>
+<li>通过汇总查看整体完成进度。</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>最终效果</strong>：打开 Base 即可一目了然地看到整个教程的章节结构、进度状态和关键数据，无需翻阅多个分散的笔记文件。</p>
+</blockquote>
+<h2 id="步骤">步骤<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#步骤" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="第-1-步为章节笔记添加统一-frontmatter">第 1 步：为章节笔记添加统一 Frontmatter<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-1-步为章节笔记添加统一-frontmatter" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Base 的数据来源于笔记的 Frontmatter。为了让 Base 能够管理章节信息，我们需要为每个章节的入口笔记添加统一的属性字段。</p>
+<p><strong>需要添加的属性：</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">属性</th><th style="text-align:left;">类型</th><th style="text-align:left;">说明</th><th style="text-align:left;">示例值</th></tr></thead><tbody><tr><td style="text-align:left;"><code>section</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">章节编号</td><td style="text-align:left;"><code>section0</code></td></tr><tr><td style="text-align:left;"><code>topic</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">章节主题</td><td style="text-align:left;"><code>课程导读与协作规范</code></td></tr><tr><td style="text-align:left;"><code>status</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">编写状态</td><td style="text-align:left;"><code>完成</code> / <code>进行中</code> / <code>待编写</code></td></tr><tr><td style="text-align:left;"><code>difficulty</code></td><td style="text-align:left;">数值</td><td style="text-align:left;">难度等级（1-5）</td><td style="text-align:left;"><code>2</code></td></tr><tr><td style="text-align:left;"><code>owner</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">负责人</td><td style="text-align:left;"><code>团队名或人名</code></td></tr><tr><td style="text-align:left;"><code>prerequisites</code></td><td style="text-align:left;">列表</td><td style="text-align:left;">前置章节</td><td style="text-align:left;"><code>[&quot;section1&quot;]</code></td></tr><tr><td style="text-align:left;"><code>order</code></td><td style="text-align:left;">数值</td><td style="text-align:left;">章节顺序（用于排序）</td><td style="text-align:left;"><code>0</code></td></tr></tbody></table></div>
+<p><strong>操作步骤：</strong></p>
+<ol>
+<li>打开 <code>section0/00_课程导读与协作规范.md</code>。</li>
+<li>在文件顶部的 Frontmatter 中添加以下属性：</li>
+</ol>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">tags</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">tutorial</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">overview</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">section</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">section0</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">topic</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">课程导读与协作规范</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">status</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">完成</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">difficulty</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">1</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">owner</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">tutorial-team</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">prerequisites</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: []</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">order</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">0</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span></code></pre></figure>
+<ol start="3">
+<li>保存文件。</li>
+<li>对其他章节的入口文档重复此操作：</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">文件路径</th><th style="text-align:left;">section</th><th style="text-align:left;">topic</th><th style="text-align:left;">status</th><th style="text-align:left;">difficulty</th><th style="text-align:left;">prerequisites</th><th style="text-align:left;">order</th></tr></thead><tbody><tr><td style="text-align:left;"><code>section0/00_课程导读与协作规范.md</code></td><td style="text-align:left;">section0</td><td style="text-align:left;">课程导读与协作规范</td><td style="text-align:left;">完成</td><td style="text-align:left;">1</td><td style="text-align:left;"><code>[]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section0/01_学习路径与先修要求.md</code></td><td style="text-align:left;">section0</td><td style="text-align:left;">学习路径与先修要求</td><td style="text-align:left;">完成</td><td style="text-align:left;">1</td><td style="text-align:left;"><code>[]</code></td><td style="text-align:left;">1</td></tr><tr><td style="text-align:left;"><code>section1/00_环境安装总览.md</code></td><td style="text-align:left;">section1</td><td style="text-align:left;">环境安装总览</td><td style="text-align:left;">完成</td><td style="text-align:left;">2</td><td style="text-align:left;"><code>[&quot;section0&quot;]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section1/01_obsidian安装与配置.md</code></td><td style="text-align:left;">section1</td><td style="text-align:left;">Obsidian 安装与配置</td><td style="text-align:left;">完成</td><td style="text-align:left;">2</td><td style="text-align:left;"><code>[&quot;section0&quot;]</code></td><td style="text-align:left;">1</td></tr><tr><td style="text-align:left;"><code>section1/02_vscode安装与配置.md</code></td><td style="text-align:left;">section1</td><td style="text-align:left;">VS Code 安装与配置</td><td style="text-align:left;">完成</td><td style="text-align:left;">2</td><td style="text-align:left;"><code>[&quot;section0&quot;]</code></td><td style="text-align:left;">2</td></tr><tr><td style="text-align:left;"><code>section1/03_git和github安装与登录.md</code></td><td style="text-align:left;">section1</td><td style="text-align:left;">Git 和 GitHub 安装与登录</td><td style="text-align:left;">完成</td><td style="text-align:left;">2</td><td style="text-align:left;"><code>[&quot;section0&quot;]</code></td><td style="text-align:left;">3</td></tr><tr><td style="text-align:left;"><code>section2/00_markdown基础语法.md</code></td><td style="text-align:left;">section2</td><td style="text-align:left;">Markdown 基础语法</td><td style="text-align:left;">完成</td><td style="text-align:left;">2</td><td style="text-align:left;"><code>[&quot;section1&quot;]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section2/01_markdown基础练习.md</code></td><td style="text-align:left;">section2</td><td style="text-align:left;">Markdown 基础练习</td><td style="text-align:left;">完成</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section2/00&quot;]</code></td><td style="text-align:left;">1</td></tr><tr><td style="text-align:left;"><code>section3/00_markdown扩展与obsidian语法.md</code></td><td style="text-align:left;">section3</td><td style="text-align:left;">Markdown 扩展与 Obsidian 语法</td><td style="text-align:left;">完成</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section2&quot;]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section3/01_mermaid公式脚注任务清单.md</code></td><td style="text-align:left;">section3</td><td style="text-align:left;">Mermaid/公式/脚注/任务清单</td><td style="text-align:left;">完成</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section3/00&quot;]</code></td><td style="text-align:left;">1</td></tr><tr><td style="text-align:left;"><code>section4/00_vscode可视化git工作流.md</code></td><td style="text-align:left;">section4</td><td style="text-align:left;">VS Code 可视化 Git 工作流</td><td style="text-align:left;">完成</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section1&quot;]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section4/01_分支与PR协作流程.md</code></td><td style="text-align:left;">section4</td><td style="text-align:left;">分支与 PR 协作流程</td><td style="text-align:left;">完成</td><td style="text-align:left;">4</td><td style="text-align:left;"><code>[&quot;section4/00&quot;]</code></td><td style="text-align:left;">1</td></tr><tr><td style="text-align:left;"><code>section4/02_冲突处理演练.md</code></td><td style="text-align:left;">section4</td><td style="text-align:left;">冲突处理演练</td><td style="text-align:left;">完成</td><td style="text-align:left;">4</td><td style="text-align:left;"><code>[&quot;section4/01&quot;]</code></td><td style="text-align:left;">2</td></tr><tr><td style="text-align:left;"><code>section5/00_obsidian_canvas基础.md</code></td><td style="text-align:left;">section5</td><td style="text-align:left;">Obsidian Canvas 基础</td><td style="text-align:left;">完成</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section1&quot;]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section5/01_canvas实战_课程地图.md</code></td><td style="text-align:left;">section5</td><td style="text-align:left;">Canvas 实战：课程地图</td><td style="text-align:left;">完成</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section5/00&quot;]</code></td><td style="text-align:left;">1</td></tr><tr><td style="text-align:left;"><code>section6/00_obsidian_bases基础.md</code></td><td style="text-align:left;">section6</td><td style="text-align:left;">Obsidian Bases 基础</td><td style="text-align:left;">进行中</td><td style="text-align:left;">3</td><td style="text-align:left;"><code>[&quot;section1&quot;]</code></td><td style="text-align:left;">0</td></tr><tr><td style="text-align:left;"><code>section6/01_bases实战_教程目录数据库.md</code></td><td style="text-align:left;">section6</td><td style="text-align:left;">Bases 实战：教程目录数据库</td><td style="text-align:left;">进行中</td><td style="text-align:left;">4</td><td style="text-align:left;"><code>[&quot;section6/00&quot;]</code></td><td style="text-align:left;">1</td></tr></tbody></table></div>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>批量添加 Frontmatter 的技巧 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>如果笔记较多，可以使用 VS Code 的<strong>搜索替换</strong>功能或编写简单的脚本批量添加 Frontmatter 属性。也可以先设置好一个模板，后续新章节直接复制模板。</p>
+</div>
+</blockquote>
+<h3 id="第-2-步创建教程目录-base">第 2 步：创建教程目录 Base<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-2-步创建教程目录-base" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>在 <code>section6/</code> 文件夹下新建 Base，命名为 <code>教程目录数据库.base</code>。</li>
+<li>或者右键 <code>section6/</code> → <strong>新建 Base</strong> → 输入 <code>教程目录数据库</code>。</li>
+</ol>
+<h3 id="第-3-步配置筛选定义数据范围">第 3 步：配置筛选（定义数据范围）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-3-步配置筛选定义数据范围" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>我们的 Base 要包含所有教程章节。有两种策略：</p>
+<p><strong>策略 A：按文件夹筛选（推荐）</strong></p>
+<p>我们所有的章节笔记都在 <code>section0/</code> 到 <code>section9/</code> 文件夹下。可以添加多个筛选条件：</p>
+<ol>
+<li>点击工具栏的 <strong>筛选</strong> 按钮。</li>
+<li>依次添加以下条件（使用 OR 组合）：</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">条件</th><th style="text-align:left;">运算符</th><th style="text-align:left;">值</th></tr></thead><tbody><tr><td style="text-align:left;">Folder</td><td style="text-align:left;">is</td><td style="text-align:left;"><code>section0</code></td></tr><tr><td style="text-align:left;">Folder</td><td style="text-align:left;">is</td><td style="text-align:left;"><code>section1</code></td></tr><tr><td style="text-align:left;">Folder</td><td style="text-align:left;">is</td><td style="text-align:left;"><code>section2</code></td></tr><tr><td style="text-align:left;">…</td><td style="text-align:left;">…</td><td style="text-align:left;">…</td></tr></tbody></table></div>
+<p><strong>策略 B：按标签筛选（需要统一标签）</strong></p>
+<p>如果你已经为所有章节笔记添加了 <code>tutorial</code> 标签：</p>
+<ol>
+<li>添加一个筛选条件：<code>Tags</code> → <code>contains</code> → <code>tutorial</code>。</li>
+<li>所有带该标签的笔记都会出现在 Base 中。</li>
+</ol>
+<p><strong>策略 C：在 .base 文件中直接编辑（精确控制）</strong></p>
+<p>如果你熟悉 YAML，可以直接编辑 <code>.base</code> 文件：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">filters</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  or</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section0&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section1&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section2&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section3&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section4&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section5&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section6&quot;'</span></span></code></pre></figure>
+<h3 id="第-4-步添加并配置字段">第 4 步：添加并配置字段<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-4-步添加并配置字段" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>现在添加我们在 Frontmatter 中定义的字段。</p>
+<p><strong>添加字段：</strong></p>
+<p>点击工具栏的 <strong>字段</strong> 或 <strong>+</strong> 按钮，添加以下字段：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">显示名称</th><th style="text-align:left;">字段 ID</th><th style="text-align:left;">类型</th><th style="text-align:left;">说明</th></tr></thead><tbody><tr><td style="text-align:left;">文件名</td><td style="text-align:left;"><code>file.name</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">笔记文件名</td></tr><tr><td style="text-align:left;">章节</td><td style="text-align:left;"><code>section</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">章节编号</td></tr><tr><td style="text-align:left;">主题</td><td style="text-align:left;"><code>topic</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">章节主题</td></tr><tr><td style="text-align:left;">状态</td><td style="text-align:left;"><code>status</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">编写状态</td></tr><tr><td style="text-align:left;">难度</td><td style="text-align:left;"><code>difficulty</code></td><td style="text-align:left;">数值</td><td style="text-align:left;">难度等级</td></tr><tr><td style="text-align:left;">负责人</td><td style="text-align:left;"><code>owner</code></td><td style="text-align:left;">文本</td><td style="text-align:left;">负责人</td></tr><tr><td style="text-align:left;">前置章节</td><td style="text-align:left;"><code>prerequisites</code></td><td style="text-align:left;">列表</td><td style="text-align:left;">前置依赖</td></tr><tr><td style="text-align:left;">顺序</td><td style="text-align:left;"><code>order</code></td><td style="text-align:left;">数值</td><td style="text-align:left;">章节内排序用</td></tr><tr><td style="text-align:left;">创建时间</td><td style="text-align:left;"><code>file.ctime</code></td><td style="text-align:left;">日期</td><td style="text-align:left;">文件创建时间</td></tr><tr><td style="text-align:left;">修改时间</td><td style="text-align:left;"><code>file.mtime</code></td><td style="text-align:left;">日期</td><td style="text-align:left;">文件最后修改时间</td></tr></tbody></table></div>
+<p><strong>调整列顺序：</strong></p>
+<p>拖拽列头，建议顺序：<code>文件名</code> → <code>章节</code> → <code>主题</code> → <code>状态</code> → <code>难度</code> → <code>负责人</code> → <code>前置章节</code> → <code>创建时间</code> → <code>修改时间</code>。</p>
+<h3 id="第-5-步创建视图">第 5 步：创建视图<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-5-步创建视图" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Base 支持多个视图。我们创建两个视图用于不同场景。</p>
+<h4 id="表格视图完整数据总览">表格视图：完整数据总览<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#表格视图完整数据总览" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>在视图切换栏，确保当前是 <strong>表格（Table）</strong> 视图。</li>
+<li>点击视图名称（默认 “Table”），重命名为 <code>📋 数据总览</code>。</li>
+<li>在字段管理中调整显示的字段顺序（如上一步所示）。</li>
+</ol>
+<h4 id="卡片视图状态速览看板">卡片视图：状态速览看板<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#卡片视图状态速览看板" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>点击视图切换栏的 <strong>+</strong> 新建视图。</li>
+<li>选择 <strong>卡片（Cards）</strong> 类型。</li>
+<li>命名为 <code>📊 状态看板</code>。</li>
+<li>配置卡片显示的字段（建议只显示关键信息）：
+<ul>
+<li><code>file.name</code> — 标题</li>
+<li><code>status</code> — 状态</li>
+<li><code>difficulty</code> — 难度</li>
+<li><code>owner</code> — 负责人</li>
+</ul>
+</li>
+</ol>
+<h3 id="第-6-步添加排序">第 6 步：添加排序<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-6-步添加排序" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在表格视图中，配置多级排序：</p>
+<ol>
+<li>点击工具栏的排序图标。</li>
+<li>添加以下排序规则：</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">排序层级</th><th style="text-align:left;">字段</th><th style="text-align:left;">方向</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;">第 1 级</td><td style="text-align:left;"><code>section</code></td><td style="text-align:left;">升序</td><td style="text-align:left;">按章节编号分组</td></tr><tr><td style="text-align:left;">第 2 级</td><td style="text-align:left;"><code>order</code></td><td style="text-align:left;">升序</td><td style="text-align:left;">章节内按顺序排列</td></tr></tbody></table></div>
+<p>这样，所有笔记会先按 <code>section</code> 分组（section0, section1, section2…），再按 <code>order</code> 排序，与课程的实际学习顺序一致。</p>
+<h3 id="第-7-步添加公式">第 7 步：添加公式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-7-步添加公式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>公式可以自动计算派生数据，让 Base 更智能。</p>
+<p><strong>添加公式字段：</strong></p>
+<p>在 <code>.base</code> 文件的 <code>formulas</code> 部分添加：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">formulas</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">  # 状态图标：将文本状态转为可视化图标</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  status_icon</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">|-</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    if(status == &quot;完成&quot;, &quot;✅&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      if(status == &quot;进行中&quot;, &quot;🔄&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">        if(status == &quot;待编写&quot;, &quot;⬜&quot;, &quot;❓&quot;)))</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">  # 难度星级：将数值转为星标</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  difficulty_stars</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">|-</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    if(difficulty == 1, &quot;⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      if(difficulty == 2, &quot;⭐⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">        if(difficulty == 3, &quot;⭐⭐⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">          if(difficulty == 4, &quot;⭐⭐⭐⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">            if(difficulty == 5, &quot;⭐⭐⭐⭐⭐&quot;, &quot;&quot;)))))</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">  # 已创建天数</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  days_old</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;(now() - file.ctime).days&quot;</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment">  # 综合标题：章节编号 + 主题</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  full_title</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'section + &quot;： &quot; + topic</span></span></code></pre></figure>
+<p><strong>在视图中使用公式：</strong></p>
+<p>在字段列表中会出现 <code>formula.status_icon</code>、<code>formula.difficulty_stars</code> 等，可以像普通字段一样添加到视图中。</p>
+<p>建议在表格视图中添加 <code>formula.status_icon</code> 和 <code>formula.difficulty_stars</code>，让状态和难度一目了然。</p>
+<h3 id="第-8-步添加汇总">第 8 步：添加汇总<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-8-步添加汇总" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在表格视图底部添加汇总行，快速了解整体数据。</p>
+<ol>
+<li>点击字段列头的下拉菜单 → <strong>汇总</strong>。</li>
+<li>为以下字段添加汇总：</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">字段</th><th style="text-align:left;">汇总类型</th><th style="text-align:left;">效果</th></tr></thead><tbody><tr><td style="text-align:left;"><code>status</code></td><td style="text-align:left;">计数</td><td style="text-align:left;">统计有多少条记录</td></tr><tr><td style="text-align:left;"><code>difficulty</code></td><td style="text-align:left;">平均值</td><td style="text-align:left;">查看整体难度水平</td></tr><tr><td style="text-align:left;"><code>formula.days_old</code></td><td style="text-align:left;">平均值</td><td style="text-align:left;">查看平均创建天数</td></tr></tbody></table></div>
+<h3 id="第-9-步使用筛选快速定位">第 9 步：使用筛选快速定位<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-9-步使用筛选快速定位" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Base 建好后，你可以随时添加临时筛选来快速定位数据。</p>
+<p><strong>常用筛选场景：</strong></p>
+<p><strong>场景 1：只看未完成的章节</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">字段</th><th style="text-align:left;">运算符</th><th style="text-align:left;">值</th></tr></thead><tbody><tr><td style="text-align:left;"><code>status</code></td><td style="text-align:left;">is not</td><td style="text-align:left;"><code>完成</code></td></tr></tbody></table></div>
+<p><strong>场景 2：只看某个负责人的章节</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">字段</th><th style="text-align:left;">运算符</th><th style="text-align:left;">值</th></tr></thead><tbody><tr><td style="text-align:left;"><code>owner</code></td><td style="text-align:left;">is</td><td style="text-align:left;"><code>你的名字或团队</code></td></tr></tbody></table></div>
+<p><strong>场景 3：找高难度章节</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">字段</th><th style="text-align:left;">运算符</th><th style="text-align:left;">值</th></tr></thead><tbody><tr><td style="text-align:left;"><code>difficulty</code></td><td style="text-align:left;">greater than</td><td style="text-align:left;"><code>3</code></td></tr></tbody></table></div>
+<p><strong>场景 4：查找特定章节下的所有笔记</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">字段</th><th style="text-align:left;">运算符</th><th style="text-align:left;">值</th></tr></thead><tbody><tr><td style="text-align:left;"><code>section</code></td><td style="text-align:left;">is</td><td style="text-align:left;"><code>section5</code></td></tr></tbody></table></div>
+<p><strong>组合筛选示例：</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">filters</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  and</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'status != &quot;完成&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;difficulty > 3&quot;</span></span></code></pre></figure>
+<p>这个筛选会找出所有<strong>未完成</strong>且<strong>难度大于 3</strong> 的章节，适合优先攻克硬骨头。</p>
+<h3 id="第-10-步保存并查看-base">第 10 步：保存并查看 Base<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-10-步保存并查看-base" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>完成以上配置后，你的教程目录数据库应该可以正常工作了。</p>
+<p><strong>完整 .base 文件示例（供参考）：</strong></p>
+<p>以下是 <code>教程目录数据库.base</code> 的完整 YAML 内容，你可以直接复制到文件中使用：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">filters</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  or</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section0&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section1&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section2&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section3&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section4&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section5&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section6&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section7&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section8&quot;'</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'file.folder == &quot;section9&quot;'</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">formulas</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  status_icon</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">|-</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    if(status == &quot;完成&quot;, &quot;✅&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      if(status == &quot;进行中&quot;, &quot;🔄&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">        if(status == &quot;待编写&quot;, &quot;⬜&quot;, &quot;❓&quot;)))</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  difficulty_stars</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">|-</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    if(difficulty == 1, &quot;⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      if(difficulty == 2, &quot;⭐⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">        if(difficulty == 3, &quot;⭐⭐⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">          if(difficulty == 4, &quot;⭐⭐⭐⭐&quot;,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">            if(difficulty == 5, &quot;⭐⭐⭐⭐⭐&quot;, &quot;&quot;)))))</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  days_old</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;(now() - file.ctime).days&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  full_title</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">'section + &quot;： &quot; + topic</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">properties:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  file.name:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;文件名&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  section:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;章节&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  topic:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;主题&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  status:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;状态&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  difficulty:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;难度&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  owner:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;负责人&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  prerequisites:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;前置章节&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  order:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;顺序&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  file.ctime:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;创建时间&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  formula.status_icon:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;状态图标&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  formula.difficulty_stars:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;难度星级&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  formula.days_old:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;已创建天数&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  formula.full_title:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    displayName: &quot;完整标题&quot;</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">views:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  - type: table</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    name: &quot;📋 数据总览&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    order:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - file.name</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - section</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - topic</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - formula.status_icon</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - status</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - formula.difficulty_stars</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - difficulty</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - owner</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - prerequisites</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - formula.days_old</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    groupBy:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      property: section</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      direction: ASC</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    summaries:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      status: Count</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      difficulty: Average</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">  - type: cards</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    name: &quot;📊 状态看板&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    order:</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - file.name</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - formula.status_icon</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - status</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - difficulty</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">      - owner</span></span></code></pre></figure>
+<h3 id="第-11-步进阶优化可选">第 11 步：进阶优化（可选）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-11-步进阶优化可选" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="按章节分组">按章节分组<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#按章节分组" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>在表格视图中，可以按 <code>section</code> 字段分组，让同一章节的笔记折叠在一起：</p>
+<ol>
+<li>点击字段列头的下拉菜单 → <strong>分组</strong>。</li>
+<li>选择 <code>section</code> 字段。</li>
+<li>每组的标题栏会折叠该组的所有行，点击可展开/收起。</li>
+</ol>
+<h4 id="自定义汇总公式">自定义汇总公式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#自定义汇总公式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>如果你想要更精确的进度统计，可以添加自定义汇总：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">summaries</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">  completion_rate</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;" data-token-type="keyword">|-</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">    values.filter(v => v == &quot;完成&quot;).length / values.length * 100</span></span></code></pre></figure>
+<p>然后添加到视图的汇总配置中：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">views</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">table</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">    name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;📋 数据总览&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">    summaries</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">      status</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">completion_rate</span></span></code></pre></figure>
+<h4 id="导出与分享">导出与分享<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#导出与分享" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Base 本身是一个 YAML 文件，你可以：</p>
+<ol>
+<li><strong>纳入 Git 版本控制</strong>：<code>.base</code> 文件是纯文本，直接提交即可。</li>
+<li><strong>分享配置</strong>：将 <code>.base</code> 文件的内容分享给协作者，他们创建同名的 Base 即可复用。</li>
+<li><strong>嵌入笔记</strong>：在笔记中通过 <code>![[教程目录数据库.base]]</code> 嵌入 Base 视图（部分 Obsidian 版本支持）。</li>
+</ol>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Base 的维护建议 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li>每次新增章节时，记得更新 Frontmatter 和 Base 的筛选范围。</li>
+<li>定期在 <code>.base</code> 文件中添加新的 <code>formulas</code> 或 <code>summaries</code>，让数据展示更丰富。</li>
+<li>如果协作者较多，建议由一人维护 Base 配置，避免 YAML 冲突。</li>
+</ul>
+</div>
+</blockquote>
+<h2 id="扩展阅读">扩展阅读<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#扩展阅读" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://help.obsidian.md/Plugins/Bases" class="external external-link">Obsidian 官方帮助 - Bases<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://help.obsidian.md/Editing+and+formatting/Properties" class="external external-link">Obsidian 官方帮助 - 属性（Frontmatter）<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://help.obsidian.md/Plugins/Formulas" class="external external-link">Obsidian 官方帮助 - 公式参考<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Q：为什么我的 Base 中某些笔记没有显示某个字段的值？</strong><br/>
+A：这是因为这些笔记的 Frontmatter 中缺少对应的属性。在 Base 中双击对应单元格，填写值后会自动添加到笔记的 Frontmatter 中。</p>
+<p><strong>Q：添加了新的章节笔记，为什么 Base 中没有出现？</strong><br/>
+A：检查新笔记是否在 Base 筛选条件所包含的文件夹中，以及笔记的 Frontmatter 格式是否正确。如果使用标签筛选，确保笔记包含对应的标签。</p>
+<p><strong>Q：如何为不同的负责人创建独立的视图？</strong><br/>
+A：可以创建多个视图，每个视图添加不同的筛选条件。例如，视图 A 筛选 <code>owner = &quot;张三&quot;</code>，视图 B 筛选 <code>owner = &quot;李四&quot;</code>。</p>
+<p><strong>Q：Base 中修改了数据，其他协作者能看到吗？</strong><br/>
+A：可以。因为 Base 修改的是笔记的 Frontmatter，这些变更会通过 Git 提交同步给所有协作者。确保修改后及时提交推送。</p>
+<p><strong>Q：公式中的条件判断写错了，Base 会报错吗？</strong><br/>
+A：公式语法错误通常不会导致 Base 崩溃，但公式字段会显示为空或错误值。可以在 <code>.base</code> 文件中检查公式语法，确保引号、括号匹配。</p>
+<p><strong>Q：可以同时使用多个 Base 文件吗？</strong><br/>
+A：可以。你可以在不同目录下创建多个 <code>.base</code> 文件，每个 Base 独立管理不同的数据范围。它们之间互不影响。</p>
+<h2 id="验收清单">验收清单<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验收清单" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>完成本实战后，请逐项检查：</p>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 所有章节入口笔记已添加统一 Frontmatter（section / topic / status / difficulty / owner / prerequisites / order）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <code>教程目录数据库.base</code> 已创建并配置了正确的筛选条件。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 表格视图能正确显示所有章节笔记。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 排序设置正确（按 section 分组，按 order 排序）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 已配置至少一个公式字段（如 <code>status_icon</code>）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 已添加至少一个汇总（如 status 的计数）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能通过筛选快速定位特定章节（如未完成的章节）。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 卡片视图已创建并能正常展示。</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-24" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#bases-实战教程目录数据库" data-for="bases-实战教程目录数据库">Bases 实战：教程目录数据库</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#项目概述" data-for="项目概述">项目概述</a></li><li class="depth-1"><a href="#步骤" data-for="步骤">步骤</a></li><li class="depth-2"><a href="#第-1-步为章节笔记添加统一-frontmatter" data-for="第-1-步为章节笔记添加统一-frontmatter">第 1 步：为章节笔记添加统一 Frontmatter</a></li><li class="depth-2"><a href="#第-2-步创建教程目录-base" data-for="第-2-步创建教程目录-base">第 2 步：创建教程目录 Base</a></li><li class="depth-2"><a href="#第-3-步配置筛选定义数据范围" data-for="第-3-步配置筛选定义数据范围">第 3 步：配置筛选（定义数据范围）</a></li><li class="depth-2"><a href="#第-4-步添加并配置字段" data-for="第-4-步添加并配置字段">第 4 步：添加并配置字段</a></li><li class="depth-2"><a href="#第-5-步创建视图" data-for="第-5-步创建视图">第 5 步：创建视图</a></li><li class="depth-2"><a href="#第-6-步添加排序" data-for="第-6-步添加排序">第 6 步：添加排序</a></li><li class="depth-2"><a href="#第-7-步添加公式" data-for="第-7-步添加公式">第 7 步：添加公式</a></li><li class="depth-2"><a href="#第-8-步添加汇总" data-for="第-8-步添加汇总">第 8 步：添加汇总</a></li><li class="depth-2"><a href="#第-9-步使用筛选快速定位" data-for="第-9-步使用筛选快速定位">第 9 步：使用筛选快速定位</a></li><li class="depth-2"><a href="#第-10-步保存并查看-base" data-for="第-10-步保存并查看-base">第 10 步：保存并查看 Base</a></li><li class="depth-2"><a href="#第-11-步进阶优化可选" data-for="第-11-步进阶优化可选">第 11 步：进阶优化（可选）</a></li><li class="depth-1"><a href="#扩展阅读" data-for="扩展阅读">扩展阅读</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="depth-1"><a href="#验收清单" data-for="验收清单">验收清单</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../" class="internal">Obsidian 教程</a></li><li><a href="../section6/section6笔记目录.base" class="internal">section6笔记目录</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>
