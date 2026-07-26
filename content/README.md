@@ -12,6 +12,8 @@ tags:
 
 <center>📘 从零开始，掌握 Obsidian + VS Code + Git 的协作工作流</center>
 
+> 🌐 **在线访问**：[**fdscend.github.io/obsidian_tutorial**](https://fdscend.github.io/obsidian_tutorial/)
+
 ---
 
 ## 📖 项目简介
@@ -24,6 +26,7 @@ tags:
 4. 🗺 **知识组织** — 掌握 Obsidian Canvas（画布）、Advanced Canvas 增强（含 frontmatter）与 Bases（数据库）功能。
 5. 📡 **多端同步** — 使用 Syncthing 实现局域网仓库同步。
 6. 🤖 **AI 辅助** — 学会 VS Code Copilot 的基础使用与进阶案例（prompt、skill、mcp）。
+7. 🌐 **静态网站部署** — 使用 Quartz 将教程发布为 GitHub Pages 站点。
 
 > 📌 课程章节顺序：**先环境，后内容**。确保工具渲染正常再进入写作与进阶章节。
 
@@ -64,35 +67,38 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 - **对 Obsidian 进阶功能感兴趣** → 查看 [section5](section5/)（Canvas + Web Clipper + frontmatter）和 [section6](section6/)（Bases）
 - **需要多设备同步** → 查看 [section7](section7/)（Syncthing 局域网同步）
 - **想用 AI 辅助写作/编码** → 查看 [section8](section8/) 和 [section9](section9/)（Copilot）
+- **想部署为在线站点** → 查看 [section10](section10/)（Quartz + GitHub Pages）
 
 ---
 
 ## 📚 课程目录
 
-| 章节           | 主题                                     | 状态        |
-| :------------- | :--------------------------------------- | :---------- |
-| **→ section0** | **课程导读与协作规范**                   | **✅ 完成** |
-| **→ section1** | **环境安装（Obsidian / VS Code / Git）** | **✅ 完成** |
-| **→ section2** | **Markdown 基础语法**                    | **✅ 完成** |
-| **→ section3** | **Markdown 扩展与 Obsidian 语法**        | **✅ 完成** |
-| **→ section4** | **Git/GitHub 可视化协作**                | **✅ 完成** |
-| **→ section5** | **Obsidian Canvas / Web Clipper**        | **✅ 完成** |
-| **→ section6** | **Obsidian Bases 基础**                  | **✅ 完成** |
-| **→ section7** | **Syncthing 局域网同步**                 | **✅ 完成** |
-| **→ section8** | **VS Code Copilot 基础**                 | **✅ 完成** |
-| **→ section9** | **Copilot 实战案例**                     | **✅ 完成** |
-| **→ 附录**     | **术语表 / FAQ / 快捷键 / 更新日志**     | **✅ 完成** |
+| 章节            | 主题                                     | 状态        |
+| :-------------- | :--------------------------------------- | :---------- |
+| **→ section0**  | **课程导读与协作规范**                   | **✅ 完成** |
+| **→ section1**  | **环境安装（Obsidian / VS Code / Git）** | **✅ 完成** |
+| **→ section2**  | **Markdown 基础语法**                    | **✅ 完成** |
+| **→ section3**  | **Markdown 扩展与 Obsidian 语法**        | **✅ 完成** |
+| **→ section4**  | **Git/GitHub 可视化协作**                | **✅ 完成** |
+| **→ section5**  | **Obsidian Canvas / Web Clipper**        | **✅ 完成** |
+| **→ section6**  | **Obsidian Bases 基础**                  | **✅ 完成** |
+| **→ section7**  | **Syncthing 局域网同步**                 | **✅ 完成** |
+| **→ section8**  | **VS Code Copilot 基础**                 | **✅ 完成** |
+| **→ section9**  | **Copilot 实战案例**                     | **✅ 完成** |
+| **→ section10** | **Quartz 静态网站部署**                  | **✅ 完成** |
+| **→ 附录**      | **术语表 / FAQ / 快捷键 / 更新日志**     | **✅ 完成** |
 
 ---
 
 ## 🛠 技术栈
 
-| 工具       | 用途                          |
-| :--------- | :---------------------------- |
-| Obsidian   | 知识管理、Markdown 预览       |
-| VS Code    | 代码编辑、Git 可视化、Copilot |
-| Git/GitHub | 版本控制与远程协作            |
-| Markdown   | 文档编写语言                  |
+| 工具       | 用途                             |
+| :--------- | :------------------------------- |
+| Obsidian   | 知识管理、Markdown 预览          |
+| VS Code    | 代码编辑、Git 可视化、Copilot    |
+| Git/GitHub | 版本控制与远程协作               |
+| Markdown   | 文档编写语言                     |
+| Quartz     | 静态网站生成与 GitHub Pages 部署 |
 
 ---
 
