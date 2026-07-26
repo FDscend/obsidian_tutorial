@@ -11,6 +11,8 @@ configuration:
     - private
     - templates
     - .obsidian
+    - .vscode
+    - .doc
     - Clippings
     - template
   theme:
