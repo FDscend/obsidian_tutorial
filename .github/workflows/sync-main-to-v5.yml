@@ -1,0 +1,53 @@
+name: Sync main → v5 and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout v5 branch
+        uses: actions/checkout@v4
+        with:
+          ref: v5
+          path: v5-branch
+
+      - name: Sync content from main to v5/content/
+        run: |
+          # 复制需要发布的目录和文件到 v5/content/
+          for dir in section0 section1 section2 section3 section4 section5 section6 section7 section8 section9 appendix image; do
+            if [ -d "$dir" ]; then
+              rsync -a --delete "$dir/" "v5-branch/content/$dir/"
+            fi
+          done
+          # 复制根目录下的单个文件
+          for file in markdown格式总结.md README.md; do
+            if [ -f "$file" ]; then
+              cp "$file" "v5-branch/content/"
+            fi
+          done
+          # 复制 .canvas 文件（如果存在）
+          cp *.canvas v5-branch/content/ 2>/dev/null || true
+
+      - name: Commit and push to v5
+        run: |
+          cd v5-branch
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/
+          if git diff --staged --quiet; then
+            echo "No changes to sync"
+          else
+            git commit -m "sync: 从 main 同步内容更新"
+            git push
+          fi
