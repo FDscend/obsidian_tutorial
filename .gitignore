@@ -1,6 +1,8 @@
 .obsidian/
 .vscode/
 .github/
+!.github/skills/
+!.github/skills/**
 
 # Quartz 构建产物与依赖（仅在 v5 分支使用）
 node_modules/
