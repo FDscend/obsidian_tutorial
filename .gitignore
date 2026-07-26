@@ -12,3 +12,6 @@ private/
 replit.nix
 .quartz/
 quartz/cli/tui/dist/
+.github/*
+!.github/workflows/
+!.github/workflows/**
