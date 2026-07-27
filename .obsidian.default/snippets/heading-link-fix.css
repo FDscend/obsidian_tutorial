@@ -1,0 +1,11 @@
+/* 修复：Quartz 默认隐藏 h2>a[href^="#"] 用于隐藏标题锚点图标，
+   但会误伤标题内的别名链接 [alias](#anchor)  */
+h1[id] > a[href^="\#"].alias,
+h2[id] > a[href^="\#"].alias,
+h3[id] > a[href^="\#"].alias,
+h4[id] > a[href^="\#"].alias,
+h5[id] > a[href^="\#"].alias,
+h6[id] > a[href^="\#"].alias {
+  opacity: 1 !important;
+  user-select: auto !important;
+}

@@ -14,3 +14,6 @@ mcl-quartz.css
 
 # 分割线样式
 【阿岚】自定义分割线.css
+
+# 修复：标题内别名链接被 Quartz 默认样式误隐藏
+heading-link-fix.css
