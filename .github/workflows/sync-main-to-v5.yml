@@ -41,9 +41,13 @@ jobs:
 
       - name: Sync selected CSS snippets to v5
         run: |
+          set -e
           SNIPPETS_SRC=".obsidian.default/snippets"
           SNIPPETS_DST="v5-branch/quartz/styles/snippets"
           CONFIG_FILE="$SNIPPETS_SRC/.web-snippets"
+
+          echo "📁 源目录: $SNIPPETS_SRC"
+          echo "📁 目标目录: $SNIPPETS_DST"
 
           # 确保目标目录存在
           mkdir -p "$SNIPPETS_DST"
@@ -55,7 +59,7 @@ jobs:
           fi
 
           # 清空目标目录（只保留 .gitkeep）
-          find "$SNIPPETS_DST" -type f ! -name '.gitkeep' -delete
+          find "$SNIPPETS_DST" -type f -not -name '.gitkeep' -delete
 
           # 初始化一个数组保存成功复制的文件名
           COPIED_FILES=()
@@ -65,9 +69,12 @@ jobs:
             # 去除首尾空格
             trimmed=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
             # 跳过空行和注释行
-            if [ -z "$trimmed" ] || echo "$trimmed" | grep -q '^#'; then
+            if [ -z "$trimmed" ]; then
               continue
             fi
+            case "$trimmed" in
+              \#*) continue ;;
+            esac
             # 检查源文件是否存在
             if [ -f "$SNIPPETS_SRC/$trimmed" ]; then
               cp "$SNIPPETS_SRC/$trimmed" "$SNIPPETS_DST/"
@@ -77,6 +84,8 @@ jobs:
               echo "⚠️  文件不存在，跳过: $SNIPPETS_SRC/$trimmed"
             fi
           done < "$CONFIG_FILE"
+
+          echo "📊 共处理 ${#COPIED_FILES[@]} 个 CSS 文件"
 
           # 生成 _index.scss，供 custom.scss 通过 @use './snippets' 加载
           # 注意：不能用 @import "file.css"，那会生成浏览器级别 CSS @import（额外 HTTP 请求）
@@ -91,17 +100,36 @@ jobs:
             echo "" >> "$INDEX_SCSS"
           done
 
-          echo "📄 已生成 _index.scss，共 ${#COPIED_FILES[@]} 个 CSS 片段"
+          echo "📄 已生成 _index.scss"
 
       - name: Commit and push to v5
         run: |
+          set -e
           cd v5-branch
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/ quartz/styles/snippets/
-          if git diff --staged --quiet; then
-            echo "No changes to sync"
+
+          # 诊断：检查 snippets 目录是否存在
+          if [ -d "quartz/styles/snippets" ]; then
+            echo "📁 snippets 目录内容:"
+            ls -la quartz/styles/snippets/
           else
+            echo "⚠️  quartz/styles/snippets 目录不存在"
+          fi
+
+          # 分别添加 content 和 snippets，避免单个路径不存在导致整体失败
+          git add content/ 2>&1 || echo "⚠️  git add content/ 失败"
+          if [ -d "quartz/styles/snippets" ]; then
+            git add quartz/styles/snippets/ 2>&1 || echo "⚠️  git add snippets/ 失败"
+          fi
+
+          if git diff --staged --quiet; then
+            echo "✅ No changes to sync"
+          else
+            echo "📝 有变更，准备提交..."
+            git diff --staged --stat
             git commit -m "sync: 从 main 同步内容更新（含 CSS 片段）"
-            git push
+            echo "🚀 推送到 origin/v5 ..."
+            git push 2>&1 || echo "❌ git push 失败，退出码: $?"
           fi
