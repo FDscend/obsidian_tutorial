@@ -1,0 +1,7 @@
+// ⚠️ 此文件是默认入口，会被 sync-main-to-v5.yml 工作流生成的版本覆盖
+// 如果工作流尚未运行，此文件确保 @use './snippets' 不会因缺少 _index.scss 而构建失败
+//
+// 如需添加全局自定义样式，请编辑 quartz/styles/custom.scss
+// 如需从 Obsidian 同步 CSS 片段，请在 main 分支修改 .obsidian.default/snippets/.web-snippets
+
+// 此处可以放一些默认样式，即使没有同步任何片段也能工作
