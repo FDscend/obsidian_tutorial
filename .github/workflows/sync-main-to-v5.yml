@@ -58,8 +58,8 @@ jobs:
             exit 0
           fi
 
-          # 清空目标目录（只保留 .gitkeep）
-          find "$SNIPPETS_DST" -type f -not -name '.gitkeep' -delete
+          # 清空目标目录旧的 CSS 文件（保留默认 _index.scss）
+          find "$SNIPPETS_DST" -type f -not -name '_index.scss' -delete
 
           # 初始化一个数组保存成功复制的文件名
           COPIED_FILES=()
@@ -102,25 +102,42 @@ jobs:
 
           echo "📄 已生成 _index.scss"
 
-      - name: Commit and push to v5
-        run: |
-          cd v5-branch
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('v5-branch/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-          # 先 add content/
-          git add content/
+      - name: Cache Quartz plugins
+        uses: actions/cache@v4
+        with:
+          path: v5-branch/.quartz/plugins
+          key: ${{ runner.os }}-plugins-${{ hashFiles('v5-branch/quartz.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-plugins-
 
-          # 再 add snippets/（如果存在）
-          if [ -d "quartz/styles/snippets" ]; then
-            git add quartz/styles/snippets/
-          fi
+      - name: Install Dependencies
+        working-directory: v5-branch
+        run: npm ci
 
-          # 检查是否有变更
-          if git diff --staged --quiet; then
-            echo "✅ No changes to sync"
-          else
-            git commit -m "sync: 从 main 同步内容更新（含 CSS 片段）"
-            git push
-          fi
+      - name: Install Quartz plugins
+        working-directory: v5-branch
+        run: npx quartz plugin install --noaudit
+
+      - name: Build Quartz
+        working-directory: v5-branch
+        run: npx quartz build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: v5-branch/public
+          publish_branch: gh-pages
