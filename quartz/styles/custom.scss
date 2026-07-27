@@ -1,3 +1,8 @@
 @use "./variables.scss" as *;
+@use "./snippets";
 
 // put your custom CSS here!
+//
+// 如需额外添加样式，请写在此文件。
+// 若要同步 Obsidian 中的 CSS 片段，请在 main 分支修改
+// .obsidian.default/snippets/.web-snippets 配置文件。
