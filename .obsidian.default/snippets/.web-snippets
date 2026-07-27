@@ -1,0 +1,16 @@
+# 需要同步到 Quartz 网站的 CSS 片段
+# 每行一个文件名（相对于 .obsidian.default/snippets/）
+# 以 # 开头的行是注释，会被忽略
+# 空行也会被忽略
+
+# 基础样式
+code.css
+callout.css
+img_center.css
+class.css
+
+# 多栏布局（网页也支持）
+MCL Multi Column.css
+
+# 分割线样式
+【阿岚】自定义分割线.css

@@ -39,15 +39,69 @@ jobs:
           # 复制 .canvas 文件（如果存在）
           cp *.canvas v5-branch/content/ 2>/dev/null || true
 
+      - name: Sync selected CSS snippets to v5
+        run: |
+          SNIPPETS_SRC=".obsidian.default/snippets"
+          SNIPPETS_DST="v5-branch/quartz/styles/snippets"
+          CONFIG_FILE="$SNIPPETS_SRC/.web-snippets"
+
+          # 确保目标目录存在
+          mkdir -p "$SNIPPETS_DST"
+
+          # 如果配置文件不存在，跳过
+          if [ ! -f "$CONFIG_FILE" ]; then
+            echo "⚠️  未找到 $CONFIG_FILE，跳过 CSS 片段同步"
+            exit 0
+          fi
+
+          # 清空目标目录（只保留 .gitkeep）
+          find "$SNIPPETS_DST" -type f ! -name '.gitkeep' -delete
+
+          # 初始化一个数组保存成功复制的文件名
+          COPIED_FILES=()
+
+          # 读取配置文件，逐行处理
+          while IFS= read -r line || [ -n "$line" ]; do
+            # 去除首尾空格
+            trimmed=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+            # 跳过空行和注释行
+            if [ -z "$trimmed" ] || echo "$trimmed" | grep -q '^#'; then
+              continue
+            fi
+            # 检查源文件是否存在
+            if [ -f "$SNIPPETS_SRC/$trimmed" ]; then
+              cp "$SNIPPETS_SRC/$trimmed" "$SNIPPETS_DST/"
+              echo "✅ 已复制: $trimmed"
+              COPIED_FILES+=("$trimmed")
+            else
+              echo "⚠️  文件不存在，跳过: $SNIPPETS_SRC/$trimmed"
+            fi
+          done < "$CONFIG_FILE"
+
+          # 生成 _index.scss，供 custom.scss 通过 @use './snippets' 加载
+          # 注意：不能用 @import "file.css"，那会生成浏览器级别 CSS @import（额外 HTTP 请求）
+          # 正确做法：将 CSS 内容直接内联到 _index.scss 中
+          INDEX_SCSS="$SNIPPETS_DST/_index.scss"
+          echo "// ⚠️ 此文件由 sync-main-to-v5.yml 工作流自动生成，请勿手动编辑" > "$INDEX_SCSS"
+          echo "// 来源: .obsidian.default/snippets/.web-snippets 中列出的文件" >> "$INDEX_SCSS"
+          echo "" >> "$INDEX_SCSS"
+          for css_file in "${COPIED_FILES[@]}"; do
+            echo "/* === $css_file === */" >> "$INDEX_SCSS"
+            cat "$SNIPPETS_DST/$css_file" >> "$INDEX_SCSS"
+            echo "" >> "$INDEX_SCSS"
+          done
+
+          echo "📄 已生成 _index.scss，共 ${#COPIED_FILES[@]} 个 CSS 片段"
+
       - name: Commit and push to v5
         run: |
           cd v5-branch
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/
+          git add content/ quartz/styles/snippets/
           if git diff --staged --quiet; then
             echo "No changes to sync"
           else
-            git commit -m "sync: 从 main 同步内容更新"
+            git commit -m "sync: 从 main 同步内容更新（含 CSS 片段）"
             git push
           fi
