@@ -54,8 +54,24 @@ blockquote[data-callout="multi-column"][data-callout-metadata*="col5"].callout
 }
 
 /* === blank 变体：无边框无标题 === */
-blockquote[data-callout="multi-column"].callout
-  > .callout-content > .callout-blank,
+/* 匹配所有以 -blank 结尾的 callout 类型（如 note-blank, cite-blank, quote-blank 等） */
+blockquote.callout[data-callout$="-blank"] {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+blockquote.callout[data-callout$="-blank"] > .callout-title {
+  display: none !important;
+}
+
+blockquote.callout[data-callout$="-blank"] > .callout-content {
+  display: block !important;
+  grid-template-rows: none !important;
+}
+
+/* 多栏内部通过 metadata blank 控制 */
 blockquote[data-callout="multi-column"].callout
   > .callout-content > [data-callout-metadata*="blank"] {
   border: none;
@@ -63,8 +79,6 @@ blockquote[data-callout="multi-column"].callout
   padding: 0;
 }
 
-blockquote[data-callout="multi-column"].callout
-  > .callout-content > .callout-blank > .callout-title,
 blockquote[data-callout="multi-column"].callout
   > .callout-content > [data-callout-metadata*="blank"] > .callout-title {
   display: none;
