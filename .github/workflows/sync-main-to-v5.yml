@@ -129,7 +129,7 @@ jobs:
 
       - name: Install Quartz plugins
         working-directory: v5-branch
-        run: npx quartz plugin install --noaudit
+        run: npx quartz plugin install
 
       - name: Build Quartz
         working-directory: v5-branch
