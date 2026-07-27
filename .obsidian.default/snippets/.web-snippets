@@ -9,8 +9,8 @@ callout.css
 img_center.css
 class.css
 
-# 多栏布局（网页也支持）
-MCL Multi Column.css
+# 多栏布局（Quartz 兼容版，使用 blockquote 选择器）
+mcl-quartz.css
 
 # 分割线样式
 【阿岚】自定义分割线.css

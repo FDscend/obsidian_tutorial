@@ -104,32 +104,23 @@ jobs:
 
       - name: Commit and push to v5
         run: |
-          set -e
           cd v5-branch
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # 诊断：检查 snippets 目录是否存在
+          # 先 add content/
+          git add content/
+
+          # 再 add snippets/（如果存在）
           if [ -d "quartz/styles/snippets" ]; then
-            echo "📁 snippets 目录内容:"
-            ls -la quartz/styles/snippets/
-          else
-            echo "⚠️  quartz/styles/snippets 目录不存在"
+            git add quartz/styles/snippets/
           fi
 
-          # 分别添加 content 和 snippets，避免单个路径不存在导致整体失败
-          git add content/ 2>&1 || echo "⚠️  git add content/ 失败"
-          if [ -d "quartz/styles/snippets" ]; then
-            git add quartz/styles/snippets/ 2>&1 || echo "⚠️  git add snippets/ 失败"
-          fi
-
+          # 检查是否有变更
           if git diff --staged --quiet; then
             echo "✅ No changes to sync"
           else
-            echo "📝 有变更，准备提交..."
-            git diff --staged --stat
             git commit -m "sync: 从 main 同步内容更新（含 CSS 片段）"
-            echo "🚀 推送到 origin/v5 ..."
-            git push 2>&1 || echo "❌ git push 失败，退出码: $?"
+            git push
           fi
