@@ -2,7 +2,15 @@
    适配自 MCL Multi Column (https://github.com/efemkay/obsidian-modular-css-layout)
    Quartz 使用 <blockquote> 而非 <div> 作为 callout 容器 */
 
-/* === 多栏容器：隐藏标题，flex 布局 === */
+/* === 多栏容器：清除默认 callout 样式，flex 布局 === */
+blockquote[data-callout="multi-column"].callout {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  --callout-blend-mode: normal;
+}
+
 blockquote[data-callout="multi-column"].callout > .callout-title {
   display: none;
 }
