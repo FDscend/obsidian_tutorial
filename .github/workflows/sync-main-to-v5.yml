@@ -1,4 +1,4 @@
-name: Sync main → v5 and Deploy
+name: Sync main → Build and Deploy
 
 on:
   push:
@@ -9,14 +9,14 @@ permissions:
   contents: write
 
 jobs:
-  sync:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Checkout v5 branch
+      - name: Checkout v5 branch (Quartz build tooling)
         uses: actions/checkout@v4
         with:
           ref: v5
@@ -25,7 +25,7 @@ jobs:
       - name: Sync content from main to v5/content/
         run: |
           # 复制需要发布的目录和文件到 v5/content/
-          for dir in section0 section1 section2 section3 section4 section5 section6 section7 section8 section9 appendix image; do
+          for dir in section0 section1 section2 section3 section4 section5 section6 section7 section8 section9 section10 appendix image; do
             if [ -d "$dir" ]; then
               rsync -a --delete "$dir/" "v5-branch/content/$dir/"
             fi
@@ -39,15 +39,90 @@ jobs:
           # 复制 .canvas 文件（如果存在）
           cp *.canvas v5-branch/content/ 2>/dev/null || true
 
-      - name: Commit and push to v5
+      - name: Sync selected CSS snippets to v5
         run: |
-          cd v5-branch
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/
-          if git diff --staged --quiet; then
-            echo "No changes to sync"
-          else
-            git commit -m "sync: 从 main 同步内容更新"
-            git push
+          set -e
+          SNIPPETS_SRC=".obsidian.default/snippets"
+          SNIPPETS_DST="v5-branch/quartz/styles/snippets"
+          CONFIG_FILE="$SNIPPETS_SRC/.web-snippets"
+
+          echo "📁 源目录: $SNIPPETS_SRC"
+          echo "📁 目标目录: $SNIPPETS_DST"
+
+          # 确保目标目录存在
+          mkdir -p "$SNIPPETS_DST"
+
+          # 如果配置文件不存在，跳过
+          if [ ! -f "$CONFIG_FILE" ]; then
+            echo "⚠️  未找到 $CONFIG_FILE，跳过 CSS 片段同步"
+            exit 0
           fi
+
+          # 清空目标目录（只保留 _index.scss）
+          find "$SNIPPETS_DST" -type f -not -name '_index.scss' -delete
+
+          COPIED_FILES=()
+
+          # 读取配置文件，逐行处理
+          while IFS= read -r line || [ -n "$line" ]; do
+            trimmed=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+            if [ -z "$trimmed" ]; then
+              continue
+            fi
+            case "$trimmed" in
+              \#*) continue ;;
+            esac
+            if [ -f "$SNIPPETS_SRC/$trimmed" ]; then
+              cp "$SNIPPETS_SRC/$trimmed" "$SNIPPETS_DST/"
+              echo "✅ 已复制: $trimmed"
+              COPIED_FILES+=("$trimmed")
+            else
+              echo "⚠️  文件不存在，跳过: $SNIPPETS_SRC/$trimmed"
+            fi
+          done < "$CONFIG_FILE"
+
+          echo "📊 共处理 ${#COPIED_FILES[@]} 个 CSS 文件"
+
+          # 生成 _index.scss（内联 CSS 内容，避免浏览器级别 @import）
+          INDEX_SCSS="$SNIPPETS_DST/_index.scss"
+          echo "// ⚠️ 此文件由 sync-main-to-v5.yml 工作流自动生成" > "$INDEX_SCSS"
+          echo "" >> "$INDEX_SCSS"
+          for css_file in "${COPIED_FILES[@]}"; do
+            echo "/* === $css_file === */" >> "$INDEX_SCSS"
+            cat "$SNIPPETS_DST/$css_file" >> "$INDEX_SCSS"
+            echo "" >> "$INDEX_SCSS"
+          done
+
+          echo "📄 已生成 _index.scss"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('v5-branch/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        working-directory: v5-branch
+        run: npm ci
+
+      - name: Install Quartz plugins
+        working-directory: v5-branch
+        run: npx quartz plugin install --noaudit
+
+      - name: Build Quartz
+        working-directory: v5-branch
+        run: npx quartz build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: v5-branch/public
+          publish_branch: gh-pages
