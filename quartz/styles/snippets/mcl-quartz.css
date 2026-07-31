@@ -1,0 +1,159 @@
+/* Quartz 兼容的多栏 Callout 样式
+   适配自 MCL Multi Column (https://github.com/efemkay/obsidian-modular-css-layout)
+   Quartz 使用 <blockquote> 而非 <div> 作为 callout 容器 */
+
+/* === 多栏容器：清除默认 callout 样式，flex 布局 === */
+blockquote[data-callout="multi-column"].callout {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  --callout-blend-mode: normal;
+}
+
+blockquote[data-callout="multi-column"].callout > .callout-title {
+  display: none;
+}
+
+blockquote[data-callout="multi-column"].callout > .callout-content {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  /* 覆盖 Quartz 默认 grid */
+  grid-template-rows: none !important;
+  align-items: stretch;
+}
+
+/* 子 callout 默认等宽、等高 */
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > .callout {
+  flex: 1 1 200px;
+  min-width: 150px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+/* 子 callout 的内容撑满剩余高度 */
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > .callout > .callout-content {
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
+  grid-template-rows: none !important;
+}
+/* 子 callout 内部的内容元素也撑满 */
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > .callout > .callout-content > * {
+  flex: 1;
+}
+
+/* === 列数控制 === */
+blockquote[data-callout="multi-column"][data-callout-metadata*="col2"].callout
+  > .callout-content > .callout {
+  flex: 1 1 calc(50% - 0.75rem);
+}
+
+blockquote[data-callout="multi-column"][data-callout-metadata*="col3"].callout
+  > .callout-content > .callout {
+  flex: 1 1 calc(33.333% - 0.75rem);
+}
+
+blockquote[data-callout="multi-column"][data-callout-metadata*="col4"].callout
+  > .callout-content > .callout {
+  flex: 1 1 calc(25% - 0.75rem);
+}
+
+blockquote[data-callout="multi-column"][data-callout-metadata*="col5"].callout
+  > .callout-content > .callout {
+  flex: 1 1 calc(20% - 0.75rem);
+}
+
+/* === blank 变体：无边框无标题 === */
+/* 匹配所有以 -blank 结尾的 callout 类型（如 note-blank, cite-blank, quote-blank 等） */
+blockquote.callout[data-callout$="-blank"] {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+blockquote.callout[data-callout$="-blank"] > .callout-title {
+  display: none !important;
+}
+
+blockquote.callout[data-callout$="-blank"] > .callout-content {
+  flex: 1;
+  display: flex !important;
+  flex-direction: column;
+  grid-template-rows: none !important;
+}
+blockquote.callout[data-callout$="-blank"] > .callout-content > * {
+  flex: 1;
+}
+
+/* 多栏内部通过 metadata blank 控制 */
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > [data-callout-metadata*="blank"] {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > [data-callout-metadata*="blank"] > .callout-title {
+  display: none;
+}
+
+/* === 宽度控制：wide-2 ~ wide-5 === */
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > [data-callout-metadata*="wide-2"] {
+  flex: 2 1 300px;
+}
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > [data-callout-metadata*="wide-3"] {
+  flex: 3 1 400px;
+}
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > [data-callout-metadata*="wide-4"] {
+  flex: 4 1 500px;
+}
+blockquote[data-callout="multi-column"].callout
+  > .callout-content > [data-callout-metadata*="wide-5"] {
+  flex: 5 1 600px;
+}
+
+/* === 水平不换行模式 === */
+blockquote[data-callout="multi-column"][data-callout-metadata*="flex-h"].callout
+  > .callout-content {
+  flex-wrap: nowrap;
+}
+
+/* col2-flex-h：两栏不换行 */
+blockquote[data-callout="multi-column"][data-callout-metadata*="col2-flex-h"].callout
+  > .callout-content {
+  flex-wrap: nowrap;
+}
+blockquote[data-callout="multi-column"][data-callout-metadata*="col2-flex-h"].callout
+  > .callout-content > .callout {
+  flex: 1 1 50%;
+}
+
+/* === 图片标题 caption 样式 === */
+blockquote[data-callout-metadata*="caption"].callout {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  text-align: center;
+}
+blockquote[data-callout-metadata*="caption"].callout > .callout-title {
+  display: none;
+}
+blockquote[data-callout-metadata*="caption"].callout > .callout-content {
+  display: block !important;
+  grid-template-rows: none !important;
+}
+blockquote[data-callout-metadata*="caption"].callout figcaption {
+  font-size: 0.9em;
+  color: var(--gray);
+  margin-top: 0.25rem;
+}

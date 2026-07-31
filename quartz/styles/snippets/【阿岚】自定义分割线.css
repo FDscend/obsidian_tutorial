@@ -1,0 +1,73 @@
+/* 自定义分割线 */
+.markdown-preview-view hr {
+  margin-block-start: 2em;
+  margin-block-end: 2em;
+  border: none;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    var(--background-primary),
+    var(--text-accent),
+    var(--background-primary)
+  );
+}
+
+.markdown-preview-view hr::after {
+  content: "ᛜᛝ 🔶 ᛝᛜ";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  padding: 0.5rem;
+  color: #8ec07c;
+  background-color: transparent;
+}
+
+.markdown-preview-view div[data-callout="multi-column"].callout .callout hr::after {
+  content: "";
+  color: var(--text-accent);
+  background-color: transparent;
+}
+
+.markdown-preview-view section[class="footnotes"]  hr {
+  background-image: linear-gradient(
+    to right,
+    var(--background-primary),
+    var(--text-normal),
+    var(--background-primary)
+  );
+}
+
+.markdown-preview-view section[class="footnotes"] hr::after {
+  content: "Reference";
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+  font-weight: bold;
+}
+
+
+.markdown-source-view div.hr.cm-line hr {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  border: none;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    var(--background-primary),
+    var(--text-accent),
+    var(--background-primary)
+  );
+}
+
+.markdown-source-view div.hr.cm-line hr::after {
+  content: "ᛜᛝ 🔶 ᛝᛜ";
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: 50% 50%;
+  padding: 0.5rem;
+  color: #8ec07c;
+  background-color: transparent;
+}

@@ -1,0 +1,11 @@
+div[data-callout="border"].callout {
+  background-color: transparent;
+  border: 1px solid;
+  border-color: black;
+}
+div[data-callout="border"].callout > .callout-title {
+    border-bottom: 1px solid;
+}
+div[data-callout="border"].callout > .callout-title > .callout-icon {
+    display: none;
+}
