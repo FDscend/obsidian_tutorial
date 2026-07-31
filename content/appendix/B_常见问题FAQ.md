@@ -311,8 +311,8 @@ Windows Defender 或第三方防火墙可能会拦截 Syncthing。首次运行�
 
 GitHub Copilot 提供以下方案：
 
-- **个人版（Individual）**：$10/月 或 $100/年
-- **企业版（Enterprise）**：$19/月（含组织级策略管理）
+- **个人版（Individual）**：\$10/月 或 \$100/年
+- **企业版（Enterprise）**：\$19/月（含组织级策略管理）
 - **免费版（Free）**：每月有限次数补全和对话，适合试用
 
 > 详情见 [section8/00_copilot基础与订阅说明.md](../section8/00_copilot基础与订阅说明.md)。
