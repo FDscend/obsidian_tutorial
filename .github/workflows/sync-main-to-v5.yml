@@ -103,7 +103,8 @@ jobs:
           echo "📄 已生成 _index.scss"
 
       # 将同步结果提交并推送到 v5 分支
-      # v5 有 PR 保护，使用仓库 secret PERSONAL_TOKEN（管理员 PAT）绕过保护推送。
+      # v5 有 PR 保护（Repository ruleset），使用仓库 secret PERSONAL_TOKEN 绕过保护推送。
+      # 注意：PERSONAL_TOKEN 必须是 Classic PAT 且勾选 repo（Fine-grained PAT 无法绕过规则集，会报 GH013）。
       - name: Commit and push to v5
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}

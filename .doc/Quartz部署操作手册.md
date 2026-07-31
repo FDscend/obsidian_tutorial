@@ -29,7 +29,12 @@ gh-pages 分支 (纯静态文件)
 GitHub Pages → https://FDscend.github.io/obsidian_tutorial/
 
 说明：main、v5、gh-pages 三个分支均受分支保护（要求 PR）。
-CI 使用仓库 secret `PERSONAL_TOKEN`（管理员 PAT）绕过保护完成自动同步与部署。
+CI 使用仓库 secret `PERSONAL_TOKEN` 绕过保护完成自动同步与部署。
+
+> ⚠️ **`PERSONAL_TOKEN` 必须是 Classic PAT 并勾选 `repo` 范围**。
+> Fine-grained PAT **无法绕过仓库规则集**（会报 `GH013: Repository rule violations`），
+> 即使它是管理员创建的也一样。生成位置：
+> Settings → Developer settings → Personal access tokens → Tokens (classic) → 勾选 `repo`。
 ```
 
 ---
