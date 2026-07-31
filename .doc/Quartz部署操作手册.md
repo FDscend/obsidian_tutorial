@@ -10,21 +10,26 @@
 main 分支 (你的 Obsidian 仓库：笔记 + 网页 CSS 片段)
   │  编辑笔记、CSS
   ▼
-GitHub Actions: sync-main-to-v5.yml  (推送 main 时自动触发，单条流水线)
+GitHub Actions: sync-main-to-v5.yml  (推送 main 时自动触发：仅同步，不发布)
   │  1. checkout v5（Quartz 引擎）→ v5-branch/
   │  2. 复制 main 笔记 → v5-branch/content/
   │  3. 按 .web-snippets 复制 CSS → v5-branch/quartz/styles/snippets/
-  │  4. 尝试推送 v5 分支（受 PR 保护；配置 SYNC_PAT 后自动同步）
-  │  5. npm ci → npx quartz build
-  │  6. 部署 public/ → gh-pages 分支
+  │  4. 用 PERSONAL_TOKEN 推送 v5 分支（绕过 PR 保护）
+  ▼
+v5 分支 (Quartz 构建环境 + 站点配置 + 已同步内容)
+  │  手动触发部署（Actions 页面点 Run workflow）
+  ▼
+GitHub Actions: deploy.yml  (手动触发)
+  │  1. npm ci → npx quartz build
+  │  2. 用 PERSONAL_TOKEN 部署 public/ → gh-pages 分支（绕过 PR 保护）
   ▼
 gh-pages 分支 (纯静态文件)
   │
   ▼
 GitHub Pages → https://FDscend.github.io/obsidian_tutorial/
 
-说明：v5 分支本身只作为「Quartz 构建引擎 + 站点配置」的宿主，
-内容与 CSS 由工作流在 CI 中临时注入，不再把同步结果提交回 v5（除非配置 SYNC_PAT）。
+说明：main、v5、gh-pages 三个分支均受分支保护（要求 PR）。
+CI 使用仓库 secret `PERSONAL_TOKEN`（管理员 PAT）绕过保护完成自动同步与部署。
 ```
 
 ---
@@ -51,29 +56,24 @@ git commit -m "更新笔记"
 git push origin main
 ```
 
-推送后，`sync-main-to-v5` 一个工作流自动完成：同步内容与 CSS → 构建 → 部署到 Pages。
+推送后，`sync-main-to-v5` 自动把内容与 CSS 同步到 v5 分支（**不会**自动发布）。
+
+要发布到网站，需手动触发部署：
+
+1. 打开 https://github.com/FDscend/obsidian_tutorial/actions
+2. 左侧选择 **Build and Deploy to GitHub Pages**
+3. 点击 **Run workflow**（确认分支为 `v5`）→ 绿色按钮
 
 约 2-3 分钟后网站更新。
-
-> 该工作流会尝试把同步结果推送到 v5 分支，但 v5 有 PR 保护规则，
-> CI 的 GITHUB_TOKEN 无法绕过（仅打印警告，不影响部署）。
-> 若希望 v5 分支也自动同步，请在仓库 Settings → Secrets and variables → Actions
-> 配置名为 `SYNC_PAT` 的 secret（需有仓库写权限的 Personal Access Token）。
 
 ### 3. 本地预览（可选）
 
 需要在本地安装 Node.js v22+。
 
 ```bash
-# 切换到 v5 分支
+# 切换到 v5 分支（内容已由 sync 工作流自动同步）
 git checkout v5
 git pull origin v5
-
-# 同步最新的笔记与 CSS（因为 origin/v5 分支内容默认不自动更新）
-#   - 笔记：把 main 的 section*/appendix/markdown格式总结.md 等复制到 v5/content/
-#   - CSS：把 main 的 .obsidian.default/snippets/ 中 .web-snippets 列出的文件
-#     复制到 v5/quartz/styles/snippets/ 并重新生成 _index.scss（逻辑同 CI 步骤）
-#   - 若配置了 SYNC_PAT，v5 会自动同步，可跳过此步
 
 # 安装依赖（首次或依赖更新时）
 npm ci
@@ -87,24 +87,23 @@ npx quartz build --serve
 
 浏览器打开 `http://localhost:8080` 即可预览。
 
-> 注意：v5 分支上的 `content/` 可能落后于 main（除非配置了 `SYNC_PAT`）。
-> 预览前请先同步，否则看到的不是最新内容。
+> v5 分支的 `content/` 由 sync 工作流在推送 main 后自动更新，预览前先 `git pull origin v5`。
 
 ---
 
 ## 目录说明
 
-| 目录/文件                 | 所在分支           | 说明               |
-| ------------------------- | ------------------ | ------------------ |
-| `section0/` ~ `section9/` | main → v5/content/ | 教程章节           |
-| `appendix/`               | main → v5/content/ | 附录               |
-| `image/`                  | main → v5/content/ | 图片资源           |
-| `Clippings/`              | main（不同步）     | 网页剪藏，不发布   |
-| `template/`               | main（不同步）     | 模板，不发布       |
-| `.doc/`                   | main（不同步）     | 内部文档，不发布   |
-| `quartz.config.yaml`      | v5                 | 站点配置           |
-| `quartz/`                 | v5                 | Quartz 源码        |
-| `content/`                | v5                 | 构建用的笔记源文件（默认不自动更新，见「本地预览」） |
+| 目录/文件                 | 所在分支           | 说明                                         |
+| ------------------------- | ------------------ | -------------------------------------------- |
+| `section0/` ~ `section9/` | main → v5/content/ | 教程章节                                     |
+| `appendix/`               | main → v5/content/ | 附录                                         |
+| `image/`                  | main → v5/content/ | 图片资源                                     |
+| `Clippings/`              | main（不同步）     | 网页剪藏，不发布                             |
+| `template/`               | main（不同步）     | 模板，不发布                                 |
+| `.doc/`                   | main（不同步）     | 内部文档，不发布                             |
+| `quartz.config.yaml`      | v5                 | 站点配置                                     |
+| `quartz/`                 | v5                 | Quartz 源码                                  |
+| `content/`                | v5                 | 构建用的笔记源文件（由 sync 工作流自动同步） |
 
 ---
 
@@ -177,14 +176,14 @@ configuration:
 
 ### 为什么用三个分支
 
-| 分支       | 用途                       | 谁修改                            |
-| ---------- | -------------------------- | --------------------------------- |
-| `main`     | 原始 Obsidian 仓库（笔记 + 网页 CSS 片段） | 你手动编辑            |
-| `v5`       | Quartz 构建引擎 + 站点配置宿主 | 你手动维护（引擎/配置升级）；内容默认不自动同步 |
-| `gh-pages` | 构建产物（纯 HTML/CSS/JS） | Actions 自动生成，不要手动改      |
+| 分支       | 用途                                       | 谁修改                                   |
+| ---------- | ------------------------------------------ | ---------------------------------------- |
+| `main`     | 原始 Obsidian 仓库（笔记 + 网页 CSS 片段） | 你手动编辑                               |
+| `v5`       | Quartz 构建引擎 + 站点配置 + 已同步内容    | sync 工作流自动同步；你手动维护引擎/配置 |
+| `gh-pages` | 构建产物（纯 HTML/CSS/JS）                 | 手动触发 deploy 生成，不要手动改         |
 
 这样 `main` 保持纯笔记仓库，不混入 Quartz 的文件；
-`v5` 只作为引擎宿主（几乎不改动，除非升级 Quartz 或改站点配置）。
+`v5` 作为引擎与内容汇合点；三个分支均受保护，CI 用 `PERSONAL_TOKEN` 绕过。
 
 ---
 
@@ -197,9 +196,10 @@ configuration:
 ### Q: 网站没更新？
 
 1. 检查 Actions 运行状态：https://github.com/FDscend/obsidian_tutorial/actions
-2. 确认 `main` 的推送已触发 `sync-main-to-v5`
-3. 等待该工作流完成（绿色勾号），它会同步、构建并直接部署
-4. 硬刷新浏览器（Ctrl+F5）
+2. 确认 `main` 推送后 `sync-main-to-v5` 成功（内容已同步到 v5）
+3. 手动触发 **Build and Deploy to GitHub Pages**（Run workflow）
+4. 等待部署完成（绿色勾号）
+5. 硬刷新浏览器（Ctrl+F5）
 
 ### Q: 想更新 Quartz 版本？
 
@@ -221,9 +221,7 @@ git push
 ```bash
 # 删除 gh-pages 分支
 git push origin --delete gh-pages
-# 重新推送 main 触发 sync-main-to-v5 重新构建部署
-git push origin main
-# （或手动切到 v5 推送，触发 v5 上的 deploy.yml）
+# 重新手动触发 deploy.yml（Actions 页面 Run workflow）
 ```
 
 然后在 GitHub Pages 设置中重新选择 `gh-pages` 分支。
@@ -234,26 +232,27 @@ git push origin main
 
 网页由「本地笔记 + CSS → CI 构建 → gh-pages」产生，排查前先明确每类文件住在哪个分支：
 
-| 想改什么                     | 去哪个分支/文件 |
-| ---------------------------- | --------------- |
-| 笔记内容 / Markdown 语法      | `main` 的 `section*/appendix/*.md`、`markdown格式总结.md` |
+| 想改什么                               | 去哪个分支/文件                                                              |
+| -------------------------------------- | ---------------------------------------------------------------------------- |
+| 笔记内容 / Markdown 语法               | `main` 的 `section*/appendix/*.md`、`markdown格式总结.md`                    |
 | 网页 CSS 样式（callout、图片、代码等） | `main` 的 `.obsidian.default/snippets/`（须在 `.web-snippets` 中列出才生效） |
-| 是否同步某个 CSS 片段          | `main` 的 `.obsidian.default/snippets/.web-snippets` |
-| 站点标题/主题/插件/域名        | `v5` 的 `quartz.config.yaml` |
-| Quartz 引擎本身（渲染逻辑）    | `v5` 的 `quartz/`（一般不动） |
-| 流水线逻辑（同步哪些目录等）   | `main` 的 `.github/workflows/sync-main-to-v5.yml` |
+| 是否同步某个 CSS 片段                  | `main` 的 `.obsidian.default/snippets/.web-snippets`                         |
+| 站点标题/主题/插件/域名                | `v5` 的 `quartz.config.yaml`                                                 |
+| Quartz 引擎本身（渲染逻辑）            | `v5` 的 `quartz/`（一般不动）                                                |
+| 流水线逻辑（同步哪些目录等）           | `main` 的 `.github/workflows/sync-main-to-v5.yml`                            |
 
 ### 从「本地到网页」的完整链路
 
 1. **main** 上编辑笔记与 CSS 片段 → 推送 main
-2. **sync-main-to-v5.yml** 被触发：
+2. **sync-main-to-v5.yml** 自动触发（仅同步，不发布）：
    - checkout `v5`（引擎）到 `v5-branch/`
    - 复制 main 的笔记 → `v5-branch/content/`
    - 按 `.web-snippets` 复制 CSS → `v5-branch/quartz/styles/snippets/`，生成 `_index.scss`
-   - （尝试推送 v5，受 PR 保护时跳过）
+   - 用 `PERSONAL_TOKEN` 推送 v5 分支（绕过 PR 保护）
+3. **手动触发 deploy.yml**（Actions 页面 Run workflow）：
    - `npm ci` → `npx quartz build`
-   - 部署 `public/` 到 `gh-pages`
-3. **GitHub Pages** 展示 gh-pages 分支内容
+   - 用 `PERSONAL_TOKEN` 部署 `public/` 到 `gh-pages`（绕过 PR 保护）
+4. **GitHub Pages** 展示 gh-pages 分支内容
 
 ### 排查步骤建议
 
@@ -262,12 +261,13 @@ git push origin main
    - 样式不对 → 看 `main/.obsidian.default/snippets/` 对应的 CSS，确认它在 `.web-snippets` 里
    - 内容不对 → 看 main 的笔记
    - 布局/渲染引擎问题 → 看 v5 的 `quartz/` 与 `quartz.config.yaml`
-3. 修改后推 main，等待 CI 完成，硬刷新页面验证
+3. 修改后推 main，等 sync 同步到 v5 完成后，手动触发 deploy.yml，硬刷新页面验证
 
 > 给 Agent 的一句话模板：
-> 「网页是从 main 的笔记 + `.obsidian.default/snippets`（按 `.web-snippets` 列表）→
-> CI 注入到 v5 引擎构建 → gh-pages 发布的。请先本地 v5 分支 `npx quartz build --serve`
-> 复现，再定位问题在 CSS 还是笔记还是引擎。」
+> 「网页链路：main 笔记 + `.obsidian.default/snippets`（按 `.web-snippets` 列表）→
+> 推送 main 后由 sync-main-to-v5 自动同步到 v5 → 手动触发 v5 的 deploy.yml 构建
+> 部署到 gh-pages（受保护，用 PERSONAL_TOKEN）。请先本地 v5 分支
+> `npx quartz build --serve` 复现，再定位问题在 CSS、笔记还是引擎。」
 
 ---
 
