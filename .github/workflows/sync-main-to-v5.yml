@@ -102,6 +102,47 @@ jobs:
 
           echo "📄 已生成 _index.scss"
 
+      # 还原流程：将同步结果提交并推送到 v5 分支
+      # 注意：v5 分支有 PR 保护规则（Changes must be made through a pull request），
+      # GITHUB_TOKEN 无法直接推送。若配置了仓库 secret SYNC_PAT（需仓库写权限的 PAT），
+      # 工作流会自动用它推送 v5；未配置时推送会被保护规则拦截（仅打印警告），
+      # 不影响后续构建部署（部署使用本地 v5-branch/ 副本，内容已同步）。
+      # continue-on-error 保证 v5 推送失败不会中断构建部署。
+      - name: Commit and push to v5
+        continue-on-error: true
+        env:
+          SYNC_PAT: ${{ secrets.SYNC_PAT }}
+        run: |
+          cd v5-branch
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 先 add content/
+          git add content/
+
+          # 再 add snippets/（如果存在）
+          if [ -d "quartz/styles/snippets" ]; then
+            git add quartz/styles/snippets/
+          fi
+
+          # 检查是否有变更
+          if git diff --staged --quiet; then
+            echo "✅ No changes to sync"
+            exit 0
+          fi
+
+          git commit -m "sync: 从 main 同步内容更新（含 CSS 片段）"
+
+          # 推送 v5：优先使用 SYNC_PAT，否则用 GITHUB_TOKEN（可能被 PR 保护拦截）
+          if [ -n "$SYNC_PAT" ]; then
+            echo "📤 使用 SYNC_PAT 推送 v5"
+            git push "https://x-access-token:${SYNC_PAT}@github.com/${GITHUB_REPOSITORY}.git" HEAD:v5
+          else
+            echo "⚠️ 未配置 SYNC_PAT，尝试用 GITHUB_TOKEN 推送 v5"
+            git push origin HEAD:v5 || echo "⚠️ v5 推送被 PR 保护拦截（GITHUB_TOKEN 无绕过权限）。如需自动同步到 v5，请在仓库 Settings → Secrets and variables → Actions 中配置 SYNC_PAT。部署仍会继续。"
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
