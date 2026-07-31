@@ -1,9 +1,8 @@
 name: Build and Deploy to GitHub Pages
 
+# 手动触发：在 Actions 页面点 Run workflow 发布 v5 到 gh-pages
 on:
-  push:
-    branches:
-      - v5
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -52,6 +51,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # gh-pages 有 PR 保护，GITHUB_TOKEN 无法推送，改用 PERSONAL_TOKEN（管理员 PAT）
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
