@@ -1,0 +1,17 @@
+{
+  "name": "@obsidian-tutorial/emoji-shortcodes",
+  "version": "1.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "quartz": {
+    "name": "emoji-shortcodes",
+    "displayName": "Emoji Shortcodes",
+    "category": "transformer",
+    "quartzVersion": ">=5.0.0",
+    "defaultOrder": 35
+  }
+}
