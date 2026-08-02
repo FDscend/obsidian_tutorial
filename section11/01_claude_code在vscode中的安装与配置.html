@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>01_claude_code在vscode中的安装与配置 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-58093e8f.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="01_claude_code在vscode中的安装与配置 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="01_claude_code在vscode中的安装与配置 | Obsidian 教程"/><meta name="twitter:description" content="Claude Code 在 VS Code 中的安装与配置 学习目标 了解 Claude Code 的能力边界与适用场景。 掌握在 VS Code 中安装 Claude Code 官方扩展。 掌握三种鉴权方式：官方订阅登录、API Key、第三方网关。 理解 VS Code 设置与 Claude 通用设置（~/.claude/）两层配置的区别。 掌握 Claude 通用设置（用户级 / 项目级）的环境变量与代理配置。 学会验证安装并开始第一次 Agent 对话。 前置条件 已安装 VS Code（参考 section1/02）。 已了解订阅方案（参考 00_多模型agent总览与订阅说明）。 ..."/><meta property="og:description" content="Claude Code 在 VS Code 中的安装与配置 学习目标 了解 Claude Code 的能力边界与适用场景。 掌握在 VS Code 中安装 Claude Code 官方扩展。 掌握三种鉴权方式：官方订阅登录、API Key、第三方网关。 理解 VS Code 设置与 Claude 通用设置（~/.claude/）两层配置的区别。 掌握 Claude 通用设置（用户级 / 项目级）的环境变量与代理配置。 学会验证安装并开始第一次 Agent 对话。 前置条件 已安装 VS Code（参考 section1/02）。 已了解订阅方案（参考 00_多模型agent总览与订阅说明）。 ..."/><meta property="og:image:alt" content="Claude Code 在 VS Code 中的安装与配置 学习目标 了解 Claude Code 的能力边界与适用场景。 掌握在 VS Code 中安装 Claude Code 官方扩展。 掌握三种鉴权方式：官方订阅登录、API Key、第三方网关。 理解 VS Code 设置与 Claude 通用设置（~/.claude/）两层配置的区别。 掌握 Claude 通用设置（用户级 / 项目级）的环境变量与代理配置。 学会验证安装并开始第一次 Agent 对话。 前置条件 已安装 VS Code（参考 section1/02）。 已了解订阅方案（参考 00_多模型agent总览与订阅说明）。 ..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section11/01_claude_code在vscode中的安装与配置"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section11/01_claude_code在vscode中的安装与配置"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Claude Code 在 VS Code 中的安装与配置 学习目标 了解 Claude Code 的能力边界与适用场景。 掌握在 VS Code 中安装 Claude Code 官方扩展。 掌握三种鉴权方式：官方订阅登录、API Key、第三方网关。 理解 VS Code 设置与 Claude 通用设置（~/.claude/）两层配置的区别。 掌握 Claude 通用设置（用户级 / 项目级）的环境变量与代理配置。 学会验证安装并开始第一次 Agent 对话。 前置条件 已安装 VS Code（参考 section1/02）。 已了解订阅方案（参考 00_多模型agent总览与订阅说明）。 ..."/><meta name="generator" content="Quartz"/><link href="../index-58093e8f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section11/01_claude_code在vscode中的安装与配置-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section11/01_claude_code在vscode中的安装与配置-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section11/01_claude_code在vscode中的安装与配置-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section11/01_claude_code在vscode中的安装与配置" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-19" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-19" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section11/">section11</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>01_claude_code在vscode中的安装与配置</a></div></nav><h1 class="article-title">01_claude_code在vscode中的安装与配置</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/vscode" class="internal internal-link tag-link">vscode</a><span class="note-properties-separator">, </span><a href="../tags/claude" class="internal internal-link tag-link">claude</a><span class="note-properties-separator">, </span><a href="../tags/installation" class="internal internal-link tag-link">installation</a><span class="note-properties-separator">, </span><a href="../tags/configuration" class="internal internal-link tag-link">configuration</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-08-02T14:45:40.112Z">2026年8月02日</time><span>11分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="claude-code-在-vs-code-中的安装与配置">Claude Code 在 VS Code 中的安装与配置<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-code-在-vs-code-中的安装与配置" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>了解 Claude Code 的能力边界与适用场景。</li>
+<li>掌握在 VS Code 中安装 Claude Code 官方扩展。</li>
+<li>掌握三种鉴权方式：官方订阅登录、API Key、第三方网关。</li>
+<li>理解 VS Code 设置与 Claude 通用设置（<code>~/.claude/</code>）两层配置的区别。</li>
+<li>掌握 Claude 通用设置（用户级 / 项目级）的环境变量与代理配置。</li>
+<li>学会验证安装并开始第一次 Agent 对话。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已安装 VS Code（参考 <a href=".././section1/02_vscode安装与配置" class="internal internal-link alias" data-slug="section1/02_vscode安装与配置">section1/02</a>）。</li>
+<li>已了解订阅方案（参考 <a href="../section11/00_多模型agent总览与订阅说明" class="internal internal-link alias" data-slug="section11/00_多模型agent总览与订阅说明">00_多模型agent总览与订阅说明</a>）。</li>
+<li>已准备好以下<strong>任一</strong>凭据：
+<ul>
+<li>Claude Pro / Max 订阅账号；或</li>
+<li>Anthropic 平台 API Key；或</li>
+<li>第三方网关的 Base URL + Key。</li>
+</ul>
+</li>
+</ul>
+<h2 id="claude-code-是什么">Claude Code 是什么<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-code-是什么" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude Code 是 Anthropic 推出的 <strong>Agent 化编程工具</strong>，可以在终端或 IDE 中自主完成：</p>
+<ul>
+<li>阅读与搜索代码库</li>
+<li>修改多个文件、执行重构</li>
+<li>运行终端命令与测试</li>
+<li>自动修复错误并迭代</li>
+<li>通过 MCP 接入外部工具（数据库、浏览器等）</li>
+</ul>
+<blockquote>
+<p>在 VS Code 中，推荐使用官方扩展获得图形界面体验；同时它也提供终端 CLI（<code>claude</code> 命令）。</p>
+</blockquote>
+<h2 id="第-1-步安装-vs-code-扩展">第 1 步：安装 VS Code 扩展<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-1-步安装-vs-code-扩展" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>打开 VS Code，按 <code>Ctrl+Shift+X</code> 打开扩展面板。</li>
+<li>搜索 <strong>Claude Code</strong>（发行方为 <code>anthropic</code>，扩展 ID：<code>anthropic.claude-code</code>）。</li>
+<li>点击 <strong>安装</strong>。</li>
+<li>安装完成后，活动栏会出现 Claude Code 图标。</li>
+</ol>
+<blockquote>
+<p>也可以使用 VS Code 内置终端 + 官方 CLI：<code>npm install -g @anthropic-ai/claude-code</code>（需 Node.js）。</p>
+</blockquote>
+<h2 id="第-2-步配置-claude-通用设置推荐">第 2 步：配置 Claude 通用设置（推荐）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-2-步配置-claude-通用设置推荐" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude 的配置分为两层：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">配置层</th><th style="text-align:left;">配置文件</th><th style="text-align:left;">作用范围</th><th style="text-align:left;">适用场景</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>VS Code 设置</strong></td><td style="text-align:left;">VS Code <code>settings.json</code> 的 <code>claudeCode.env</code></td><td style="text-align:left;">仅 VS Code 内的 Claude Code</td><td style="text-align:left;">只想在 VS Code 里用、快速验证</td></tr><tr><td style="text-align:left;"><strong>Claude 通用设置</strong></td><td style="text-align:left;"><code>~/.claude/</code> 与项目 <code>.claude/</code> 下的 <code>settings.json</code></td><td style="text-align:left;"><strong>Claude Code / CLI / 独立桌面程序</strong> 全部生效</td><td style="text-align:left;">长期使用、跨工具复用</td></tr></tbody></table></div>
+<blockquote>
+<p>💡 <strong>推荐优先用通用设置</strong>：一次配置，到处复用。后续改用终端 CLI 或独立桌面程序时<strong>无需重新设置</strong>——这与 Codex 走 <code>~/.codex/</code> 通用设置的理念一致。</p>
+</blockquote>
+<h3 id="通用设置的文件层级">通用设置的文件层级<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#通用设置的文件层级" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">优先级</th><th style="text-align:left;">文件</th><th style="text-align:left;">作用范围</th><th style="text-align:left;">典型用途</th></tr></thead><tbody><tr><td style="text-align:left;">1（最低）</td><td style="text-align:left;"><code>~/.claude/settings.json</code></td><td style="text-align:left;">用户级，所有项目</td><td style="text-align:left;">个人默认值（网关、Key、代理）</td></tr><tr><td style="text-align:left;">2</td><td style="text-align:left;"><code>&lt;项目>/.claude/settings.json</code></td><td style="text-align:left;">项目级，随仓库提交</td><td style="text-align:left;">团队共享配置（Base URL 等，不含 Key）</td></tr><tr><td style="text-align:left;">3</td><td style="text-align:left;"><code>&lt;项目>/.claude/settings.local.json</code></td><td style="text-align:left;">项目级，不提交</td><td style="text-align:left;">个人在本项目的覆盖（如 API Key）</td></tr><tr><td style="text-align:left;">4</td><td style="text-align:left;">CLI 参数 / <code>/config</code></td><td style="text-align:left;">单次会话</td><td style="text-align:left;">临时覆盖</td></tr><tr><td style="text-align:left;">5（最高）</td><td style="text-align:left;">Managed（企业策略）</td><td style="text-align:left;">组织级</td><td style="text-align:left;">策略下限，不可被下层放松</td></tr></tbody></table></div>
+<blockquote>
+<p>项目级会覆盖用户级同名配置；<code>settings.local.json</code> 含 Key 时<strong>绝不能提交</strong>，建议加入 <code>.gitignore</code>。</p>
+</blockquote>
+<h3 id="用户级通用设置示例claudesettingsjson">用户级通用设置示例（<code>~/.claude/settings.json</code>）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#用户级通用设置示例claudesettingsjson" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Windows 路径：<code>%USERPROFILE%\.claude\settings.json</code>。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;$schema&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;https://json.schemastore.org/claude-code-settings.json&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_BASE_URL&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;https://direct-api.example.com&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_API_KEY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;sk-xxx&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;HTTP_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;http://127.0.0.1:1081&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;HTTPS_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;http://127.0.0.1:1081&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ALL_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;socks5://127.0.0.1:1080&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<blockquote>
+<p><code>env</code> 中的变量在 Claude 进程启动时读取并注入，<strong>修改后需重启进程</strong>（新开会话 / 重启扩展）才生效。</p>
+</blockquote>
+<h3 id="项目级配置团队协作">项目级配置（团队协作）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#项目级配置团队协作" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>不带 Key 的公共配置放 <code>&lt;项目>/.claude/settings.json</code>（可提交）：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_BASE_URL&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;https://direct-api.example.com&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<p>带 Key 的私有配置放 <code>&lt;项目>/.claude/settings.local.json</code>（不提交）：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_API_KEY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;sk-xxx&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<h2 id="第-3-步选择鉴权方式">第 3 步：选择鉴权方式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-3-步选择鉴权方式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude Code 支持三种鉴权方式，按你的场景选择其一。下面以 <strong>VS Code 设置</strong>（<code>claudeCode.env</code>）为例；如果已在<strong>通用设置</strong>中配好，可跳过 VS Code 侧，避免重复设置造成混淆：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">方式</th><th style="text-align:left;">适合场景</th><th style="text-align:left;">关键配置</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>官方订阅登录</strong></td><td style="text-align:left;">日常个人使用</td><td style="text-align:left;">首次打开扩展，按提示登录 Claude 账号（Pro/Max 套餐）</td></tr><tr><td style="text-align:left;"><strong>API Key</strong></td><td style="text-align:left;">按量计费、自动化</td><td style="text-align:left;">环境变量 <code>ANTHROPIC_API_KEY</code></td></tr><tr><td style="text-align:left;"><strong>第三方网关</strong></td><td style="text-align:left;">国内直连、多模型切换</td><td style="text-align:left;"><code>ANTHROPIC_BASE_URL</code> + <code>ANTHROPIC_API_KEY</code>/<code>ANTHROPIC_AUTH_TOKEN</code></td></tr></tbody></table></div>
+<h3 id="方式-a官方订阅登录推荐入门">方式 A：官方订阅登录（推荐入门）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方式-a官方订阅登录推荐入门" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>点击 VS Code 活动栏的 <strong>Claude Code</strong> 图标。</li>
+<li>首次使用会提示登录，选择 <strong>Sign in with Claude</strong>。</li>
+<li>浏览器打开授权页面，登录你的 Claude 账号并授权。</li>
+<li>登录成功后即可开始对话。</li>
+</ol>
+<blockquote>
+<p>如果你已经通过 API 网关 / 环境变量完成鉴权，不希望每次被引导登录官网账号，可在 VS Code 用户设置中添加：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;claudeCode.disableLoginPrompt&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">true</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+</blockquote>
+<h3 id="方式-bapi-key">方式 B：API Key<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方式-bapi-key" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>到 <a href="https://console.anthropic.com" class="external external-link">console.anthropic.com<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> 创建 API Key（<code>sk-ant-...</code>）。</li>
+<li>配置环境变量。推荐在 VS Code 用户设置中通过 <code>env</code> 注入，避免污染全局 shell：</li>
+</ol>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;claudeCode.env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_API_KEY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;sk-ant-xxx&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<blockquote>
+<p>⚠️ Key 属于敏感信息，不要提交到仓库（加入 <code>.gitignore</code>），并尽量限制权限。</p>
+</blockquote>
+<h3 id="方式-c第三方网关">方式 C：第三方网关<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方式-c第三方网关" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在 <code>settings.json</code>（用户或工作区）中配置网关：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;claudeCode.env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_BASE_URL&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;https://your-gateway.example.com&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ANTHROPIC_API_KEY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;sk-xxx&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<p>注意三点：</p>
+<ul>
+<li><strong><code>ANTHROPIC_AUTH_TOKEN</code> 只在网关明确要求时使用</strong>；通用兼容场景更常见的是 <code>ANTHROPIC_API_KEY</code>，两者不要同时混用。</li>
+<li>如果文档说明”会自动补 <code>/v1/messages</code>”，则 <code>ANTHROPIC_BASE_URL</code> 填<strong>域名根</strong>（如 <code>https://api.example.com</code>）；否则按网关文档为准。建议用抓包或日志确认最终请求 URL，避免路径重复。</li>
+<li>网关接入的完整检查清单见 <a href="../section11/03_网络代理与第三方网关接入" class="internal internal-link alias" data-slug="section11/03_网络代理与第三方网关接入">03_网络代理与第三方网关接入</a>。</li>
+</ul>
+<h2 id="第-4-步配置代理受限网络">第 4 步：配置代理（受限网络）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-4-步配置代理受限网络" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>如果你的网络需要代理（内网 / 校园网 / 企业网），<strong>推荐写入通用设置</strong>（<code>~/.claude/settings.json</code> 的 <code>env</code>），让 CLI / 桌面端一并生效：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;HTTP_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;http://127.0.0.1:1081&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;HTTPS_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;http://127.0.0.1:1081&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ALL_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;socks5://127.0.0.1:1080&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<p>也可以只在 VS Code 侧用 <code>claudeCode.env</code> 注入进程级变量（不污染全局 shell）：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;claudeCode.env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;HTTP_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;http://127.0.0.1:1081&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;HTTPS_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;http://127.0.0.1:1081&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;ALL_PROXY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;socks5://127.0.0.1:1080&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<blockquote>
+<p><code>HTTPS_PROXY</code> 通常仍写 <code>http://proxy-host:port</code>（HTTP CONNECT 代理）；只有代理服务本身是 HTTPS 入口时才写 <code>https://...</code>。</p>
+</blockquote>
+<h2 id="第-5-步验证安装">第 5 步：验证安装<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-5-步验证安装" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>打开任意一个文件（如 <code>section11/00_多模型agent总览与订阅说明.md</code>）。</li>
+<li>打开 Claude Code 面板，输入 <code>你好，请介绍你自己</code>。</li>
+<li>如果正确应答，说明安装成功。</li>
+<li>输入 <code>/status</code> 可查看当前订阅档位与用量额度。</li>
+</ol>
+<h2 id="常用操作">常用操作<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常用操作" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">操作</th><th style="text-align:left;">说明</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>对话</strong></td><td style="text-align:left;">在输入框提问，支持追问与上下文</td></tr><tr><td style="text-align:left;"><strong>文件修改</strong></td><td style="text-align:left;">让 Claude 修改当前文件或整个代码库</td></tr><tr><td style="text-align:left;"><strong>终端执行</strong></td><td style="text-align:left;">授权后 Claude 可运行命令并读取输出</td></tr><tr><td style="text-align:left;"><strong>Agent 模式</strong></td><td style="text-align:left;">自主规划多步骤任务，边执行边汇报</td></tr><tr><td style="text-align:left;"><strong>MCP 工具</strong></td><td style="text-align:left;">通过 MCP 接入外部服务（如 Tavily 搜索）</td></tr><tr><td style="text-align:left;"><strong><code>/usage</code></strong></td><td style="text-align:left;">查看会话与周限额使用情况</td></tr><tr><td style="text-align:left;"><strong><code>/config</code></strong></td><td style="text-align:left;">查看当前生效的配置</td></tr></tbody></table></div>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Q：登录后提示”当前订阅不含 Claude Code”？</strong><br/>
+A：确认你的套餐是 Pro / Max / Team Premium / Enterprise（Free 与 Team Standard 不含 Claude Code）。如果是新注册的 Pro 账号而遇到问题，可参考订阅章节的 2026 年动态说明。</p>
+<p><strong>Q：<code>ANTHROPIC_API_KEY</code> 与 <code>ANTHROPIC_AUTH_TOKEN</code> 该用哪个？</strong><br/>
+A：以网关文档为准。默认用 <code>ANTHROPIC_API_KEY</code>；只有网关明确要求 <code>ANTHROPIC_AUTH_TOKEN</code> 时才替换，两者不要混用。</p>
+<p><strong>Q：报错 <code>404 / unknown route</code>？</strong><br/>
+A：多半是 <code>ANTHROPIC_BASE_URL</code> 层级填错或路径重复。先确认网关文档要求的层级（域名根或 <code>/v1</code>），再核对是否会自动拼接 <code>/v1/messages</code>。</p>
+<p><strong>Q：代理配置了还是不生效？</strong><br/>
+A：按”网络连通性 → 鉴权 → Endpoint → Schema → 模型名”顺序排查。先 <code>curl</code> 代理地址，再 <code>curl</code> API 健康接口，最后看请求日志。</p>
+<p><strong>Q：VS Code 设置与 Claude 通用设置该用哪个？</strong><br/>
+A：长期使用推荐<strong>通用设置</strong>（<code>~/.claude/settings.json</code>），一次配置即可在 CLI、桌面端、VS Code 复用；只想在 VS Code 内快速验证时用 <code>claudeCode.env</code>。两者不要对同一变量重复设置，以免优先级混淆（项目级覆盖用户级）。</p>
+<h2 id="练习任务">练习任务<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#练习任务" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>用官方订阅登录方式完成一次 Claude Code 对话。</li>
+<li>在 <code>~/.claude/settings.json</code> 中配置网关与代理，然后在 CLI 与 VS Code 两个入口验证同一配置均生效。</li>
+<li>在项目中配置 <code>.claude/settings.json</code> 与 <code>.claude/settings.local.json</code>，并把后者加入 <code>.gitignore</code>。</li>
+<li>尝试通过第三方网关接入一个非官方模型，并记录报错与解决过程。</li>
+</ol>
+<h2 id="验收清单">验收清单<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验收清单" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 已安装 Claude Code VS Code 扩展并成功登录/鉴权。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能说出 VS Code 设置与 Claude 通用设置（<code>~/.claude/</code>）的区别与优先级。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能正确配置用户级与项目级通用设置文件。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能正确配置 <code>ANTHROPIC_BASE_URL</code> 的层级。</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 能在受限网络下通过代理正常使用。</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-19" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#claude-code-在-vs-code-中的安装与配置" data-for="claude-code-在-vs-code-中的安装与配置">Claude Code 在 VS Code 中的安装与配置</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#claude-code-是什么" data-for="claude-code-是什么">Claude Code 是什么</a></li><li class="depth-1"><a href="#第-1-步安装-vs-code-扩展" data-for="第-1-步安装-vs-code-扩展">第 1 步：安装 VS Code 扩展</a></li><li class="depth-1"><a href="#第-2-步配置-claude-通用设置推荐" data-for="第-2-步配置-claude-通用设置推荐">第 2 步：配置 Claude 通用设置（推荐）</a></li><li class="depth-2"><a href="#通用设置的文件层级" data-for="通用设置的文件层级">通用设置的文件层级</a></li><li class="depth-2"><a href="#用户级通用设置示例claudesettingsjson" data-for="用户级通用设置示例claudesettingsjson">用户级通用设置示例（~/.claude/settings.json）</a></li><li class="depth-2"><a href="#项目级配置团队协作" data-for="项目级配置团队协作">项目级配置（团队协作）</a></li><li class="depth-1"><a href="#第-3-步选择鉴权方式" data-for="第-3-步选择鉴权方式">第 3 步：选择鉴权方式</a></li><li class="depth-2"><a href="#方式-a官方订阅登录推荐入门" data-for="方式-a官方订阅登录推荐入门">方式 A：官方订阅登录（推荐入门）</a></li><li class="depth-2"><a href="#方式-bapi-key" data-for="方式-bapi-key">方式 B：API Key</a></li><li class="depth-2"><a href="#方式-c第三方网关" data-for="方式-c第三方网关">方式 C：第三方网关</a></li><li class="depth-1"><a href="#第-4-步配置代理受限网络" data-for="第-4-步配置代理受限网络">第 4 步：配置代理（受限网络）</a></li><li class="depth-1"><a href="#第-5-步验证安装" data-for="第-5-步验证安装">第 5 步：验证安装</a></li><li class="depth-1"><a href="#常用操作" data-for="常用操作">常用操作</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="depth-1"><a href="#练习任务" data-for="练习任务">练习任务</a></li><li class="depth-1"><a href="#验收清单" data-for="验收清单">验收清单</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../appendix/b_常见问题faq" class="internal">B_常见问题FAQ</a></li><li><a href="../section11/02_codex在vscode中的安装与配置" class="internal">02_codex在vscode中的安装与配置</a></li><li><a href="../section11/03_网络代理与第三方网关接入" class="internal">03_网络代理与第三方网关接入</a></li><li><a href="../section11/04_接口模式选择与排错" class="internal">04_接口模式选择与排错</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>
