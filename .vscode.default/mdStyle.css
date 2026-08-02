@@ -1,6 +1,6 @@
 /* 2026-08-02 */
 h1::before {
-  content: "§" counter(chapterH1) ". ";
+  content: "搂" counter(chapterH1) ". ";
 }
 
 h1 {
@@ -10,7 +10,7 @@ h1 {
 }
 
 h2::before {
-  content: "§" counter(chapterH1) "." counter(chapterH2) ". ";
+  content: "搂" counter(chapterH1) "." counter(chapterH2) ". ";
 }
 
 h2 {
@@ -19,7 +19,7 @@ h2 {
 }
 
 h3::before {
-  content: "§" counter(chapterH1) "." counter(chapterH2) "." counter(chapterH3) ". ";
+  content: "搂" counter(chapterH1) "." counter(chapterH2) "." counter(chapterH3) ". ";
 }
 
 h3 {
@@ -29,7 +29,7 @@ h3 {
 html,
 body {
   font-size: 16px;
-  font-family: "霞鹜文楷 GB", "霞鹜文楷";
+  font-family: "闇為箿鏂囨シ GB", "闇為箿鏂囨シ";
 }
 
 img {

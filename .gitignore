@@ -1,4 +1,5 @@
 .obsidian/
+# VS Code: keep local workspace settings out of git; share defaults via .vscode.default
 .vscode/
 .github/*
 !.github/workflows/

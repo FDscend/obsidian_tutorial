@@ -4,15 +4,15 @@
 		"prefix": "\\paper",
 		"body": [
             "# ${1:title}\n",
-			"## 问题\n",
+			"## 闂\n",
 			"> [!note] Problem",
 			">",
             "> $$",
             "> $2",
             "> $$",
-            "\n## 总结\n\n$3"
+            "\n## 鎬荤粨\n\n$3"
 		],
-		"description": "论文总结"
+		"description": "璁烘枃鎬荤粨"
     },
     "Definition1 Obsidian": {
         "scope": "markdown",
@@ -22,7 +22,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "定义（自动编号）"
+		"description": "瀹氫箟锛堣嚜鍔ㄧ紪鍙凤級"
     },
     "Definition2 Obsidian": {
         "scope": "markdown",
@@ -32,7 +32,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "定义（无编号）"
+		"description": "瀹氫箟锛堟棤缂栧彿锛?
     },
     "Definition3 Obsidian": {
         "scope": "markdown",
@@ -42,7 +42,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "定义（手动编号）"
+		"description": "瀹氫箟锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Lemma Obsidian": {
         "scope": "markdown",
@@ -52,7 +52,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "引理（自动编号）"
+		"description": "寮曠悊锛堣嚜鍔ㄧ紪鍙凤級"
     },
 	"Lemma2 Obsidian": {
         "scope": "markdown",
@@ -62,7 +62,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "引理（无动编号）"
+		"description": "寮曠悊锛堟棤鍔ㄧ紪鍙凤級"
     },
 	"Lemma3 Obsidian": {
         "scope": "markdown",
@@ -72,7 +72,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "引理（手动编号）"
+		"description": "寮曠悊锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Theorem Obsidian": {
         "scope": "markdown",
@@ -82,7 +82,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "定理（自动编号）"
+		"description": "瀹氱悊锛堣嚜鍔ㄧ紪鍙凤級"
     },
 	"Theorem2 Obsidian": {
         "scope": "markdown",
@@ -92,7 +92,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "定理（无编号）"
+		"description": "瀹氱悊锛堟棤缂栧彿锛?
     },
 	"Theorem3 Obsidian": {
         "scope": "markdown",
@@ -102,7 +102,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "定理（手动编号）"
+		"description": "瀹氱悊锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Proposition Obsidian": {
         "scope": "markdown",
@@ -112,7 +112,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "命题（自动编号）"
+		"description": "鍛介锛堣嚜鍔ㄧ紪鍙凤級"
     },
 	"Proposition2 Obsidian": {
         "scope": "markdown",
@@ -122,7 +122,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "命题（无编号）"
+		"description": "鍛介锛堟棤缂栧彿锛?
     },
 	"Proposition3 Obsidian": {
         "scope": "markdown",
@@ -132,7 +132,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "命题（手动编号）"
+		"description": "鍛介锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Example Obsidian Math": {
         "scope": "markdown",
@@ -142,7 +142,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "例题（公式环境，自动编号）"
+		"description": "渚嬮锛堝叕寮忕幆澧冿紝鑷姩缂栧彿锛?
     },
 	"Example2 Obsidian Math": {
         "scope": "markdown",
@@ -152,7 +152,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "例题（公式环境，无编号）"
+		"description": "渚嬮锛堝叕寮忕幆澧冿紝鏃犵紪鍙凤級"
     },
 	"Example3 Obsidian Math": {
         "scope": "markdown",
@@ -162,7 +162,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "例题（公式环境，手动编号）"
+		"description": "渚嬮锛堝叕寮忕幆澧冿紝鎵嬪姩缂栧彿锛?
     },
 	"Exercise Obsidian": {
         "scope": "markdown",
@@ -172,7 +172,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "练习（自动编号）"
+		"description": "缁冧範锛堣嚜鍔ㄧ紪鍙凤級"
     },
 	"Exercise2 Obsidian": {
         "scope": "markdown",
@@ -182,7 +182,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "练习（无编号）"
+		"description": "缁冧範锛堟棤缂栧彿锛?
     },
 	"Exercise3 Obsidian": {
         "scope": "markdown",
@@ -192,7 +192,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "练习（手动编号）"
+		"description": "缁冧範锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Assumption Obsidian": {
         "scope": "markdown",
@@ -202,7 +202,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "假设（自动编号）"
+		"description": "鍋囪锛堣嚜鍔ㄧ紪鍙凤級"
     },
 	"Assumption2 Obsidian": {
         "scope": "markdown",
@@ -212,7 +212,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "假设（无编号）"
+		"description": "鍋囪锛堟棤缂栧彿锛?
     },
 	"Assumption3 Obsidian": {
         "scope": "markdown",
@@ -222,7 +222,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "假设（手动编号）"
+		"description": "鍋囪锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Remark Obsidian": {
         "scope": "markdown",
@@ -232,7 +232,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "注（自动编号）"
+		"description": "娉紙鑷姩缂栧彿锛?
     },
 	"Remark2 Obsidian": {
         "scope": "markdown",
@@ -242,7 +242,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "注（无编号）"
+		"description": "娉紙鏃犵紪鍙凤級"
     },
 	"Remark3 Obsidian": {
         "scope": "markdown",
@@ -252,7 +252,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "注（手动编号）"
+		"description": "娉紙鎵嬪姩缂栧彿锛?
     },
 	"Corollary Obsidian": {
         "scope": "markdown",
@@ -262,7 +262,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "推论（自动编号）"
+		"description": "鎺ㄨ锛堣嚜鍔ㄧ紪鍙凤級"
     },
 	"Corollary2 Obsidian": {
         "scope": "markdown",
@@ -272,7 +272,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "推论（无编号）"
+		"description": "鎺ㄨ锛堟棤缂栧彿锛?
     },
 	"Corollary3 Obsidian": {
         "scope": "markdown",
@@ -282,7 +282,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "推论（手动编号）"
+		"description": "鎺ㄨ锛堟墜鍔ㄧ紪鍙凤級"
     },
 	"Example Obsidian Default": {
         "scope": "markdown",
@@ -292,7 +292,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "例子（正文环境）"
+		"description": "渚嬪瓙锛堟鏂囩幆澧冿級"
     },
 	"Note Obsidian": {
         "scope": "markdown",
@@ -302,7 +302,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "note 块"
+		"description": "note 鍧?
     },
 	"Summary Obsidian": {
         "scope": "markdown",
@@ -312,7 +312,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "summary 块"
+		"description": "summary 鍧?
     },
 	"Info Obsidian": {
         "scope": "markdown",
@@ -322,7 +322,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "info 块"
+		"description": "info 鍧?
     },
 	"Todo Obsidian": {
         "scope": "markdown",
@@ -332,7 +332,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "todo 块"
+		"description": "todo 鍧?
     },
 	"Tip Obsidian": {
         "scope": "markdown",
@@ -342,7 +342,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "tip 块"
+		"description": "tip 鍧?
     },
 	"Done Obsidian": {
         "scope": "markdown",
@@ -352,7 +352,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "done 块"
+		"description": "done 鍧?
     },
 	"Question Obsidian": {
         "scope": "markdown",
@@ -362,7 +362,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "question 块"
+		"description": "question 鍧?
     },
 	"Warning Obsidian": {
         "scope": "markdown",
@@ -372,7 +372,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "warning 块"
+		"description": "warning 鍧?
     },
 	"Fail Obsidian": {
         "scope": "markdown",
@@ -382,7 +382,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "fail 块"
+		"description": "fail 鍧?
     },
 	"Error Obsidian": {
         "scope": "markdown",
@@ -392,7 +392,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "error 块"
+		"description": "error 鍧?
     },
 	"Bug Obsidian": {
         "scope": "markdown",
@@ -402,7 +402,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "bug 块"
+		"description": "bug 鍧?
     },
 	"Quote Obsidian": {
         "scope": "markdown",
@@ -412,7 +412,7 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "quote 块"
+		"description": "quote 鍧?
     },
     "Proof Obsidian": {
 		"scope": "markdown",
@@ -428,11 +428,11 @@
 		"scope": "markdown",
 		"prefix": "\\answer",
 		"body": [
-			"> [!done]- 答案",
+			"> [!done]- 绛旀",
 			">",
 			"> ${1:content}",
 		],
-		"description": "答案 (Obsidian)"
+		"description": "绛旀 (Obsidian)"
 	},
 	"SideNote Obsidian": {
 		"scope": "markdown",
@@ -442,7 +442,7 @@
 			">",
 			"> ${2:content}"
 		],
-		"description": "旁注（有标题，有边框）"
+		"description": "鏃佹敞锛堟湁鏍囬锛屾湁杈规锛?
 	},
 	"SideNote2 Obsidian": {
 		"scope": "markdown",
@@ -452,7 +452,7 @@
 			">",
 			"> ${2:content}"
 		],
-		"description": "旁注（无标题，无边框）"
+		"description": "鏃佹敞锛堟棤鏍囬锛屾棤杈规锛?
 	},
 	"SideNote3 Obsidian": {
 		"scope": "markdown",
@@ -462,7 +462,7 @@
 			">",
 			"> ${2:content}"
 		],
-		"description": "旁注（无标题，有边框）"
+		"description": "鏃佹敞锛堟棤鏍囬锛屾湁杈规锛?
 	},
 	"Cloze1": {
 		"scope": "markdown",
@@ -470,7 +470,7 @@
 		"body": [
 			"_~~${1:answer}~~_",
 		],
-		"description": "填空（鼠标 悬停 展示）"
+		"description": "濉┖锛堥紶鏍?鎮仠 灞曠ず锛?
 	},
 	"Cloze2": {
 		"scope": "markdown",
@@ -478,7 +478,7 @@
 		"body": [
 			"==~~${1:answer}~~==",
 		],
-		"description": "填空（鼠标 点击 展示）"
+		"description": "濉┖锛堥紶鏍?鐐瑰嚮 灞曠ず锛?
 	},
 	"MultiCol": {
 		"scope": "markdown",
@@ -494,7 +494,7 @@
 			"> >",
 			"> > ${2:col-2}",
 		],
-		"description": "多栏"
+		"description": "澶氭爮"
 	},
 	"MultiCol2": {
 		"scope": "markdown",
@@ -510,7 +510,7 @@
 			"> >",
 			"> > ${3:col-2}",
 		],
-		"description": "多栏 (可调节比例, wide 可填 2, 3, 4, 5)"
+		"description": "澶氭爮 (鍙皟鑺傛瘮渚? wide 鍙～ 2, 3, 4, 5)"
 	},
 	"MultiCol3": {
 		"scope": "markdown",
@@ -526,7 +526,7 @@
 			"> >",
 			"> > ${2:col-2}",
 		],
-		"description": "多栏（空白模板）"
+		"description": "澶氭爮锛堢┖鐧芥ā鏉匡級"
 	},
 	"Caption": {
 		"scope": "markdown",
@@ -538,7 +538,7 @@
 			">",
 			"> ${2:caption}"
 		],
-		"description": "图注 (用 markdown link)"
+		"description": "鍥炬敞 (鐢?markdown link)"
 	},
 	"Caption2": {
 		"scope": "markdown",
@@ -550,7 +550,7 @@
 			">",
 			"> ${2:caption}"
 		],
-		"description": "图注 (用 wikilink)"
+		"description": "鍥炬敞 (鐢?wikilink)"
 	},
 	"Caption3": {
 		"scope": "markdown",
@@ -561,7 +561,7 @@
 			"  <figcaption>${2:caption}</figcaption>",
 			"</figure>"
 		],
-		"description": "图注 (用 figure 标签)"
+		"description": "鍥炬敞 (鐢?figure 鏍囩)"
 	},
 	"Slides Note": {
         "scope": "markdown",
@@ -571,7 +571,7 @@
 			">",
             "> ${3:content}\n",
 		],
-		"description": "演讲者笔记，不在幻灯片中出现"
+		"description": "婕旇鑰呯瑪璁帮紝涓嶅湪骞荤伅鐗囦腑鍑虹幇"
     },
 	"Border Callout": {
         "scope": "markdown",
@@ -581,6 +581,6 @@
 			">",
             "> ${2:content}\n",
 		],
-		"description": "有边框的警告块"
+		"description": "鏈夎竟妗嗙殑璀﹀憡鍧?
     },
 }
