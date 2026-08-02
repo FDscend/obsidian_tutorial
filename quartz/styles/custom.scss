@@ -11,3 +11,70 @@
 	width: 100%;
 	margin: 1rem 0;
 }
+
+:root {
+	--border-bold-color: #dd2c38;
+	--border-italic-color: #de7417;
+	--border-inline-code-color: #d81b60;
+	--border-inline-code-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+	--border-mark-background: #ffec99;
+	--border-code-block-background: var(--border-inline-code-pattern);
+	--border-code-block-border: 1px dashed var(--background-modifier-border);
+}
+
+:root[saved-theme="dark"] {
+	--border-bold-color: #ff7881;
+	--border-italic-color: #fbbb83;
+	--border-inline-code-color: #ff7eb6;
+	--border-inline-code-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+	--border-mark-background: #7d6b1c;
+}
+
+article :is(strong, b) {
+	color: var(--border-bold-color);
+}
+
+article :is(em, i) {
+	color: var(--border-italic-color);
+}
+
+article :not(pre) > code {
+	color: var(--border-inline-code-color);
+	background-color: color-mix(in srgb, var(--lightgray) 45%, transparent);
+	background-image: var(--border-inline-code-pattern);
+	border: 1px dashed var(--background-modifier-border);
+	border-radius: 0.35rem;
+	padding: 0.1rem 0.35rem;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+article :is(mark, .text-highlight) {
+	background-color: var(--border-mark-background);
+	color: inherit;
+	border-radius: 0.25rem;
+	padding: 0.05rem 0.2rem;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+pre:not(:has(> code.mermaid)) {
+	background-color: color-mix(in srgb, var(--lightgray) 30%, transparent);
+	background-image: var(--border-code-block-background);
+	border: var(--border-code-block-border);
+	box-shadow: none;
+}
+
+pre:not(:has(> code.mermaid)) > code,
+pre:not(:has(> code.mermaid)) > code[data-theme*=" "] {
+	background: transparent;
+	background-color: transparent;
+	background-image: none;
+}
+
+.code-block-titlebar > [data-rehype-pretty-code-title] {
+	background-color: color-mix(in srgb, var(--lightgray) 30%, transparent);
+	background-image: var(--border-code-block-background);
+	border: var(--border-code-block-border);
+	border-bottom: none;
+}
