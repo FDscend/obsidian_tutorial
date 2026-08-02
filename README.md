@@ -26,7 +26,8 @@ tags:
 4. 🗺 **知识组织** — 掌握 Obsidian Canvas（画布）、Advanced Canvas 增强（含 frontmatter）与 Bases（数据库）功能。
 5. 📡 **多端同步** — 使用 Syncthing 实现局域网仓库同步。
 6. 🤖 **AI 辅助** — 学会 VS Code Copilot 的基础使用与进阶案例（prompt、skill、mcp）。
-7. 🌐 **静态网站部署** — 使用 Quartz 将教程发布为 GitHub Pages 站点。
+7. 🔌 **多模型接入** — 在 VS Code 中接入 Claude Code 与 OpenAI Codex，掌握订阅、代理与网关配置。
+8. 🌐 **静态网站部署** — 使用 Quartz 将教程发布为 GitHub Pages 站点。
 
 > 📌 课程章节顺序：**先环境，后内容**。确保工具渲染正常再进入写作与进阶章节。
 
@@ -67,6 +68,7 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 - **对 Obsidian 进阶功能感兴趣** → 查看 [section5](section5/)（Canvas + Web Clipper + frontmatter）和 [section6](section6/)（Bases）
 - **需要多设备同步** → 查看 [section7](section7/)（Syncthing 局域网同步）
 - **想用 AI 辅助写作/编码** → 查看 [section8](section8/) 和 [section9](section9/)（Copilot）
+- **想接入 Claude Code / Codex 多模型 Agent** → 查看 [section11](section11/)（订阅、代理、网关、接口模式）
 - **想部署为在线站点** → 查看 [section10](section10/)（Quartz + GitHub Pages）
 
 ---
@@ -86,6 +88,7 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 | **→ section8**  | **VS Code Copilot 基础**                 | **✅ 完成** |
 | **→ section9**  | **Copilot 实战案例**                     | **✅ 完成** |
 | **→ section10** | **Quartz 静态网站部署**                  | **✅ 完成** |
+| **→ section11** | **Claude Code 与 Codex 多模型接入**      | **✅ 完成** |
 | **→ 附录**      | **术语表 / FAQ / 快捷键 / 更新日志**     | **✅ 完成** |
 
 ---

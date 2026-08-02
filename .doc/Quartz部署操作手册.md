@@ -98,17 +98,17 @@ npx quartz build --serve
 
 ## 目录说明
 
-| 目录/文件                 | 所在分支           | 说明                                         |
-| ------------------------- | ------------------ | -------------------------------------------- |
-| `section0/` ~ `section9/` | main → v5/content/ | 教程章节                                     |
-| `appendix/`               | main → v5/content/ | 附录                                         |
-| `image/`                  | main → v5/content/ | 图片资源                                     |
-| `Clippings/`              | main（不同步）     | 网页剪藏，不发布                             |
-| `template/`               | main（不同步）     | 模板，不发布                                 |
-| `.doc/`                   | main（不同步）     | 内部文档，不发布                             |
-| `quartz.config.yaml`      | v5                 | 站点配置                                     |
-| `quartz/`                 | v5                 | Quartz 源码                                  |
-| `content/`                | v5                 | 构建用的笔记源文件（由 sync 工作流自动同步） |
+| 目录/文件                  | 所在分支           | 说明                                         |
+| -------------------------- | ------------------ | -------------------------------------------- |
+| `section0/` ~ `section11/` | main → v5/content/ | 教程章节                                     |
+| `appendix/`                | main → v5/content/ | 附录                                         |
+| `image/`                   | main → v5/content/ | 图片资源                                     |
+| `Clippings/`               | main（不同步）     | 网页剪藏，不发布                             |
+| `template/`                | main（不同步）     | 模板，不发布                                 |
+| `.doc/`                    | main（不同步）     | 内部文档，不发布                             |
+| `quartz.config.yaml`       | v5                 | 站点配置                                     |
+| `quartz/`                  | v5                 | Quartz 源码                                  |
+| `content/`                 | v5                 | 构建用的笔记源文件（由 sync 工作流自动同步） |
 
 ---
 
@@ -161,7 +161,7 @@ configuration:
 
 **同步的目录：**
 
-- `section0/` ~ `section9/`
+- `section0/` ~ `section11/`
 - `appendix/`
 - `image/`
 

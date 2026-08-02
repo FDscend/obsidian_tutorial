@@ -6,6 +6,26 @@ tags:
 
 # 更新日志
 
+## 2026-08-02 (第 8 次)
+
+### 新增
+
+- **section11/**：新增"Claude Code 与 Codex 多模型接入"章节，共 5 个文档：
+  - **section11/00\_多模型agent总览与订阅说明.md**：Claude Code 与 Codex 总览 + 官方订阅方案（Claude Free/Pro/Max 5x/Max 20x/Team/Enterprise；ChatGPT Free/Go/Plus/Pro 5x/Pro 20x/Business/Enterprise），含三种接入模式（订阅 / API Key / 第三方网关）选择。
+  - **section11/01\_claude_code在vscode中的安装与配置.md**：Claude Code VS Code 扩展安装、三种鉴权方式、`settings.json` 代理配置。
+  - **section11/02\_codex在vscode中的安装与配置.md**：Codex VS Code 扩展 / CLI 安装、`auth.json` + `config.toml` 配置、自定义 Provider。
+  - **section11/03\_网络代理与第三方网关接入.md**：代理配置、网关三要素（Base URL / Key / 模型名）、接入检查表。
+  - **section11/04\_接口模式选择与排错.md**：`chat/completions`、`responses`、`messages` 三类协议对比、选择算法、错误矩阵、分层排查。
+
+### 变更
+
+- 新增 section11 章节，将"AI 辅助"模块从 Copilot 扩展到多模型 Agent（Claude Code + Codex）。
+- `section11/01` 补充 **Claude 通用设置**（`~/.claude/settings.json`、项目 `.claude/settings.json` / `.claude/settings.local.json`）及优先级说明，与 VS Code 设置形成"两层配置"；`section11/03` 代理配置同步补充通用设置方式；`section11/02` 补充 `~/.codex/` 通用设置层对照说明。
+- `README.md` 课程目录与快速开始入口同步更新。
+- `.github/workflows/sync-main-to-v5.yml` 同步目录列表加入 section11。
+
+---
+
 ## 2026-07-03 (第 7 次)
 
 ### 新增

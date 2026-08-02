@@ -378,7 +378,68 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 
 ---
 
-## 仓库与协作
+## Claude Code 与 Codex（section11）
+
+### Q：Claude Code 有哪些订阅方案？
+
+Claude 官方提供以下方案：
+
+- **Free**：\$0/月，不含 Claude Code。
+- **Pro**：\$20/月（年付约 \$17/月），包含 Claude Code。
+- **Max 5x**：\$100/月，5x Pro 用量。
+- **Max 20x**：\$200/月，20x Pro 用量。
+- **Team Standard**：约 \$20–25/座/月，**不含 Claude Code**。
+- **Team Premium**：约 \$100–125/座/月，**包含 Claude Code**，5 座起。
+- **Enterprise**：联系销售。
+
+> 详情见 [section11/00](../section11/00_多模型agent总览与订阅说明.md)。
+
+### Q：Codex 有独立的订阅套餐吗？
+
+**没有**。Codex 的用量包含在所有 ChatGPT 套餐中：Free（\$0）、Go（\$8）、Plus（\$20）、Pro 5x（\$100）、Pro 20x（\$200）、Business（约 \$20–25/座）、Enterprise（联系销售）。
+
+> 详情见 [section11/00](../section11/00_多模型agent总览与订阅说明.md)。
+
+### Q：Claude Code 报"当前订阅不含 Claude Code"？
+
+确认你的套餐是 **Pro / Max / Team Premium / Enterprise**。Free 与 Team Standard 不含 Claude Code。
+
+### Q：Codex 报"找不到环境变量 OPENAI_API_KEY"？
+
+`config.toml` 里的 `env_key` 读取的是**进程环境变量**。除了 `~/.codex/auth.json`，还需在 `~/.codex/.env` 或系统环境变量中提供同名 Key。
+
+> 详见 [section11/02](../section11/02_codex在vscode中的安装与配置.md)。
+
+### Q：`ANTHROPIC_BASE_URL` 该填域名根还是 `/v1`？
+
+以网关文档为准。如果文档说明"会自动补 `/v1/messages`"，填**域名根**即可；否则按文档要求层级填写。建议用抓包或日志确认最终请求 URL，避免路径重复。
+
+### Q：Claude 的配置写在哪里？（VS Code 设置 vs 通用设置）
+
+Claude 配置分两层：
+
+- **VS Code 设置**（`claudeCode.env`）：仅对 VS Code 内的 Claude Code 生效。
+- **Claude 通用设置**（`~/.claude/settings.json` 及项目 `.claude/settings.json` / `.claude/settings.local.json`）：对 **CLI、桌面端、VS Code** 全部生效。
+
+长期使用推荐**通用设置**，一次配置到处复用；项目级覆盖用户级，`settings.local.json` 含 Key 时不要提交。
+
+> 详见 [section11/01](../section11/01_claude_code在vscode中的安装与配置.md) 第 2 步。
+
+### Q：`/v1/chat/completions`、`/v1/responses`、`/v1/messages` 怎么选？
+
+口诀：**先客户端协议，后模型名；先 schema，后 endpoint。**
+
+- 核心字段是 `messages` → `chat/completions`
+- 核心字段是 `input` → `responses`
+- Anthropic 原生 schema → `messages`
+
+> 详见 [section11/04](../section11/04_接口模式选择与排错.md)。
+
+### Q：配置了网关但报 `model unavailable`？
+
+endpoint 与 schema 不匹配，或模型名错误。先确认接口模式，再核对模型全名（大小写、版本后缀）。也可以对目标 endpoint 单独做最小请求测试。
+
+---
 
 ### Q：如何克隆本仓库？
 
