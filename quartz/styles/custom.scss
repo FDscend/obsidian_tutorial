@@ -259,3 +259,23 @@ pre:not(:has(> code.mermaid)) > code[data-theme*=" "] {
 	-webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M10 11c-.27 0-.52.11-.71.29-.19.19-.29.44-.29.71s.11.52.29.71c.19.19.44.29.71.29h5c.27 0 .52-.11.71-.29.19-.19.29-.44.29-.71V7c0-.27-.11-.52-.29-.71-.19-.19-.44-.29-.71-.29s-.52.11-.71.29c-.19.19-.29.44-.29.71v2.59l-4.29-4.29c-.19-.19-.44-.29-.71-.29s-.52.11-.71.29l-2.29 2.29-4.29-4.29c-.19-.18-.44-.28-.7-.28-.26 0-.51.11-.7.29S.01 3.74.01 4c0 .26.1.51.28.7l5 5c.19.19.44.29.71.29s.52-.11.71-.29l2.29-2.29 3.59 3.59H10Z'/%3e%3c/svg%3e");
 	mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='black' d='M10 11c-.27 0-.52.11-.71.29-.19.19-.29.44-.29.71s.11.52.29.71c.19.19.44.29.71.29h5c.27 0 .52-.11.71-.29.19-.19.29-.44.29-.71V7c0-.27-.11-.52-.29-.71-.19-.19-.44-.29-.71-.29s-.52.11-.71.29c-.19.19-.29.44-.29.71v2.59l-4.29-4.29c-.19-.19-.44-.29-.71-.29s-.52.11-.71.29l-2.29 2.29-4.29-4.29c-.19-.18-.44-.28-.7-.28-.26 0-.51.11-.7.29S.01 3.74.01 4c0 .26.1.51.28.7l5 5c.19.19.44.29.71.29s.52-.11.71-.29l2.29-2.29 3.59 3.59H10Z'/%3e%3c/svg%3e");
 }
+
+/* Keep TOC fully reachable on smaller screens/zoom levels. */
+#quartz-body .right.sidebar {
+	overflow-y: auto;
+}
+
+#quartz-body .right.sidebar .toc {
+	min-height: 0;
+	flex: 1 1 auto;
+}
+
+#quartz-body .right.sidebar .toc > ul.toc-content.overflow {
+	max-height: none;
+	padding-bottom: 0.75rem;
+}
+
+#quartz-body .right.sidebar .toc > ul.toc-content.overflow.gradient-active {
+	-webkit-mask-image: none;
+	mask-image: none;
+}
