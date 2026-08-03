@@ -1,6 +1,15 @@
 @use "./variables.scss" as *;
 @use "./snippets";
 
+// 用霞鹜文楷覆盖站点字体（此处为 unlayered 变量，优先级高于 quartz-fonts 插件的 layer）
+// 字体本身由 quartz/components/Head.tsx 注入的 jsDelivr 样式表按需加载
+:root {
+  --titleFont: "LXGW WenKai", system-ui, "Segoe UI", Roboto, sans-serif;
+  --headerFont: "LXGW WenKai", system-ui, "Segoe UI", Roboto, sans-serif;
+  --bodyFont: "LXGW WenKai", system-ui, "Segoe UI", Roboto, sans-serif;
+  --codeFont: "LXGW WenKai Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 // put your custom CSS here!
 //
 // 如需额外添加样式，请写在此文件。

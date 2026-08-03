@@ -16,7 +16,9 @@ configuration:
     - Clippings
     - template
   theme:
-    fontOrigin: googleFonts
+    # 页面字体由 quartz/styles/custom.scss 的 :root 变量覆盖为 LXGW WenKai（优先级最高）
+    # 此处保留 Google Fonts 可用的字体，供 og-image 插件渲染社交分享图时抓取/缓存
+    fontOrigin: local
     cdnCaching: true
     typography:
       header: Noto Sans SC
@@ -97,6 +99,12 @@ plugins:
     order: 90
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      fontOrigin: local
+      title: "LXGW WenKai"
+      header: "LXGW WenKai"
+      body: "LXGW WenKai"
+      code: "LXGW WenKai Mono"
   - source: "@quartz-community/remove-draft"
     enabled: true
   - source: "@quartz-community/alias-redirects"
