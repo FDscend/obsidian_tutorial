@@ -6,6 +6,16 @@ tags:
 
 # 更新日志
 
+## 2026-08-03 (第 11 次)
+
+### 变更
+
+- 将原 `section10/`（Copilot 知识 + 案例混合）拆分为两个章节：**section10（Copilot 知识基础，00–03）** 与 **section11（Copilot 实战案例，00–04）**。
+- 原 `section11/`（Claude Code 与 Codex）顺延为 **section12/**。
+- 同步更新 `README.md`、学习路径、FAQ、课程地图、同步工作流与各章节交叉链接。
+
+---
+
 ## 2026-08-03 (第 10 次)
 
 ### 新增

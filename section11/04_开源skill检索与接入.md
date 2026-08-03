@@ -18,7 +18,7 @@ tags:
 
 ## 前置条件
 
-- 已了解 Skill 的结构与安装方式（参考 [03_copilot案例\_skill制作与安装](07_copilot案例_skill制作与安装.md)）。
+- 已了解 Skill 的结构与安装方式（参考 [03_copilot案例\_skill制作与安装](03_copilot案例_skill制作与安装.md)）。
 - 具备基本的 Git 操作能力。
 
 ## 社区资源概览

@@ -356,7 +356,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 - **VS Code 扩展市场**：搜索 `@mcp`，筛选 MCP 相关扩展。
 - **Smithery 目录**：https://smithery.ai/，按分类浏览。
 - **Awesome MCP 列表**：GitHub 上的社区维护列表。
-- **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section10/06](../section10/06_copilot案例_tavily_mcp搜索.md)。
+- **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section11/02](../section11/02_copilot案例_tavily_mcp搜索.md)。
 
 ### Q：Skill 的三种形态是什么？
 
@@ -374,11 +374,11 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 
 **方法三**：通过 MCP 服务器动态加载。
 
-> 详见 [section10/07_copilot案例\_skill制作与安装.md](../section10/07_copilot案例_skill制作与安装.md) 和 [section10/08\_开源skill检索与接入.md](../section10/08_开源skill检索与接入.md)。
+> 详见 [section11/03_copilot案例\_skill制作与安装.md](../section11/03_copilot案例_skill制作与安装.md) 和 [section11/04\_开源skill检索与接入.md](../section11/04_开源skill检索与接入.md)。
 
 ---
 
-## Claude Code 与 Codex（section11）
+## Claude Code 与 Codex（section12）
 
 ### Q：Claude Code 有哪些订阅方案？
 
@@ -392,13 +392,13 @@ Claude 官方提供以下方案：
 - **Team Premium**：约 \$100–125/座/月，**包含 Claude Code**，5 座起。
 - **Enterprise**：联系销售。
 
-> 详情见 [section11/00](../section11/00_多模型agent总览与订阅说明.md)。
+> 详情见 [section12/00](../section12/00_多模型agent总览与订阅说明.md)。
 
 ### Q：Codex 有独立的订阅套餐吗？
 
 **没有**。Codex 的用量包含在所有 ChatGPT 套餐中：Free（\$0）、Go（\$8）、Plus（\$20）、Pro 5x（\$100）、Pro 20x（\$200）、Business（约 \$20–25/座）、Enterprise（联系销售）。
 
-> 详情见 [section11/00](../section11/00_多模型agent总览与订阅说明.md)。
+> 详情见 [section12/00](../section12/00_多模型agent总览与订阅说明.md)。
 
 ### Q：Claude Code 报"当前订阅不含 Claude Code"？
 
@@ -408,7 +408,7 @@ Claude 官方提供以下方案：
 
 `config.toml` 里的 `env_key` 读取的是**进程环境变量**。除了 `~/.codex/auth.json`，还需在 `~/.codex/.env` 或系统环境变量中提供同名 Key。
 
-> 详见 [section11/02](../section11/02_codex在vscode中的安装与配置.md)。
+> 详见 [section12/02](../section12/02_codex在vscode中的安装与配置.md)。
 
 ### Q：`ANTHROPIC_BASE_URL` 该填域名根还是 `/v1`？
 
@@ -423,7 +423,7 @@ Claude 配置分两层：
 
 长期使用推荐**通用设置**，一次配置到处复用；项目级覆盖用户级，`settings.local.json` 含 Key 时不要提交。
 
-> 详见 [section11/01](../section11/01_claude_code在vscode中的安装与配置.md) 第 2 步。
+> 详见 [section12/01](../section12/01_claude_code在vscode中的安装与配置.md) 第 2 步。
 
 ### Q：`/v1/chat/completions`、`/v1/responses`、`/v1/messages` 怎么选？
 

@@ -110,7 +110,7 @@ order: 0
 
 **策略 A：按文件夹筛选（推荐）**
 
-我们所有的章节笔记都在 `section0/` 到 `section11/` 文件夹下。可以添加多个筛选条件：
+我们所有的章节笔记都在 `section0/` 到 `section12/` 文件夹下。可以添加多个筛选条件：
 
 1. 点击工具栏的 **筛选** 按钮。
 2. 依次添加以下条件（使用 OR 组合）：
@@ -320,6 +320,7 @@ filters:
     - 'file.folder == "section9"'
     - 'file.folder == "section10"'
     - 'file.folder == "section11"'
+    - 'file.folder == "section12"'
 
 formulas:
   status_icon: |-

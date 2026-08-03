@@ -27,8 +27,8 @@ tags:
 5. 📡 **多端同步** — 使用 Syncthing 实现局域网仓库同步。
 6. 🌐 **静态网站部署** — 使用 Quartz 将教程发布为 GitHub Pages 站点。
 7. 🤖 **Agent 基础** — 掌握 Agent 的接口知识（Base URL / API Key / 协议）与常用运行环境（Python、Node.js、Git Bash、PowerShell 7、ripgrep）。
-8. 🤖 **AI 辅助** — 学会 VS Code Copilot 的基础使用与进阶案例（prompt、skill、mcp）。
-9. 🔌 **多模型接入** — 在 VS Code 中接入 Claude Code 与 OpenAI Codex，掌握订阅、代理与网关配置。
+8. 🤖 **AI 辅助** — 掌握 VS Code Copilot 的基础知识（[section10](section10/)）与实战案例（[section11](section11/)：prompt、skill、mcp）。
+9. 🔌 **多模型接入** — 在 VS Code 中接入 Claude Code 与 OpenAI Codex（[section12](section12/)），掌握订阅、代理与网关配置。
 
 > 📌 课程章节顺序：**先环境，后内容**。确保工具渲染正常再进入写作与进阶章节。
 
@@ -70,8 +70,9 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 - **需要多设备同步** → 查看 [section7](section7/)（Syncthing 局域网同步）
 - **想部署为在线站点** → 查看 [section8](section8/)（Quartz + GitHub Pages）
 - **想了解 Agent 接口知识与运行环境** → 查看 [section9](section9/)（Agent 基础）
-- **想用 AI 辅助写作/编码** → 查看 [section10](section10/)（Copilot 基础 + 实战案例）
-- **想接入 Claude Code / Codex 多模型 Agent** → 查看 [section11](section11/)（订阅、代理、网关、接口模式）
+- **想用 AI 辅助写作/编码（知识）** → 查看 [section10](section10/)（Copilot 基础）
+- **想用 AI 辅助写作/编码（实战）** → 查看 [section11](section11/)（Copilot 实战案例）
+- **想接入 Claude Code / Codex 多模型 Agent** → 查看 [section12](section12/)（订阅、代理、网关、接口模式）
 
 ---
 
@@ -89,8 +90,9 @@ git clone https://github.com/FDscend/obsidian_tutorial.git
 | **→ section7**  | **Syncthing 局域网同步**                 | **✅ 完成** |
 | **→ section8**  | **Quartz 静态网站部署**                  | **✅ 完成** |
 | **→ section9**  | **Agent 基础（接口知识 + 运行环境）**    | **✅ 完成** |
-| **→ section10** | **VS Code Copilot（基础 + 实战案例）**   | **✅ 完成** |
-| **→ section11** | **Claude Code 与 Codex 多模型接入**      | **✅ 完成** |
+| **→ section10** | **VS Code Copilot 基础**                 | **✅ 完成** |
+| **→ section11** | **Copilot 实战案例**                     | **✅ 完成** |
+| **→ section12** | **Claude Code 与 Codex 多模型接入**      | **✅ 完成** |
 | **→ 附录**      | **术语表 / FAQ / 快捷键 / 更新日志**     | **✅ 完成** |
 
 ---
