@@ -6,6 +6,18 @@ tags:
 
 # 更新日志
 
+## 2026-08-03 (第 10 次)
+
+### 新增
+
+- **section9/04_运行环境_powershell7安装.md**：PowerShell 7（pwsh）安装与配置，涵盖 Windows PowerShell 5.1 与 7 的区别、winget / MSI 安装、验证，以及把 VS Code 默认终端切换为 pwsh 的配置。
+
+### 变更
+
+- `section9` 运行环境补齐 PowerShell 7；`README.md`、学习路径、总规划与交叉链接同步补充。
+
+---
+
 ## 2026-08-03 (第 9 次)
 
 ### 变更
