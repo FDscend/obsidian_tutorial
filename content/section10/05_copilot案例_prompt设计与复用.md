@@ -18,8 +18,8 @@ tags:
 
 ## 前置条件
 
-- 已掌握 Prompt 文件的概念（参考 [section8/02](../section8/02_copilot_instruction与prompt入门.md)）。
-- 本教程的 [00*copilot案例*指令文件示例](00_copilot案例_指令文件示例.md) 已完成。
+- 已掌握 Prompt 文件的概念（参考 [section10/02](../section10/02_copilot_instruction与prompt入门.md)）。
+- 本教程的 [00*copilot案例*指令文件示例](04_copilot案例_指令文件示例.md) 已完成。
 - 拥有本仓库的写权限。
 
 ## 项目概述

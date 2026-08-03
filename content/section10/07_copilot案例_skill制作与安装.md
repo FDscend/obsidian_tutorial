@@ -18,8 +18,8 @@ tags:
 
 ## 前置条件
 
-- 已了解 Skill 的概念与结构（参考 [section8/03](../section8/03_skill与mcp基础.md)）。
-- 已完成本教程的 [00*copilot案例*指令文件示例](00_copilot案例_指令文件示例.md)。
+- 已了解 Skill 的概念与结构（参考 [section10/03](../section10/03_skill与mcp基础.md)）。
+- 已完成本教程的 [00*copilot案例*指令文件示例](04_copilot案例_指令文件示例.md)。
 - 具备基本的 Markdown 和脚本编写能力。
 
 ## 项目概述

@@ -305,7 +305,7 @@ Windows Defender 或第三方防火墙可能会拦截 Syncthing。首次运行�
 
 ---
 
-## VS Code Copilot（section8 / section9）
+## VS Code Copilot（section10）
 
 ### Q：Copilot 有哪些订阅方案？
 
@@ -315,7 +315,7 @@ GitHub Copilot 提供以下方案：
 - **企业版（Enterprise）**：\$19/月（含组织级策略管理）
 - **免费版（Free）**：每月有限次数补全和对话，适合试用
 
-> 详情见 [section8/00_copilot基础与订阅说明.md](../section8/00_copilot基础与订阅说明.md)。
+> 详情见 [section10/00_copilot基础与订阅说明.md](../section10/00_copilot基础与订阅说明.md)。
 
 ### Q：Copilot 在中国大陆能用吗？
 
@@ -335,7 +335,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 - **方式一**：使用 **Continue 扩展**（推荐），可同时接入多个提供商。
 - **方式二**：使用 VS Code 的 `github.copilot.chat.codeGeneration.instructions` 等设置调整行为。
 
-> 详细配置见 [section8/01\_扩展接入自定义api.md](../section8/01_扩展接入自定义api.md)。
+> 详细配置见 [section10/01\_扩展接入自定义api.md](../section10/01_扩展接入自定义api.md)。
 
 ### Q：指令文件（Instruction）不生效？
 
@@ -356,7 +356,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 - **VS Code 扩展市场**：搜索 `@mcp`，筛选 MCP 相关扩展。
 - **Smithery 目录**：https://smithery.ai/，按分类浏览。
 - **Awesome MCP 列表**：GitHub 上的社区维护列表。
-- **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section9/02](../section9/02_copilot案例_tavily_mcp搜索.md)。
+- **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section10/06](../section10/06_copilot案例_tavily_mcp搜索.md)。
 
 ### Q：Skill 的三种形态是什么？
 
@@ -364,7 +364,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 2. **Custom Agent（自定义 Agent）** — 动态对话角色，解决特定领域问题。
 3. **MCP 服务器** — 外部工具集成，为 AI 提供数据读写和操作能力。
 
-> 详见 [section8/03_skill与mcp基础.md](../section8/03_skill与mcp基础.md)。
+> 详见 [section10/03_skill与mcp基础.md](../section10/03_skill与mcp基础.md)。
 
 ### Q：如何安装社区 Skill？
 
@@ -374,7 +374,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 
 **方法三**：通过 MCP 服务器动态加载。
 
-> 详见 [section9/03_copilot案例\_skill制作与安装.md](../section9/03_copilot案例_skill制作与安装.md) 和 [section9/04\_开源skill检索与接入.md](../section9/04_开源skill检索与接入.md)。
+> 详见 [section10/07_copilot案例\_skill制作与安装.md](../section10/07_copilot案例_skill制作与安装.md) 和 [section10/08\_开源skill检索与接入.md](../section10/08_开源skill检索与接入.md)。
 
 ---
 
@@ -433,7 +433,7 @@ Claude 配置分两层：
 - 核心字段是 `input` → `responses`
 - Anthropic 原生 schema → `messages`
 
-> 详见 [section11/04](../section11/04_接口模式选择与排错.md)。
+> 详见 [section9/01](../section9/01_接口模式选择与排错.md)。
 
 ### Q：配置了网关但报 `model unavailable`？
 

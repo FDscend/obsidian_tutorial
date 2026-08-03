@@ -18,7 +18,7 @@ tags:
 
 ## 前置条件
 
-- 已了解 MCP 的概念（参考 [section8/03](../section8/03_skill与mcp基础.md)）。
+- 已了解 MCP 的概念（参考 [section10/03](../section10/03_skill与mcp基础.md)）。
 - 拥有一个 Tavily API Key（免费注册即可获得每月 1000 次搜索额度）。
 - VS Code 已登录 GitHub Copilot。
 
