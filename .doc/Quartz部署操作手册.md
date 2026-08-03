@@ -196,7 +196,7 @@ configuration:
 
 ### Q: 新增了章节目录怎么办？
 
-如果新建了 `section10/` 等目录，需要更新 `sync-main-to-v5.yml` 中的同步列表。编辑 `.github/workflows/sync-main-to-v5.yml`，在 `for dir` 行中添加新目录名。
+如果新建了 `section9/` 等目录，需要更新 `sync-main-to-v5.yml` 中的同步列表。编辑 `.github/workflows/sync-main-to-v5.yml`，在 `for dir` 行中添加新目录名。
 
 ### Q: 网站没更新？
 

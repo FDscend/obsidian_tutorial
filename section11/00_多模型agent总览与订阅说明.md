@@ -20,7 +20,8 @@ tags:
 ## 前置条件
 
 - 已安装 VS Code（参考 [section1/02](../section1/02_vscode安装与配置.md)）。
-- 已了解 Copilot 基础（参考 [section8/00](../section8/00_copilot基础与订阅说明.md)）。
+- 已了解 Agent 基础（参考 [section9/00](../section9/00_agent基础与接口知识.md)）。
+- 已了解 Copilot 基础（参考 [section10/00](../section10/00_copilot基础与订阅说明.md)）。
 - 具备基本的文件操作与 Markdown 编辑能力。
 
 ## Claude Code 与 Codex 是什么
@@ -43,11 +44,11 @@ Claude Code 与 OpenAI Codex 是目前最主流的两类 **Agent 化编程工具
 
 ### 与 Copilot 的关系
 
-| 工具               | 定位                           | 订阅来源                                                                 |
-| :----------------- | :----------------------------- | :----------------------------------------------------------------------- |
-| **GitHub Copilot** | VS Code 内置 AI 助手，覆盖面广 | GitHub 订阅（见 [section8/00](../section8/00_copilot基础与订阅说明.md)） |
-| **Claude Code**    | 独立 Agent 工具，深度自主执行  | Claude 订阅或 Anthropic API                                              |
-| **OpenAI Codex**   | 独立 Agent 工具，深度自主执行  | ChatGPT 订阅或 OpenAI API                                                |
+| 工具               | 定位                           | 订阅来源                                                                   |
+| :----------------- | :----------------------------- | :------------------------------------------------------------------------- |
+| **GitHub Copilot** | VS Code 内置 AI 助手，覆盖面广 | GitHub 订阅（见 [section10/00](../section10/00_copilot基础与订阅说明.md)） |
+| **Claude Code**    | 独立 Agent 工具，深度自主执行  | Claude 订阅或 Anthropic API                                                |
+| **OpenAI Codex**   | 独立 Agent 工具，深度自主执行  | ChatGPT 订阅或 OpenAI API                                                  |
 
 三者可以在同一台 VS Code 中共存：Copilot 负责日常补全与对话，Claude Code / Codex 负责大型自主任务。
 
@@ -141,13 +142,14 @@ Codex **没有独立的订阅套餐**，其用量包含在所有 ChatGPT 套餐�
 
 ## 章节结构
 
-| 文件 | 内容                     | 说明                                        |
-| :--- | :----------------------- | :------------------------------------------ |
-| 00   | 本节导读与订阅说明       | 总览、Claude / Codex 订阅方案、接入模式选择 |
-| 01   | Claude Code 安装与配置   | VS Code 扩展、两层配置（VS Code / `~/.claude/`）、三种鉴权方式  |
-| 02   | Codex 安装与配置         | VS Code 扩展、CLI、auth.json、config.toml   |
-| 03   | 网络代理与第三方网关接入 | 代理配置、网关 Base URL + Key + 模型名      |
-| 04   | 接口模式选择与排错       | 三类协议对比、选择算法、错误矩阵、排查顺序  |
+| 文件 | 内容                     | 说明                                                           |
+| :--- | :----------------------- | :------------------------------------------------------------- |
+| 00   | 本节导读与订阅说明       | 总览、Claude / Codex 订阅方案、接入模式选择                    |
+| 01   | Claude Code 安装与配置   | VS Code 扩展、两层配置（VS Code / `~/.claude/`）、三种鉴权方式 |
+| 02   | Codex 安装与配置         | VS Code 扩展、CLI、auth.json、config.toml                      |
+| 03   | 网络代理与第三方网关接入 | 代理配置、网关 Base URL + Key + 模型名                         |
+
+> 接口模式选择与排错（三类协议对比、错误矩阵、排查顺序）已移至 [section9/01](../section9/01_接口模式选择与排错.md)（Agent 基础章节）。
 
 ## 练习任务
 

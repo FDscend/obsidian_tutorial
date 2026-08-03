@@ -44,7 +44,7 @@ OpenAI Codex 是 OpenAI 推出的 **Agent 化编程工具**，覆盖 CLI、IDE �
 3. 点击 **安装**。
 4. 安装完成后，活动栏会出现 Codex 图标。
 
-> 也可以使用终端 CLI：`npm install -g @openai/codex`（需 Node.js），或直接使用官方安装脚本。
+> 也可以使用终端 CLI：`npm install -g @openai/codex`（需 Node.js，安装见 [section9/02](../section9/02_运行环境_python与nodejs安装.md)），或直接使用官方安装脚本。
 
 ## 第 2 步：选择鉴权方式
 
@@ -117,7 +117,7 @@ env_key = "MY_PROXY_API_KEY"
 要点：
 
 - `base_url` 通常填到 `/v1` 层级，不是完整接口路径。
-- `wire_api` 必须与网关支持的能力匹配：`chat`（chat/completions）、`responses` 或 `anthropic`（见 [04_接口模式选择与排错](04_接口模式选择与排错.md)）。
+- `wire_api` 必须与网关支持的能力匹配：`chat`（chat/completions）、`responses` 或 `anthropic`（见 [section9/01](../section9/01_接口模式选择与排错.md)）。
 - `env_key` 表示 Codex 运行时读取同名环境变量，建议在 `~/.codex/.env` 中添加：
 
   ```env
@@ -181,7 +181,7 @@ A：取决于你的网关/端点支持的协议。通用 OpenAI 兼容网关一�
 A：Codex 用量按 5 小时滚动窗口 + 每周上限计量（2026-04 起为 token 对齐信用额度）。重度使用建议升级到 Pro 5x / 20x，或使用 API Key 按量计费。
 
 **Q：扩展里能看到模型但调用失败？**
-A：网关列出模型不代表该 endpoint 可用。用目标 endpoint 单独做最小请求测试（见 [04_接口模式选择与排错](04_接口模式选择与排错.md)）。
+A：网关列出模型不代表该 endpoint 可用。用目标 endpoint 单独做最小请求测试（见 [section9/01](../section9/01_接口模式选择与排错.md)）。
 
 ## 练习任务
 

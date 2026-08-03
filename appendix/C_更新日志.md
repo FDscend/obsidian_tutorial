@@ -6,6 +6,18 @@ tags:
 
 # 更新日志
 
+## 2026-08-03 (第 9 次)
+
+### 变更
+
+- 章节重排：将原 `section10/`（Quartz 静态网站部署）调整到 `section8/`，紧随 Syncthing 之后。
+- 新增 `section9/`（Agent 基础：接口知识 + 运行环境），涵盖接口三要素（Base URL / API Key / 模型名）与协议知识，以及 Python / Node.js / Git Bash / ripgrep 的安装配置。
+- 原 `section8/`（Copilot 基础）与 `section9/`（Copilot 实战案例）合并为 `section10/`（VS Code Copilot），文件编号顺延为 00–08。
+- `section11/04`（接口模式选择与排错）移至 `section9/01`，作为 Agent 公共接口知识；`section9` 运行环境文件顺延为 02/03。
+- 同步更新 `README.md`、学习路径、FAQ、同步工作流与各章节交叉链接。
+
+---
+
 ## 2026-08-02 (第 8 次)
 
 ### 新增
