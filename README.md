@@ -26,7 +26,7 @@ tags:
 4. 🗺 **知识组织** — 掌握 Obsidian Canvas（画布）、Advanced Canvas 增强（含 frontmatter）与 Bases（数据库）功能。
 5. 📡 **多端同步** — 使用 Syncthing 实现局域网仓库同步。
 6. 🌐 **静态网站部署** — 使用 Quartz 将教程发布为 GitHub Pages 站点。
-7. 🤖 **Agent 基础** — 掌握 Agent 的接口知识（Base URL / API Key / 协议）与常用运行环境（Python、Node.js、Git Bash、ripgrep）。
+7. 🤖 **Agent 基础** — 掌握 Agent 的接口知识（Base URL / API Key / 协议）与常用运行环境（Python、Node.js、Git Bash、PowerShell 7、ripgrep）。
 8. 🤖 **AI 辅助** — 学会 VS Code Copilot 的基础使用与进阶案例（prompt、skill、mcp）。
 9. 🔌 **多模型接入** — 在 VS Code 中接入 Claude Code 与 OpenAI Codex，掌握订阅、代理与网关配置。
 
