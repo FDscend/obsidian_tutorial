@@ -443,7 +443,7 @@ Skill                       MCP
 | **MCP 官方文档**        | MCP 协议规范与服务器开发指南             | [modelcontextprotocol.io](https://modelcontextprotocol.io)                                 |
 | **GitHub MCP 注册表**   | GitHub 官方的 MCP 服务器目录             | [github.com/mcp](https://github.com/mcp)                                                   |
 
-> 后续的 **section9** 将提供完整的 Skill 制作、安装以及 MCP 搜索实战案例。
+> 后续的 **section11** 案例部分将提供完整的 Skill 制作、安装以及 MCP 搜索实战案例。
 
 ## 扩展阅读
 

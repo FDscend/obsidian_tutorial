@@ -18,7 +18,7 @@ tags:
 
 ## 前置条件
 
-- 已掌握指令文件的概念（参考 [section8/02](../section8/02_copilot_instruction与prompt入门.md)）。
+- 已掌握指令文件的概念（参考 [section10/02](../section10/02_copilot_instruction与prompt入门.md)）。
 - 拥有本仓库的写权限（或 Fork）。
 - 具备 Markdown 基础语法。
 

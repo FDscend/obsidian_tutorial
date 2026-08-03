@@ -62,15 +62,30 @@ tags:
             │                 │             │
      ┌──────▼───────┐  ┌──────▼───────┐     │
      │section7:     │  │section8:     │     │
-     │Syncthing     │  │Copilot基础   │     │
-     └──────────────┘  └──────┬───────┘     │
-                              │             │
-                       ┌──────▼──────┐      │
-                       │section9:    │      │
-                       │Copilot实战  │      │
-                       └─────────────┘      │
+     │Syncthing     │  │Quartz 部署   │     │
+     └──────────────┘  └──────────────┘     │
                                             │
                        ┌────────────────────┘
+                       │
+              ┌────────▼────────┐
+              │section9:        │
+              │Agent 基础       │
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │section10:       │
+              │Copilot 基础     │
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │section11:       │
+              │Copilot 案例     │
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │section12:       │
+              │Claude/Codex     │
+              └────────┬────────┘
                        │
               ┌────────▼────────┐
               │    附录         │
@@ -108,19 +123,22 @@ tags:
 
 按照以上格式，为以下章节创建卡片：
 
-| 章       | 主题                          | 当前状态  |
-| :------- | :---------------------------- | :-------- |
-| section0 | 课程导读与协作规范            | ✅ 完成   |
-| section1 | 环境安装                      | ✅ 完成   |
-| section2 | Markdown 基础语法             | ✅ 完成   |
-| section3 | Markdown 扩展与 Obsidian 语法 | ✅ 完成   |
-| section4 | Git/GitHub 可视化协作         | ✅ 完成   |
-| section5 | Obsidian Canvas               | 🔄 进行中 |
-| section6 | Obsidian Bases                | ⬜ 待编写 |
-| section7 | Syncthing 局域网同步          | ⬜ 待编写 |
-| section8 | VS Code Copilot 基础          | ⬜ 待编写 |
-| section9 | Copilot 实战案例              | ⬜ 待编写 |
-| 附录     | 术语表 / FAQ / 更新日志       | ⬜ 待编写 |
+| 章        | 主题                          | 当前状态 |
+| :-------- | :---------------------------- | :------- |
+| section0  | 课程导读与协作规范            | ✅ 完成  |
+| section1  | 环境安装                      | ✅ 完成  |
+| section2  | Markdown 基础语法             | ✅ 完成  |
+| section3  | Markdown 扩展与 Obsidian 语法 | ✅ 完成  |
+| section4  | Git/GitHub 可视化协作         | ✅ 完成  |
+| section5  | Obsidian Canvas               | ✅ 完成  |
+| section6  | Obsidian Bases                | ✅ 完成  |
+| section7  | Syncthing 局域网同步          | ✅ 完成  |
+| section8  | Quartz 静态网站部署           | ✅ 完成  |
+| section9  | Agent 基础（接口 + 环境）     | ✅ 完成  |
+| section10 | VS Code Copilot 基础          | ✅ 完成  |
+| section11 | Copilot 实战案例              | ✅ 完成  |
+| section12 | Claude Code 与 Codex          | ✅ 完成  |
+| 附录      | 术语表 / FAQ / 更新日志       | ✅ 完成  |
 
 ### 第 4 步：添加链接跳转
 
@@ -145,17 +163,20 @@ tags:
 
 根据章节依赖关系绘制连接线：
 
-| 从       | 到       | 关系 | 建议颜色 |
-| :------- | :------- | :--- | :------- |
-| section0 | section1 | 前置 | 🔵 蓝色  |
-| section1 | section2 | 前置 | 🔵 蓝色  |
-| section2 | section3 | 前置 | 🔵 蓝色  |
-| section1 | section4 | 前置 | 🔵 蓝色  |
-| section1 | section5 | 前置 | 🔵 蓝色  |
-| section1 | section6 | 前置 | 🔵 蓝色  |
-| section1 | section7 | 前置 | 🔵 蓝色  |
-| section1 | section8 | 前置 | 🔵 蓝色  |
-| section8 | section9 | 前置 | 🔵 蓝色  |
+| 从        | 到        | 关系 | 建议颜色 |
+| :-------- | :-------- | :--- | :------- |
+| section0  | section1  | 前置 | 🔵 蓝色  |
+| section1  | section2  | 前置 | 🔵 蓝色  |
+| section2  | section3  | 前置 | 🔵 蓝色  |
+| section1  | section4  | 前置 | 🔵 蓝色  |
+| section1  | section5  | 前置 | 🔵 蓝色  |
+| section1  | section6  | 前置 | 🔵 蓝色  |
+| section1  | section7  | 前置 | 🔵 蓝色  |
+| section1  | section8  | 前置 | 🔵 蓝色  |
+| section1  | section9  | 前置 | 🔵 蓝色  |
+| section9  | section10 | 前置 | 🔵 蓝色  |
+| section10 | section11 | 前置 | 🔵 蓝色  |
+| section9  | section12 | 前置 | 🔵 蓝色  |
 
 连接线设置建议：
 
@@ -290,7 +311,7 @@ A：可以一次性修改一个章节的状态后，使用 Obsidian 的搜索功
 A：在 GitHub 等平台上，`.canvas` 文件无法直接渲染。建议在 README 中使用截图 + 链接的方式：
 
 ```markdown
-[![课程地图缩略图](section5/课程地图截图.png)](section5/教程课程地图.canvas)
+[![课程地图缩略图](课程地图截图.png)](教程课程地图.canvas)
 ```
 
 先在 Obsidian 中打开 Canvas，右键 → 复制截图，保存为图片，再用上面的方式引用。

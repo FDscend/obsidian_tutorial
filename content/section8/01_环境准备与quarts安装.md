@@ -18,6 +18,7 @@ tags:
 
 - 完成 [section1/01](../section1/01_obsidian安装与配置.md) 的环境安装
 - Git 已配置并可用
+- 已安装 Node.js 与 npm（参考 [section9/02](../section9/02_运行环境_python与nodejs安装.md)）
 
 ## 1. 确认 Node.js 环境
 

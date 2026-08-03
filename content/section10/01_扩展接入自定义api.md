@@ -142,33 +142,9 @@ GitHub Copilot 自带的模型（GPT 系列）能满足大部分场景，但在�
 
 选中模型后即可在 Copilot Chat 中正常使用。所有 Copilot 功能（Agent 模式、工具调用等）均可正常工作。
 
-### 高级设置
-
-GCMP 支持通过 `settings.json` 进行更精细的控制：
-
-```json
-{
-  // 自定义兼容模型（OpenAI 协议）
-  "gcmp.compatibleModels": [
-    {
-      "name": "我的自定义模型",
-      "provider": "openai",
-      "model": "custom-model-id",
-      "apiKey": "${MY_API_KEY}",
-      "baseUrl": "https://custom-api.example.com/v1",
-      "parameters": {
-        "temperature": 0.7,
-        "maxTokens": 4096
-      }
-    }
-  ],
-
-  // 代理设置（如需）
-  "gcmp.proxy": "http://127.0.0.1:10808"
-}
-```
-
 > GCMP 还提供 Token 消耗统计、Commit 消息生成、视觉分析、API Key 跨设备同步等附加功能，可在扩展详情页了解。
+>
+> 若需接入预置列表之外的模型，见下文 **方案三（Compatible Provider）**。
 
 ## 方案三：通用 OpenAI / Anthropic 兼容协议
 
@@ -180,52 +156,55 @@ GCMP 内置了 Compatible Provider，支持完全自定义：
 
 1. 执行命令面板中的 **GCMP: Compatible Provider 设置**。
 2. 按向导输入：
-   - **名称**：任意标识（如 "我的本地模型"）
+   - **名称**：任意标识（如 "我的自定义模型"）
    - **协议类型**：OpenAI Compatible 或 Anthropic Compatible
-   - **Base URL**：API 端点地址（如 `http://localhost:11434/v1`）
-   - **模型 ID**：模型名称（如 `llama3`）
+   - **Base URL**：API 端点地址（如 `https://api.example.com/v1`）
+   - **模型 ID**：模型名称（如 `gpt-5.6-terra`）
    - **API Key**：认证密钥（如不需要可留空）
    - **额外参数**：Temperature、Max Tokens 等
 
-配置示例（接入 Ollama 本地模型）：
+> 向导输入的 API Key 会存入 GCMP 的 **secret（密钥存储）**，不会写入 `settings.json`。
+
+配置示例（接入第三方 GPT 兼容服务，Key 通过 GCMP 命令另行录入 secret）：
 
 ```json
 {
   "gcmp.compatibleModels": [
     {
-      "name": "Ollama Llama 3",
-      "provider": "openai",
-      "model": "llama3",
-      "apiKey": "",
-      "baseUrl": "http://localhost:11434/v1",
-      "parameters": {
-        "temperature": 0.7
+      "id": "GPT-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "provider": "ww",
+      "baseUrl": "https://direct-api.example.com/v1",
+      "model": "gpt-5.6-terra",
+      "sdkMode": "openai-responses",
+      "maxInputTokens": 272000,
+      "maxOutputTokens": 128000,
+      "reasoningEffort": ["low", "medium", "high", "xhigh"],
+      "capabilities": {
+        "toolCalling": true,
+        "imageInput": true
       }
     }
   ]
 }
 ```
 
-配置示例（接入自定义 OpenAI 兼容服务）：
+> 各字段含义如下表；Key 通过 GCMP 命令存入 secret，不会出现在 settings.json。
 
-```json
-{
-  "gcmp.compatibleModels": [
-    {
-      "name": "私有部署模型",
-      "provider": "openai",
-      "model": "my-model-v1",
-      "apiKey": "sk-xxx",
-      "baseUrl": "https://internal.company.com/v1",
-      "parameters": {
-        "temperature": 0.3,
-        "maxTokens": 2048,
-        "topP": 0.9
-      }
-    }
-  ]
-}
-```
+**常见字段说明：**
+
+| 字段                                 | 说明                                                          | 示例值                                           |
+| :----------------------------------- | :------------------------------------------------------------ | :----------------------------------------------- |
+| `id` / `name`                        | 模型唯一标识与显示名称                                        | `GPT-5.6-terra` / `GPT-5.6 Terra`                |
+| `provider`                           | 提供商标识（自定义值）                                        | `ww`、`openai`、`anthropic`                      |
+| `baseUrl`                            | API 端点基地址                                                | `https://direct-api.example.com/v1`              |
+| `model`                              | 实际请求的模型名                                              | `gpt-5.6-terra`                                  |
+| `sdkMode`                            | 协议模式                                                      | `openai-chat` / `openai-responses` / `anthropic` |
+| `maxInputTokens` / `maxOutputTokens` | 输入 / 输出 Token 上限                                        | `272000` / `128000`                              |
+| `reasoningEffort`                    | 支持的思考力度档位（数组）                                    | `["low","medium","high","xhigh"]`                |
+| `capabilities`                       | 能力开关：`toolCalling`（工具调用）、`imageInput`（图片输入） | `{"toolCalling": true, "imageInput": true}`      |
+
+> 配置完模型后，还需通过 GCMP 的 **Set API Key / 模型管理** 命令为对应 provider 录入 Key。Key 会存入系统密钥存储（secret），**不会**出现在 `settings.json` 或提交到仓库。
 
 ## 方案对比
 
@@ -234,7 +213,7 @@ GCMP 内置了 Compatible Provider，支持完全自定义：
 | **定位**         | 单模型深度集成                | 多模型聚合平台                              | 通用兼容接入        |
 | **预置提供商**   | DeepSeek 一家                 | 15+ 家国内厂商 + OpenAI/Anthropic           | 无，需手动配置      |
 | **自定义模型**   | 支持（修改 modelIdOverrides） | 支持（Compatible Provider）                 | 完全自定义          |
-| **API Key 存储** | OS 密钥链                     | VS Code 设置 / Gist 同步                    | 配置文件            |
+| **API Key 存储** | OS 密钥链                     | GCMP secret（密钥存储）/ Gist 同步          | secret / 环境变量   |
 | **额外功能**     | 视觉代理、思考力度控制        | Token 统计、Commit 生成、视觉分析、API 同步 | 无                  |
 
 ## API Key 安全管理
@@ -245,35 +224,20 @@ GCMP 内置了 Compatible Provider，支持完全自定义：
 
 ### 推荐做法
 
-1. **使用扩展原生的安全存储**：DeepSeek V4 for Copilot Chat 将 Key 存在 OS 密钥链中，不落盘。
-2. **使用环境变量引用**：GCMP 支持 `${VAR_NAME}` 语法引用环境变量：
-
-```json
-{
-  "gcmp.compatibleModels": [
-    {
-      "name": "GPT-4o",
-      "provider": "openai",
-      "model": "gpt-4o",
-      "apiKey": "${OPENAI_API_KEY}",
-      "baseUrl": "https://api.openai.com/v1"
-    }
-  ]
-}
-```
-
-3. **不要将 Key 提交到 Git**：建议将 VS Code 工作区设置文件（`.vscode/settings.json`）列入 `.gitignore`，或仅将不含 Key 的通用配置加入版本控制。
+1. **使用扩展原生的安全存储**：DeepSeek V4 for Copilot Chat 将 Key 存在 OS 密钥链中，不落盘；GCMP 同样把 Key 存入 **secret（密钥存储）**，`settings.json` 里只保留模型定义、不含 Key。
+2. **优先用扩展命令录入 Key**：GCMP 通过 **Set API Key / 模型管理** 命令录入 Key，存入 secret 后即可被对应 provider 使用，无需手写进配置文件。
+3. **不要将 Key 提交到 Git**：由于 Key 已存入 secret，`settings.json` 中的 `gcmp.compatibleModels` 本身不含密钥，可放心纳入版本控制；但切勿把任何明文 Key（如环境变量值、备份文件）提交到仓库。
 
 ## 模型选择策略
 
-| 需求              | 推荐方案                          | 理由               |
-| :---------------- | :-------------------------------- | :----------------- |
-| 日常编码辅助      | DeepSeek V4 Flash                 | 速度快、成本低     |
-| 复杂重构 / Agent  | DeepSeek V4 Pro / GLM-5.2         | 推理能力强         |
-| 需要多模型切换    | GCMP（同时配置多家）              | 一个扩展、多个选择 |
-| 国内低延迟访问    | GCMP + 国内厂商（智谱/阿里/火山） | 国内节点，延迟低   |
-| 私有化 / 离线部署 | Compatible Provider + Ollama      | 完全本地，无需联网 |
-| 预算敏感          | DeepSeek / 开源模型               | 性价比极高         |
+| 需求             | 推荐方案                          | 理由                   |
+| :--------------- | :-------------------------------- | :--------------------- |
+| 日常编码辅助     | DeepSeek V4 Flash                 | 速度快、成本低         |
+| 复杂重构 / Agent | DeepSeek V4 Pro / GLM-5.2         | 推理能力强             |
+| 需要多模型切换   | GCMP（同时配置多家）              | 一个扩展、多个选择     |
+| 国内低延迟访问   | GCMP + 国内厂商（智谱/阿里/火山） | 国内节点，延迟低       |
+| 私有化部署       | Compatible Provider               | 接入内部部署的模型服务 |
+| 预算敏感         | DeepSeek / 开源模型               | 性价比极高             |
 
 ## 扩展阅读
 

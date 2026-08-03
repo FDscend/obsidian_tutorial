@@ -6,6 +6,60 @@ tags:
 
 # 更新日志
 
+## 2026-08-03 (第 11 次)
+
+### 变更
+
+- 将原 `section10/`（Copilot 知识 + 案例混合）拆分为两个章节：**section10（Copilot 知识基础，00–03）** 与 **section11（Copilot 实战案例，00–04）**。
+- 原 `section11/`（Claude Code 与 Codex）顺延为 **section12/**。
+- 同步更新 `README.md`、学习路径、FAQ、课程地图、同步工作流与各章节交叉链接。
+
+---
+
+## 2026-08-03 (第 10 次)
+
+### 新增
+
+- **section9/04_运行环境_powershell7安装.md**：PowerShell 7（pwsh）安装与配置，涵盖 Windows PowerShell 5.1 与 7 的区别、winget / MSI 安装、验证，以及把 VS Code 默认终端切换为 pwsh 的配置。
+
+### 变更
+
+- `section9` 运行环境补齐 PowerShell 7；`README.md`、学习路径、总规划与交叉链接同步补充。
+
+---
+
+## 2026-08-03 (第 9 次)
+
+### 变更
+
+- 章节重排：将原 `section10/`（Quartz 静态网站部署）调整到 `section8/`，紧随 Syncthing 之后。
+- 新增 `section9/`（Agent 基础：接口知识 + 运行环境），涵盖接口三要素（Base URL / API Key / 模型名）与协议知识，以及 Python / Node.js / Git Bash / ripgrep 的安装配置。
+- 原 `section8/`（Copilot 基础）与 `section9/`（Copilot 实战案例）合并为 `section10/`（VS Code Copilot），文件编号顺延为 00–08。
+- `section11/04`（接口模式选择与排错）移至 `section9/01`，作为 Agent 公共接口知识；`section9` 运行环境文件顺延为 02/03。
+- 同步更新 `README.md`、学习路径、FAQ、同步工作流与各章节交叉链接。
+
+---
+
+## 2026-08-02 (第 8 次)
+
+### 新增
+
+- **section11/**：新增"Claude Code 与 Codex 多模型接入"章节，共 5 个文档：
+  - **section11/00\_多模型agent总览与订阅说明.md**：Claude Code 与 Codex 总览 + 官方订阅方案（Claude Free/Pro/Max 5x/Max 20x/Team/Enterprise；ChatGPT Free/Go/Plus/Pro 5x/Pro 20x/Business/Enterprise），含三种接入模式（订阅 / API Key / 第三方网关）选择。
+  - **section11/01\_claude_code在vscode中的安装与配置.md**：Claude Code VS Code 扩展安装、三种鉴权方式、`settings.json` 代理配置。
+  - **section11/02\_codex在vscode中的安装与配置.md**：Codex VS Code 扩展 / CLI 安装、`auth.json` + `config.toml` 配置、自定义 Provider。
+  - **section11/03\_网络代理与第三方网关接入.md**：代理配置、网关三要素（Base URL / Key / 模型名）、接入检查表。
+  - **section11/04\_接口模式选择与排错.md**：`chat/completions`、`responses`、`messages` 三类协议对比、选择算法、错误矩阵、分层排查。
+
+### 变更
+
+- 新增 section11 章节，将"AI 辅助"模块从 Copilot 扩展到多模型 Agent（Claude Code + Codex）。
+- `section11/01` 补充 **Claude 通用设置**（`~/.claude/settings.json`、项目 `.claude/settings.json` / `.claude/settings.local.json`）及优先级说明，与 VS Code 设置形成"两层配置"；`section11/03` 代理配置同步补充通用设置方式；`section11/02` 补充 `~/.codex/` 通用设置层对照说明。
+- `README.md` 课程目录与快速开始入口同步更新。
+- `.github/workflows/sync-main-to-v5.yml` 同步目录列表加入 section11。
+
+---
+
 ## 2026-07-03 (第 7 次)
 
 ### 新增
