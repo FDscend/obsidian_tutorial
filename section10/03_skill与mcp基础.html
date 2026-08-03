@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>03_skill与mcp基础 | Obsidian 教程</title><meta charset="utf-8"/><link rel="preload" href="../index-58093e8f.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=JetBrains Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Obsidian 教程"/><meta property="og:title" content="03_skill与mcp基础 | Obsidian 教程"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="03_skill与mcp基础 | Obsidian 教程"/><meta name="twitter:description" content="Skill 与 MCP 基础 学习目标 了解 VS Code Copilot 的 Skill（技能）机制。 掌握 .github/skills/&lt;name>/SKILL.md 的结构与编写方法。 了解 MCP（Model Context Protocol）的概念与作用。 掌握 MCP 服务器的配置方法。 了解 Skill、Prompt、Instructions、MCP 之间的区别与协作关系。 前置条件 已掌握 Copilot 基础操作（参考 00_copilot基础与订阅说明）。 已了解指令文件和 Prompt 文件的概念（参考 02_copilot_instruction与pro..."/><meta property="og:description" content="Skill 与 MCP 基础 学习目标 了解 VS Code Copilot 的 Skill（技能）机制。 掌握 .github/skills/&lt;name>/SKILL.md 的结构与编写方法。 了解 MCP（Model Context Protocol）的概念与作用。 掌握 MCP 服务器的配置方法。 了解 Skill、Prompt、Instructions、MCP 之间的区别与协作关系。 前置条件 已掌握 Copilot 基础操作（参考 00_copilot基础与订阅说明）。 已了解指令文件和 Prompt 文件的概念（参考 02_copilot_instruction与pro..."/><meta property="og:image:alt" content="Skill 与 MCP 基础 学习目标 了解 VS Code Copilot 的 Skill（技能）机制。 掌握 .github/skills/&lt;name>/SKILL.md 的结构与编写方法。 了解 MCP（Model Context Protocol）的概念与作用。 掌握 MCP 服务器的配置方法。 了解 Skill、Prompt、Instructions、MCP 之间的区别与协作关系。 前置条件 已掌握 Copilot 基础操作（参考 00_copilot基础与订阅说明）。 已了解指令文件和 Prompt 文件的概念（参考 02_copilot_instruction与pro..."/><meta property="twitter:domain" content="FDscend.github.io/obsidian_tutorial"/><meta property="og:url" content="https://fdscend.github.io/obsidian_tutorial/section10/03_skill与mcp基础"/><meta property="twitter:url" content="https://fdscend.github.io/obsidian_tutorial/section10/03_skill与mcp基础"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Skill 与 MCP 基础 学习目标 了解 VS Code Copilot 的 Skill（技能）机制。 掌握 .github/skills/&lt;name>/SKILL.md 的结构与编写方法。 了解 MCP（Model Context Protocol）的概念与作用。 掌握 MCP 服务器的配置方法。 了解 Skill、Prompt、Instructions、MCP 之间的区别与协作关系。 前置条件 已掌握 Copilot 基础操作（参考 00_copilot基础与订阅说明）。 已了解指令文件和 Prompt 文件的概念（参考 02_copilot_instruction与pro..."/><meta name="generator" content="Quartz"/><link href="../index-58093e8f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://FDscend.github.io/obsidian_tutorial/section10/03_skill与mcp基础-og-image.webp"/><meta property="og:image:url" content="https://FDscend.github.io/obsidian_tutorial/section10/03_skill与mcp基础-og-image.webp"/><meta name="twitter:image" content="https://FDscend.github.io/obsidian_tutorial/section10/03_skill与mcp基础-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="section10/03_skill与mcp基础" data-basepath="/obsidian_tutorial"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Obsidian 教程</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-16" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-16" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../section10/">section10</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>03_skill与mcp基础</a></div></nav><h1 class="article-title">03_skill与mcp基础</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/tutorial" class="internal internal-link tag-link">tutorial</a><span class="note-properties-separator">, </span><a href="../tags/vscode" class="internal internal-link tag-link">vscode</a><span class="note-properties-separator">, </span><a href="../tags/copilot" class="internal internal-link tag-link">copilot</a><span class="note-properties-separator">, </span><a href="../tags/skill" class="internal internal-link tag-link">skill</a><span class="note-properties-separator">, </span><a href="../tags/mcp" class="internal internal-link tag-link">mcp</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-08-03T10:30:30.210Z">2026年8月03日</time><span>16分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="skill-与-mcp-基础">Skill 与 MCP 基础<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-与-mcp-基础" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="学习目标">学习目标<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#学习目标" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>了解 VS Code Copilot 的 Skill（技能）机制。</li>
+<li>掌握 <code>.github/skills/&lt;name>/SKILL.md</code> 的结构与编写方法。</li>
+<li>了解 MCP（Model Context Protocol）的概念与作用。</li>
+<li>掌握 MCP 服务器的配置方法。</li>
+<li>了解 Skill、Prompt、Instructions、MCP 之间的区别与协作关系。</li>
+</ul>
+<h2 id="前置条件">前置条件<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#前置条件" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>已掌握 Copilot 基础操作（参考 <a href="../section10/00_copilot基础与订阅说明" class="internal internal-link alias" data-slug="section10/00_copilot基础与订阅说明">00_copilot基础与订阅说明</a>）。</li>
+<li>已了解指令文件和 Prompt 文件的概念（参考 <a href="../section10/02_copilot_instruction与prompt入门" class="internal internal-link alias" data-slug="section10/02_copilot_instruction与prompt入门">02_copilot_instruction与prompt入门</a>）。</li>
+<li>具备基本 JSON/YAML 配置文件编辑能力。</li>
+</ul>
+<h2 id="概述copilot-自定义机制一览">概述：Copilot 自定义机制一览<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#概述copilot-自定义机制一览" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>在深入 Skill 之前，先了解 VS Code Copilot 提供的所有自定义机制，以及它们之间的关系：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">机制</th><th style="text-align:left;">文件格式</th><th style="text-align:left;">触发方式</th><th style="text-align:left;">用途</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>始终生效指令</strong></td><td style="text-align:left;"><code>copilot-instructions.md</code> / <code>AGENTS.md</code> / <code>CLAUDE.md</code></td><td style="text-align:left;">自动加载</td><td style="text-align:left;">项目级长期规范</td></tr><tr><td style="text-align:left;"><strong>文件级指令</strong></td><td style="text-align:left;"><code>*.instructions.md</code></td><td style="text-align:left;">按 <code>applyTo</code> 模式匹配</td><td style="text-align:left;">语言/框架特定约定</td></tr><tr><td style="text-align:left;"><strong>Prompt 文件</strong></td><td style="text-align:left;"><code>.github/prompts/*.prompt.md</code></td><td style="text-align:left;"><code>/</code> 斜杠命令</td><td style="text-align:left;">单次可复用任务</td></tr><tr><td style="text-align:left;"><strong>Skill</strong></td><td style="text-align:left;"><code>.github/skills/&lt;name>/SKILL.md</code></td><td style="text-align:left;"><code>/</code> 斜杠命令 或 自动</td><td style="text-align:left;">多步骤工作流 + 附属资源</td></tr><tr><td style="text-align:left;"><strong>Custom Agent</strong></td><td style="text-align:left;"><code>.github/agents/*.agent.md</code></td><td style="text-align:left;"><code>/</code> 或 对话中提及</td><td style="text-align:left;">特定角色的子代理</td></tr><tr><td style="text-align:left;"><strong>MCP 服务器</strong></td><td style="text-align:left;"><code>settings.json</code> 中的 <code>mcp</code> 字段</td><td style="text-align:left;">工具调用（Chat 自动）</td><td style="text-align:left;">外部工具和数据源</td></tr><tr><td style="text-align:left;"><strong>Hooks</strong></td><td style="text-align:left;"><code>.github/hooks/*.json</code></td><td style="text-align:left;">Agent 生命周期事件触发</td><td style="text-align:left;">确定性脚本（格式化/拦截）</td></tr></tbody></table></div>
+<blockquote>
+<p>本教程的 <a href="../section10/02_copilot_instruction与prompt入门" class="internal internal-link alias" data-slug="section10/02_copilot_instruction与prompt入门">02_copilot_instruction与prompt入门</a> 已覆盖 Instructions 和 Prompts，本文聚焦 <strong>Skill</strong> 和 <strong>MCP</strong>。</p>
+</blockquote>
+<hr/>
+<h2 id="第一部分skill技能">第一部分：Skill（技能）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第一部分skill技能" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="什么是-skill">什么是 Skill<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#什么是-skill" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Skill（技能）是 Copilot 中最强大的自定义单元——它是一个<strong>包含说明、脚本和资源的文件夹</strong>，Agent 在需要时可以按需加载，执行多步骤的复杂工作流。</p>
+<blockquote>
+<p>简单来说，Skill 是”带资源的可复用工作流包”。它比 Prompt 文件更重，因为 Skill 可以附带脚本、模板和参考文档。</p>
+</blockquote>
+<h3 id="skill-vs-prompt-vs-instructions">Skill vs Prompt vs Instructions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-vs-prompt-vs-instructions" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">对比维度</th><th style="text-align:left;">Instructions</th><th style="text-align:left;">Prompt 文件</th><th style="text-align:left;">Skill</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>文件</strong></td><td style="text-align:left;">单个 <code>.md</code></td><td style="text-align:left;">单个 <code>.prompt.md</code></td><td style="text-align:left;">整个文件夹（<code>SKILL.md</code> + 资源）</td></tr><tr><td style="text-align:left;"><strong>附带资源</strong></td><td style="text-align:left;">无</td><td style="text-align:left;">无</td><td style="text-align:left;">可带脚本、模板、参考文档</td></tr><tr><td style="text-align:left;"><strong>自动加载</strong></td><td style="text-align:left;">✅ 是</td><td style="text-align:left;">❌ 否</td><td style="text-align:left;">❌ 否（按需加载）</td></tr><tr><td style="text-align:left;"><strong>斜杠命令</strong></td><td style="text-align:left;">❌</td><td style="text-align:left;">✅</td><td style="text-align:left;">✅</td></tr><tr><td style="text-align:left;"><strong>适用场景</strong></td><td style="text-align:left;">长期规范</td><td style="text-align:left;">单次可复用任务</td><td style="text-align:left;">需要脚本/模板的多步骤工作流</td></tr></tbody></table></div>
+<h2 id="skill-的目录结构">Skill 的目录结构<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-的目录结构" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>一个 Skill 是一个文件夹，放在 <code>.github/skills/</code> 下：</p>
+<pre><code>.github/skills/&lt;skill-name>/
+├── SKILL.md           # 必需：技能定义文件（文件名必须与文件夹名一致）
+├── scripts/           # 可执行脚本
+├── references/        # 按需加载的参考文档
+└── assets/            # 模板、样板代码等资源
+</code></pre>
+<h3 id="存放位置">存放位置<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#存放位置" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">路径</th><th style="text-align:left;">作用域</th></tr></thead><tbody><tr><td style="text-align:left;"><code>.github/skills/&lt;name>/</code></td><td style="text-align:left;">项目级</td></tr><tr><td style="text-align:left;"><code>.agents/skills/&lt;name>/</code></td><td style="text-align:left;">项目级</td></tr><tr><td style="text-align:left;"><code>.claude/skills/&lt;name>/</code></td><td style="text-align:left;">项目级</td></tr><tr><td style="text-align:left;"><code>~/.copilot/skills/&lt;name>/</code></td><td style="text-align:left;">用户级</td></tr><tr><td style="text-align:left;"><code>~/.agents/skills/&lt;name>/</code></td><td style="text-align:left;">用户级</td></tr><tr><td style="text-align:left;"><code>~/.claude/skills/&lt;name>/</code></td><td style="text-align:left;">用户级</td></tr></tbody></table></div>
+<h2 id="skillmd-文件格式">SKILL.md 文件格式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skillmd-文件格式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="frontmatter">Frontmatter<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#frontmatter" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">skill-name</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment"> # 必需：1-64 字符，小写字母+连字符，必须与文件夹名一致</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;什么场景下使用。最长 1024 字符。&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">argument-hint</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;斜杠调用时的占位提示&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">user-invocable</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">true</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment"> # 可选：是否显示在斜杠命令菜单（默认 true）</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">disable-model-invocation</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="value">false</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;" data-token-type="comment"> # 可选：是否禁止 AI 自动加载（默认 false）</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">---</span></span></code></pre></figure>
+<h3 id="正文">正文<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#正文" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>正文使用 Markdown 编写，需要说明：</p>
+<ul>
+<li><strong>技能完成什么任务</strong></li>
+<li><strong>何时使用</strong>（触发条件和用例）</li>
+<li><strong>步骤流程</strong></li>
+<li><strong>对资源的引用</strong>（使用相对路径 <code>./scripts/xxx</code>）</li>
+</ul>
+<h3 id="完整示例">完整示例<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#完整示例" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">webapp-testing</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;使用 Playwright 测试 Web 应用。适用于验证前端功能、调试 UI、截图。&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">argument-hint</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;测试场景...&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation"># Web 应用测试</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 何时使用</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 验证前端功能</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 调试 UI 行为</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 捕获截图用于文档</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 步骤</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 启动 Web 服务器</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">2.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 运行 [</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">测试脚本</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">./scripts/test.js</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">)</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">3.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 查看 </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`./screenshots/`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 目录下的截图</span></span></code></pre></figure>
+<h2 id="skill-的加载机制渐进式加载">Skill 的加载机制（渐进式加载）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-的加载机制渐进式加载" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Skill 采用<strong>渐进式加载</strong>策略，以节省 Tokens：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">阶段</th><th style="text-align:left;">Token 消耗</th><th style="text-align:left;">触发时机</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>发现</strong></td><td style="text-align:left;">~100</td><td style="text-align:left;">Agent 读取 <code>name</code> 和 <code>description</code></td></tr><tr><td style="text-align:left;"><strong>指令</strong></td><td style="text-align:left;">&lt;5000</td><td style="text-align:left;">当任务相关时，加载 <code>SKILL.md</code> 正文</td></tr><tr><td style="text-align:left;"><strong>资源</strong></td><td style="text-align:left;">不定</td><td style="text-align:left;">仅当正文中引用时才加载</td></tr></tbody></table></div>
+<blockquote>
+<p>这意味着 <code>description</code> 字段至关重要——Agent 靠它来判断是否需要加载你的 Skill。</p>
+</blockquote>
+<h2 id="创建自己的-skill">创建自己的 Skill<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#创建自己的-skill" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="第-1-步新建文件夹">第 1 步：新建文件夹<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-1-步新建文件夹" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在仓库中创建 <code>.github/skills/</code> 目录（如果不存在），然后为 Skill 创建一个子文件夹：</p>
+<pre><code>.github/skills/create-tutorial-section/
+</code></pre>
+<h3 id="第-2-步编写-skillmd">第 2 步：编写 SKILL.md<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-2-步编写-skillmd" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">name</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">create-tutorial-section</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">description</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;为本教程仓库创建新的章节。包含统一的 frontmatter、章节结构模板和标准段落。&quot;</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">argument-hint</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;章节名称...&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation"># 创建教程章节</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 何时使用</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 需要为本教程添加一个新章节（section）</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 需要为新章节创建标准的 Markdown 文件</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 步骤</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">1.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 在仓库根目录下创建 </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`section&lt;编号>/`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 文件夹</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">2.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 参考 [</span><span style="--shiki-light:#032F62;--shiki-light-text-decoration:underline;--shiki-dark:#DBEDFF;--shiki-dark-text-decoration:underline;" data-token-type="string">章节模板</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">](</span><span style="--shiki-light:#24292E;--shiki-light-text-decoration:underline;--shiki-dark:#E1E4E8;--shiki-dark-text-decoration:underline;" data-token-type="normal">./assets/section-template.md</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">) 创建文件</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">3.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 确保包含：学习目标、前置条件、步骤、常见问题、扩展阅读</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">4.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 更新 </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`README.md`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 中的目录表</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">5.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 更新 </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`appendix/C_更新日志.md`</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 注意事项</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 章节编号从当前最大编号 +1 开始</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 文件名使用 </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`00_`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">`01_`</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> 前缀</span></span></code></pre></figure>
+<h3 id="第-3-步添加附属资源可选">第 3 步：添加附属资源（可选）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-3-步添加附属资源可选" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Skill 可以附带 <code>scripts/</code>、<code>references/</code>、<code>assets/</code> 等子目录：</p>
+<pre><code>.github/skills/create-tutorial-section/
+├── SKILL.md
+└── assets/
+    └── section-template.md
+</code></pre>
+<p><code>section-template.md</code>：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="markdown" data-theme="github-light github-dark"><code data-language="markdown" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;" data-token-type="tag">tags</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">tutorial</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&lt;章节标签></span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">---</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation"># &lt;标题></span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 学习目标</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> ...</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 前置条件</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> ...</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 步骤</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">### 第 1 步：...</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 扩展阅读</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;" data-token-type="important">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="normal"> ...</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;" data-token-type="punctuation">## 常见问题</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold;" data-token-type="punctuation">**Q：...？**</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">A：...</span></span></code></pre></figure>
+<h3 id="第-4-步使用-skill">第 4 步：使用 Skill<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第-4-步使用-skill" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>在 Chat 输入框中键入 <code>/</code>。</li>
+<li>从菜单中选择你的 Skill（如 <code>/create-tutorial-section</code>）。</li>
+<li>Agent 会自动加载 <code>SKILL.md</code> 和引用的资源文件。</li>
+<li>按照 Skill 定义的步骤执行任务。</li>
+</ol>
+<h2 id="skill-的可见性控制">Skill 的可见性控制<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-的可见性控制" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>通过 frontmatter 中的两个字段控制 Skill 的出现方式：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;"><code>user-invocable</code></th><th style="text-align:left;"><code>disable-model-invocation</code></th><th style="text-align:left;">斜杠菜单</th><th style="text-align:left;">AI 自动调用</th></tr></thead><tbody><tr><td style="text-align:left;">默认（true）</td><td style="text-align:left;">默认（false）</td><td style="text-align:left;">✅ 显示</td><td style="text-align:left;">✅ 可调用</td></tr><tr><td style="text-align:left;"><code>false</code></td><td style="text-align:left;">默认（false）</td><td style="text-align:left;">❌ 隐藏</td><td style="text-align:left;">✅ 可调用</td></tr><tr><td style="text-align:left;">默认（true）</td><td style="text-align:left;"><code>true</code></td><td style="text-align:left;">✅ 显示</td><td style="text-align:left;">❌ 不可用</td></tr><tr><td style="text-align:left;"><code>false</code></td><td style="text-align:left;"><code>true</code></td><td style="text-align:left;">❌ 隐藏</td><td style="text-align:left;">❌ 不可用</td></tr></tbody></table></div>
+<hr/>
+<h2 id="第二部分mcpmodel-context-protocol">第二部分：MCP（Model Context Protocol）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#第二部分mcpmodel-context-protocol" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="mcp-概念">MCP 概念<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mcp-概念" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>MCP（Model Context Protocol，模型上下文协议）是由 Anthropic 提出、被 VS Code Copilot 采纳的<strong>开放协议</strong>，它定义了 AI 模型与外部工具/数据源之间的标准通信方式。</p>
+<blockquote>
+<p>你可以把 MCP 理解为 <strong>“AI 世界的 USB 接口”</strong>——任何遵循 MCP 协议的工具都可以即插即用地接入任何支持 MCP 的 AI 模型。</p>
+</blockquote>
+<h3 id="mcp-的工作方式">MCP 的工作方式<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mcp-的工作方式" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<pre><code>┌──────────────────┐         MCP 协议          ┌──────────────────┐
+│  VS Code Copilot  │ ◄──────────────────────► │  MCP 服务器       │
+│  (MCP 客户端)      │                          │  (外部工具/服务)   │
+└──────────────────┘                          └──────────────────┘
+       │                                              │
+       │ ① 用户提问 &quot;搜索最新的 AI 新闻&quot;               │
+       │ ② Copilot 列出可用工具                       │
+       │ ③ Copilot 调用 MCP 服务器的搜索工具           │
+       │ ④ MCP 服务器返回搜索结果                      │
+       │ ⑤ Copilot 整合结果并回复用户                  │
+       ▼                                              ▼
+</code></pre>
+<h3 id="mcp-的典型用途">MCP 的典型用途<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mcp-的典型用途" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">用途</th><th style="text-align:left;">说明</th><th style="text-align:left;">示例 MCP 服务器</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>网络搜索</strong></td><td style="text-align:left;">让 AI 能够搜索互联网获取最新信息</td><td style="text-align:left;">Tavily Search MCP</td></tr><tr><td style="text-align:left;"><strong>文件操作</strong></td><td style="text-align:left;">让 AI 能够读写文件、操作文件系统</td><td style="text-align:left;">Filesystem MCP</td></tr><tr><td style="text-align:left;"><strong>数据库查询</strong></td><td style="text-align:left;">让 AI 能够查询数据库并返回结构化数据</td><td style="text-align:left;">PostgreSQL / SQLite MCP</td></tr><tr><td style="text-align:left;"><strong>API 调用</strong></td><td style="text-align:left;">让 AI 能够调用外部 REST API</td><td style="text-align:left;">Fetch / HTTP MCP</td></tr><tr><td style="text-align:left;"><strong>代码执行</strong></td><td style="text-align:left;">让 AI 能够在沙箱环境中执行代码</td><td style="text-align:left;">Code Execution MCP</td></tr><tr><td style="text-align:left;"><strong>版本控制</strong></td><td style="text-align:left;">让 AI 能够操作 Git 仓库</td><td style="text-align:left;">Git MCP</td></tr><tr><td style="text-align:left;"><strong>知识库检索</strong></td><td style="text-align:left;">让 AI 能够搜索内部知识库</td><td style="text-align:left;">Vector Search / Embedding MCP</td></tr></tbody></table></div>
+<h2 id="配置-mcp-服务器">配置 MCP 服务器<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#配置-mcp-服务器" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>配置 MCP 服务器有两种方式：通过<strong>扩展市场安装</strong>（推荐，一键完成）或通过 <strong><code>settings.json</code> 手动配置</strong>（更灵活）。</p>
+<h3 id="方式一从扩展市场安装推荐">方式一：从扩展市场安装（推荐）<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方式一从扩展市场安装推荐" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>VS Code 支持从扩展市场直接安装 MCP 服务器，无需手动编辑配置文件。</p>
+<ol>
+<li>按 <code>Ctrl+Shift+X</code> 打开扩展面板。</li>
+<li>在搜索框中输入 <code>@mcp</code>，即可浏览所有可用的 MCP 服务器扩展。</li>
+<li>如需搜索特定服务，如 Tavily 搜索 MCP，输入 <code>@mcp Tavily</code>。</li>
+<li>找到目标扩展后，点击 <strong>安装</strong>。</li>
+<li>安装完成后，按照扩展的提示配置 API Key 等参数（通常在扩展的设置页面中完成）。</li>
+<li>重启 VS Code 后，MCP 服务器自动生效。</li>
+</ol>
+<blockquote>
+<p>💡 使用 <code>@mcp</code> 搜索是 VS Code 内置的过滤机制，只会显示 MCP 服务器类型的扩展，不会混入普通扩展。</p>
+</blockquote>
+<h3 id="方式二通过-settingsjson-手动配置">方式二：通过 settings.json 手动配置<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#方式二通过-settingsjson-手动配置" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>如果你需要更精细的控制（如自定义端点、环境变量等），可以直接编辑 <code>settings.json</code>：</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;mcp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;servers&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">      &quot;server-name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;type&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;命令路径&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;args&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;参数1&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;参数2&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">],</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;env&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">          &quot;环境变量&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;值&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<h4 id="常用-mcp-服务器配置示例">常用 MCP 服务器配置示例<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常用-mcp-服务器配置示例" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>Tavily Search MCP（网络搜索）：</strong></p>
+<p>Tavily 是一个专为 AI 优化的搜索引擎，适合让 Copilot 搜索最新信息。</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;mcp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;servers&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">      &quot;tavily-search&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;type&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;npx&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;args&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;-y&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;@tavily/mcp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;--apiKey=YOUR_TAVILY_API_KEY&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<p>获取 API Key：访问 <a href="https://tavily.com" class="external external-link">Tavily 官网<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> 注册账号并创建 API Key。</p>
+<p><strong>Filesystem MCP（文件系统操作）：</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;mcp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;servers&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">      &quot;filesystem&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;type&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;npx&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;args&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">          &quot;-y&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">          &quot;@modelcontextprotocol/server-filesystem&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">          &quot;允许访问的目录路径&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">        ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<p><strong>Git MCP（版本控制）：</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">  &quot;mcp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">    &quot;servers&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">      &quot;git&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;type&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;command&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;npx&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;" data-token-type="punctuation">        &quot;args&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">: [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;-y&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;@modelcontextprotocol/server-git&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;" data-token-type="string">&quot;仓库路径&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;" data-token-type="punctuation">}</span></span></code></pre></figure>
+<h3 id="验证-mcp-服务器">验证 MCP 服务器<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#验证-mcp-服务器" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>无论采用哪种安装方式，安装完成后均可用以下方法验证：</p>
+<ol>
+<li>重启 VS Code。</li>
+<li>在 Copilot Chat 中尝试：</li>
+</ol>
+<pre><code>请帮我搜索 &quot;2026年 AI 编程趋势&quot;。
+</code></pre>
+<ol start="3">
+<li>如果配置正确，Copilot 会调用 Tavily MCP 服务器搜索网络并返回结果。</li>
+<li>在 VS Code 的输出面板（<code>Ctrl+Shift+U</code>）中选择 “Copilot” 通道，可查看 MCP 的调试日志。</li>
+</ol>
+<h3 id="查看可用工具">查看可用工具<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#查看可用工具" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>在 Copilot Chat 中输入：</p>
+<pre><code>列出当前可用的所有工具。
+</code></pre>
+<p>Copilot 会返回所有已配置的 MCP 服务器及其提供的工具清单。</p>
+<hr/>
+<h2 id="skill-与-mcp-的协作关系">Skill 与 MCP 的协作关系<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skill-与-mcp-的协作关系" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Skill 和 MCP 是互补关系——Skill 提供<strong>知识和流程</strong>，MCP 提供<strong>工具和数据</strong>：</p>
+<pre><code>Skill                       MCP
+  │                           │
+  │  封装工作流步骤            │  提供外部能力（搜索、读写文件）
+  │  提供领域知识              │  访问实时数据
+  │  引用本地脚本/模板        │  操作外部系统
+  │                           │
+  └───────────┬───────────────┘
+              │
+              ▼
+    Copilot 执行复杂任务
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">对比维度</th><th style="text-align:left;">Skill</th><th style="text-align:left;">MCP</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>本质</strong></td><td style="text-align:left;">工作流定义 + 附属资源</td><td style="text-align:left;">外部工具和服务</td></tr><tr><td style="text-align:left;"><strong>形式</strong></td><td style="text-align:left;"><code>SKILL.md</code> + 脚本/模板/文档</td><td style="text-align:left;">独立进程（JSON-RPC 通信）</td></tr><tr><td style="text-align:left;"><strong>调用方式</strong></td><td style="text-align:left;"><code>/</code> 斜杠命令 或 AI 自动加载</td><td style="text-align:left;">Chat 中自动调用（工具调用）</td></tr><tr><td style="text-align:left;"><strong>依赖</strong></td><td style="text-align:left;">无需额外服务</td><td style="text-align:left;">需要安装运行时 + 启动进程</td></tr><tr><td style="text-align:left;"><strong>典型用途</strong></td><td style="text-align:left;">”创建新组件”、“运行测试套件&quot;</td><td style="text-align:left;">&quot;搜索网络”、“查询数据库”</td></tr></tbody></table></div>
+<p><strong>协作示例：</strong></p>
+<ol>
+<li><strong>Skill</strong> 定义”发布新版本”的工作流步骤。</li>
+<li>Skill 引用 <strong>MCP</strong> 工具来执行具体操作：<code>git</code> MCP 创建 Tag、<code>filesystem</code> MCP 更新文件。</li>
+<li>用户只需在 Chat 中输入 <code>/发布新版本</code>，Agent 自动完成全部流程。</li>
+</ol>
+<h2 id="社区-skill-与-mcp-资源">社区 Skill 与 MCP 资源<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#社区-skill-与-mcp-资源" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">资源</th><th style="text-align:left;">说明</th><th style="text-align:left;">地址</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Awesome Copilot</strong></td><td style="text-align:left;">社区贡献的 Instructions、Prompts、Skills</td><td style="text-align:left;"><a href="https://github.com/github/awesome-copilot" class="external external-link">github.com/github/awesome-copilot<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td style="text-align:left;"><strong>Awesome MCP Servers</strong></td><td style="text-align:left;">MCP 服务器精选列表</td><td style="text-align:left;"><a href="https://github.com/punkpeye/awesome-mcp-servers" class="external external-link">github.com/punkpeye/awesome-mcp-servers<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td style="text-align:left;"><strong>MCP 官方文档</strong></td><td style="text-align:left;">MCP 协议规范与服务器开发指南</td><td style="text-align:left;"><a href="https://modelcontextprotocol.io" class="external external-link">modelcontextprotocol.io<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td style="text-align:left;"><strong>GitHub MCP 注册表</strong></td><td style="text-align:left;">GitHub 官方的 MCP 服务器目录</td><td style="text-align:left;"><a href="https://github.com/mcp" class="external external-link">github.com/mcp<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr></tbody></table></div>
+<blockquote>
+<p>后续的 <strong>section10</strong> 案例部分将提供完整的 Skill 制作、安装以及 MCP 搜索实战案例。</p>
+</blockquote>
+<h2 id="扩展阅读">扩展阅读<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#扩展阅读" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/copilot/customization/agent-skills" class="external external-link">VS Code Agent Skills 官方文档<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://code.visualstudio.com/docs/copilot/customization/mcp-servers" class="external external-link">VS Code MCP 服务器配置<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://modelcontextprotocol.io" class="external external-link">MCP 协议规范<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://code.visualstudio.com/docs/copilot/copilot-customization" class="external external-link">VS Code Copilot 自定义总览<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="常见问题">常见问题<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#常见问题" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Q：Skill 和 Prompt 文件有什么区别？</strong><br/>
+A：Prompt 文件是单个 <code>.prompt.md</code>，适合单次任务；Skill 是一个文件夹（<code>SKILL.md</code> + 脚本/模板/参考文档），适合需要附属资源的多步骤工作流。两者在斜杠菜单中都显示为 <code>/</code> 命令。</p>
+<p><strong>Q：Skill 和普通的 VS Code 扩展有什么区别？</strong><br/>
+A：Skill 是 Agent 在运行时按需加载的知识和工作流，不占用 VS Code 进程。VS Code 扩展是永久运行的编辑器增强。两者可互补：扩展提供 UI 功能，Skill 提供 AI 工作流。</p>
+<p><strong>Q：MCP 服务器需要一直运行吗？</strong><br/>
+A：MCP 服务器由 VS Code 按需启动。当 Copilot 需要调用对应工具时，VS Code 会自动启动 MCP 服务器进程，使用完毕后按配置决定是否保持运行。</p>
+<p><strong>Q：配置 MCP 服务器是否安全？</strong><br/>
+A：MCP 服务器拥有你授予的权限（如文件系统访问）。建议：① 仅安装来自可信来源的 MCP 服务器；② 限制文件系统 MCP 的访问目录范围；③ 定期审查已配置的 MCP 服务器列表。</p>
+<p><strong>Q：Skill 中可以引用 MCP 工具吗？</strong><br/>
+A：可以。SKILL.md 的 <code>tools</code> 字段可以指定 MCP 服务器（如 <code>tools: [filesystem/*, git/*]</code>），在 Skill 执行时自动启用对应的外部工具。</p>
+<p><strong>Q：MCP 服务器可以在远程开发环境（Remote SSH / Dev Containers）中使用吗？</strong><br/>
+A：可以。MCP 服务器配置在远程环境的 VS Code 中同样生效。注意确保远程环境中已安装所需的运行时（如 Node.js）和依赖。</p></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-16" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#skill-与-mcp-基础" data-for="skill-与-mcp-基础">Skill 与 MCP 基础</a></li><li class="depth-1"><a href="#学习目标" data-for="学习目标">学习目标</a></li><li class="depth-1"><a href="#前置条件" data-for="前置条件">前置条件</a></li><li class="depth-1"><a href="#概述copilot-自定义机制一览" data-for="概述copilot-自定义机制一览">概述：Copilot 自定义机制一览</a></li><li class="depth-1"><a href="#第一部分skill技能" data-for="第一部分skill技能">第一部分：Skill（技能）</a></li><li class="depth-1"><a href="#什么是-skill" data-for="什么是-skill">什么是 Skill</a></li><li class="depth-2"><a href="#skill-vs-prompt-vs-instructions" data-for="skill-vs-prompt-vs-instructions">Skill vs Prompt vs Instructions</a></li><li class="depth-1"><a href="#skill-的目录结构" data-for="skill-的目录结构">Skill 的目录结构</a></li><li class="depth-2"><a href="#存放位置" data-for="存放位置">存放位置</a></li><li class="depth-1"><a href="#skillmd-文件格式" data-for="skillmd-文件格式">SKILL.md 文件格式</a></li><li class="depth-2"><a href="#frontmatter" data-for="frontmatter">Frontmatter</a></li><li class="depth-2"><a href="#正文" data-for="正文">正文</a></li><li class="depth-2"><a href="#完整示例" data-for="完整示例">完整示例</a></li><li class="depth-1"><a href="#skill-的加载机制渐进式加载" data-for="skill-的加载机制渐进式加载">Skill 的加载机制（渐进式加载）</a></li><li class="depth-1"><a href="#创建自己的-skill" data-for="创建自己的-skill">创建自己的 Skill</a></li><li class="depth-2"><a href="#第-1-步新建文件夹" data-for="第-1-步新建文件夹">第 1 步：新建文件夹</a></li><li class="depth-2"><a href="#第-2-步编写-skillmd" data-for="第-2-步编写-skillmd">第 2 步：编写 SKILL.md</a></li><li class="depth-2"><a href="#第-3-步添加附属资源可选" data-for="第-3-步添加附属资源可选">第 3 步：添加附属资源（可选）</a></li><li class="depth-2"><a href="#第-4-步使用-skill" data-for="第-4-步使用-skill">第 4 步：使用 Skill</a></li><li class="depth-1"><a href="#skill-的可见性控制" data-for="skill-的可见性控制">Skill 的可见性控制</a></li><li class="depth-1"><a href="#第二部分mcpmodel-context-protocol" data-for="第二部分mcpmodel-context-protocol">第二部分：MCP（Model Context Protocol）</a></li><li class="depth-1"><a href="#mcp-概念" data-for="mcp-概念">MCP 概念</a></li><li class="depth-2"><a href="#mcp-的工作方式" data-for="mcp-的工作方式">MCP 的工作方式</a></li><li class="depth-2"><a href="#mcp-的典型用途" data-for="mcp-的典型用途">MCP 的典型用途</a></li><li class="depth-1"><a href="#配置-mcp-服务器" data-for="配置-mcp-服务器">配置 MCP 服务器</a></li><li class="depth-2"><a href="#方式一从扩展市场安装推荐" data-for="方式一从扩展市场安装推荐">方式一：从扩展市场安装（推荐）</a></li><li class="depth-2"><a href="#方式二通过-settingsjson-手动配置" data-for="方式二通过-settingsjson-手动配置">方式二：通过 settings.json 手动配置</a></li><li class="depth-2"><a href="#验证-mcp-服务器" data-for="验证-mcp-服务器">验证 MCP 服务器</a></li><li class="depth-2"><a href="#查看可用工具" data-for="查看可用工具">查看可用工具</a></li><li class="depth-1"><a href="#skill-与-mcp-的协作关系" data-for="skill-与-mcp-的协作关系">Skill 与 MCP 的协作关系</a></li><li class="depth-1"><a href="#社区-skill-与-mcp-资源" data-for="社区-skill-与-mcp-资源">社区 Skill 与 MCP 资源</a></li><li class="depth-1"><a href="#扩展阅读" data-for="扩展阅读">扩展阅读</a></li><li class="depth-1"><a href="#常见问题" data-for="常见问题">常见问题</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../appendix/b_常见问题faq" class="internal">B_常见问题FAQ</a></li><li><a href="../section10/06_copilot案例_tavily_mcp搜索" class="internal">06_copilot案例_tavily_mcp搜索</a></li><li><a href="../section10/07_copilot案例_skill制作与安装" class="internal">07_copilot案例_skill制作与安装</a></li><li class="overflow-end"></li></ul></div></div><undefined ctx="[object Object]" fileData="[object Object]" externalResources="[object Object]" cfg="[object Object]" tree="[object Object]" allFiles="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></undefined></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3522014a.js" type="module" data-persist="true"></script></html>
