@@ -13,7 +13,7 @@ tags:
 - 理解 Agent 化编程工具是什么，以及它与 Copilot 的区别与关系。
 - 掌握 Agent 接入的三大接口要素：Base URL、API Key、模型名。
 - 了解主流 API 协议（`chat/completions`、`responses`、`messages`）的基本区别。
-- 为后续 [section10（Copilot）](../section10/) 与 [section11（Claude Code / Codex）](../section11/) 的学习打下基础。
+- 为后续 [section10（Copilot 基础）](../section10/)、[section11（Copilot 实战案例）](../section11/) 与 [section12（Claude Code / Codex）](../section12/) 的学习打下基础。
 
 ## 前置条件
 
@@ -35,8 +35,8 @@ tags:
 | 工具               | 定位                                                  | 章节                                                                 |
 | :----------------- | :---------------------------------------------------- | :------------------------------------------------------------------- |
 | **GitHub Copilot** | VS Code 内置 AI 助手，覆盖日常补全、对话与 Agent 模式 | [section10](../section10/)                                           |
-| **Claude Code**    | 独立 Agent 工具，深度自主执行                         | [section11/01](../section11/01_claude_code在vscode中的安装与配置.md) |
-| **OpenAI Codex**   | 独立 Agent 工具，深度自主执行                         | [section11/02](../section11/02_codex在vscode中的安装与配置.md)       |
+| **Claude Code**    | 独立 Agent 工具，深度自主执行                         | [section12/01](../section12/01_claude_code在vscode中的安装与配置.md) |
+| **OpenAI Codex**   | 独立 Agent 工具，深度自主执行                         | [section12/02](../section12/02_codex在vscode中的安装与配置.md)       |
 
 三者可以共存：Copilot 负责日常写作与补全，Claude Code / Codex 负责大型自主任务。
 
@@ -95,7 +95,7 @@ tags:
 
 1. 用自己的话解释 Base URL、API Key、模型名三要素。
 2. 说出 `chat/completions`、`responses`、`messages` 三种协议各自的核心字段。
-3. 浏览 [section11/00](../section11/00_多模型agent总览与订阅说明.md) 的接入模式表格，标记你打算使用哪种接入方式。
+3. 浏览 [section12/00](../section12/00_多模型agent总览与订阅说明.md) 的接入模式表格，标记你打算使用哪种接入方式。
 
 ## 验收清单
 
