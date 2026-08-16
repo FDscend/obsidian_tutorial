@@ -7,7 +7,7 @@
 			"|:---:|:---:|:---:|",
 			"|4|5|6|"
 		],
-		"description": "鎻掑叆琛ㄦ牸"
+		"description": "插入表格"
 	},
 	"Insert Table2": {
 		"scope": "markdown",
@@ -26,7 +26,7 @@
 			"  </tbody>",
 			"</table>"
 		],
-		"description": "鎻掑叆琛ㄦ牸锛堟棤琛ㄥご锛?
+		"description": "插入表格（无表头）"
 	},
 	"Insert List": {
 		"scope": "markdown",
@@ -34,7 +34,7 @@
 		"body": [
 			"<ul><li>${1:item1}</li><li>${2:item2}</li></ul>",
 		],
-		"description": "鎻掑叆鏃犲簭鍒楄〃"
+		"description": "插入无序列表"
 	},
 	"Insert List2": {
 		"scope": "markdown",
@@ -42,7 +42,7 @@
 		"body": [
 			"<ol><li>${1:item1}</li><li>${2:item2}</li></ol>",
 		],
-		"description": "鎻掑叆鏈夊簭鍒楄〃"
+		"description": "插入有序列表"
 	},
     "Insert Math inline": {
 		"scope": "markdown",
@@ -88,8 +88,8 @@
 	"Insert Mermaid Norm": {
 		"scope": "markdown",
 		"prefix": ["\\mermaid", "\\Vert"],
-		"body": "鈥?,
-		"description": "Insert Norm 鈥?in Mermaid"
+		"body": "‖",
+		"description": "Insert Norm ‖ in Mermaid"
 	},
     "Insert Underline": {
 		"scope": "markdown",
@@ -105,7 +105,7 @@
 		"body": [
 			"<mark>$1</mark>$2"
 		],
-		"description": "鏂囨湰楂樹寒"
+		"description": "文本高亮"
 	},
     "red-font": {
 		"scope": "markdown",
@@ -113,7 +113,7 @@
 		"body": [
 			"<font color=red>$1</font>$2"
 		],
-		"description": "绾㈣壊鏂囧瓧"
+		"description": "红色文字"
 	},
 	"red-tex": {
 		"scope": "latex",
@@ -121,7 +121,7 @@
 		"body": [
 			"{\\color{red}$1}"
 		],
-		"description": "绾㈣壊鏂囧瓧"
+		"description": "红色文字"
 	},
 	"red-tex2": {
 		"scope": "latex",
@@ -129,7 +129,7 @@
 		"body": [
 			"\\textcolor{red}{$1}"
 		],
-		"description": "绾㈣壊鏂囧瓧"
+		"description": "红色文字"
 	},
 	"highlight-tex": {
 		"scope": "latex",
@@ -137,7 +137,7 @@
 		"body": [
 			"\\colorbox{yellow}{$1}"
 		],
-		"description": "楂樹寒鏂囧瓧"
+		"description": "高亮文字"
 	},
 	"highlight-tex2": {
 		"scope": "latex",
@@ -145,9 +145,9 @@
 		"body": [
 			"\\fcolorbox{black}{yellow}{$1}"
 		],
-		"description": "楂樹寒鏂囧瓧甯﹁竟妗?
+		"description": "高亮文字带边框"
 	},
-    "鍒嗗紡": {
+    "分式": {
 		"scope": "latex",
 		"prefix": "\\frac",
 		"body": [
@@ -155,7 +155,7 @@
 		],
 		"description": "cfrac{}{}"
 	},
-	"鍒嗗紡2": {
+	"分式2": {
 		"scope": "latex",
 		"prefix": "\\frac",
 		"body": [
@@ -163,7 +163,7 @@
 		],
 		"description": "frac{}{}"
 	},
-	"鍒嗗紡3": {
+	"分式3": {
 		"scope": "latex",
 		"prefix": "\\frac",
 		"body": [
@@ -177,7 +177,7 @@
 		"body": [
 			"\\overline{$1}$2"
 		],
-		"description": "涓婂垝绾?
+		"description": "上划线"
 	},
 	"tilde": {
 		"scope": "latex",
@@ -185,7 +185,7 @@
 		"body": [
 			"\\tilde{$1}$2"
 		],
-		"description": "涓婃尝娴?
+		"description": "上波浪"
 	},
 	"boldsymbol": {
 		"scope": "latex",
@@ -193,7 +193,7 @@
 		"body": [
 			"\\boldsymbol{$1} "
 		],
-		"description": "鍏紡瀛楃鍔犵矖"
+		"description": "公式字符加粗"
 	},
     "bf": {
 		"scope": "latex",
@@ -201,7 +201,7 @@
 		"body": [
 			"\\bf{$1} "
 		],
-		"description": "tex 涓?text{} 瀛楃鍔犵矖"
+		"description": "tex 中 text{} 字符加粗"
 	},
     "mapsto": {
 		"scope": "latex",
@@ -241,7 +241,7 @@
 		"body": [
 			"\\xRightarrow[$2]{$1}"
 		],
-		"description": "=>锛堝彲鍫嗗彔鏂囧瓧锛?
+		"description": "=>（可堆叠文字）"
 	},
 	"Leftrightarrow": {
 		"scope": "latex",
@@ -273,7 +273,7 @@
 		"body": [
 			"\\xrightarrow[$2]{$1}"
 		],
-		"description": "->锛堝彲鍫嗗彔鏂囧瓧锛?
+		"description": "->（可堆叠文字）"
 	},
 	"Long eq": {
 		"scope": "latex",
@@ -281,7 +281,7 @@
 		"body": [
 			"\\xlongequal[$2]{$1} "
 		],
-		"description": "闀跨瓑鍙凤紙鍙爢鍙犱笂涓嬫枃瀛楋級"
+		"description": "长等号（可堆叠上下文字）"
 	},
 	"Long Leftrightarrow": {
 		"scope": "latex",
@@ -289,7 +289,7 @@
 		"body": [
 			"\\xLeftrightarrow[$2]{$1} "
 		],
-		"description": "闀?=>鍙凤紙鍙爢鍙犱笂涓嬫枃瀛楋級"
+		"description": "长<=>号（可堆叠上下文字）"
 	},
 	"rightrightarrow": {
 		"scope": "latex",
@@ -305,7 +305,7 @@
 		"body": [
 			"\\cdots"
 		],
-		"description": "妯偣"
+		"description": "横点"
 	},
 	"Ddots": {
 		"scope": "latex",
@@ -313,7 +313,7 @@
 		"body": [
 			"\\ddots"
 		],
-		"description": "鏂滅偣"
+		"description": "斜点"
 	},
 	"succ": {
 		"scope": "latex",
@@ -321,7 +321,7 @@
 		"body": [
 			"\\succ"
 		],
-		"description": "姝ｅ畾 >"
+		"description": "正定 >"
 	},
 	"succeq": {
 		"scope": "latex",
@@ -329,7 +329,7 @@
 		"body": [
 			"\\succeq"
 		],
-		"description": "鍗婃瀹?>="
+		"description": "半正定 >="
 	},
 	"prec": {
 		"scope": "latex",
@@ -337,7 +337,7 @@
 		"body": [
 			"\\prec"
 		],
-		"description": "姝ｅ畾 <"
+		"description": "正定 <"
 	},
 	"preceq": {
 		"scope": "latex",
@@ -345,7 +345,7 @@
 		"body": [
 			"\\preceq"
 		],
-		"description": "鍗婃瀹?<="
+		"description": "半正定 <="
 	},
     "nabla": {
 		"scope": "latex",
@@ -353,7 +353,7 @@
 		"body": [
 			"\\nabla"
 		],
-		"description": "nabla绠楀瓙"
+		"description": "nabla算子"
 	},
 	"norm": {
 		"scope": "latex",
@@ -361,7 +361,7 @@
 		"body": [
 			"\\Vert $1\\Vert"
 		],
-		"description": "鑼冩暟"
+		"description": "范数"
 	},
 	"abs": {
 		"scope": "latex",
@@ -369,7 +369,7 @@
 		"body": [
 			"\\vert $1\\vert"
 		],
-		"description": "缁濆鍊?
+		"description": "绝对值"
 	},
 	"wedge": {
 		"scope": "latex",
@@ -377,7 +377,7 @@
 		"body": [
 			"\\wedge"
 		],
-		"description": "^鑴卞瓧绗?
+		"description": "^脱字符"
 	},
 	"substack": {
 		"scope": "latex",
@@ -385,7 +385,7 @@
 		"body": [
 			"\\substack{$1 \\\\\\ $2} "
 		],
-		"description": "瑙掓爣鍫嗗彔"
+		"description": "角标堆叠"
 	},
     "overbrace": {
 		"scope": "latex",
@@ -393,7 +393,7 @@
 		"body": [
 			"\\overbrace{$1}^{$2} "
 		],
-		"description": "鍫嗗彔涓婃嫭鍙?
+		"description": "堆叠上括号"
 	},
 	"underbrace": {
 		"scope": "latex",
@@ -401,7 +401,7 @@
 		"body": [
 			"\\underbrace{$1}_{$2} "
 		],
-		"description": "鍫嗗彔涓嬫嫭鍙?
+		"description": "堆叠下括号"
 	},
 	"overset": {
 		"scope": "latex",
@@ -409,7 +409,7 @@
 		"body": [
 			"\\overset{$1} "
 		],
-		"description": "鍫嗗彔涓婃枃瀛?
+		"description": "堆叠上文字"
 	},
 	"underset": {
 		"scope": "latex",
@@ -417,7 +417,7 @@
 		"body": [
 			"\\underset{$1} "
 		],
-		"description": "鍫嗗彔涓嬫枃瀛?
+		"description": "堆叠下文字"
 	},
 	"because": {
 		"scope": "latex",
@@ -441,9 +441,9 @@
 		"body": [
 			"\\backslash ",
 		],
-		"description": "鍙嶆枩鏉?
+		"description": "反斜杠"
 	},
-	"鎭掔瓑": {
+	"恒等": {
 		"scope": "latex",
 		"prefix": ["\\eq"],
 		"body": [
@@ -451,7 +451,7 @@
 		],
 		"description": "==="
 	},
-	"杩戜技": {
+	"近似": {
 		"scope": "latex",
 		"prefix": ["\\jinsi","\\sim"],
 		"body": [
@@ -459,61 +459,61 @@
 		],
 		"description": "~"
 	},
-	"浠绘剰": {
+	"任意": {
 		"scope": "latex",
 		"prefix": ["\\forall","\\reny"],
 		"body": [
 			"\\forall "
 		],
-		"description": "浠绘剰"
+		"description": "任意"
 	},
-	"瀛樺湪": {
+	"存在": {
 		"scope": "latex",
 		"prefix": ["\\exists","\\cunz"],
 		"body": [
 			"\\exists~ "
 		],
-		"description": "瀛樺湪"
+		"description": "存在"
 	},
-	"鍖呭惈浜?: {
+	"包含于": {
 		"scope": "latex",
 		"prefix": ["\\subset","\\shuy","\\baoh"],
 		"body": [
 			"\\subset "
 		],
-		"description": "鍖呭惈浜?
+		"description": "包含于"
 	},
-	"鍖呭惈浜?": {
+	"包含于2": {
 		"scope": "latex",
 		"prefix": ["\\subset","\\shuy","\\baoh"],
 		"body": [
 			"\\subseteq "
 		],
-		"description": "鍖呭惈浜?
+		"description": "包含于"
 	},
-	"鍖呭惈": {
+	"包含": {
 		"scope": "latex",
 		"prefix": ["\\supset","\\shuy","\\baoh"],
 		"body": [
 			"\\supset "
 		],
-		"description": "鍖呭惈"
+		"description": "包含"
 	},
-	"鍖呭惈2": {
+	"包含2": {
 		"scope": "latex",
 		"prefix": ["\\supset","\\shuy","\\baoh"],
 		"body": [
 			"\\supseteq "
 		],
-		"description": "鍖呭惈"
+		"description": "包含"
 	},
-	"澶х┖鏍?: {
+	"大空格": {
 		"scope": "latex",
 		"prefix": "\\kongge",
 		"body": [
 			"\\quad "
 		],
-		"description": "澶х┖鏍?
+		"description": "大空格"
 	},
 	"text": {
 		"scope": "latex",
@@ -521,7 +521,7 @@
 		"body": [
 			"~\\text{$1} "
 		],
-		"description": "鎻掑叆鏂囧瓧"
+		"description": "插入文字"
 	},
     "limit": {
 		"scope": "latex",
@@ -539,7 +539,7 @@
 		],
 		"description": "sum_{}^{}"
 	},
-	"寰垎": {
+	"微分": {
 		"scope": "latex",
 		"prefix": ["\\dx","\\dd"],
 		"body": [
@@ -547,7 +547,7 @@
 		],
 		"description": "dx"
 	},
-	"瀹氱Н鍒?: {
+	"定积分": {
 		"scope": "latex",
 		"prefix": "\\int",
 		"body": [
@@ -555,15 +555,15 @@
 		],
 		"description": "int_{}^{} "
 	},
-	"涓嶅畾绉垎": {
+	"不定积分": {
 		"scope": "latex",
 		"prefix": "\\int",
 		"body": [
 			"\\int $1 \\,\\mathrm{d}x"
 		],
-		"description": "涓嶅畾绉垎"
+		"description": "不定积分"
 	},
-	"瀹氱Н鍒?": {
+	"定积分2": {
 		"scope": "latex",
 		"prefix": "\\int",
 		"body": [
@@ -577,7 +577,7 @@
 		"body": [
 			"\\begin{matrix} $1 & $2 \\newline $3 & $4 \\end{matrix}"
 		],
-		"description": "鐭╅樀"
+		"description": "矩阵"
 	},
 	"vmatrix": {
 		"scope": "latex",
@@ -585,7 +585,7 @@
 		"body": [
 			"\\begin{vmatrix} $1 & $2 \\newline $3 & $4 \\end{vmatrix}"
 		],
-		"description": "|鐭╅樀|"
+		"description": "|矩阵|"
 	},
 	"pmatrix": {
 		"scope": "latex",
@@ -593,7 +593,7 @@
 		"body": [
 			"\\begin{pmatrix} $1 & $2 \\newline $3 & $4 \\end{pmatrix}"
 		],
-		"description": "(鐭╅樀)"
+		"description": "(矩阵)"
 	},
     "EQ_inline_F": {
 		"scope": "latex",
@@ -601,7 +601,7 @@
 		"body": [
 			"\\begin{cases} $1 &= $2 \\newline $3 &= $4 \\end{cases}"
 		],
-		"description": "琛屽唴鍒嗘鍑芥暟"
+		"description": "行内分段函数"
 	},
 	"EQ_inline_F2": {
 		"scope": "latex",
@@ -612,7 +612,7 @@
 			"    $3 &= $4",
 			"\\end{cases}"
 		],
-		"description": "鍒嗘鍑芥暟"
+		"description": "分段函数"
 	},
     "sin": {
 		"scope": "latex",
@@ -756,7 +756,7 @@
 		"body": [
 			"\\circ ",
 		],
-		"description": "绌哄績鍦嗙鍙?
+		"description": "空心圆符号"
 	},
 	"oplus": {
 		"scope": "latex",
@@ -764,7 +764,7 @@
 		"body": [
 			"\\oplus ",
 		],
-		"description": "绌哄績鍦嗗姞鍙?
+		"description": "空心圆加号"
 	},
 	"otimes": {
 		"scope": "latex",
@@ -772,7 +772,7 @@
 		"body": [
 			"\\otimes ",
 		],
-		"description": "绌哄績鍦嗕箻鍙?
+		"description": "空心圆乘号"
 	},
     "times": {
 		"scope": "latex",
@@ -780,7 +780,7 @@
 		"body": [
 			"\\times ",
 		],
-		"description": "涔樺彿"
+		"description": "乘号"
 	},
 	"mathring": {
 		"scope": "latex",
@@ -788,7 +788,7 @@
 		"body": [
 			"\\mathring{${1:U}}",
 		],
-		"description": "鍘诲績閭诲煙"
+		"description": "去心邻域"
 	},
 	"cong": {
 		"scope": "latex",
@@ -796,7 +796,7 @@
 		"body": [
 			"\\cong ",
 		],
-		"description": "鍏ㄧ瓑"
+		"description": "全等"
 	},
 	"cup": {
 		"scope": "latex",
@@ -804,7 +804,7 @@
 		"body": [
 			"\\cup ",
 		],
-		"description": "骞堕泦"
+		"description": "并集"
 	},
 	"cap": {
 		"scope": "latex",
@@ -812,7 +812,7 @@
 		"body": [
 			"\\cap ",
 		],
-		"description": "浜ら泦"
+		"description": "交集"
 	},
 	"sup": {
 		"scope": "latex",
@@ -830,21 +830,21 @@
 		],
 		"description": "inf_{}"
 	},
-    "姝ｈ礋鍙?: {
+    "正负号": {
 		"scope": "latex",
 		"prefix": ["\\zf", "\\pm"],
 		"body": [
 			"\\pm ",
 		],
-		"description": "姝ｈ礋鍙?
+		"description": "正负号"
 	},
-	"鏁伴泦": {
+	"数集": {
 		"scope": "latex",
 		"prefix": ["\\shu","\\mathbb"],
 		"body": [
 			"\\mathbb{$1}",
 		],
-		"description": "鏁伴泦"
+		"description": "数集"
 	},
 	"mathcal": {
 		"scope": "latex",
@@ -862,31 +862,31 @@
 		],
 		"description": "s.t."
 	},
-    "鎷彿": {
+    "括号": {
 		"scope": "latex",
 		"prefix": ["\\peidui","\\zuoyou","\\kuohao"],
 		"body": [
 			"\\left${1:(} $3 \\right${2:)}",
 		],
-		"description": "鑷姩澶у皬鎷彿"
+		"description": "自动大小括号"
 	},
-	"灏栨嫭鍙?: {
+	"尖括号": {
 		"scope": "latex",
 		"prefix": ["\\jian","\\zuoyou","\\kuohao"],
 		"body": [
 			"\\left \\langle $1 \\right \\rangle ",
 		],
-		"description": "灏栨嫭鍙?
+		"description": "尖括号"
 	},
-	"鏃犵┓": {
+	"无穷": {
 		"scope": "latex",
 		"prefix": ["\\inf","\\wuqiong","\\wq"],
 		"body": [
 			"\\infty ",
 		],
-		"description": "鏃犵┓"
+		"description": "无穷"
 	},
-    "閫?: {
+    "逆": {
 		"scope": "latex",
 		"prefix": ["\\ni", "\\inv"],
 		"body": [
@@ -894,13 +894,13 @@
 		],
 		"description": "^{-1}"
 	},
-	"绌洪泦": {
+	"空集": {
 		"scope": "latex",
 		"prefix": ["\\kong"],
 		"body": [
 			"\\varnothing",
 		],
-		"description": "绌洪泦"
+		"description": "空集"
 	},
 	"ceil": {
 		"scope": "latex",
@@ -908,7 +908,7 @@
 		"body": [
 			"\\lceil $1 \\rceil",
 		],
-		"description": "鍚戜笂鍙栨暣"
+		"description": "向上取整"
 	},
 	"floor": {
 		"scope": "latex",
@@ -916,7 +916,7 @@
 		"body": [
 			"\\lfloor $1 \\rfloor",
 		],
-		"description": "鍚戜笅鍙栨暣"
+		"description": "向下取整"
 	},
 	"triangle": {
 		"scope": "latex",
@@ -924,7 +924,7 @@
 		"body": [
 			"\\triangle ${1:ABC}",
 		],
-		"description": "涓夎褰?
+		"description": "三角形"
 	},
 	"square": {
 		"scope": "latex",
@@ -932,7 +932,7 @@
 		"body": [
 			"\\square",
 		],
-		"description": "姝ｆ柟褰?
+		"description": "正方形"
 	},
 	"perp": {
 		"scope": "latex",
@@ -940,7 +940,7 @@
 		"body": [
 			"\\perp",
 		],
-		"description": "鍨傜洿"
+		"description": "垂直"
 	},
     "alpha": {
 		"scope": "latex",
