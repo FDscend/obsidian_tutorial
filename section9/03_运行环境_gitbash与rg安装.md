@@ -65,9 +65,10 @@ Git 安装目录下通常存在 `bin\bash.exe`。常见安装路径为 `C:\Progr
 > [!tip] 加 `bin` 而非只加 `usr\bin`
 > `bash.exe` 位于 `Git\bin` 下，同时该目录还提供 `sh` 等常用命令。若只加 `usr\bin`，部分命令可能仍找不到。
 
-### 方法三：在 Windows 终端中添加 Git Bash 配置文件
+PATH 配置完成后，bash 已可在任意终端中调用。若你使用 **Windows Terminal**，还可以将 Git Bash 添加为一个独立的终端配置文件，方便从下拉菜单直接选择。
 
-即使 `bash` 已加入 PATH，Windows Terminal 默认只显示 PowerShell 和命令提示符。若想在 Windows Terminal 的下拉菜单中直接选择 Git Bash，需要手动添加一个配置文件：
+> [!warning] Windows Terminal 的获取
+> Windows 11 自带 Windows Terminal；Windows 10 需手动安装——打开 **Microsoft Store**，搜索 **Windows Terminal** 并下载即可。
 
 1. 打开 **Windows Terminal**，按 `Ctrl + ,` 进入 **设置**。
 2. 点击左下角 **添加新配置文件** → **新建空配置文件**。
