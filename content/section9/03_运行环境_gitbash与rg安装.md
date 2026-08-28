@@ -65,6 +65,29 @@ Git 安装目录下通常存在 `bin\bash.exe`。常见安装路径为 `C:\Progr
 > [!tip] 加 `bin` 而非只加 `usr\bin`
 > `bash.exe` 位于 `Git\bin` 下，同时该目录还提供 `sh` 等常用命令。若只加 `usr\bin`，部分命令可能仍找不到。
 
+### 方法三：在 Windows 终端中添加 Git Bash 配置文件
+
+即使 `bash` 已加入 PATH，Windows Terminal 默认只显示 PowerShell 和命令提示符。若想在 Windows Terminal 的下拉菜单中直接选择 Git Bash，需要手动添加一个配置文件：
+
+1. 打开 **Windows Terminal**，按 `Ctrl + ,` 进入 **设置**。
+2. 点击左下角 **添加新配置文件** → **新建空配置文件**。
+3. 填写以下字段：
+
+| 字段       | 值                                                     |
+| ---------- | ------------------------------------------------------ |
+| **名称**   | `Git Bash`                                             |
+| **命令行** | `C:\Program\Git\bin\bash.exe --login -i`               |
+| **图标**   | `C:\Program\Git\mingw64\share\git\git-for-windows.ico` |
+
+> [!note-blank|caption]
+>
+> ![Windows Terminal 设置界面——添加 Git Bash 配置文件](image/03_运行环境_gitbash与rg安装/bash-terminal.png)
+>
+> Windows 终端 Git Bash 配置示例。图中的 `C:\Program\Git\...` 仅为示例，你的 Git 安装路径可能不同。可通过文件资源管理器导航到 Git 安装目录确认实际路径。
+
+> [!tip] 命令行参数说明
+> `--login` 让 bash 读取 profile 文件初始化环境，`-i` 表示交互式 shell。两个参数缺一不可，否则进入的终端可能缺少 PATH 等环境变量。
+
 ## 为什么需要 rg（ripgrep）
 
 `rg` 是一个**极速文本搜索工具**，被 VS Code 内置搜索作为底层引擎使用。在 VS Code / Copilot 中通常无需关心它，因为：
