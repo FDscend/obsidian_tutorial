@@ -15,14 +15,14 @@
   color: transparent;
   transition-delay: 50s;
 }
-.cloze2 mark:not(:has(> del)),
-.cloze2 .cm-highlight:not(.cm-strikethrough),
-.cloze mark:not(:has(> del)),
-.cloze .cm-highlight:not(.cm-strikethrough) {
+.cloze2 mark:not(:has(> del)):not([data-highlight]),
+.cloze2 .cm-highlight:not(.cm-strikethrough):not([class*="cm-highlight-"]),
+.cloze mark:not(:has(> del)):not([data-highlight]),
+.cloze .cm-highlight:not(.cm-strikethrough):not([class*="cm-highlight-"]) {
   background-color: var(--text-highlight-bg);
 }
-.cloze2 .cm-active > .cm-highlight:is(.cm-strikethrough),
-.cloze .cm-active > .cm-highlight:is(.cm-strikethrough) {
+.cloze2 .cm-active > .cm-highlight:is(.cm-strikethrough):not([class*="cm-highlight-"]),
+.cloze .cm-active > .cm-highlight:is(.cm-strikethrough):not([class*="cm-highlight-"]) {
   border-radius: unset;
   background-color: var(--text-highlight-bg);
 }
