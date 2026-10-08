@@ -14,7 +14,8 @@
     "pdfpp",
     "metadata",
     "code",
-    "callout"
+    "callout",
+    "border-theme-fix"
   ],
   "cssTheme": "Border",
   "baseFontSize": 18,

@@ -1,0 +1,19 @@
+/* fix the border theme "https://github.com/Akifyss" */
+
+@media print {
+    .theme-light strong {
+        color: rgb(221, 44, 56);
+    }
+
+    .theme-light em {
+        color: rgb(222, 116, 23);
+    }
+
+    .theme-dark strong {
+        color: rgb(255, 120, 129);
+    }
+
+    .theme-dark em {
+        color: rgb(251, 187, 131);
+    }
+}
