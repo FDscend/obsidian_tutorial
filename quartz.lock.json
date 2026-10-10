@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "plugins": {
+    "quartz_highlight_colors": {
+      "source": "github:FDscend/quartz_highlight_colors#v0.1.0",
+      "resolved": "https://github.com/FDscend/quartz_highlight_colors.git",
+      "commit": "1665d9f1238bffd31070c0829eff792d4faca560",
+      "ref": "v0.1.0",
+      "installedAt": "2026-10-10T18:54:21.474Z"
+    }
+  }
+}
