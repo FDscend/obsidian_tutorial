@@ -228,6 +228,9 @@ plugins:
     order: 45
   - source: "@quartz-community/stacked-pages"
     enabled: false
+  - source: github:FDscend/quartz_highlight_colors#v0.1.0
+    enabled: true
+    order: 36
 layout:
   groups:
     toolbar:
