@@ -16,3 +16,4 @@ quartz/cli/tui/dist/
 !.github/workflows/
 !.github/workflows/**
 .codex/
+AGENTS.md
