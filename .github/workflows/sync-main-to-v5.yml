@@ -40,6 +40,8 @@ jobs:
           done
           # 复制 .canvas 文件（如果存在）
           cp *.canvas v5-branch/content/ 2>/dev/null || true
+          # 仅供本地使用的 agent 指令文件不参与发布（AGENTS.md 在 main 被 .gitignore 忽略）
+          rm -f v5-branch/content/AGENTS.md v5-branch/content/CLAUDE.md
 
       - name: Sync selected CSS snippets to v5
         run: |
