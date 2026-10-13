@@ -69,21 +69,26 @@ tags:
                        │
               ┌────────▼────────┐
               │section9:        │
-              │Agent 基础       │
+              │AI 订阅与账号    │
               └────────┬────────┘
                        │
               ┌────────▼────────┐
               │section10:       │
-              │Copilot 基础     │
+              │Agent 基础       │
               └────────┬────────┘
                        │
               ┌────────▼────────┐
               │section11:       │
-              │Copilot 案例     │
+              │Copilot 基础     │
               └────────┬────────┘
                        │
               ┌────────▼────────┐
               │section12:       │
+              │Copilot 案例     │
+              └────────┬────────┘
+                       │
+              ┌────────▼────────┐
+              │section13:       │
               │Claude/Codex     │
               └────────┬────────┘
                        │
@@ -134,10 +139,11 @@ tags:
 | section6  | Obsidian Bases                | ✅ 完成  |
 | section7  | Syncthing 局域网同步          | ✅ 完成  |
 | section8  | Quartz 静态网站部署           | ✅ 完成  |
-| section9  | Agent 基础（接口 + 环境）     | ✅ 完成  |
-| section10 | VS Code Copilot 基础          | ✅ 完成  |
-| section11 | Copilot 实战案例              | ✅ 完成  |
-| section12 | Claude Code 与 Codex          | ✅ 完成  |
+| section9  | AI 订阅与账号准备             | ✅ 完成  |
+| section10 | Agent 基础（接口 + 环境）     | ✅ 完成  |
+| section11 | VS Code Copilot 基础          | ✅ 完成  |
+| section12 | Copilot 实战案例              | ✅ 完成  |
+| section13 | Claude Code 与 Codex          | ✅ 完成  |
 | 附录      | 术语表 / FAQ / 更新日志       | ✅ 完成  |
 
 ### 第 4 步：添加链接跳转
@@ -174,9 +180,11 @@ tags:
 | section1  | section7  | 前置 | 🔵 蓝色  |
 | section1  | section8  | 前置 | 🔵 蓝色  |
 | section1  | section9  | 前置 | 🔵 蓝色  |
-| section9  | section10 | 前置 | 🔵 蓝色  |
+| section1  | section10 | 前置 | 🔵 蓝色  |
+| section9  | section11 | 前置 | 🔵 蓝色  |
 | section10 | section11 | 前置 | 🔵 蓝色  |
-| section9  | section12 | 前置 | 🔵 蓝色  |
+| section11 | section12 | 前置 | 🔵 蓝色  |
+| section10 | section13 | 前置 | 🔵 蓝色  |
 
 连接线设置建议：
 
@@ -202,7 +210,7 @@ tags:
 
 **M3 Copilot 体系组：**
 
-- 包含：section8, section9
+- 包含：section8, section9, section10, section11, section12, section13
 - 组标签：`🤖 M3：Copilot 体系`
 - 颜色：紫色半透明
 

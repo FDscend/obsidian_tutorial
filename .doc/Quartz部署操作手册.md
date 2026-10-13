@@ -100,7 +100,7 @@ npx quartz build --serve
 
 | 目录/文件                  | 所在分支           | 说明                                         |
 | -------------------------- | ------------------ | -------------------------------------------- |
-| `section0/` ~ `section12/` | main → v5/content/ | 教程章节                                     |
+| `section0/` ~ `section13/` | main → v5/content/ | 教程章节                                     |
 | `appendix/`                | main → v5/content/ | 附录                                         |
 | `image/`                   | main → v5/content/ | 图片资源                                     |
 | `Clippings/`               | main（不同步）     | 网页剪藏，不发布                             |
@@ -161,7 +161,7 @@ configuration:
 
 **同步的目录：**
 
-- `section0/` ~ `section12/`
+- `section0/` ~ `section13/`
 - `appendix/`
 - `image/`
 
@@ -196,7 +196,7 @@ configuration:
 
 ### Q: 新增了章节目录怎么办？
 
-如果新建了 `section9/` 等目录，需要更新 `sync-main-to-v5.yml` 中的同步列表。编辑 `.github/workflows/sync-main-to-v5.yml`，在 `for dir` 行中添加新目录名。
+如果新建了 `section14/` 等目录，需要更新 `sync-main-to-v5.yml` 中的同步列表。编辑 `.github/workflows/sync-main-to-v5.yml`，在 `for dir` 行中添加新目录名。
 
 ### Q: 网站没更新？
 
