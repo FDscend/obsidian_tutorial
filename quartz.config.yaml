@@ -193,7 +193,7 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/FDscend/obsidian_tutorial
+        FDscend/obsidian_tutorial: https://github.com/FDscend/obsidian_tutorial
   - source: "@quartz-community/recent-notes"
     enabled: true
   - source: "@quartz-community/spacer"
