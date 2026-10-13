@@ -9,10 +9,11 @@
 		{"id":"a000000000000005","type":"text","text":"# 🤝 section4\n## Git/GitHub 协作\n\n**状态**: ✅ 已完成\n🌳 分支、PR、冲突处理","x":80,"y":800,"width":360,"height":180,"color":"4"},
 		{"id":"a000000000000003","type":"text","text":"# ✍️ section2\n## Markdown 基础语法\n\n**状态**: ✅ 已完成\n📝 标题、列表、链接、图片等","x":-440,"y":480,"width":360,"height":180,"color":"4"},
 		{"id":"a000000000000009","type":"text","text":"# 🌐 section8\n## Quartz 静态网站部署\n\n**状态**: ✅ 已完成\n🚀 GitHub Pages 发布","x":760,"y":200,"width":360,"height":180,"color":"6"},
-		{"id":"a00000000000000f","type":"text","text":"# ⚡ section12\n## Claude Code 与 Codex\n\n**状态**: ✅ 已完成\n🔌 多模型接入","x":760,"y":800,"width":360,"height":180,"color":"6"},
-		{"id":"a00000000000000a","type":"text","text":"# 🔌 section9\n## Agent 基础\n\n**状态**: ✅ 已完成\n🧰 接口知识 + 运行环境","x":760,"y":475,"width":360,"height":185,"color":"6"},
-		{"id":"a00000000000000d","type":"text","text":"# 🤖 section10\n## VS Code Copilot 基础\n\n**状态**: ✅ 已完成\n💬 知识入门","x":1320,"y":475,"width":360,"height":185,"color":"6"},
-		{"id":"a00000000000000e","type":"text","text":"# 🧠 section11\n## Copilot 实战案例\n\n**状态**: ✅ 已完成\n🎯 Skill、MCP、Tavily","x":1320,"y":800,"width":360,"height":180,"color":"6"},
+		{"id":"a00000000000000g","type":"text","text":"# 💳 section9\n## AI 订阅与账号准备\n\n**状态**: ✅ 已完成\n💳 计费、2FA、支付、选购","x":1320,"y":200,"width":360,"height":180,"color":"6"},
+		{"id":"a00000000000000f","type":"text","text":"# ⚡ section13\n## Claude Code 与 Codex\n\n**状态**: ✅ 已完成\n🔌 多模型接入","x":760,"y":800,"width":360,"height":180,"color":"6"},
+		{"id":"a00000000000000a","type":"text","text":"# 🔌 section10\n## Agent 基础\n\n**状态**: ✅ 已完成\n🧰 接口知识 + 运行环境","x":760,"y":475,"width":360,"height":185,"color":"6"},
+		{"id":"a00000000000000d","type":"text","text":"# 🤖 section11\n## VS Code Copilot 基础\n\n**状态**: ✅ 已完成\n💬 知识入门","x":1320,"y":475,"width":360,"height":185,"color":"6"},
+		{"id":"a00000000000000e","type":"text","text":"# 🧠 section12\n## Copilot 实战案例\n\n**状态**: ✅ 已完成\n🎯 Skill、MCP、Tavily","x":1320,"y":800,"width":360,"height":180,"color":"6"},
 		{"id":"a000000000000006","type":"text","text":"# 🗺 section5\n## Obsidian Canvas\n\n**状态**: 🔄 进行中\n🎨 画布、卡片、连线","x":-40,"y":-220,"width":360,"height":180,"color":"5"},
 		{"id":"a000000000000007","type":"text","text":"# 🗃 section6\n## Obsidian Bases\n\n**状态**: ⬜ 待编写\n📋 数据库、视图、筛选","x":400,"y":-220,"width":360,"height":185,"color":"5"},
 		{"id":"a000000000000008","type":"text","text":"# 📡 section7\n## Syncthing 同步\n\n**状态**: ⬜ 待编写\n🔄 局域网多端同步","x":840,"y":-220,"width":360,"height":180,"color":"5"},
@@ -30,7 +31,8 @@
 		{"id":"e00000000000000c","fromFloating":false,"toFloating":false,"fromNode":"a00000000000000a","fromSide":"right","toNode":"a00000000000000d","toSide":"left","color":"6"},
 		{"id":"e00000000000000d","toFloating":false,"fromNode":"a00000000000000a","fromSide":"bottom","toNode":"a00000000000000f","toSide":"top","color":"6"},
 		{"id":"e00000000000000e","fromFloating":false,"toFloating":false,"fromNode":"a000000000000002","fromSide":"right","toNode":"a00000000000000a","toSide":"left","color":"6"},
-		{"id":"e00000000000000f","fromFloating":false,"toFloating":false,"fromNode":"a00000000000000d","fromSide":"bottom","toNode":"a00000000000000e","toSide":"top","color":"6"}
+		{"id":"e00000000000000f","fromFloating":false,"toFloating":false,"fromNode":"a00000000000000d","fromSide":"bottom","toNode":"a00000000000000e","toSide":"top","color":"6"},
+		{"id":"e000000000000010","toFloating":false,"fromFloating":false,"fromNode":"a00000000000000g","fromSide":"bottom","toNode":"a00000000000000d","toSide":"top","color":"6"}
 	],
 	"metadata":{
 		"version":"1.0-1.0",

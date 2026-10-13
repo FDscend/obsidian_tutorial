@@ -18,7 +18,7 @@ tags:
 
 ## 前置条件
 
-- 已完成 [section9/02](02_运行环境_python与nodejs安装.md)（或已了解终端操作）。
+- 已完成 [section10/02](02_运行环境_python与nodejs安装.md)（或已了解终端操作）。
 - 已安装 Git（参考 [section1/03](../section1/03_git和github安装与登录.md)）。
 
 ## 为什么需要 bash
@@ -150,7 +150,7 @@ rg --version
 应显示 `ripgrep ... (rev ...)`。再做一个快速搜索测试：
 
 ```bash
-rg "学习目标" section9/
+rg "学习目标" section10/
 ```
 
 能输出文件与行号即说明安装成功。

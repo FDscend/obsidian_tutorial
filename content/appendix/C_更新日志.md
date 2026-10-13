@@ -6,6 +6,23 @@ tags:
 
 # 更新日志
 
+## 2026-10-13 (第 13 次)
+
+### 新增
+
+- **section9/**：新增"AI 订阅与账号准备"章节，共 4 个文档：
+  - **section9/00_ai订阅与计费模式.md**：套餐订阅与 API 按量计费、token / 额度 / 限额 / 窗口 / 倍率术语、源厂 / 聚合 / 中转三层供应链、成本估算方法与消费策略。
+  - **section9/01_账号注册与2fa配置.md**：账号体系总览、2FA 与 TOTP 原理、Microsoft Authenticator 配置、Google 账号注册（含 +86 手机号注意点）、ChatGPT / Claude 登录与 2FA 绑定。
+  - **section9/02_支付渠道与订阅下单.md**：六条支付路径（海外信用卡 / App Store 礼品卡 / Google Play / 国内卡 + 商店 / PayPal 国区银联卡 / 第三方代充）、免税州地址、Session Token 风险与代充风险分层、下单检查清单。
+  - **section9/03_平台选购_官方聚合与中转.md**：四类供给对比、聚合平台六维评估法、OpenCode Go 与 CommandCode GOAT 案例（2026-10 快照）、中转站低价来源与验证方法。
+
+### 变更
+
+- 章节重排：新增 section9（AI 订阅与账号准备），原 section9（Agent 基础）、section10（VS Code Copilot 基础）、section11（Copilot 实战案例）、section12（Claude Code 与 Codex）顺延为 **section10–section13**。
+- 同步更新 `README.md`、section0 导读 / 学习路径、课程地图（`section5/01` 与 `教程课程地图.canvas`）、Bases 教程示例、Quartz 部署教程与 `sync-main-to-v5.yml`、FAQ（新增"AI 订阅与账号"一节）、术语表（新增"AI 服务与订阅相关"一节）、总规划与全库交叉链接。
+
+---
+
 ## 2026-08-03 (第 12 次)
 
 ### 新增

@@ -16,7 +16,7 @@ tags:
 
 ## 前置条件
 
-- 已完成 [section9/02](02_运行环境_python与nodejs安装.md)（或已了解终端操作）。
+- 已完成 [section10/02](02_运行环境_python与nodejs安装.md)（或已了解终端操作）。
 - 已安装 VS Code（参考 [section1/02](../section1/02_vscode安装与配置.md)）。
 
 ## 为什么需要 PowerShell 7
@@ -154,7 +154,7 @@ choco install powershell-core
 
 ### Q：pwsh 与 bash 都能用，该用哪个？
 
-取决于脚本类型：**bash 脚本**用 Git Bash（见 [section9/03](03_运行环境_gitbash与rg安装.md)），**PowerShell 脚本 / 系统命令**用 pwsh。两者可以共存，Agent 会根据脚本自动选择合适的解释器。
+取决于脚本类型：**bash 脚本**用 Git Bash（见 [section10/03](03_运行环境_gitbash与rg安装.md)），**PowerShell 脚本 / 系统命令**用 pwsh。两者可以共存，Agent 会根据脚本自动选择合适的解释器。
 
 ## 练习任务
 

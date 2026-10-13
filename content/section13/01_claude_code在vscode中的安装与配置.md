@@ -46,7 +46,7 @@ Claude Code 是 Anthropic 推出的 **Agent 化编程工具**，可以在终端�
 3. 点击 **安装**。
 4. 安装完成后，活动栏会出现 Claude Code 图标。
 
-> 也可以使用 VS Code 内置终端 + 官方 CLI：`npm install -g @anthropic-ai/claude-code`（需 Node.js，安装见 [section9/02](../section9/02_运行环境_python与nodejs安装.md)）。
+> 也可以使用 VS Code 内置终端 + 官方 CLI：`npm install -g @anthropic-ai/claude-code`（需 Node.js，安装见 [section10/02](../section10/02_运行环境_python与nodejs安装.md)）。
 
 ## 第 2 步：配置 Claude 通用设置（推荐）
 
@@ -201,7 +201,7 @@ Claude Code 支持三种鉴权方式，按你的场景选择其一。下面以 *
 
 ## 第 5 步：验证安装
 
-1. 打开任意一个文件（如 `section12/00_多模型agent总览与订阅说明.md`）。
+1. 打开任意一个文件（如 `section13/00_多模型agent总览与订阅说明.md`）。
 2. 打开 Claude Code 面板，输入 `你好，请介绍你自己`。
 3. 如果正确应答，说明安装成功。
 4. 输入 `/status` 可查看当前订阅档位与用量额度。

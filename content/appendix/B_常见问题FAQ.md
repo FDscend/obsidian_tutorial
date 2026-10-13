@@ -305,7 +305,39 @@ Windows Defender 或第三方防火墙可能会拦截 Syncthing。首次运行�
 
 ---
 
-## VS Code Copilot（section10）
+## AI 订阅与账号（section9）
+
+### Q：没有海外信用卡，怎么订阅 ChatGPT / Claude？
+
+常用两条路：**iOS 用 App Store 礼品卡**（美区 Apple ID + 支付宝购买礼品卡 + App 内订阅），**Android 用 Google Play**（账号地区设为新加坡 + 绑定银联卡）。两者都让应用商店做支付中介，绕开网站端的发卡地风控。
+
+订阅 **GitHub Copilot** 还有更省事的通道：注册国区 PayPal 账号并绑定银联卡，在 GitHub 结账页选 PayPal 支付即可（见 [section9/02](../section9/02_支付渠道与订阅下单.md) 路径五）。
+
+> 六条支付路径的成本与风险对比见 [section9/02_支付渠道与订阅下单.md](../section9/02_支付渠道与订阅下单.md)。
+
+### Q：国内的双币信用卡（Visa / Mastercard）为什么支付失败？
+
+通常是**发卡地 + 账单地址 + 商户风控**的组合被拒，而不是卡里没钱。海外发卡的信用卡、或走应用商店代扣，成功率高得多；账单地址可填美国免税州（如 Oregon、Delaware）以避免州销售税。
+
+### Q：必须开启 2FA 吗？不用验证器 App 行不行？
+
+强烈建议所有 AI 账号都开启 2FA，因为聊天记录可能包含代码与工作资料。第二因素可用短信、验证器 App 或硬件密钥，推荐 **TOTP 验证器 App**（如 Microsoft Authenticator），并单独备份密钥与备用码。详见 [section9/01_账号注册与2fa配置.md](../section9/01_账号注册与2fa配置.md)。
+
+### Q：网上的低价"代充"能买吗？
+
+先看价格与原理：代充若要求提供 **Session Token**，等于把账号登录态交给对方，且平台条款通常禁止共享账户凭据，存在掉权益、封号、聊天记录泄露的风险。判断方法与风险分层见 [section9/02](../section9/02_支付渠道与订阅下单.md) 的"路径六"。
+
+### Q：聚合平台（如 OpenCode Go / CommandCode GOAT）和官方订阅怎么选？
+
+看四点：**额度倍率、调价信誉、支付方式、模型覆盖**。数据敏感或长期依赖的工作流优先官方；预算敏感、用量大的批量任务可用信誉良好的聚合平台。评估维度见 [section9/03_平台选购_官方聚合与中转.md](../section9/03_平台选购_官方聚合与中转.md)。
+
+### Q：套餐里的额度用不完，可以留到下个月吗？
+
+一般不能，绝大多数套餐按月或按窗口清零。少数平台的"额度结转"属于活动特例，购买前以当期规则为准。
+
+---
+
+## VS Code Copilot（section11）
 
 ### Q：Copilot 有哪些订阅方案？
 
@@ -315,7 +347,7 @@ GitHub Copilot 提供以下方案：
 - **企业版（Enterprise）**：\$19/月（含组织级策略管理）
 - **免费版（Free）**：每月有限次数补全和对话，适合试用
 
-> 详情见 [section10/00_copilot基础与订阅说明.md](../section10/00_copilot基础与订阅说明.md)。
+> 详情见 [section11/00_copilot基础与订阅说明.md](../section11/00_copilot基础与订阅说明.md)。
 
 ### Q：Copilot 在中国大陆能用吗？
 
@@ -335,7 +367,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 - **方式一**：使用 **Continue 扩展**（推荐），可同时接入多个提供商。
 - **方式二**：使用 VS Code 的 `github.copilot.chat.codeGeneration.instructions` 等设置调整行为。
 
-> 详细配置见 [section10/01\_扩展接入自定义api.md](../section10/01_扩展接入自定义api.md)。
+> 详细配置见 [section11/01\_扩展接入自定义api.md](../section11/01_扩展接入自定义api.md)。
 
 ### Q：指令文件（Instruction）不生效？
 
@@ -356,7 +388,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 - **VS Code 扩展市场**：搜索 `@mcp`，筛选 MCP 相关扩展。
 - **Smithery 目录**：https://smithery.ai/，按分类浏览。
 - **Awesome MCP 列表**：GitHub 上的社区维护列表。
-- **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section11/02](../section11/02_copilot案例_tavily_mcp搜索.md)。
+- **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section12/02](../section12/02_copilot案例_tavily_mcp搜索.md)。
 
 ### Q：Skill 的三种形态是什么？
 
@@ -364,7 +396,7 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 2. **Custom Agent（自定义 Agent）** — 动态对话角色，解决特定领域问题。
 3. **MCP 服务器** — 外部工具集成，为 AI 提供数据读写和操作能力。
 
-> 详见 [section10/03_skill与mcp基础.md](../section10/03_skill与mcp基础.md)。
+> 详见 [section11/03_skill与mcp基础.md](../section11/03_skill与mcp基础.md)。
 
 ### Q：如何安装社区 Skill？
 
@@ -374,11 +406,11 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 
 **方法三**：通过 MCP 服务器动态加载。
 
-> 详见 [section11/03_copilot案例\_skill制作与安装.md](../section11/03_copilot案例_skill制作与安装.md) 和 [section11/04\_开源skill检索与接入.md](../section11/04_开源skill检索与接入.md)。
+> 详见 [section12/03_copilot案例\_skill制作与安装.md](../section12/03_copilot案例_skill制作与安装.md) 和 [section12/04\_开源skill检索与接入.md](../section12/04_开源skill检索与接入.md)。
 
 ---
 
-## Claude Code 与 Codex（section12）
+## Claude Code 与 Codex（section13）
 
 ### Q：Claude Code 有哪些订阅方案？
 
@@ -392,13 +424,13 @@ Claude 官方提供以下方案：
 - **Team Premium**：约 \$100–125/座/月，**包含 Claude Code**，5 座起。
 - **Enterprise**：联系销售。
 
-> 详情见 [section12/00](../section12/00_多模型agent总览与订阅说明.md)。
+> 详情见 [section13/00](../section13/00_多模型agent总览与订阅说明.md)。
 
 ### Q：Codex 有独立的订阅套餐吗？
 
 **没有**。Codex 的用量包含在所有 ChatGPT 套餐中：Free（\$0）、Go（\$8）、Plus（\$20）、Pro 5x（\$100）、Pro 20x（\$200）、Business（约 \$20–25/座）、Enterprise（联系销售）。
 
-> 详情见 [section12/00](../section12/00_多模型agent总览与订阅说明.md)。
+> 详情见 [section13/00](../section13/00_多模型agent总览与订阅说明.md)。
 
 ### Q：Claude Code 报"当前订阅不含 Claude Code"？
 
@@ -408,7 +440,7 @@ Claude 官方提供以下方案：
 
 `config.toml` 里的 `env_key` 读取的是**进程环境变量**。除了 `~/.codex/auth.json`，还需在 `~/.codex/.env` 或系统环境变量中提供同名 Key。
 
-> 详见 [section12/02](../section12/02_codex在vscode中的安装与配置.md)。
+> 详见 [section13/02](../section13/02_codex在vscode中的安装与配置.md)。
 
 ### Q：`ANTHROPIC_BASE_URL` 该填域名根还是 `/v1`？
 
@@ -423,7 +455,7 @@ Claude 配置分两层：
 
 长期使用推荐**通用设置**，一次配置到处复用；项目级覆盖用户级，`settings.local.json` 含 Key 时不要提交。
 
-> 详见 [section12/01](../section12/01_claude_code在vscode中的安装与配置.md) 第 2 步。
+> 详见 [section13/01](../section13/01_claude_code在vscode中的安装与配置.md) 第 2 步。
 
 ### Q：`/v1/chat/completions`、`/v1/responses`、`/v1/messages` 怎么选？
 
@@ -433,7 +465,7 @@ Claude 配置分两层：
 - 核心字段是 `input` → `responses`
 - Anthropic 原生 schema → `messages`
 
-> 详见 [section9/01](../section9/01_接口模式选择与排错.md)。
+> 详见 [section10/01](../section10/01_接口模式选择与排错.md)。
 
 ### Q：配置了网关但报 `model unavailable`？
 
