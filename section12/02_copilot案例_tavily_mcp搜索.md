@@ -48,25 +48,55 @@ tags:
 
 如果配置正确，Copilot 会调用 Tavily MCP 搜索网络并返回带有来源链接的结果。
 
-### 第 3 步：通过 settings.json 手动配置（备选）
+### 第 3 步：手动配置（备选）
 
-如果扩展市场中没有找到，也可以通过手动配置实现：
+如果扩展市场中没有找到，也可以写配置文件。**文件位置取决于 harness**：
+
+| 会话目标        | 文件                                   | 顶层字段     |
+| :-------------- | :------------------------------------- | :----------- |
+| Copilot（推荐） | 仓库根 `.mcp.json`                     | `mcpServers` |
+| Copilot（个人） | `~/.copilot/mcp-config.json`           | `mcpServers` |
+| 本地            | `.vscode/mcp.json`                     | `servers`    |
+
+Copilot harness 版（`.mcp.json`）：
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "tavily-search": {
-        "type": "command",
-        "command": "npx",
-        "args": ["-y", "@tavily/mcp", "--apiKey=YOUR_TAVILY_API_KEY"]
+  "mcpServers": {
+    "tavily-search": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "tavily-mcp@latest"],
+      "env": {
+        "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+      },
+      "tools": ["*"]
+    }
+  }
+}
+```
+
+本地 harness 版（`.vscode/mcp.json`，注意 `servers` 与 `type: "stdio"`）：
+
+```json
+{
+  "servers": {
+    "tavily-search": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "tavily-mcp@latest"],
+      "env": {
+        "TAVILY_API_KEY": "${env:TAVILY_API_KEY}"
       }
     }
   }
 }
 ```
 
-> 手动配置需要确保系统已安装 Node.js（npx 随 Node.js 一起安装）。
+> - 包名是 `tavily-mcp`（不是 `@tavily/mcp`），API Key 通过 `TAVILY_API_KEY` 环境变量传入。
+> - 需要系统已安装 Node.js 20+（`npx` 随 Node.js 一起安装）。
+> - 共享 `.mcp.json` 时用 `${TAVILY_API_KEY}` 引用环境变量，==不要把真实 Key 提交到仓库==；个人 `~/.copilot/mcp-config.json` 不纳入版本控制。
+> - 也可以执行 **Chat: Open Customizations → MCP Servers → Add Server** 用表单添加，避免写错格式。
 
 ### 第 4 步：搜索实战
 
@@ -105,6 +135,9 @@ tags:
 3. 观察 MCP 相关的日志输出，确认服务器是否成功启动和调用。
 
 ### 第 6 步：创建一个使用 MCP 搜索的 Prompt 文件
+
+> [!warning] 该步骤需要本地（Local）harness
+> Prompt 文件只在**本地**会话中生效，Copilot harness 不会加载。切换方法见 [section11/00](../section11/00_copilot基础与订阅说明.md#第-0-步确认会话目标harness)。若你使用 Copilot harness，请改写为 `.github/skills/ai资讯搜索/SKILL.md`：正文不变，frontmatter 用 `name` + `description`，`tools` 字段在 Skill 中不生效。
 
 将 MCP 搜索能力封装成可复用的 Prompt 文件：
 

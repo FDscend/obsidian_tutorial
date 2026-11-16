@@ -14,7 +14,7 @@ tags:
 - 了解 VS Code Copilot 的 Skill（技能）机制。
 - 掌握 `.github/skills/<name>/SKILL.md` 的结构与编写方法。
 - 了解 MCP（Model Context Protocol）的概念与作用。
-- 掌握 MCP 服务器的配置方法。
+- 掌握 MCP 服务器的配置方法，分清 `.mcp.json` 与 `.vscode/mcp.json` 的适用场景。
 - 了解 Skill、Prompt、Instructions、MCP 之间的区别与协作关系。
 
 ## 前置条件
@@ -31,13 +31,15 @@ tags:
 | :--------------- | :---------------------------------------------------- | :--------------------- | :------------------------ |
 | **始终生效指令** | `copilot-instructions.md` / `AGENTS.md` / `CLAUDE.md` | 自动加载               | 项目级长期规范            |
 | **文件级指令**   | `*.instructions.md`                                   | 按 `applyTo` 模式匹配  | 语言/框架特定约定         |
-| **Prompt 文件**  | `.github/prompts/*.prompt.md`                         | `/` 斜杠命令           | 单次可复用任务            |
+| **Prompt 文件**  | `.github/prompts/*.prompt.md`                         | `/` 斜杠命令           | 单次可复用任务（仅 Local） |
 | **Skill**        | `.github/skills/<name>/SKILL.md`                      | `/` 斜杠命令 或 自动   | 多步骤工作流 + 附属资源   |
 | **Custom Agent** | `.github/agents/*.agent.md`                           | `/` 或 对话中提及      | 特定角色的子代理          |
-| **MCP 服务器**   | `settings.json` 中的 `mcp` 字段                       | 工具调用（Chat 自动）  | 外部工具和数据源          |
+| **MCP 服务器**   | `.mcp.json`（Copilot）/ `.vscode/mcp.json`（本地）     | 工具调用（Chat 自动）  | 外部工具和数据源          |
 | **Hooks**        | `.github/hooks/*.json`                                | Agent 生命周期事件触发 | 确定性脚本（格式化/拦截） |
 
 > 本教程的 [02_copilot_instruction与prompt入门](02_copilot_instruction与prompt入门.md) 已覆盖 Instructions 和 Prompts，本文聚焦 **Skill** 和 **MCP**。
+>
+> 表中标注"仅 Local"的机制只在**本地**会话中生效；如何切换会话目标（harness）见 [00_copilot基础与订阅说明](00_copilot基础与订阅说明.md#第-0-步确认会话目标harness)。
 
 ---
 
@@ -56,8 +58,9 @@ Skill（技能）是 Copilot 中最强大的自定义单元——它是一个**�
 | **文件**     | 单个 `.md`   | 单个 `.prompt.md` | 整个文件夹（`SKILL.md` + 资源） |
 | **附带资源** | 无           | 无                | 可带脚本、模板、参考文档        |
 | **自动加载** | ✅ 是        | ❌ 否             | ❌ 否（按需加载）               |
-| **斜杠命令** | ❌           | ✅                | ✅                              |
+| **斜杠命令** | ❌           | ✅（仅 Local）    | ✅                              |
 | **适用场景** | 长期规范     | 单次可复用任务    | 需要脚本/模板的多步骤工作流     |
+| **适用 harness** | Local / Copilot | 仅 Local      | Local / Copilot                 |
 
 ## Skill 的目录结构
 
@@ -281,9 +284,29 @@ MCP（Model Context Protocol，模型上下文协议）是由 Anthropic 提出�
 | **版本控制**   | 让 AI 能够操作 Git 仓库              | Git MCP                       |
 | **知识库检索** | 让 AI 能够搜索内部知识库             | Vector Search / Embedding MCP |
 
+## MCP 配置放在哪个文件
+
+MCP 的配置文件位置**由会话目标（harness）决定**，这是目前最容易踩坑的地方：
+
+| 场景                            | 文件                                                     | 顶层字段     | `type` 取值                | 谁读取                             |
+| :------------------------------ | :------------------------------------------------------- | :----------- | :------------------------- | :--------------------------------- |
+| Copilot harness，个人全局       | `~/.copilot/mcp-config.json`（或 `$COPILOT_HOME/mcp-config.json`） | `mcpServers` | `local` / `http` / `sse`   | harness 直接读                     |
+| Copilot harness，工作区共享     | 仓库根目录 `.mcp.json`                                   | `mcpServers` | `stdio` / `http`（`local` 亦可） | harness 直接读                |
+| 本地（Local）harness，工作区    | `.vscode/mcp.json`                                       | `servers`    | `stdio` / `http` / `sse`   | 编辑器读，再转发给 Copilot         |
+| 旧版全局（本地 harness）        | VS Code 用户 profile 的 `mcp.json`                       | `servers`    | `stdio` / `http` / `sse`   | 编辑器读，再转发给 Copilot         |
+
+要点：
+
+- **Copilot harness 不直接读 `.vscode/mcp.json`**。编辑器会把其中"能转换"的条目转发过去，但 `${input:...}`、`${command:...}`、`envFile`、开发模式、单服务器沙箱等编辑器专属能力不随之迁移。
+- 两种格式最关键的两处差异：顶层字段 `servers` → `mcpServers`；环境变量引用 `${env:NAME}` → `${NAME}`（可写 `${NAME:-默认值}`）。
+- `~/.copilot/mcp-config.json` 属于**这台机器**上的 harness。远程开发 / Dev Container 会话读的是远端主目录的配置，本机的配置不会跟过去。
+- 密钥不要以字面量写进共享文件。`.mcp.json` 提交到仓库时用 `${TAVILY_API_KEY}` 之类引用环境变量，并在运行 harness 的环境中提供该变量。
+
+> 看到 `N customizations need an update to keep working. Review Migrations` 时，**MCP Servers** 分组通常就是提示把 `.vscode/mcp.json` 迁到 `.mcp.json`。也可以选择 **Ignore**，继续依赖编辑器的转发。
+
 ## 配置 MCP 服务器
 
-配置 MCP 服务器有两种方式：通过**扩展市场安装**（推荐，一键完成）或通过 **`settings.json` 手动配置**（更灵活）。
+配置 MCP 服务器有三种方式：从**扩展市场安装**（一键完成）、用 **Agent Customizations 编辑器添加**（有表单，不易写错格式）、或**手动编辑配置文件**（最灵活）。
 
 ### 方式一：从扩展市场安装（推荐）
 
@@ -298,21 +321,52 @@ VS Code 支持从扩展市场直接安装 MCP 服务器，无需手动编辑配�
 
 > 💡 使用 `@mcp` 搜索是 VS Code 内置的过滤机制，只会显示 MCP 服务器类型的扩展，不会混入普通扩展。
 
-### 方式二：通过 settings.json 手动配置
+### 方式二：用 Agent Customizations 编辑器添加
 
-如果你需要更精细的控制（如自定义端点、环境变量等），可以直接编辑 `settings.json`：
+在 Chat 里把会话目标选成 **Copilot**，然后：
+
+1. 命令面板（`Ctrl+Shift+P`）执行 **Chat: Open Customizations**，选择 **MCP Servers**。
+2. 选择 **Add Server**，填入发布方给出的命令或端点。
+3. 选择保存位置：
+   - **Global → Copilot Global** → 写入 `~/.copilot/mcp-config.json`，所有工作区可用。
+   - **Workspace** → 写入仓库根目录 `.mcp.json`，可提交给团队共享（需要打开 `chat.mcp.workspaceRootConfig.enabled` 才会在工作区出现该选项；已存在的 `.mcp.json` 不受这个开关影响）。
+4. 表单覆盖不到的字段（例如 `${...}` 环境变量引用）用表单里的 **Other Properties** 直接编辑 JSON。
+
+> 也可以直接执行 **MCP: Add Server** 命令，效果相同。
+
+### 方式三：手动编辑配置文件
+
+如果你需要更精细的控制，直接编辑配置文件即可：工作区共享写仓库根 `.mcp.json`，个人全局写 `~/.copilot/mcp-config.json`。下面是工作区共享的示例（Copilot harness）：
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "server-name": {
-        "type": "command",
-        "command": "命令路径",
-        "args": ["参数1", "参数2"],
-        "env": {
-          "环境变量": "值"
-        }
+  "mcpServers": {
+    "server-name": {
+      "type": "stdio",
+      "command": "命令",
+      "args": ["参数1", "参数2"],
+      "env": {
+        "环境变量": "${环境变量}"
+      },
+      "tools": ["*"]
+    }
+  }
+}
+```
+
+> `type` 也可以写 `local`（Copilot CLI 的写法，两者等价）；HTTP 服务器则用 `"type": "http"` + `"url"` + 可选 `"headers"`。
+
+同样的服务器，如果改用**本地 harness** 的 `.vscode/mcp.json`，就要换成编辑器格式（注意 `servers` 与 `type` 的区别）：
+
+```json
+{
+  "servers": {
+    "server-name": {
+      "type": "stdio",
+      "command": "命令",
+      "args": ["参数1", "参数2"],
+      "env": {
+        "环境变量": "${env:ENV_NAME}"
       }
     }
   }
@@ -327,35 +381,38 @@ Tavily 是一个专为 AI 优化的搜索引擎，适合让 Copilot 搜索最新
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "tavily-search": {
-        "type": "command",
-        "command": "npx",
-        "args": ["-y", "@tavily/mcp", "--apiKey=YOUR_TAVILY_API_KEY"]
-      }
+  "mcpServers": {
+    "tavily-search": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "tavily-mcp@latest"],
+      "env": {
+        "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+      },
+      "tools": ["*"]
     }
   }
 }
 ```
 
-获取 API Key：访问 [Tavily 官网](https://tavily.com) 注册账号并创建 API Key。
+获取 API Key：访问 [Tavily 官网](https://tavily.com) 注册账号并创建 API Key，然后在系统环境变量中设置 `TAVILY_API_KEY`（或把它直接写进个人 `~/.copilot/mcp-config.json`，该文件不要提交到仓库）。
+
+> 通过 `DEFAULT_PARAMETERS` 环境变量可以设置搜索默认值，例如 `{"include_images": true, "max_results": 15, "search_depth": "advanced"}`。
 
 **Filesystem MCP（文件系统操作）：**
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "filesystem": {
-        "type": "command",
-        "command": "npx",
-        "args": [
-          "-y",
-          "@modelcontextprotocol/server-filesystem",
-          "允许访问的目录路径"
-        ]
-      }
+  "mcpServers": {
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "允许访问的目录路径"
+      ],
+      "tools": ["*"]
     }
   }
 }
@@ -363,25 +420,28 @@ Tavily 是一个专为 AI 优化的搜索引擎，适合让 Copilot 搜索最新
 
 **Git MCP（版本控制）：**
 
+Git 官方 MCP 服务器是 Python 包 `mcp-server-git`，用 `uvx` 启动：
+
 ```json
 {
-  "mcp": {
-    "servers": {
-      "git": {
-        "type": "command",
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-git", "仓库路径"]
-      }
+  "mcpServers": {
+    "git": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "仓库路径"],
+      "tools": ["*"]
     }
   }
 }
 ```
 
+> 需要先安装 [uv](https://docs.astral.sh/uv/) 和 Python 3.10+。`--repository` 可以重复传入多个仓库路径。
+
 ### 验证 MCP 服务器
 
 无论采用哪种安装方式，安装完成后均可用以下方法验证：
 
-1. 重启 VS Code。
+1. **新开一个会话**（切换 harness 或改配置后，运行中的会话不会重新加载配置）。
 2. 在 Copilot Chat 中尝试：
 
 ```
@@ -389,7 +449,7 @@ Tavily 是一个专为 AI 优化的搜索引擎，适合让 Copilot 搜索最新
 ```
 
 3. 如果配置正确，Copilot 会调用 Tavily MCP 服务器搜索网络并返回结果。
-4. 在 VS Code 的输出面板（`Ctrl+Shift+U`）中选择 "Copilot" 通道，可查看 MCP 的调试日志。
+4. 在 VS Code 的输出面板（`Ctrl+Shift+U`）中选择 "Copilot" 通道，可查看 MCP 的调试日志；也可以执行 **MCP: List Servers** 查看服务器状态与可用工具。
 
 ### 查看可用工具
 
@@ -449,19 +509,26 @@ Skill                       MCP
 
 - [VS Code Agent Skills 官方文档](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
 - [VS Code MCP 服务器配置](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+- [MCP 配置参考（`.mcp.json` / `mcp-config.json` 字段）](https://code.visualstudio.com/docs/agents/reference/mcp-configuration)
 - [MCP 协议规范](https://modelcontextprotocol.io)
 - [VS Code Copilot 自定义总览](https://code.visualstudio.com/docs/copilot/copilot-customization)
 
 ## 常见问题
 
 **Q：Skill 和 Prompt 文件有什么区别？**
-A：Prompt 文件是单个 `.prompt.md`，适合单次任务；Skill 是一个文件夹（`SKILL.md` + 脚本/模板/参考文档），适合需要附属资源的多步骤工作流。两者在斜杠菜单中都显示为 `/` 命令。
+A：Prompt 文件是单个 `.prompt.md`，适合单次任务；Skill 是一个文件夹（`SKILL.md` + 脚本/模板/参考文档），适合需要附属资源的多步骤工作流。两者在 **Local** 会话的斜杠菜单中都显示为 `/` 命令，但 Copilot harness 只加载 Skill——Prompt 文件在该 harness 中完全不可见。
 
 **Q：Skill 和普通的 VS Code 扩展有什么区别？**
 A：Skill 是 Agent 在运行时按需加载的知识和工作流，不占用 VS Code 进程。VS Code 扩展是永久运行的编辑器增强。两者可互补：扩展提供 UI 功能，Skill 提供 AI 工作流。
 
 **Q：MCP 服务器需要一直运行吗？**
 A：MCP 服务器由 VS Code 按需启动。当 Copilot 需要调用对应工具时，VS Code 会自动启动 MCP 服务器进程，使用完毕后按配置决定是否保持运行。
+
+**Q：`.mcp.json` 和 `.vscode/mcp.json` 该用哪个？**
+A：看你要在哪个 harness 里用。Copilot harness 直接读仓库根的 `.mcp.json`（顶层 `mcpServers`，`type` 用 `local`/`http`），适合提交给团队共享；本地 harness 用 `.vscode/mcp.json`（顶层 `servers`，`type` 用 `stdio`/`http`），由编辑器转发给 Copilot。个人跨工作区配置放 `~/.copilot/mcp-config.json`。
+
+**Q：为什么我在 `.vscode/mcp.json` 里写的服务器，切到 Copilot 后能连、但另一个客户端连不上？**
+A：Copilot harness 只读取原生配置文件，`.vscode/mcp.json` 是编辑器帮它转发的。离开 VS Code（例如命令行里的 Copilot CLI）就没有这层转发，需要把配置写到 `.mcp.json` 或 `~/.copilot/mcp-config.json`。
 
 **Q：配置 MCP 服务器是否安全？**
 A：MCP 服务器拥有你授予的权限（如文件系统访问）。建议：① 仅安装来自可信来源的 MCP 服务器；② 限制文件系统 MCP 的访问目录范围；③ 定期审查已配置的 MCP 服务器列表。

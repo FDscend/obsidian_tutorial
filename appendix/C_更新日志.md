@@ -6,6 +6,40 @@ tags:
 
 # 更新日志
 
+## 2026-11-17 (第 16 次)
+
+### 变更
+
+- 修正 MCP 配置文件位置与格式：`.vscode/mcp.json`（本地 harness，顶层 `servers`，`type: stdio`）与仓库根 `.mcp.json`（Copilot harness，顶层 `mcpServers`，`type: local`）的差异，补充个人配置 `~/.copilot/mcp-config.json`。
+- **section11/03_skill与mcp基础.md**：新增"MCP 配置放在哪个文件"对照表；配置方式扩为三种（扩展市场 / Agent Customizations 编辑器 / 手动编辑）；示例从 `{"mcp":{"servers":…}}` 改为原生 `mcpServers` 格式；修正失效包名——`@tavily/mcp` → `tavily-mcp`、`@modelcontextprotocol/server-git` → `uvx mcp-server-git`；补充 FAQ 与 MCP 配置参考链接。
+- **section12/02_copilot案例_tavily_mcp搜索.md**：第 3 步改为按 harness 选择 `.mcp.json` 或 `.vscode/mcp.json` 的完整示例，并修正 Tavily 包名与环境变量用法。
+- **section11/00**、**appendix/A_术语表.md**、**appendix/B_常见问题FAQ.md**：同步 MCP 配置位置表述，新增 `.mcp.json` / `mcp-config.json` / `.vscode/mcp.json` / Harness 词条与对应 FAQ。
+
+---
+
+## 2026-11-17 (第 15 次)
+
+### 新增
+
+- **section11/00_copilot基础与订阅说明.md**：新增"第 0 步：确认会话目标（Harness）"，包含 Chat 面板底部切换菜单截图（`section11/image/00_copilot基础与订阅说明/harness.png`）、五种选项说明、自定义文件支持矩阵、`Review Migrations` 提示解释、默认 harness 设置，以及对应 FAQ。
+
+### 变更
+
+- **section11/02**、**section11/03**、**section12/01**、**section12/02**：把"切到 Local 练习"的说法改为指向新的切换说明小节，并统一镜头位置描述为 Chat 面板底部。
+
+---
+
+## 2026-11-16 (第 14 次)
+
+### 变更
+
+- 补充 Prompt 文件的 harness 适用说明：`.prompt.md` 仅由 **Local** harness 加载，Copilot harness 不再读取；Local 将于 2027 年 2 月前移除，替代方案为 Agent Skill。
+- **section11/02_copilot_instruction与prompt入门.md**：Prompt 部分新增警告块、对比表“适用 harness”行、FAQ 与迁移说明。
+- **section12/01_copilot案例_prompt设计与复用.md**、**section12/02_copilot案例_tavily_mcp搜索.md**：案例开头与 Prompt 步骤补充 Local 限制，并给出改写为 Skill 的方法。
+- **section11/03_skill与mcp基础.md**、**section12/03_copilot案例_skill制作与安装.md**、**section12/04_开源skill检索与接入.md**、**appendix/A_术语表.md**：同步修正“Prompt 文件在所有会话的 `/` 菜单中可见”的过时表述。
+
+---
+
 ## 2026-10-13 (第 13 次)
 
 ### 新增

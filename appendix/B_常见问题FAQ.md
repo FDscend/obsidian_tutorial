@@ -390,6 +390,16 @@ Copilot 本身不支持自定义 API。如需接入其他 AI 服务，有两种�
 - **Awesome MCP 列表**：GitHub 上的社区维护列表。
 - **Tavily Search MCP**：专为 AI 优化的搜索服务，见 [section12/02](../section12/02_copilot案例_tavily_mcp搜索.md)。
 
+### Q：MCP 配置该写进 `.mcp.json` 还是 `.vscode/mcp.json`？
+
+看会话目标（harness）：
+
+- **Copilot harness**：读仓库根 `.mcp.json`（顶层 `mcpServers`，`type` 用 `local` / `http`）和个人 `~/.copilot/mcp-config.json`。
+- **本地 harness**：读 `.vscode/mcp.json`（顶层 `servers`，`type` 用 `stdio` / `http`），再由编辑器转发给 Copilot。
+- 两者不能混用：把 `mcpServers` 写进 `.vscode/mcp.json`（或反过来）都不会生效。
+
+> 详见 [section11/03_skill与mcp基础.md](../section11/03_skill与mcp基础.md) 的"MCP 配置放在哪个文件"一节。
+
 ### Q：Skill 的三种形态是什么？
 
 1. **指令文件（Instructions）** — 静态规则，自动加载，适合全局约束。

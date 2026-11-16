@@ -13,8 +13,9 @@ tags:
 
 - 理解 Instructions（指令文件）与 Prompts（提示词文件）的区别。
 - 掌握 `.github/copilot-instructions.md` 和 `.instructions.md` 的编写方法。
-- 掌握 `.github/prompts/*.prompt.md` 提示词文件的创建与使用。
+- 掌握 `.github/prompts/*.prompt.md` 提示词文件的创建与使用（仅 Local harness）。
 - 学会在 Chat 中通过斜杠命令 `/` 快速调用 Prompt 文件。
+- 了解 Prompt 文件的 harness 限制，以及迁移到 Agent Skill 的方式。
 - 了解 Instructions 的自动应用机制与 `applyTo` 匹配规则。
 
 ## 前置条件
@@ -35,6 +36,7 @@ VS Code Copilot 提供两类自定义文件，用途不同但相互补充：
 | **存放位置**         | `.github/` / `.github/instructions/` / 用户 profile | `.github/prompts/` / 用户 profile         |
 | **YAML frontmatter** | 可选（`applyTo`、`description`）                    | 必需（`description`、`name`、`agent` 等） |
 | **上下文注入**       | 自动生效，无需手动操作                              | 通过 `/prompt名` 在对话中按需调用         |
+| **适用 harness**     | Local、Copilot                                      | 仅 Local（Copilot harness 不加载）        |
 
 ---
 
@@ -196,9 +198,16 @@ applyTo: "**/*.py"
 
 ## 第二部分：Prompts（提示词文件）
 
+> [!warning] Prompt 文件只在 Local 会话中生效
+> `.prompt.md` 目前仅由 **Local** harness 的 Chat 会话加载。**Copilot harness 不会读取 `*.prompt.md`**，即使文件写得完全正确，也不会出现在 `/` 菜单里。
+>
+> - Local harness 已废弃，将在 **2027 年 2 月前移除**；长期方案是 **Agent Skill**（`.github/skills/<name>/SKILL.md`），参见 [03_skill与mcp基础](03_skill与mcp基础.md)。
+> - 迁移路径：`Chat: Open Customizations` → **Migrations** → **Convert Prompt to Skills**。转换会保留 `name`、`description`、参数提示和正文，并自动加上 `disable-model-invocation: true` 以保持“只能手动调用”；`agent`、`model`、`tools` 不会保留。
+> - 本文的示例请在 Chat 面板**底部**把会话目标切到 **本地** 后练习（切换方法见 [00_copilot基础与订阅说明](00_copilot基础与订阅说明.md#第-0-步确认会话目标harness)）；若你日常使用 Copilot harness，请直接按 Skill 的格式编写。
+
 ## 什么是 Prompt 文件
 
-Prompt 文件（`.prompt.md`）是 VS Code Copilot 中**可复用的任务模板**。它被放在 `.github/prompts/` 目录下，在 Chat 输入框中键入 `/` 即可看到并选用。
+Prompt 文件（`.prompt.md`）是 VS Code Copilot 中**可复用的任务模板**。它被放在 `.github/prompts/` 目录下，在 Chat 输入框中键入 `/` 即可看到并选用——==前提是当前会话由 Local harness 运行==。
 
 > 简单来说，Prompt 文件就是 **"预打包的斜杠命令"** 。你可以把一个常用任务（如"创建测试"、"生成变更日志"）写成 Prompt 文件，下次只需在 Chat 里输入 `/任务名` 即可一键执行。
 
@@ -389,7 +398,7 @@ tools: [web]
 本教程仓库使用以下自定义文件：
 
 - **指令文件**（如有）：`.github/copilot-instructions.md` — 定义本教程的写作规范。
-- **提示词文件**（可参考创建）：可新建 `.github/prompts/` 目录，添加如 `新建章节.prompt.md` 等 Prompt 文件，实现一键生成标准化教程章节。
+- **提示词文件**（可参考创建）：可新建 `.github/prompts/` 目录，添加如 `新建章节.prompt.md` 等 Prompt 文件，实现一键生成标准化教程章节。注意这些文件只在 **Local** 会话中生效；若要跨 harness 复用，请改写为 `.github/skills/<name>/SKILL.md`。
 
 当你在本仓库中使用 Copilot 时，指令文件会自动加载，确保输出一致。而 Prompt 文件则需要通过 `/` 手动调用，适合特定任务。
 
@@ -412,7 +421,10 @@ A：不需要。保存文件后，下一次对话会自动加载最新内容。
 A：检查是否设置了 `applyTo` 属性。如果没有设置，指令不会自动加载——你需要在对话中手动引用（例如通过 Markdown 链接）。另外确认文件放在正确的目录下。
 
 **Q：如何让 Prompt 文件在团队中共享？**
-A：将 `.prompt.md` 文件放在仓库的 `.github/prompts/` 目录下并提交到 Git。所有克隆该仓库的成员都能在 Chat 的 `/` 菜单中看到并使用。
+A：将 `.prompt.md` 文件放在仓库的 `.github/prompts/` 目录下并提交到 Git。克隆该仓库的成员在 **Local** 会话的 `/` 菜单中能看到并使用；Copilot harness 会话不会加载该文件。
+
+**Q：在 Copilot harness 中，原来的 Prompt 文件怎么办？**
+A：Copilot harness 不读取 `*.prompt.md`。请用 `Chat: Open Customizations` → **Migrations** → **Convert Prompt to Skills** 转成 Skill；也可以手动在 `.github/skills/<name>/SKILL.md` 中重写：保留 `name`、`description` 和正文，需要“只能手动调用”时加上 `disable-model-invocation: true`。
 
 **Q：指令文件和 Prompt 文件有大小限制吗？**
 A：建议控制在 10KB 以内。过长的文件可能会被截断，导致 AI 无法完整读取。

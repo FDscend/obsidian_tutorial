@@ -195,7 +195,7 @@ A：任何可执行语言都可以。Shell 脚本、Python、Node.js 是常见�
 A：在 Chat 面板右键 → Diagnostics，查看 "Skills" 列表。确认文件夹名和 `name` 字段一致。
 
 **Q：Skill 和 Prompt 文件在斜杠菜单中如何排序？**
-A：按字母顺序排列。你可以在文件名前加数字前缀控制顺序，如 `01-`、`02-`。
+A：两者不会同时出现：Copilot harness 的 `/` 菜单只列出 Skill，Prompt 文件只在 Local 会话中出现。排序按字母顺序，你可以在文件名前加数字前缀控制顺序，如 `01-`、`02-`。
 
 **Q：Skill 可以引用其他 Skill 吗？**
 A：不可以直接引用。但你可以将通用逻辑提取为指令文件（`.instructions.md`），让多个 Skill 分别引用。
