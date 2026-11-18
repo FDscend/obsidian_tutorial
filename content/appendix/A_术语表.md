@@ -110,10 +110,14 @@ tags:
 | **内联对话（Inline Chat）**       | 按 `Ctrl+I` 在不离开编辑器的情况下与 AI 交互。                                                                       |
 | **Slash Commands**                | Chat 中的 `/` 命令，如 `/help`、`/explain`、`/fix`、`/tests`、`/doc`。                                               |
 | **指令文件（Instruction）**       | Markdown 文件，自动加载到对话上下文，让 AI 了解项目规范和编码风格。                                                  |
-| **Prompt 文件**                   | `.prompt.md` 文件，通过 `/` 斜杠命令手动调用，适合一次性可复用任务模板。                                             |
+| **Prompt 文件**                   | `.prompt.md` 文件，通过 `/` 斜杠命令手动调用，适合一次性可复用任务模板。仅在 Local harness 中生效，该 harness 已废弃，替代方案见 Skill。 |
 | **Skill（技能）**                 | 最强大的自定义单元——包含说明、脚本和资源的文件夹（`.github/skills/<name>/SKILL.md`），支持多步骤工作流和渐进式加载。 |
 | **MCP（Model Context Protocol）** | 由 Anthropic 提出、被 VS Code Copilot 采纳的开放协议，定义 AI 模型与外部工具/数据源之间的标准通信方式。              |
-| **MCP 服务器**                    | 遵循 MCP 协议的外部工具/服务，可通过扩展市场或 `settings.json` 配置接入。                                            |
+| **MCP 服务器**                    | 遵循 MCP 协议的外部工具/服务，可通过扩展市场、命令面板或配置文件接入。                                              |
+| **`.mcp.json`**                   | Copilot harness 的工作区 MCP 配置文件，位于仓库根目录，顶层字段 `mcpServers`，可提交给团队共享。                      |
+| **`~/.copilot/mcp-config.json`**  | Copilot harness 的个人 MCP 配置，对所有工作区生效（设了 `COPILOT_HOME` 时为 `$COPILOT_HOME/mcp-config.json`）。       |
+| **`.vscode/mcp.json`**            | 本地（Local）harness 的工作区 MCP 配置，顶层字段 `servers`，由编辑器转发给 Copilot；Copilot 不直接读取。             |
+| **Harness（会话目标）**           | Chat 面板底部可切换的执行器，如 Copilot、本地、Claude、Codex、Cloud，决定读取哪些自定义文件。                        |
 | **Custom Agent**                  | 特定角色的子代理，文件格式 `.github/agents/*.agent.md`，通过 `/` 或对话中提及触发。                                  |
 | **Hooks**                         | Agent 生命周期事件触发的确定性脚本，文件格式 `.github/hooks/*.json`。                                                |
 | **applyTo**                       | 文件级指令中的 glob 模式属性，只有匹配此模式的文件被操作时，指令才会自动加载。                                       |

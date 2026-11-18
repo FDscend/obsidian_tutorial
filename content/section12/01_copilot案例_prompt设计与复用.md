@@ -11,7 +11,7 @@ tags:
 
 ## 学习目标
 
-- 通过实战创建可复用的 `.prompt.md` 文件。
+- 在 Local 会话中通过实战创建可复用的 `.prompt.md` 文件。
 - 掌握 Prompt 文件的 YAML frontmatter 配置。
 - 学会通过斜杠命令 `/` 快速调用 Prompt。
 - 了解参数化 Prompt 的实现方式。
@@ -25,6 +25,11 @@ tags:
 ## 项目概述
 
 在本实战中，你将为本教程仓库创建一组实用的 Prompt 文件，放在 `.github/prompts/` 目录下。之后在 Chat 中输入 `/` 即可一键执行常见任务。
+
+> [!warning] 本案例只在 Local 会话中可运行
+> `.prompt.md` 仅由 **本地（Local）** harness 加载，Copilot harness 不读取该格式；而本地 harness 将在 2027 年 2 月前移除。练习前请在 Chat 面板**底部**把会话目标切到 **本地**（切换方法见 [section11/00](../section11/00_copilot基础与订阅说明.md#第-0-步确认会话目标harness)）。
+>
+> 如果你已经切到 Copilot harness，请把每个案例改写为 Skill：新建 `.github/skills/<name>/SKILL.md`，正文照搬，frontmatter 用 `name` + `description`；希望保留“只能手动调用”时加 `disable-model-invocation: true`。`agent`、`model`、`tools` 在 Skill 中不生效。
 
 ## 步骤
 
@@ -146,7 +151,7 @@ agent: "ask"
 
 ### 第 6 步：测试 Prompt 文件
 
-1. 在 Copilot Chat 输入框中键入 `/`。
+1. 在 **Local** 会话的 Chat 输入框中键入 `/`。
 2. 在弹出的菜单中应该能看到你刚刚创建的 Prompt 文件：
 
 ```
@@ -196,3 +201,6 @@ A：不能直接调用。但你可以在一个 Prompt 中引用另一个 Prompt 
 
 **Q：如何删除一个 Prompt？**
 A：直接删除对应的 `.prompt.md` 文件即可。重启 VS Code 后它就会从斜杠菜单中消失。
+
+**Q：Copilot harness 下看不到这些 Prompt 怎么办？**
+A：正常现象。Copilot harness 不加载 `*.prompt.md`，请在 Local 会话中练习，或用 **Migrations → Convert Prompt to Skills** 转成 Skill 后继续使用。

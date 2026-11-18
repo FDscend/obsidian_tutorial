@@ -13,6 +13,7 @@ tags:
 - 掌握 Copilot 的订阅方案与价格。
 - 掌握在 VS Code 中安装与配置 Copilot 扩展。
 - 掌握 Copilot Chat 的基本对话交互。
+- 了解如何切换会话目标（harness）及不同 harness 支持的自定义文件。
 - 了解 Copilot 的代码补全与内联建议。
 - 了解 Copilot 的隐私与安全策略。
 
@@ -114,6 +115,39 @@ GitHub Copilot 目前（2026 年）提供多个档位，从免费到高端专业
 
 ## Copilot 基础交互
 
+### 第 0 步：确认会话目标（Harness）
+
+Chat 面板底部（麦克风图标左侧）显示的是当前 **会话目标（harness）**，即由谁执行这次对话。点击它会弹出切换菜单：
+
+![Chat 面板底部的会话目标选择菜单：Copilot、本地、Claude、Codex、Cloud](image/00_copilot基础与订阅说明/harness.png)
+
+| 选项          | 说明                                                                                                   |
+| :------------ | :----------------------------------------------------------------------------------------------------- |
+| **Copilot**   | 默认选项，官方推荐的长期方案。读取 `.github/skills/`、`.github/agents/`、`.github/instructions/` 等原生目录。 |
+| **本地**      | 旧版编辑器内执行器，==已废弃，将于 2027 年 2 月前移除==。它是唯一支持 `.prompt.md` 的类型。            |
+| **Claude**    | 接入 Claude Code 的执行器，读取 `.claude/skills/` 等目录。                                             |
+| **Codex**     | 接入 OpenAI Codex 的执行器，读取 `.agents/skills/`（也识别 `.github/skills/`）。                       |
+| **Cloud**     | 把任务交给云端远程环境执行。                                                                           |
+
+> 切换 harness 后请**新开一个会话**。已经运行中的会话不会因为换选项而重新加载自定义文件，表现为"Skill / Prompt 不见了"。
+
+不同 harness 支持的自定义文件并不一致，这决定了你的文件该放哪里：
+
+| 自定义类型                                       | Copilot      | 本地（Local）       | Claude / Codex                 |
+| :----------------------------------------------- | :----------- | :------------------ | :----------------------------- |
+| 指令（`copilot-instructions.md` / `*.instructions.md`） | ✅           | ✅                  | ✅（各自目录）                 |
+| Skill（`.github/skills/<name>/SKILL.md`）        | ✅           | ✅                  | ✅（`.agents` / `.claude`）    |
+| Prompt（`.github/prompts/*.prompt.md`）          | ❌ 不加载    | ✅                  | ❌ 不加载                      |
+| Custom Agent（`.agent.md`）                      | ✅           | ✅                  | ✅                             |
+| MCP 服务器                                       | `.mcp.json`（个人 `~/.copilot/mcp-config.json`） | `.vscode/mcp.json`（由编辑器转发给 Copilot） | 各自配置                       |
+
+> 如果切到 Copilot 后看到 "N customizations need an update to keep working. Review Migrations"，说明当前 harness 发现了只能按旧方式加载的文件（例如放在 `.codex/skills/` 的 Skill，或 `.prompt.md`）。点击 **Review Migrations** 可查看与转换，也可以 **Ignore** 后继续沿用原位置——详见 [02_copilot_instruction与prompt入门](02_copilot_instruction与prompt入门.md)。
+
+**想固定默认 harness？** 新会话默认走 Copilot。
+
+- 想恢复"默认本地"：把 `chat.editor.preferCopilotHarness` 与 `chat.defaultToCopilotHarness` 都设为 `false`，并保持 `chat.editor.localAgent.enabled` 为 `true`。
+- 这些设置后续版本可能调整；升级 VS Code 后若行为变化，可用命令面板搜索 `Chat:` 相关设置确认。
+
 ### 方式一：Chat 面板对话
 
 Chat 面板是 Copilot 的主要对话入口，适合长时间的深入交互。
@@ -204,6 +238,7 @@ Copilot 会在你输入代码时自动给出建议，按 `Tab` 接受。
 
 - [GitHub Copilot 官方文档](https://docs.github.com/copilot)
 - [VS Code Copilot 使用指南](https://code.visualstudio.com/docs/copilot/overview)
+- [VS Code Agent Harness 说明](https://code.visualstudio.com/docs/agents/run/agent-harnesses)
 - [GitHub Copilot 定价](https://github.com/features/copilot/plans)
 - [Copilot 隐私声明](https://docs.github.com/copilot/overview-of-github-copilot/about-github-copilot-for-individuals#about-data-privacy-for-github-copilot)
 
@@ -223,3 +258,6 @@ A：免费版每月有使用次数限制，个人版无限制使用。功能上�
 
 **Q：如何关闭 Copilot 的自动补全？**
 A：在 VS Code 设置中搜索 `github.copilot.enable`，设为 `false` 即可。Chat 功能不受影响。
+
+**Q：切换会话目标（harness）后，我的 Skill 或 Prompt 不见了？**
+A：先确认两件事：一是新会话是否已生效（切换选项不会重载正在运行的会话，请新开一个）；二是文件类型是否被当前 harness 支持——`.prompt.md` 只有**本地** harness 会加载，放在 `.codex/skills` 之类的非原生目录也依赖 `chat.agentSkillsLocations` 转发。切换方法见本文 [第 0 步](#第-0-步确认会话目标harness)。

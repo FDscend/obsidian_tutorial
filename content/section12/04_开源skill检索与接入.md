@@ -74,6 +74,9 @@ language:python path:.github/skills/ filename:SKILL.md
 搜索链接：https://github.com/search?q=path%3A.github%2Fprompts%2F+extension%3Aprompt.md&type=code
 ```
 
+> [!note] 搜到的 Prompt 不能直接用于 Copilot harness
+> `*.prompt.md` 只在 Local 会话中生效。参考这些文件时，建议直接把正文改写为 `.github/skills/<name>/SKILL.md`，frontmatter 换成 `name` + `description`。
+
 ### 方式四：Awesome MCP Servers
 
 如果你需要 MCP 工具服务器，可以访问社区维护的精选列表：
