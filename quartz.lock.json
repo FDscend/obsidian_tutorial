@@ -9,11 +9,11 @@
       "installedAt": "2026-10-11T09:51:47.781Z"
     },
     "quartz_obsidian_callout": {
-      "source": "github:FDscend/quartz_obsidian_callout#v0.1.0",
+      "source": "github:FDscend/quartz_obsidian_callout#v0.1.1",
       "resolved": "https://github.com/FDscend/quartz_obsidian_callout.git",
-      "commit": "6d68e26e0c63d364ed886965c339cf4f79e5b701",
-      "ref": "v0.1.0",
-      "installedAt": "2026-11-24T14:20:00.000Z"
+      "commit": "8c455b70ecca20419bc8d15717839998cf62343c",
+      "ref": "v0.1.1",
+      "installedAt": "2026-11-24T15:12:00.000Z"
     }
   }
 }

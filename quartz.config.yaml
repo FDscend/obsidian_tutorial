@@ -73,7 +73,7 @@ plugins:
       highlight: false # ==高亮== 交给 quartz_highlight_colors 接管，支持内部嵌套 Markdown
       callouts: false # callout 交给 obsidian-callout 插件接管（div 结构 + 插件/主题扩展语法）
     order: 30
-  - source: "github:FDscend/quartz_obsidian_callout#v0.1.0"
+  - source: "github:FDscend/quartz_obsidian_callout#v0.1.1"
     enabled: true
     options:
       theorems: true
