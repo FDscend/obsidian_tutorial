@@ -9,8 +9,8 @@ callout.css
 img_center.css
 class.css
 
-# 多栏布局（Quartz 兼容版，使用 blockquote 选择器）
-mcl-quartz.css
+# 多栏布局：由 @obsidian-tutorial/obsidian-callout 插件接管（div.callout + 内置样式），
+# 不再需要 blockquote 版本的 mcl-quartz.css
 
 # 分割线样式
 【阿岚】自定义分割线.css
